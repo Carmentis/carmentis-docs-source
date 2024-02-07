@@ -1,41 +1,50 @@
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
+import Link from "@docusaurus/Link";
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Empower Your Application with Carmentis',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+          Seamlessly integrate the Carmentis SDK into your application and become a pivotal operator in the network.
+          Enhance your app's capabilities with robust, decentralized proof storage and display solutions,
+          ensuring data integrity and trust for your users.
       </>
     ),
+    button_text: 'Be an Operator',
+    button_link: '/guides/be-an-operator'
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Strengthen the Network, Host a Node',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Join the Carmentis network by hosting a node and play a crucial role in maintaining the network's resilience and decentralization.
+          Contribute to a robust infrastructure that ensures data redundancy, security,
+          and uninterrupted access to proofs across the internet
       </>
     ),
+    button_text: 'Host a Node',
+    button_link: '/guides/host-a-node'
   },
   {
-    title: 'Powered by React',
+    title: 'Expand Your Reach with API Integration',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+          Expose your API endpoints and integrate your services with Carmentis to streamline workflows.
+          Leverage our platform to connect your solutions with a broad network, enhancing interoperability and creating new opportunities for innovation and growth.
       </>
     ),
+    button_text: 'Integrate with API',
+    button_link: '/guides/integrate-with-api'
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({Svg, title, description, button_text, button_link}) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
@@ -45,6 +54,13 @@ function Feature({Svg, title, description}) {
         <Heading as="h3">{title}</Heading>
         <p>{description}</p>
       </div>
+        <div className="text--center padding-horiz--md">
+            <Link
+                className="button button--secondary button--lg"
+                to={button_link}>
+                {button_text}
+            </Link>
+        </div>
     </div>
   );
 }
