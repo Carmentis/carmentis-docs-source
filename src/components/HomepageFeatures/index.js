@@ -15,8 +15,8 @@ const FeatureList = [
       </>
     ),
     button_text: 'Be an Operator',
-    button_link: '/guides/be-an-operator'
-  },
+    button_link: '/docs/intro'
+  } /*,
   {
     title: 'Strengthen the Network, Host a Node',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
@@ -41,7 +41,7 @@ const FeatureList = [
     ),
     button_text: 'Integrate with API',
     button_link: '/guides/integrate-with-api'
-  },
+  },*/
 ];
 
 function Feature({Svg, title, description, button_text, button_link}) {
