@@ -12,6 +12,6 @@ A swagger is currently available at the following address: [http://www.dev.carme
 
 ### Libraries
 
-We provide a set of libraries to interact with the Operator's API as example of implementation :
+We provide a set of libraries to interact with the Operator's API in several languages :
 - [NodeJS](https://github.com/Carmentis/carmentis-sdk-nodejs)
 - [PHP](https://github.com/Carmentis/carmentis-sdk-php)

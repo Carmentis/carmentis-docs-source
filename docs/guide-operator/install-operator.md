@@ -14,9 +14,16 @@ Before proceeding, ensure you have the following installed:
 
 Clone the repository and navigate to the directory where the `docker-compose.yml` file is located.
 
+```bash
+git clone https://github.com/Carmentis/carmentis-operator-docker.git
+cd carmentis-operator-docker
+```
+
+Or if you prefer to download the repository as a zip file, you can do so by clicking [here](https://github.com/Carmentis/carmentis-operator-docker/archive/refs/heads/main.zip).
+
 ## Configuration
 
-Create a `.env` file in the same directory as the `docker-compose.yml` file. This file is used to set environment variables for the application.
+Create a `.env` file in the same directory as the `docker-compose.yml` file if you want to change the default settings. This file is used to set environment variables for the application.
 
 | Variable                         | Description                                         | Default Value                     |
 |----------------------------------|-----------------------------------------------------|-----------------------------------|
