@@ -1,10 +1,10 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # What is an Operator
 
-![schema-carmentis.png](..%2F..%2Fbuild%2Fimg%2Fschema-carmentis.png)
+![schema-carmentis.png](/img/schema-carmentis.png)
 
 An Operator, in the [Carmentis](https://carmentis.io) environment, is a service that manages signatures and encrypted calls to the Carmentis network.
 

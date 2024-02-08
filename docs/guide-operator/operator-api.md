@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Operator's API
@@ -8,7 +8,7 @@ Operator's API is a set of methods that allow you to interact with the Operator 
 
 ### OpenAPI Specification
 
-A swagger is currently available at the following address: [https://www.dev.carmentis.io:8080/](https://www.dev.carmentis.io:8080/)
+A swagger is currently available at the following address: [http://www.dev.carmentis.io:8080/](http://www.dev.carmentis.io:8080/)
 
 ### Libraries
 

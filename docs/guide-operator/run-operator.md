@@ -1,8 +1,8 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
-# Manage the Operator service
+# Launch & manage the Operator service
 
 ## Unix Users
 

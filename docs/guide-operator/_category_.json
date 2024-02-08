@@ -1,8 +1,8 @@
 {
-  "label": "Getting started",
+  "label": "Getting started on Themis",
   "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "5 minutes to learn the most important Docusaurus concepts."
+    "description": "Themis is the current mainnet offered by Carmentis"
   }
 }

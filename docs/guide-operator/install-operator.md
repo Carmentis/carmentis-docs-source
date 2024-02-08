@@ -1,14 +1,14 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
-# Install and configure an operator
+# Install and configure an Operator
 
 ## Prerequisites
 
 Before proceeding, ensure you have the following installed:
-- Docker
-- Docker Compose
+- [Docker](https://www.docker.com/get-started/)
+- [Docker Compose](https://www.docker.com/get-started/)
 
 ## Installation
 
