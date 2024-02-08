@@ -3,6 +3,6 @@
   "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "Themis is the current mainnet offered by Carmentis"
+    "description": "Themis is the mainnet offered by Carmentis. It is currently in the testnet phase. This guide will help you get started with a testnet node, before the Themis mainnet launch in Q1 2024."
   }
 }
