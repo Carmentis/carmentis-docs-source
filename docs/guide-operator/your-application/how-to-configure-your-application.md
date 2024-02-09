@@ -4,9 +4,7 @@ sidebar_position: 3
 
 # How to configure your application
 
-To configure your application, you need to sign in to the Carmentis workspace and declare your application on the Carmentis explorer.
-
-After signing in to the Carmentis workspace and declaring your application on the Carmentis explorer, you will encounter several properties that are essential for configuring your application effectively. Here is a detailed explanation of each:
+After signing in to the Carmentis workspace and creating your application on the Carmentis explorer, you will encounter several properties that are essential for configuring your application effectively. Here is a detailed explanation of each:
 
 ### Name
 

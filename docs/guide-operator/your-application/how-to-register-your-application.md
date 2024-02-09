@@ -4,15 +4,13 @@ sidebar_position: 2
 
 # How to register your application
 
-To save record proofs for your end-users, you need to sign in to the Carmentis workspace and declare your application Carmentis explorer.
+To save record proofs for your end-users, you need to sign in to the Carmentis workspace and create your application then publish it on the chain through the Carmentis explorer.
 
 ## Steps
 
 1. Go to the Carmentis explorer.
 - Testnet: https://testnet.carmentiscan.io/explorer
 - Themis (mainnet): Coming soon
-
-
 
 2. Click on "Workspace"
 
