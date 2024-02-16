@@ -22,13 +22,13 @@ You must implement an endpoint in your application that will be used to expose t
 
 :::danger Security
 
-The operator must not be exposed directly to the internet. You must implement a secure way to expose the operator's API.
+The operator must not be exposed directly to the internet. You must implement an endpoint in your application that will be used to expose the operator's `getApprovalData` && `getRecordData` methods in order to be consumed by the Carmentis proof pages.
 
 :::
 
 :::warning HTTPS
 
-The operator's server must be exposed over HTTPS and accessible to the Internet, even if it is in a local hosting environment.
+Your server endpoint must be exposed over HTTPS and accessible to the Internet, even if it is in a local hosting environment.
 If you cannot expose your server over HTTPS, you can use a reverse proxy like Nginx or Caddy to expose your server over HTTPS or use a service like [ngrok](https://ngrok.com/) to expose your server over HTTPS.
 
 :::
@@ -39,7 +39,13 @@ You must implement CORS (Cross-Origin Resource Sharing) to allow the Carmentis n
 
 :::
 
-Here is a **non-production code sample** of an endpoint that you have to implement in your application (in NodeJs with Express for example):
+### Code samples
+
+Here is a **non-production code sample** of an endpoint that you have to implement in your application :
+
+#### Node.js
+
+Using Express.js and the [carmentis-sdk-nodejs](https://github.com/Carmentis/carmentis-sdk-nodejs) library.
 
 ```javascript
 
@@ -65,7 +71,7 @@ app.post('/api/operator/:methodName', async (req, res) => {
     const args = req.body || [];
 
     try {
-        if (typeof operator[methodName] === 'function') {
+        if (typeof operator[methodName] === 'function' && ['getRecordData', 'getApprovalData'].includes(methodName)) {
             
             // Call the operator's method
             const result = await operator[methodName](...args);
@@ -84,3 +90,45 @@ app.listen(3000, () => console.log('Operator API exposed on http://localhost:300
 
 ```
 
+#### PHP
+
+Using PHP and the [carmentis-sdk-php](https://github.com/Carmentis/carmentis-sdk-php) library: 
+
+```php 
+<?php
+// Assuming autoload for classes; require or include necessary files otherwise
+// require 'carmentis-sdk-php/autoload.php';
+
+use Carmentis\Operator;
+
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, HEAD, PUT, PATCH, POST, DELETE");
+header("Content-Type: application/json");
+
+$operator = new Operator("your_operator_url");
+
+// Parsing the request
+$method = $_SERVER['REQUEST_METHOD'];
+if ($method == 'POST') {
+    $uri = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
+    $methodName = $uri[2] ?? ''; // Adjust depending on your URL structure
+    $input = json_decode(file_get_contents('php://input'), true);
+
+    if (in_array($methodName, ['getRecordData', 'getApprovalData'])) {
+        try {
+            // Assuming Operator class methods can be called dynamically with arguments
+            $result = call_user_func_array([$operator, $methodName], $input['args'] ?? []);
+            echo json_encode(['result' => $result]);
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo json_encode(['error' => 'Error processing request: ' . $e->getMessage()]);
+        }
+    } else {
+        http_response_code(404);
+        echo json_encode(['error' => 'Method not found']);
+    }
+} else {
+    http_response_code(405);
+    echo json_encode(['error' => 'Method not allowed']);
+}
+```
