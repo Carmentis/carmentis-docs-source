@@ -26,13 +26,20 @@ The operator must not be exposed directly to the internet. You must implement a 
 
 :::
 
+:::warning HTTPS
+
+The operator's server must be exposed over HTTPS and accessible to the Internet, even if it is in a local hosting environment.
+If you cannot expose your server over HTTPS, you can use a reverse proxy like Nginx or Caddy to expose your server over HTTPS or use a service like [ngrok](https://ngrok.com/) to expose your server over HTTPS.
+
+:::
+
 :::warning CORS
 
 You must implement CORS (Cross-Origin Resource Sharing) to allow the Carmentis network to interact with the operator's API through the browser.
 
 :::
 
-Here is an example of an endpoint that you can implement in your application (here in NodeJs with Express):
+Here is a **non-production code sample** of an endpoint that you have to implement in your application (in NodeJs with Express for example):
 
 ```javascript
 

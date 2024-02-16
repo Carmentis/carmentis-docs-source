@@ -12,7 +12,8 @@ The `name` property is a descriptive identifier for your application. It is used
 
 ### Endpoint
 
-The `endpoint` property refers to the URL or URI where your application's backend services can be accessed. This is crucial for enabling communication between your application and the Carmentis platform. The endpoint should be specified as a full URL, including the protocol (http or https) and the domain name or IP address, along with any necessary path or port.
+The `endpoint` property refers to the URL or URI where your application's backend services endpoint [you have to implement and expose from your application](/docs/guide-operator/your-application/what-you-need-to-implement#endpoint-to-expose-the-operator-server-api) to the Carmentis network. 
+This is crucial for enabling communication between your application and the Carmentis platform. The endpoint should be specified as a full URL, including the protocol (http or https) and the domain name or IP address, along with any necessary path or port.
 
 ### Data Retention
 
