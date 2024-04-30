@@ -16,7 +16,18 @@ const FeatureList = [
     ),
     button_text: 'Be an Operator',
     button_link: '/docs/intro'
-  } /*,
+  },
+    {
+        title: 'Participate in Carmentis ecosystem',
+        //Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+        description: (
+            <>
+                Join the Carmentis network as a validator and contribute to the network's security and decentralization.
+            </>
+        ),
+        button_text: 'Be an Validator (coming soon)',
+        button_link: '#'
+    }/*,
   {
     title: 'Strengthen the Network, Host a Node',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
