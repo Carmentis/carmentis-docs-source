@@ -23,9 +23,10 @@ const FeatureList = [
         description: (
             <>
                 Join the Carmentis network as a validator and contribute to the network's security and decentralization.
+                Help secure the network by validating proofs and earn rewards for your participation.
             </>
         ),
-        button_text: 'Be an Validator (coming soon)',
+        button_text: 'Be a Validator (coming soon)',
         button_link: '#'
     }/*,
   {
