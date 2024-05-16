@@ -71,8 +71,8 @@ const config = {
         title: 'Carmentis',
         logo: {
           alt: 'Carmentis logo',
-          src: 'img/carmentis-logo-black.png',
-          srcDark: 'img/carmentis-logo-white.png',
+          src: 'img/carmentis-logo-color.png',
+          srcDark: 'img/carmentis-logo-color.png',
         },
         items: [
           {
