@@ -10,7 +10,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'Carmentis - Documentation',
   tagline: 'Fair Contract Execution Protocol',
-  favicon: '/img/logo.svg',
+  favicon: '/img/carmentis-logo-color.png',
 
   // Set the production url of your site here
   url: 'https://docs.carmentis.io',

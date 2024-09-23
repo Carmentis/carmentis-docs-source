@@ -2,133 +2,227 @@
 sidebar_position: 4
 ---
 
-# What you need to implement on your side
+# Implement Your Application
+Once your application has been [created](./how-to-register-your-application.md) and [configured](./how-to-configure-your-application.md),
+you have to implement the back-end and the front-end of your application.
 
-In this section, we will see what you need to implement on your side as an Operator.
+## Using Express
 
-## Run an operator server
+### Configure Environment Variables
+The first things to do is to configure the environment variables. These variables are not mandatory but follow
+the best programming practice. Be sure to have registered your application in your workspace beforehand.
 
-The first thing you need to do is to run an operator server. The operator server is a server that will be used to interact with the Carmentis network. It will be used to create and manage microblockchains, to sign transactions, and to interact with the Carmentis network.
+```text
+# Application URL and port depends on your configuration (local development or production).
+APPLICATION_URL=https://localhost
+APPLICATION_PORT=3000
 
-## Implement your application with the operator server API (via our libraries)
+# Application ID and version must be obtained from https://data.testapps.carmentis.io/workspace once
+# your application has been created and registered.
+CARMENTIS_APPLICATION_ID=<your application ID>
+CARMENTIS_APPLICATION_VERSION=<your application version>
 
-You must implement your application with the operator API. We provide a set of libraries to interact with the Operator's API in several languages (see [Operator API](/docs/guide/operator-api)).
+# Operator host and port.
+CARMENTIS_OPERATOR_HOST=testapps.carmentis.io
+CARMENTIS_OPERATOR_PORT=443
 
-## Endpoint to expose the operator server API
+# This token is required to obtain a location of your IP. No modification is required here.
+CARMENTIS_OPERATOR_IPINFO_TOKEN = 0779589d383d38
 
-The operator server must expose an API that will be used by the Carmentis network to interact with it. This API will be used to create and manage microblockchains, to sign transactions, and to interact with the Carmentis network.
+# Set at 1 to reject self-signed certificate. (useful in development)
+NODE_TLS_REJECT_UNAUTHORIZED = 0
+```
 
-You must implement an endpoint in your application that will be used to expose the operator's API.
+### Download the Application and Client SDK
+Carmentis provides you two SDKs to help you to construct your back-end and your front-end. On a hand, the back-end SDK 
+is designed to be used by your back-end server and hence should be not accessible publicly. On another hand, the 
+client SDK should be made available by your server to the front (via a publicly-available directory, say `public` containing
+all your assets including all the css and the javascript).
 
-:::danger Security
+<a class="download-button" href="https://github.com/Carmentis/carmentis-wallet-extension/releases" target="_blank">
+    <p>Download Application SDK</p>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+      <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+    </svg>
+</a>
 
-The operator must not be exposed directly to the internet. You must implement an endpoint in your application that will be used to expose the operator's `getApprovalData` && `getRecordData` methods in order to be consumed by the Carmentis proof pages.
-
-:::
-
-:::warning HTTPS
-
-Your server endpoint must be exposed over HTTPS and accessible to the Internet, even if it is in a local hosting environment.
-If you cannot expose your server over HTTPS, you can use a reverse proxy like Nginx or Caddy to expose your server over HTTPS or use a service like [ngrok](https://ngrok.com/) to expose your server over HTTPS.
-
-:::
-
-:::warning CORS
-
-You must implement CORS (Cross-Origin Resource Sharing) to allow the Carmentis network to interact with the operator's API through the browser.
-
-:::
-
-### Code samples
-
-Here is a **non-production code sample** of an endpoint that you have to implement in your application :
-
-#### Node.js
-
-Using Express.js and the [carmentis-sdk-nodejs](https://github.com/Carmentis/carmentis-sdk-nodejs) library.
-
-```javascript
-
-const express = require('express');
-const cors = require('cors');
-const Operator = require('carmentis-sdk-nodejs');
-const app = express();
-
-// Configure CORS
-app.use(cors({
-    origin: '*',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE'
-}));
-app.use(express.json()); // for parsing application/json
-
-// Initialize Operator with necessary configuration
-const operator = new Operator("your_operator_url");
+<a class="download-button" href="https://github.com/Carmentis/carmentis-wallet-extension/releases" target="_blank">
+<p>Download Client SDK</p>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+<path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+<path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+</svg>
+</a>
 
 
-// Generic endpoint to handle calls to any Operator method
-app.post('/api/operator/:methodName', async (req, res) => {
-    const { methodName } = req.params;
-    const args = req.body || [];
 
-    try {
-        if (typeof operator[methodName] === 'function' && ['getRecordData', 'getApprovalData'].includes(methodName)) {
-            
-            // Call the operator's method
-            const result = await operator[methodName](...args);
-            
-            // Return the result
-            res.json({ result });
-        } else {
-            res.status(404).send('Method not found');
-        }
-    } catch (error) {
-        res.status(500).send(`Error processing request: ${error.message}`);
-    }
+### Create Your Back-End 
+Initialize your project and create a new `config.mjs` file containing the configuration, and an `app.mjs` file 
+containing the standard server configuration and launch commands.
+
+```js title="config.mjs"
+import dotenv from "dotenv";
+dotenv.config()
+
+export const APPLICATION_URL                 = process.env.APPLICATION_URL;
+export const APPLICATION_PORT      = process.env.APPLICATION_PORT;
+
+export const CARMENTIS_APPLICATION_VERSION = parseInt(process.env.CARMENTIS_APPLICATION_VERSION);
+export const CARMENTIS_APPLICATION_ID = process.env.CARMENTIS_APPLICATION_ID;
+
+export const CARMENTIS_OPERATOR_HOST       = process.env.CARMENTIS_OPERATOR_HOST;
+export const CARMENTIS_OPERATOR_PORT       = process.env.CARMENTIS_OPERATOR_PORT;
+
+```
+
+
+```js title="app.mjs"
+import express from 'express'
+const app = express()
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import * as sdk from "./carmentis-application-sdk.js";
+import dotenv from "dotenv";
+import * as config from "./config.mjs" 
+
+
+// Define the operator URL (domain:port) and initialize the SDK
+const OPERATOR_URL = `${config.CARMENTIS_OPERATOR_HOST}:${config.CARMENTIS_OPERATOR_PORT}`;
+sdk.initialize({
+    host: config.CARMENTIS_OPERATOR_HOST,
+    port: config.CARMENTIS_OPERATOR_PORT,
 });
 
-app.listen(3000, () => console.log('Operator API exposed on http://localhost:3000'));
+
+// configure the dependencies (express, body-parser to recover parameters, CORS)
+app.use(express.static('public'))
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
+app.use(cors({
+    origin: ['https://' + config.CARMENTIS_OPERATOR_HOST],
+}));
+
+
+// configure pug
+app.set('views', './views')
+app.set("view engine", "pug")
+
+
+app.get('/', (req, res) => {
+    res.render('index', {
+        operator_url: OPERATOR_URL,
+    });
+});
+
+
+// Your code here ...
+
+// launch node
+const port = config.APPLICATION_PORT
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+})
+```
+
+To ask the approval for an event, the back-end server requires to obtain the data. The data can be either obtained
+when handling the output of a form or by using a Rest API (as done in our "Hello World" application, 
+see [here](https://github.com/Carmentis/carmentis-app-hello-world/blob/1dc02d4aa675ed2c263b5cb3cd5102bf18dff9db/app.mjs#L59)).
+The following code relies on a single actor role `actor` and a single channel `mainChannel`.
+
+```js
+// receive the data either from a form or from a post query from your front-end.
+
+let data =
+    {
+        application: config.CARMENTIS_APPLICATION_ID,
+        version: config.CARMENTIS_APPLICATION_VERSION,
+        fields: field,
+        actors: [
+            {
+                name: "actor",
+                authentication: {
+                    method: "email",
+                    value : "x"
+                }
+            },
+        ],
+        channels: [
+            "mainChannel",
+        ],
+        subscriptions: {
+            sender: [
+                "mainChannel",
+            ],
+        },
+        permissions: {
+            mainChannel: ["*"],
+        },
+        approval: {
+            actor: "actor",
+            message: "" // The ID of a message defined under the "Messages" tab in your workspace 
+        }
+    }
+
+let answer = await sdk.query(
+    "prepareUserApproval",
+    data
+);
+
+if (!answer.success) {
+    // Handle the failure
+}
+
+
+let data_response = answer["data"]
+let id = data_response["id"]
+let recordId = data_response["recordId"]
+
+// send the data required for the user approval to the front-end...
 
 ```
 
-#### PHP
 
-Using PHP and the [carmentis-sdk-php](https://github.com/Carmentis/carmentis-sdk-php) library: 
+### Create Your Front-End
+In our application, the front-end is created using [pug](https://expressjs.com/fr/guide/using-template-engines.html).
+As you can observe, the `app.mjs` package already configure the `pug` package. Feel free to rely on another front-end
+package. 
 
-```php 
-<?php
-// Assuming autoload for classes; require or include necessary files otherwise
-// require 'carmentis-sdk-php/autoload.php';
+In the following example, the data is taken by the front-end via javascript and sent to the back-end.
+```js
+// The organisation's id is no more significant and will be removed.
+const ORGANIZATION_ID = "0000000000000000000000000000000000000000000000000000000000000000";
 
-use Carmentis\Operator;
+async function startApproval() {
+    // load the data from the input using JS
 
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, HEAD, PUT, PATCH, POST, DELETE");
-header("Content-Type: application/json");
-
-$operator = new Operator("your_operator_url");
-
-// Parsing the request
-$method = $_SERVER['REQUEST_METHOD'];
-if ($method == 'POST') {
-    $uri = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
-    $methodName = $uri[2] ?? ''; // Adjust depending on your URL structure
-    $input = json_decode(file_get_contents('php://input'), true);
-
-    if (in_array($methodName, ['getRecordData', 'getApprovalData'])) {
-        try {
-            // Assuming Operator class methods can be called dynamically with arguments
-            $result = call_user_func_array([$operator, $methodName], $input['args'] ?? []);
-            echo json_encode(['result' => $result]);
-        } catch (Exception $e) {
-            http_response_code(500);
-            echo json_encode(['error' => 'Error processing request: ' . $e->getMessage()]);
+    // send the approval request to the back-end 
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/submitMessage", true);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    
+    // when the back-end responds with the output of the `sdk.query` function, call the `Carmentis.web.openApprovalPopup`
+    // function displaying an approval popup.
+    xhr.onreadystatechange = async function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            let response = JSON.parse(xhr.response);
+            
+            let id = response.id;
+            await Carmentis.web.openApprovalPopup({
+                id: id,
+                operatorURL: "https://" + operatorURL,
+                onSuccessCallback: () => {
+                    // do something when the approval is succesfully done
+                }
+            })
         }
-    } else {
-        http_response_code(404);
-        echo json_encode(['error' => 'Method not found']);
     }
-} else {
-    http_response_code(405);
-    echo json_encode(['error' => 'Method not allowed']);
+    
+    xhr.send(JSON.stringify({
+        // put here the data taken from the content
+    }))
 }
 ```
+
+
+
