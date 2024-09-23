@@ -4,6 +4,47 @@
  * work well for content-centric websites.
  */
 
+.margin-top--md {
+}
+[role=tabpanel] {
+  /*background-color: rgba(46, 133, 85, 0.05);*/
+  border-left: 3px solid #2e8555;
+  padding: 5px;
+}
+
+.download-button {
+  display: flex;
+  padding: 15px;
+  border: 1px solid #1a8870;
+  border-radius: 5px;
+  background-color: #1a8870;
+  color: white;
+  max-width: 30%;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+
+.download-button:hover {
+  border: 1px solid #1a8870;
+  color: #1a8870;
+  background-color: white;
+}
+
+
+.download-button p {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+.download-button:hover p {
+  text-decoration: none;
+}
+
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #2e8555;

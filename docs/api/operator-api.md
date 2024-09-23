@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# Operator's API
+# Operator Rest API
 
 Operator's API is a set of methods that allow you to interact with the Operator about the microblockchains you manage through the Carmentis network.
 

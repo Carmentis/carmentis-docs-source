@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Launch & manage the Operator service
+# Run the Operator
 
 ## Unix Users
 

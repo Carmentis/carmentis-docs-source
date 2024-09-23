@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Install and configure an Operator
+# Install an Operator
 
 ## Prerequisites
 

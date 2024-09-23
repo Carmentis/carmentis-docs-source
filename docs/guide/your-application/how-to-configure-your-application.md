@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# How to configure your application
+# Configure Your Application
 
 After signing in to the Carmentis workspace and creating your application on the Carmentis explorer, you will encounter several properties that are essential for configuring your application effectively. Here is a detailed explanation of each:
 
@@ -12,7 +12,7 @@ The `name` property is a descriptive identifier for your application. It is used
 
 ### Endpoint
 
-The `endpoint` property refers to the URL or URI where your application's backend services endpoint [you have to implement and expose from your application](/docs/guide-operator/your-application/what-you-need-to-implement#endpoint-to-expose-the-operator-server-api) to the Carmentis network. 
+The `endpoint` property refers to the URL or URI where your application's backend services endpoint [you have to implement and expose from your application](/docs/guide/your-application/what-you-need-to-implement#endpoint-to-expose-the-operator-server-api) to the Carmentis network. 
 This is crucial for enabling communication between your application and the Carmentis platform. The endpoint should be specified as a full URL, including the protocol (http or https) and the domain name or IP address, along with any necessary path or port.
 
 ### Data Retention

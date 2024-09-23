@@ -12,7 +12,7 @@ The first thing you need to do is to run an operator server. The operator server
 
 ## Implement your application with the operator server API (via our libraries)
 
-You must implement your application with the operator API. We provide a set of libraries to interact with the Operator's API in several languages (see [Operator API](/docs/guide-operator/operator-api)).
+You must implement your application with the operator API. We provide a set of libraries to interact with the Operator's API in several languages (see [Operator API](/docs/guide/operator-api)).
 
 ## Endpoint to expose the operator server API
 

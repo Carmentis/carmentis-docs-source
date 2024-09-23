@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# How to register your application
+# Register Your Application
 
 To save record proofs for your end-users, you need to sign in to the Carmentis workspace and create your application then publish it on the chain through the Carmentis explorer.
 
