@@ -188,7 +188,10 @@ In our application, the front-end is created using [pug](https://expressjs.com/f
 As you can observe, the `app.mjs` package already configure the `pug` package. Feel free to rely on another front-end
 package. 
 
-In the following example, the data is taken by the front-end via javascript and sent to the back-end.
+In the following example, the data is taken by the front-end via javascript and sent to the back-end to prepare the user
+approval. Once the approval has been prepared by the [operator](../../architecture.md) (communicating with your back-end
+through the application SDK), the back-end responds with an ID which is handled with `await Carmentis.web.openApprovalPopup`.
+q
 ```js
 // The organisation's id is no more significant and will be removed.
 const ORGANIZATION_ID = "0000000000000000000000000000000000000000000000000000000000000000";
