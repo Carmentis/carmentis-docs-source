@@ -36,11 +36,16 @@ The operator server is a service provider (like an invoicing service, a contract
 who wants to offer a Carmentis service to its customers. It constitutes the final step before observing the transaction
 being inserted in the blockchain.
 
+An Operator, in the [Carmentis](https://carmentis.io) environment, is a service that manages signatures and encrypted calls to the Carmentis network.
+The Operator is hosted by a operator who wants to offer a Carmentis service to its customers.
+
+
 ![schema-carmentis.png](/img/schema-carmentis.png)
 
 :::info Operator Server
 While Carmentis provides an already running operator server, you are allowed to run your own operator server.
 :::
+
 
 ### Application
 

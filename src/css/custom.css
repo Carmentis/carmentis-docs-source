@@ -4,6 +4,22 @@
  * work well for content-centric websites.
  */
 
+
+.coming-soon {
+  display: flex;
+  background-color: #2e8555;
+  color: white;
+  padding: 5px;
+  border-radius: 20px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 30%;
+  min-width: 200px;
+}
+.coming-soon:after {
+  content: "Coming Soon!";
+}
 .margin-top--md {
 }
 [role=tabpanel] {
