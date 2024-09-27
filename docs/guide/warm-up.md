@@ -8,7 +8,8 @@ import TabItem from '@theme/TabItem';
 
 # Warm Up
 
-Depending on your technical background, your experience with Carmentis may be different. Depending on your 
+Depending on your technical background, your experience with Carmentis may be different. To match every need, we 
+have developed customized scenarios, feel free to explore them as you want.
 
 - **I do not want to install anything**: Perfect! Everything is already accessible online. You only have to [install and configure our
 wallet](./wallet.md), a necessary step to create an account. Once installed, go to our warm-up section [below](./warm-up#installation-free-warm-up).
@@ -112,7 +113,7 @@ to your application: The publication of an updated application leads to an incre
 number. To use the updated application, only update the version number to match the latest version.
 :::
 
-### Step 3: Download and Configure and Run the Hello World Application
+### Step 3: Download, Configure and Run the Hello World Application
 
 :::info Git Requirement
 Be sure to have `git` installed in your system to download the repository.
@@ -166,7 +167,7 @@ Why not observing your message in the blockchain using the [blochain explorer)](
 In this tutorial, your goal is to run locally the "Hello World" application, this time 
 connected to your *own* operator. 
 :::info 
-This tutorial assumes you have already launched your application. If not, we refer you to the ["Warm Up with your Own Application" tutorial](./warm-up.md#step-3-download-and-configure-and-run-the-hello-world-application)
+This tutorial assumes you have already launched your application. If not, please see our tutorial to [launch your own application](./warm-up.md#warm-up-with-your-own-application)
 to learn how to configure and launch the Hello-World application.
 :::
 
@@ -229,4 +230,34 @@ nmp install && node app.mjs
 
 
 ## Warm-Up with your Own Blockchain  
+In this tutorial, you will learn how to deploy a node contributing to the network of Carmentis.
+
+:::info
+This tutorial assumes that you have an application and an operator running in your own system or infrastructure.
+If not, please see our tutorials to [launch your own application](./warm-up.md#warm-up-with-your-own-application) 
+and to [launch your own operator](./warm-up.md#warm-up-with-your-own-operator).
+:::
+
+
+### Step 1: Get Your Private Validator Key
+
 <div class="coming-soon"></div>
+
+
+### Step 2: Download, Configure and Run Your Node
+
+<Tabs>
+    <TabItem value="Linux">
+```shell
+git clone https://github.com/Carmentis/carmentis-node-docker.git
+cd carmentis-node-docker
+```
+    </TabItem>
+</Tabs>
+
+Then, Copy your private key in the `priv_validator_key.json` file at the root of the project and run :
+```shell
+chmod u+x ./scripts/carmentis.sh
+./scripts/carmentis.sh start:themis
+```
+

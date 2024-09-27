@@ -37,11 +37,6 @@
 }
 .margin-top--md {
 }
-[role=tabpanel] {
-  /*background-color: rgba(46, 133, 85, 0.05);*/
-  border-left: 3px solid #2e8555;
-  padding: 5px;
-}
 
 .download-button {
   display: flex;

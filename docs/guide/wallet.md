@@ -33,27 +33,24 @@ available on the most popular marketplaces soon.
 
 2. Install the extension in your browser
 
-<Tabs>
-  <TabItem value="Google Chrome" label="Google Chrome">
-    1. Once downloaded, unzip the extension.
-    2. Click on the extension icon, manage the extension.
-    3. Enable the developer mode on the top-right side.
-    4. Install unpackaged extension.
-    5. Choose the folder of the extension.
+- **Firefox:**
+1. Go to the Add-ons Manager by clicking the menu button (three horizontal lines) in the top-right corner, then select Add-ons and themes or press `Ctrl + Shift + A`.
+2. Enable Developer Mode by clicking the gear icon in the top-right corner of the Add-ons Manager and selecting Debug Add-ons.
+3. Click on "Load Temporary Add-on" located at the top of the Debug Add-ons page.
+4. Select the ZIP File by navigating to the folder where you downloaded the extension. Unzip the file and open the extension folder.
+5. Verify installation by checking for a confirmation message and an icon for the extension in the toolbar. 
 
-    For more details, go to [(Chrome, Step 2)](https://support.google.com/chrome/a/answer/2714278?hl=en)
-  </TabItem>
-  <TabItem value="Firefox" label="Firefox">
-    1. Go to the Add-ons Manager by clicking the menu button (three horizontal lines) in the top-right corner, then select Add-ons and themes or press `Ctrl + Shift + A`.
-    2. Enable Developer Mode by clicking the gear icon in the top-right corner of the Add-ons Manager and selecting Debug Add-ons.
-    3. Click on "Load Temporary Add-on" located at the top of the Debug Add-ons page.
-    4. Select the ZIP File by navigating to the folder where you downloaded the extension. Unzip the file and open the extension folder.
-    5. Verify installation by checking for a confirmation message and an icon for the extension in the toolbar. 
-    :::info
-    The extension will remain installed only for the current session, and you will need to reload it after restarting Firefox.
-    :::
-  </TabItem>
-</Tabs>
+:::info
+The extension will remain installed only for the current session, and you will need to reload it after restarting Firefox.
+:::
+- **Chrome**:
+1. Once downloaded, unzip the extension.
+2. Click on the extension icon, manage the extension.
+3. Enable the developer mode on the top-right side.
+4. Install unpackaged extension.
+5. Choose the folder of the extension.
+For more details, go to [(Chrome, Step 2)](https://support.google.com/chrome/a/answer/2714278?hl=en)
+
 
 ## Wallet Configuration
 

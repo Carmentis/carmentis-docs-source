@@ -4,20 +4,11 @@ sidebar_position: 3
 
 # Configure Your Application
 
-After signing in to the Carmentis workspace and creating your application on the Carmentis explorer, you will encounter several properties that are essential for configuring your application effectively. Here is a detailed explanation of each:
+After signing in to the [Carmentis workspace](https://data.testapps.carmentis.io/workspace) and creating your application on the [Carmentis explorer](https://data.testapps.carmentis.io/workspace/applications), you will encounter several properties that are essential for configuring your application effectively. Here is a detailed explanation of each:
 
 ### Name
 
 The `name` property is a descriptive identifier for your application. It is used primarily for display purposes within the Carmentis workspace and helps you and others identify your application amongst others. Choose a name that is both meaningful and concise to ensure easy identification.
-
-### Endpoint
-
-The `endpoint` property refers to the URL or URI where your application's backend services endpoint [you have to implement and expose from your application](/docs/guide/your-application/what-you-need-to-implement#endpoint-to-expose-the-operator-server-api) to the Carmentis network. 
-This is crucial for enabling communication between your application and the Carmentis platform. The endpoint should be specified as a full URL, including the protocol (http or https) and the domain name or IP address, along with any necessary path or port.
-
-### Data Retention
-
-`Data retention` specifies the policy or period for which data recorded by your application into the Carmentis network will be retained. This property is essential for compliance with data protection regulations and for managing the lifecycle of the data your application collects or generates. You will need to define how long data is kept before it is automatically deleted or archived, based on legal requirements or business needs.
 
 ### Fields
 

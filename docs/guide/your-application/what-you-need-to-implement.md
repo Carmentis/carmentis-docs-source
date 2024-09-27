@@ -13,8 +13,7 @@ The first things to do is to configure the environment variables. These variable
 the best programming practice. Be sure to have registered your application in your workspace beforehand.
 
 ```text
-# Application URL and port depends on your configuration (local development or production).
-APPLICATION_URL=https://localhost
+# Port listened by your application
 APPLICATION_PORT=3000
 
 # Application ID and version must be obtained from https://data.testapps.carmentis.io/workspace once
@@ -23,14 +22,8 @@ CARMENTIS_APPLICATION_ID=<your application ID>
 CARMENTIS_APPLICATION_VERSION=<your application version>
 
 # Operator host and port.
-CARMENTIS_OPERATOR_HOST=testapps.carmentis.io
+CARMENTIS_OPERATOR_HOST=https://testapps.carmentis.io
 CARMENTIS_OPERATOR_PORT=443
-
-# This token is required to obtain a location of your IP. No modification is required here.
-CARMENTIS_OPERATOR_IPINFO_TOKEN = 0779589d383d38
-
-# Set at 1 to reject self-signed certificate. (useful in development)
-NODE_TLS_REJECT_UNAUTHORIZED = 0
 ```
 
 ### Download the Application and Client SDK
