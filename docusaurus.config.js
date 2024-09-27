@@ -136,6 +136,23 @@ const config = {
           'bash',
           'powershell',
         ],
+        magicComments: [
+          {
+            className: 'theme-code-block-highlighted-line',
+            line: 'highlight-next-line',
+            block: {start: 'highlight-start', end: 'highlight-end'},
+          },
+          {
+            className: 'code-block-deleted-line',
+            line: 'highlight-deleted-lines',
+            block: {start: 'highlight-deleted-start', end: 'highlight-deleted-end'},
+          },
+          {
+            className: 'code-block-added-line',
+            line: 'highlight-added-lines',
+            block: {start: 'highlight-added-start', end: 'highlight-added-end'},
+          },
+        ],
       },
     }),
 };

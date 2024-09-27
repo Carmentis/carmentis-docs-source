@@ -4,6 +4,21 @@
  * work well for content-centric websites.
  */
 
+.code-block-deleted-line {
+  background-color: #ff000020;
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+  border-left: 3px solid #ff000080;
+}
+
+.code-block-added-line {
+  background-color: rgba(0, 255, 72, 0.13);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+  border-left: 3px solid rgba(0, 255, 13, 0.5);
+}
 
 .coming-soon {
   display: flex;

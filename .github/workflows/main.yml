@@ -1,0 +1,23 @@
+name: Deploy documentation online
+
+on:
+  push:
+    branches: [master]
+
+strategy:
+  matrix:
+    node-version: ['20.x']
+
+jobs:
+  deploy:
+    name: Deploy documentation online
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - name: Install dependencies
+        run: npm install
+      - name: Deploy the documentation
+        run: npm run deploy
