@@ -52,19 +52,19 @@ suitable tutorial by selecting the option below that best matches your needs.
 <details>
   <summary>I want to use Carmentis with my own operator and application</summary>
 
-    This  [tutorial](./guide/warm-up#warm-up-with-your-own-operator), is designed for **developers** looking for production-ready development.
+    This  [tutorial](./guide/warm-up#deploy-your-own-operator), is designed for **developers** looking for production-ready development.
 
-    In this [tutorial](./guide/warm-up#warm-up-with-your-own-operator), you will host your own "Hello World" application and your *own operator*.
+    In this [tutorial](./guide/warm-up#deploy-your-own-operator), you will host your own "Hello World" application and your *own operator*.
     This is required to be production-ready, indeed the operator handles secret keys that have to be outside of Carmentis.
 </details>
 
 
 <details>
-  <summary>I want to use Carmentis with my own operator, application and blockchain</summary>
+  <summary>I want to deploy a replication node</summary>
 
-    This [tutorial](./guide/warm-up#warm-up-with-your-own-blockchain) is designed for **developers** looking for production-ready development and independency.
+    This [tutorial](./guide/warm-up#deploy-your-own-replication-node) is designed for **developers**.
 
-    In this [tutorial](./guide/warm-up#warm-up-with-your-own-blockchain), you will host your own "Hello World" application,  your own 
+    In this [tutorial](./guide/warm-up#deploy-your-own-replication-node), you will host your own "Hello World" application,  your own 
     operator and your *own blockchain*. This step is not mandatory since Carmentis already provides a (decentralized) blockchain. 
     However, it remains possible to use your own blockchain to back your operator and your application.
 </details>
