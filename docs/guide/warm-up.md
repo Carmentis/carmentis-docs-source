@@ -188,17 +188,13 @@ Be sure to have `git` installed in your system to download the repository.
 
 First, download the repository containing our `docker-compose.yml` to run the operator as well as
 our example environment variables file `.env.example`. Duplicate the example configuration file 
-and add a valid `IPINFO` token to your `.env` file and finally run the operator using docker.
+to get a `.env` file and finally run the operator using docker.
 
-The commands to perform all these steps are given below (be sure to have your `IPINFO` variable assigned before to execute
-the second part of the command):
+The commands to perform all these steps are given below :
 ```shell
-IPINFO=<your ipinfo token>
-
 git clone https://github.com/Carmentis/carmentis-operator-docker.git
 cd carmentis-operator-docker
 cp .env.example .env
-echo "CARMENTIS_OPERATOR_IPINFO_TOKEN = $IPINFO" >> .env
 docker compose up
 ```
 
