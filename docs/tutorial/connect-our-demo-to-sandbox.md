@@ -75,7 +75,7 @@ to your application: The publication of an updated application leads to an incre
 number. To use the updated application, only update the version number to match the latest version.
 :::
 
-### Step 3: Download, configure and run the hello-world application
+### Step 4: Download, configure and run the hello-world application
 
 :::info Git Requirement
 Be sure to have `git` installed in your system to download the repository.
