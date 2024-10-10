@@ -69,11 +69,19 @@ application back end.
 
 
 
-### Oracles
+### Oracle
+An oracle is a service provider, executing an action and authenticating the result. For example, the email verification
+is built using an oracle.
 
-### Validator node
-### Replicator node
+### Carmentis blockchain network
+The network of nodes maintaining the ledger consists of numerous nodes. A node comes in two flavor: A *replication node*, being
+a server listening the ledger and updating the blockchain when a new block is approved, and a *validation node* doing the same
+as a replication node but also verifying the consistency of a block waiting for approval. 
 
-### Token + Token Economy
+### Token 
+A token is a valuable object allowing you to use the plate-form of Carmentis, more precisely the blockchain
+in which Carmentis is based.  
 
 ### Proof
+In the context of Carmentis, a proof allows you to prove to anyone that you hold knowledge, without
+revealing any information about this knowledge. 
