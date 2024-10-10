@@ -1,4 +1,4 @@
-# Write Your Operator
+# Write your operator
 
 Carmentis provides an easy-to-deploy operator that is [easy to run using Docker](./run-operator.md). 
 In this section, we will see what you need to implement an Operator on your side.

@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Implement Your Application
+# Develop your application
 Once your application has been [created](./how-to-register-your-application.md) and [configured](./how-to-configure-your-application.md),
 you have to implement the back-end and the front-end of your application.
 

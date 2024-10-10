@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Configure Your Application
+# Configure your application
 
 After signing in to the [Carmentis workspace](https://data.testapps.carmentis.io/workspace) and creating your application on the [Carmentis explorer](https://data.testapps.carmentis.io/workspace/applications), you will encounter several properties that are essential for configuring your application effectively. Here is a detailed explanation of each:
 

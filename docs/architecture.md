@@ -67,3 +67,13 @@ extension or a mobile application.
 The front sent to the end-user should perform critical actions (such as displaying a QR code) but also interact with your
 application back end. 
 
+
+
+### Oracles
+
+### Validator node
+### Replicator node
+
+### Token + Token Economy
+
+### Proof
