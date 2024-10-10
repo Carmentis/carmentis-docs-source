@@ -9,9 +9,6 @@ applications by changing the operator's information.
 
 
 ### Download, configure and run the operator
-:::danger ERROR
-It remains to solve the  `unable to load 'key.json' file` error properly.
-:::
 
 :::info Docker and Docker-Compose Requirement
 To run an operator, be sure to have [Docker](https://docs.docker.com/engine/install/) and [Docker-Compose](https://docs.docker.com/compose/install/)

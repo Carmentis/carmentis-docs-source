@@ -8,64 +8,45 @@ In a world dominated by artificial intelligence and malicious parties, trust is 
 confidence. While being used during the last decades, traditional centralized systems have reached their limit due to 
 their total control on the system. Decentralized system like blockchain appears to be the most suitable technology, bringing
 at the same time trust without relying on a trusted authorities, rather a large of sets of (potentially untrusted) 
-participants maintaining a ledge.
+participants maintaining a ledger.
 
+Carmentis leverages on distributed ledger to construct a protocol in which users can share a zero-knowledge proof of 
+ownership, verifiable by anyone without revealing any information about the secret data, using standard yet efficient cryptographic primitives.
+Our solution is *open-source*, *versatile*,  *easy-to-use* and *ready-to-employ*,  bringing trust and
+confidentiality in your system.
 
+## Learn more about Carmentis
+Learn more on our approach by looking at our overview, explaining the general concept and technical details.
 
-Carmentis provides an *open-source*, *versatile*,  *easy-to-use* and *ready-to-employ* blockchain-based solution to bring trust and
-confidentiality in your system, using standard yet efficient cryptographic primitives.
+<a href="/architecture">
+<button class="download-button">Learn more</button>
+</a>
 
-## Discover Carmentis
+## Getting started
 
-Your experience with Carmentis will vary based on your technical expertise and available infrastructure. Choose the most
-suitable tutorial by selecting the option below that best matches your needs.
+Discover the concept of Carmentis on your own way with a customized tutorial: Feel free to discover the different
+tutorial we have designed based on your preference. 
 
 <details>
-    <summary>I just want to learn more about Carmentis</summary>
-
-    In our documentation is included an overview of Carmentis, available [here](./architecture.md). When you will be
-    ready, do not hesitate to play without our demonstration, it's completely free!
-
-</details>
-
-<details>
-    <summary>I want to play with Carmentis without installation</summary>
+    <summary>Discover Carmentis as an end-user</summary>
     
-    This [tutorial](./guide/warm-up#installation-free-warm-up) is designed for **end-users** and **developers** discovering Carmentis.
+    This [tutorial](./tutorial/test-demo-applications) is designed for **end-users**.
 
-    It is completly possible to visit Carmentis without any installation, but you won't be able to interact with it.
-    Indeed, interacting with Carmentis requires an identity, taking the form of a wallet which can be easily installed (and removed).
-    We encourage you to learn more at our dedicated [installation-free warm-up](./guide/warm-up#installation-free-warm-up) page, allowing you
-    to discover Carmentis with the strictly minimum installation.
- 
+    In this tutorial, you will discover how to install and configure your wallet, how to create your sandbox to test
+    our demo applications without requiring any installation, and interact with our demo applications using your wallet.
 </details>
 
 <details>
-  <summary>I want to use Carmentis with my own application</summary>
+  <summary>Discover Carmentis as an application developer</summary>
 
-    This  [tutorial](./guide/warm-up#warm-up-with-your-own-application) is designed for **developers**.
+    This  [tutorial](./tutorial/connect-our-demo-to-sandbox) is designed for **application developers**.
 
-    In this [tutorial](./guide/warm-up#warm-up-with-your-own-application), you will host your own "Hello World" application.  
+    In this tutorial, you will host an already developped application
+    and connect it to your sandbox. You will discover how to design an application using Carmentis toolkits.
 </details>
 
 
-<details>
-  <summary>I want to use Carmentis with my own operator and application</summary>
-
-    This  [tutorial](./guide/warm-up#deploy-your-own-operator), is designed for **developers** looking for production-ready development.
-
-    In this [tutorial](./guide/warm-up#deploy-your-own-operator), you will host your own "Hello World" application and your *own operator*.
-    This is required to be production-ready, indeed the operator handles secret keys that have to be outside of Carmentis.
-</details>
-
-
-<details>
-  <summary>I want to deploy a replication node</summary>
-
-    This [tutorial](./guide/warm-up#deploy-your-own-replication-node) is designed for **developers**.
-
-    In this [tutorial](./guide/warm-up#deploy-your-own-replication-node), you will host your own "Hello World" application,  your own 
-    operator and your *own blockchain*. This step is not mandatory since Carmentis already provides a (decentralized) blockchain. 
-    However, it remains possible to use your own blockchain to back your operator and your application.
-</details>
-
+## Be partner of the Carmentis network
+As any blockchain-based solution, Carmentis is built over a distributed ledger, whose the security depends on 
+the number of participants in the network. Be part of the Carmentis network by deploying a replication node in a minute,
+by following our [guide](./how-to/deploy-node.md), and turn your node as validator node to be remunerated! 

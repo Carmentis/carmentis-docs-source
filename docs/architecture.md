@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Carmentis Architecture
+# Overview of Carmentis
 Carmentis is a network that allows operators to make secure and private digital proofs 
 for their end-users and store them in a resilient transversal blockchain.  As a result, the network of Carmentis relies 
 on several entities. 

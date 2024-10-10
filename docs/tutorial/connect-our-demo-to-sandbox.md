@@ -23,10 +23,10 @@ To verify that your account has been successfully created, try to authenticate y
 
 ### Step 2: Create a sandbox environment
 
-<div class="coming-soon"></div>
-- login workspace
-- creer env sandbox
-
+Creating your personal sandbox in a minute by following these steps:
+1. Visit our "Get started" page at [https://data.testapps.carmentis.io/get-started](https://data.testapps.carmentis.io/get-started).
+2. Click on "Go to the sandbox".
+3. Sign-in using your wallet.
 
 
 ### Step 3: Create your application in the Carmentis workspace
