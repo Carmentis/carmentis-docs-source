@@ -63,6 +63,7 @@ const config = {
           alt: 'Carmentis logo',
           src: 'img/carmentis-logo-color.png',
           srcDark: 'img/carmentis-logo-color.png',
+          href: 'https://carmentis.io',
         },
         items: [
           {
