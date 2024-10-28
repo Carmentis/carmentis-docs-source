@@ -4,29 +4,20 @@ sidebar_position: 10
 
 # Register your application
 
-To save record proofs for your end-users, you need to sign in to the Carmentis workspace and create your application then publish it on the chain through the Carmentis explorer.
 
-## Steps
+An application in our workspace  serves as a framework for defining the structure of events that facilitate 
+interactions between users and the underlying system. It acts as a blueprint that outlines how data flows and 
+how actions are represented. For more details, we encourage you to read the 
 
-1. Go to the Carmentis explorer.
-- Testnet: https://testnet.carmentiscan.io/explorer
-- Themis (mainnet): Coming soon
+To register an application in your workspace, which is essential for defining the structure of events that your application will utilize, follow these steps:
 
-2. Click on "Workspace"
+1. Visit your workspace by either clicking on the Workspace link in the [explorer](https://data.testapps.carmentis.io) or directly navigating to https://data.testapps.carmentis.io/workspace.
+2. Sign in to your account to gain access to your workspace features.
+3. Once signed in, look for the Application section in the sidebar menu and click on it.
+   ![applications.png](/img/workspace/applications.png)
+4. To create a new application, select the option to add a new application. A modal will appear, prompting you to 
+enter the name of the application you wish to create.
+   ![new-application.png](/img/workspace/new-application.png)
 
-3. Sign in with your Carmentis account (or click on "create an account" if you don't have one).
-4. Click on "Applications" in the left menu. You will see the list of your applications.
-
-![applications.png](/img/workspace/applications.png)
-
-5. Click on "New application" to declare a new application, fill in the form then click on "Create".
-
-![new-application.png](/img/workspace/new-application.png)
-
-6. After creating your application, you will see it in the list of your applications.
-
-![applications-2.png](/img/workspace/applications-2.png)
-
-7. Click on "Edit" to access the details of your application.
-8. You will see the details of your application. You can edit them if needed. We will see in the next section how to configure your application.
-9. After configuring your application, you have to deploy it on the Carmentis network by clicking on "Deploy".
+Click on **"Edit"** to view the details of your application. Here, you can review and modify the information as necessary. In the following section, we will explore how to configure your application. Once you have configured it, you will need to deploy it to the Carmentis network by clicking on **"Deploy."**
+By registering your application, you define the event structures that will be used by the SDK, enabling it to interpret the input your concrete application sends effectively. This process is crucial for ensuring smooth communication and data management within your workspace.
