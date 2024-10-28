@@ -17,16 +17,16 @@ The wallet of Carmentis takes the form of an extension in your browser, from whi
 We refer you to the installation guide ([here](../how-to/get-your-carmentis-wallet.md#install-your-wallet)) to install the wallet in your favorite browser.
 
 Once installed, you have to create your personal account (which is ultimately your signature key pair). Again, we refer
-you to the wallet configuration page in the documentation ([here](../how-to/get-your-carmentis-wallet.md#configure-your-wallet)).
+you to the wallet configuration page in the documentation ([here](../how-to/get-your-carmentis-wallet.md#setup-your-wallet)).
 To verify that your account has been successfully created, try to authenticate yourself at login page of Carmentis ([here](https://data.testapps.carmentis.io/workspace/sign-in)).
 
 
-### Step 2: Create your the sandbox
+### Step 2: Create your sandbox
 
 Creating your personal sandbox in a minute by following these steps:
 1. Visit our "Get started" page at [https://data.testapps.carmentis.io/get-started](https://data.testapps.carmentis.io/get-started).
 2. Click on "Go to the sandbox".
-3. Sign-in using your wallet.
+3. [Sign-in](../how-to/wallet-usage#sign-in-to-applications) using your wallet.
 
 
 
