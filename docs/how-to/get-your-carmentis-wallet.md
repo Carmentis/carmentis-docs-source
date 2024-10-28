@@ -8,17 +8,30 @@ import TabItem from '@theme/TabItem';
 
 # Get your Carmentis wallet
 
+A cryptocurrency wallet is a secure digital tool that allows users to manage, store, and interact with their digital assets like Bitcoin, Ethereum, and other cryptocurrencies. Unlike traditional wallets that hold physical currency, cryptocurrency wallets are designed to safeguard the keys that grant access to your digital funds and provide a way to sign transactions. Essentially, they don’t store the assets themselves but rather the private keys necessary to access and manage these assets on the blockchain.
+
+Our wallet stands out by offering robust and streamlined features, making it a go-to tool for various online interactions beyond just asset storage. For instance, our wallet allows users to sign in to applications seamlessly, creating a more secure, decentralized authentication process. Additionally, users can authenticate events, ensuring they are the verified initiators of any online actions, from transactions to exclusive event access. This combination of ease and security positions our wallet as an ideal companion for both managing digital assets and enhancing online authentication.
 
 ## Install your wallet
+The wallet installation process is straightforward and secure, designed to get you set up and using your wallet quickly. 
+First, download and install the wallet application. Once installed, open the wallet to begin the onboarding process. 
+During onboarding, you’ll create a strong password, and the wallet will generate a unique set of seed words, often known 
+as a recovery phrase. This phrase is critical as it serves as a backup to access your wallet  if you ever 
+lose your device, so make sure to store it safely and privately. After securing your password and seed words, you’re ready 
+to use the wallet to sign in applications, and authenticate actions or events.
 
-### Automatic installation (Recommended)
+![wallet-on-boarding-steps](/img/wallet-on-boarding-steps.png)
 
-:::info Coming Soon
+### Download and install your wallet
+
+<Tabs>
+  <TabItem value="marketplace" label="Via marketplace (Recommended)" default>
+  :::info Coming Soon
 The installation using the marketplace extension is currently not supported. We are working hard to make our wallet
 available on the most popular marketplaces soon.
 :::
-
-### Manual installation
+  </TabItem>
+  <TabItem value="github" label="Via Github">
 
 #### Step 1: Download our latest wallet release:
 
@@ -60,31 +73,28 @@ The extension will remain installed only for the current session, and you will n
   </TabItem>
 </Tabs>
 
+</TabItem>
+</Tabs>
 
-## Configure your wallet
 
-Once installed, the wallet will ask you to create an account. We introduce the main stages below. 
+### Setup your wallet
 
-![carmentis-wallet](/img/carmentis-wallet.png)
+Once the wallet is installed, the onboarding process begins by prompting you to create a password. This password is 
+essential as it encrypts a seed, which is the core of your wallet's security. The security features of the wallet rely 
+on the seed remaining confidential, known only to you as the wallet owner. Importantly, the password you create is 
+never shared or transmitted outside of the wallet; it is strictly used within your wallet to safeguard the seed.
 
-### Onboarding
-During the onboarding, the wallet will ask your to create a password. This password is crucial since it is used to
-encrypt a [seed](https://en.wikipedia.org/wiki/Cryptocurrency_wallet) being at the heart of your wallet. All the claimed
-security properties holds at condition that the seed remains secret, only known by the user owning the wallet. The 
-password you provide is never transmitted, its scope being to your wallet only. As usual, the seed is derived from 
-12 words constituting your *passphrase*. You can use the same passphrase on several wallets *at the same time* if desired.
+The seed itself is derived from a unique 12-word passphrase, which you’ll be given during setup. This passphrase acts 
+as a backup, allowing you to recover your wallet if necessary. You also have the flexibility to use the same 
+passphrase across multiple wallets if you want to access the same assets from different devices or applications.
 
 :::danger No password and seed recovery
 Be aware that your wallet is **personal** and hence is private. Carmentis **cannot** help you to **recover**
 both your password and your passphrase. 
 :::
 
-### Home Page
-In the main page, the wallet ask you to setup your email. This step is optional to use your wallet but becomes
-mandatory to access applications whose the authentication is based on your email. Carmentis wallet has the ability to 
-register your email and to validate it. 
 
-### Account edition
-The wallet offers you the ability to edit your account (such as your account name or the endpoints to the oracles).
-To edit your account, click on `Parameters` at the dropdown menu in the *main* page (the popup 
-does not support this feature yet).
+
+## Learn how the wallet works
+
+![carmentis-wallet](/img/carmentis-wallet.png)
