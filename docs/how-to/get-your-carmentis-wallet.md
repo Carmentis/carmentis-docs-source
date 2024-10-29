@@ -8,9 +8,38 @@ import TabItem from '@theme/TabItem';
 
 # Get your Carmentis wallet
 
-A cryptocurrency wallet is a secure digital tool that allows users to manage, store, and interact with their digital assets like Bitcoin, Ethereum, and other cryptocurrencies. Unlike traditional wallets that hold physical currency, cryptocurrency wallets are designed to safeguard the keys that grant access to your digital funds and provide a way to sign transactions. Essentially, they don’t store the assets themselves but rather the private keys necessary to access and manage these assets on the blockchain.
+A traditional cryptocurrency wallet is a secure digital tool that allows users to manage, 
+store, and interact with their digital assets like Bitcoin, Ethereum, and other 
+cryptocurrencies. Unlike traditional wallets that hold physical currency, 
+cryptocurrency wallets are designed to safeguard the keys that grant access to your 
+digital funds and provide a way to sign transactions. Essentially, they don’t store 
+the assets themselves but rather the private keys necessary to access and manage these 
+assets on the blockchain.
 
-Our wallet stands out by offering robust and streamlined features, making it a go-to tool for various online interactions beyond just asset storage. For instance, our wallet allows users to sign in to applications seamlessly, creating a more secure, decentralized authentication process. Additionally, users can authenticate events, ensuring they are the verified initiators of any online actions, from transactions to exclusive event access. This combination of ease and security positions our wallet as an ideal companion for both managing digital assets and enhancing online authentication.
+
+Unlike traditional crypto wallets primarily designed for transferring
+cryptocurrency and handling transactions, our wallet is focused on providing confidence in
+the everyday digital actions. Our wallet enjoys a new range of features
+specifically designed for the Carmentis environment:
+
+**Authentication.** Our wallet enables secure sign-ins using a unique private signature key, 
+allowing users to authenticate without traditional passwords. This cryptographic signature verifies 
+identity seamlessly, enhancing both security and convenience in accessing applications.
+
+**Secure approval.** In addition to the initial authentication feature, our wallet
+allows users to approve events that will be anchored immutably on the blockchain, ensuring a verifiable record
+of actions or approvals. This feature enhances transparency and accountability by securing event data directly
+on-chain, which is especially valuable for applications requiring traceable and tamper-proof event tracking.
+
+**History of approved actions.** The wallet provides users with a clear and simple view 
+of their approval history, showing all past actions they’ve authorized. 
+This organized timeline offers easy access to a verifiable record of approvals, 
+enhancing transparency and accountability.
+
+**Proof of approval.** Our wallet allows users to share a proof of approval, 
+confirming they have authorized an action, which is securely anchored on the blockchain. 
+This proof ensures transparency and traceability without exposing any private data, 
+maintaining user privacy while verifying approval.
 
 ## Install your wallet
 The wallet installation process is straightforward and secure, designed to get you set up and using your wallet quickly. 

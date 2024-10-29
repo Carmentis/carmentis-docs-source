@@ -6,8 +6,8 @@ sidebar_position: 10
 
 
 An application in our workspace  serves as a framework for defining the structure of events that facilitate 
-interactions between users and the underlying system. It acts as a blueprint that outlines how data flows and 
-how actions are represented. For more details, we encourage you to read the 
+interactions between users and the underlying system. It acts as a blueprint that outlines 
+how actions are represented. 
 
 To register an application in your workspace, which is essential for defining the structure of events that your application will utilize, follow these steps:
 
