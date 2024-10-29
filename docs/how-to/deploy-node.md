@@ -33,6 +33,8 @@ The replication node is now downloading all blocks composing the master-chain an
 ## Create a backup for your replication node
 When the master-chain is long, downloading all the blocks is time-consuming. While this step is necessary in a *first place*,
 the chain can be stored locally. This way, the replication node only have to restore the chain from the local backup.
+Recent backups are already available at [https://backupnode.carmentis.io](https://backupnode.carmentis.io) (a backup is 
+created everyday at midnight).
 
 In the following, we introduce the manual procedure to create a backup. We encourage interested readers
 to create automations in order to create backups automatically and periodically.

@@ -36,6 +36,8 @@ const config = {
     locales: ['en'],
   },
 
+  plugins: ['@docusaurus/theme-live-codeblock'],
+
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -143,6 +145,13 @@ const config = {
             block: {start: 'highlight-added-start', end: 'highlight-added-end'},
           },
         ],
+      },
+      liveCodeBlock: {
+        /**
+         * The position of the live playground, above or under the editor
+         * Possible values: "top" | "bottom"
+         */
+        playgroundPosition: 'bottom',
       },
     }),
 };

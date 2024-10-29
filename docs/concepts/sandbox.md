@@ -1,4 +1,7 @@
 # Sandbox
+
+The Carmentis environment is composed of several components
+
 When landing on Carmentis for the first time, it can be difficult to deploy a ready-to-use environment, even more 
 for end-users which does not have time and resources for that. For this reason, we have created a *sandbox*, a place in 
 which all the necessary is already installed and configured, letting you with one job: Discover Carmentis.
