@@ -1,10 +1,7 @@
 
-# Deploy your node
+# Deploy your replication node
 In this tutorial, you will learn how to deploy a replication node contributing to the network of Carmentis.
 This node will mainly hold and keep up-to-date the [master-chain](../architecture.md).
-
-
-## Deploy the replication node
 
 To deploy a replication node, download the latest version of the repository [here](https://github.com/Carmentis/carmentis-node-docker)
 and move into the folder.
@@ -75,18 +72,3 @@ To display the logs of your running node:
 ```shell
 docker logs cometbft.carmentis -f
 ```
-
-## Turn replication node into validator
-
-A replication node can be turned into a validator node, *checking the consistency of the transactions* in addition to
-maintaining the local master-chain with the current state of the blockchain.
-
-### Get your signature key
-A validator node, at the opposite of a replication node, requires a secret signature key to authenticate a valid
-transaction.
-
-<div class="coming-soon"></div>
-
-
-
-Then, Copy your private key in the `priv_validator_key.json` file at the root of the running node folder.

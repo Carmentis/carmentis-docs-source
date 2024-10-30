@@ -2,7 +2,7 @@
 sidebar_position: 30
 ---
 
-# Deploy an operator
+# Deploy your operator
 An operator is the root of trust in your validation process. Hence, for security reasons, it is **highly recommended**
 to run your own operator in your infrastructure. Once installed and deployed, your operator can be used by your
 applications by changing the operator's information.

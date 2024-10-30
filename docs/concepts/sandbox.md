@@ -1,16 +1,21 @@
 # Sandbox
 
-The Carmentis environment is composed of several components
+In our context, a **sandbox** is an on-demand workspace where users can explore and test applications freely, 
+providing a hands-on environment for experimentation. Created directly from the [Get Started page](https://data.testapps.carmentis.io/get-started), 
+a sandbox serves as a pre-configured demo environment where users can experience applications without needing to set up a full system on their own.
 
-When landing on Carmentis for the first time, it can be difficult to deploy a ready-to-use environment, even more 
-for end-users which does not have time and resources for that. For this reason, we have created a *sandbox*, a place in 
-which all the necessary is already installed and configured, letting you with one job: Discover Carmentis.
+When a sandbox is created, it comes with an initial amount of **tokens**, which act as virtual currency to access and use 
+the demo applications within the workspace. These tokens allow users to evaluate features, perform tests, and explore the available tools. 
+Users can also install additional applications into their sandbox workspace, expanding their trial experience and 
+enabling a more in-depth exploration of the platform’s capabilities. This environment, being separate and temporary, 
+ensures that users can safely experiment without impacting live systems or data.
+
 
 ### Does a sandbox is personal?
 **Yes**, a sandbox is personal and not shared with other users testing Carmentis. 
 
 ### What is installed in a sandbox?
-A fresh sandbox is setup with a single demo application: [FileSign](https://sign.testapps.carmentis.io).
+A fresh sandbox is set up with a single demo application: [FileSign](https://sign.testapps.carmentis.io).
 This demo application is already installed and configured, hence you do not have anything to install (except your wallet).
 
 ### Can I add another application?

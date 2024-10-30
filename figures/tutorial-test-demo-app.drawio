@@ -1,0 +1,25 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36" version="24.8.3">
+  <diagram name="Page-1" id="qbTTMMym286kaW-HKuGk">
+    <mxGraphModel dx="1434" dy="906" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="JZibBr91HpZh0fSF2myu-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JZibBr91HpZh0fSF2myu-1" target="JZibBr91HpZh0fSF2myu-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JZibBr91HpZh0fSF2myu-1" value="Install our wallet" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#06B57B;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="350" y="430" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JZibBr91HpZh0fSF2myu-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JZibBr91HpZh0fSF2myu-2" target="JZibBr91HpZh0fSF2myu-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JZibBr91HpZh0fSF2myu-2" value="Create your sanbox" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#06B57B;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="550" y="430" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JZibBr91HpZh0fSF2myu-4" value="Test our demo application" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#06B57B;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="750" y="430" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

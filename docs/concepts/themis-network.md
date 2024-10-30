@@ -20,10 +20,31 @@ The URL is the same for `Apollo` and `Ares` validators.
 
 ## Static set of validators setup
 Currently, the set of validators is static. The list of validators is defined
-in the genesis block of Themis, accessible at `http://ares.carmentis.io:26657/genesis` and can be obtained
-below:
-```shell live
-wget http://ares.carmentis.io:26657/genesis
+in the genesis block of Themis, accessible at `http://ares.carmentis.io:26657/genesis`. We provide you the following
+(editable) code to observe the genesis. 
+```js live
+/**
+ * React component asking the genesis block's data from Aphrodite replication node.
+ */
+function Component() {
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch("http://aphrodite.carmentis.io:26657/genesis");
+            const result = await response.json();
+            setData(result);
+        };
+
+        fetchData();
+    }, []);
+    
+    return (
+        <div>
+            <pre>{JSON.stringify(data, null, 2)}</pre>
+        </div>
+    );
+}
 ```
 
 ## Replication nodes

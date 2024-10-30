@@ -159,3 +159,11 @@ recovered.
 :::info
 The account deletion is disabled when there is a single account. 
 :::
+
+### Share my public key
+| Interface supporting the action        | <img src="/img/main-interface.png" alt="drawing" width="30"/> | 
+|--|-------------------------------------------------------------------------------------------------------------------------------|
+
+To share a user’s public key, go to **Parameters** and click the **Share my public key** button located below the public key.
+This action opens a pre-filled email containing the public key, ready to be sent to another user for easy sharing. 
+Alternatively, you can directly copy the public key if you prefer to share it manually through another channel.

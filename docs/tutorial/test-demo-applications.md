@@ -8,6 +8,8 @@ import TabItem from '@theme/TabItem';
 
 # Test our application connected to the sandbox
 
+![tutorial-test-demo-app.drawio.png](/img/tutorial-test-demo-app.drawio.png )
+
 ### Step 1: Installing and configuring your wallet
 To agree on the sending of your message, you will rely on digital signature, authenticating the message you are sending
 in the board. Don't worry, in this tutorial and others, all cryptographic operations are

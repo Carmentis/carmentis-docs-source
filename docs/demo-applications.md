@@ -13,7 +13,9 @@ There are two methods to try File Sign: Via the website of File Sign (available 
 [https://sign.testapps.carmentis.io](https://sign.testapps.carmentis.io))
 or via your Sandbox.
 
-| Method        | Procedure                                                      | Pros                         | Cons                             |
-|---------------|----------------------------------------------------------------|------------------------------|----------------------------------|
-| Direct access | Go to [File Sign](https://sign.testapps.carmentis.io) directly | Associated with your company | You have to pay fees             |
-| Sandbox       | See our tutorial [here](./tutorial/test-demo-applications)     | Free                         | Associated with temporary company |
+| Method        | Procedure                                                      | Remark                                        |
+|---------------|----------------------------------------------------------------|-----------------------------------------------|
+| Direct access | Go to [File Sign](https://sign.testapps.carmentis.io) directly | Easier but limited experience                 |
+| Sandbox       | See our tutorial [here](./tutorial/test-demo-applications)     | Sandbox required but you have full experience |
+
+

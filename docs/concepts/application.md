@@ -1,12 +1,14 @@
 # Application
 
 In our context, an *application* is a logical component 
-defined within the workspace, structured as a (possibly nested) format,
+defined within the [Workspace](./workspace), structured as a (possibly nested) format,
 like a JSON object. Unlike an application that might typically be created through
 code to execute tasks, here it serves as a conceptual model for representing how data
-and interactions are organized within the workspace. This model, or structure, 
-is crafted by a developer and is essential for enabling an operator 
+and interactions are organized within the [Workspace](./workspace). This model, or structure, 
+is crafted by a developer and is essential for enabling an [Operator](./operator) 
 to interpret and process approved events relevant to the application.
+
+![application](/img/application.drawio.png)
 
 Because our framework is intentionally generic, it doesn't assume 
 specific data structures or processes. Instead, the developer defines
