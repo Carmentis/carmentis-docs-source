@@ -12,6 +12,11 @@ you to the [Concepts](./category/concepts) page.
 
 ### Step 0: Initial setup
 
+In our initial setup for the Carmentis overview, we assume that the user possesses their own [Wallet](./concepts/wallet), which is pivotal 
+for interacting with the protocol. This wallet not only serves as a secure digital identity for signing in various 
+applications but also plays a crucial role in approving transactions. By leveraging their wallet, users can 
+authenticate their identity seamlessly and provide consent for actions, ensuring that each approval is secure and 
+verifiable. 
 
 ### Step 1: Event approval initiation
 The first interaction in an event approval within the Carmentis protocol begins with the end-user, who initiates the 
@@ -48,81 +53,3 @@ a node within the Carmentis network. Once received, this [Micro block](./concept
 Carmentis protocol, the blockchain consists of [Master blocks](./concepts/flow-and-micro-block), each containing one or more [Micro blocks](./concepts/flow-and-micro-block). This structure 
 ensures that individual approved actions are securely recorded within larger, immutable [Master block](./concepts/flow-and-micro-block), enhancing
 traceability.
-
-
-## Involved Entities
-
-### Carmentis Blockchain
-Being at the heart of Carmentis, the blockchain constitutes the root of all the trust. Virtually, the blockchain
-constitutes the database in which all the transactions are stored.
-
-:::info Master and Micro Chains
-For technical reasons, Carmentis operates in the blockchain at two different levels: On a hand, every transaction is 
-stored in a *dedicated* chain called the Micro-Chain. On the other hand, the Master-Chain stores the Micro-chains.
-:::
-
-:::info Themis
-**Themis** is the name of our mainnet and is the first network that will be launched on the Carmentis platform.
-
-Its architecture will be released in Q1 2024 as a centralized Saas (Software as a Service) and we are currently working hard to make it a decentralized network in the future (see our [roadmap](/docs/roadmap)).
-:::
-
-(When Alice wants to sign a contract with Bob through an operator, the operator will create and use a microchain as a dedicated blockchain to store the proof of the signature.)
-
-
-
-
-### Operator Server
-The operator server is a service provider (like an invoicing service, a contract signing service, etc.) 
-who wants to offer a Carmentis service to its customers. It constitutes the final step before observing the transaction
-being inserted in the blockchain.
-
-An Operator, in the [Carmentis](https://carmentis.io) environment, is a service that manages signatures and encrypted calls to the Carmentis network.
-The Operator is hosted by a operator who wants to offer a Carmentis service to its customers.
-
-
-![schema-carmentis.png](/img/schema-carmentis.png)
-
-:::info Operator Server
-While Carmentis provides an already running operator server, you are allowed to run your own operator server.
-:::
-
-
-### Application
-
-An application is  the services that are offered to the end-users. They are proposed, hosted and provided 
-by application providers and are independent of Carmentis. For a better understanding, we encourage you to
-play with our already running application examples [here](./examples.md). 
-
-:::info Application and Client SDK
-Carmentis provides a Software Development Kit (SDK) to help you on the development of your application. 
-See our [API documentation](/docs/category/api-documentation) for more details.
-:::
-
-### Wallet
-The wallet constitutes your identity in Carmentis. Indeed, the main interest of a wallet is to store
-a private signature key used to authenticate data. Carmentis provides its own wallet, taking the form of either a browser
-extension or a mobile application.
-
-### End-User Front
-The front sent to the end-user should perform critical actions (such as displaying a QR code) but also interact with your
-application back end. 
-
-
-
-### Oracle
-An oracle is a service provider, executing an action and authenticating the result. For example, the email verification
-is built using an oracle.
-
-### Carmentis blockchain network
-The network of nodes maintaining the ledger consists of numerous nodes. A node comes in two flavor: A *replication node*, being
-a server listening the ledger and updating the blockchain when a new block is approved, and a *validation node* doing the same
-as a replication node but also verifying the consistency of a block waiting for approval. 
-
-### Token 
-A token is a valuable object allowing you to use the plate-form of Carmentis, more precisely the blockchain
-in which Carmentis is based.  
-
-### Proof
-In the context of Carmentis, a proof allows you to prove to anyone that you hold knowledge, without
-revealing any information about this knowledge. 
