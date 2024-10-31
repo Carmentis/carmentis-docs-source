@@ -29,24 +29,36 @@ tutorial we have designed based on your preference.
 
 <details>
     <summary>Discover Carmentis as an end-user</summary>
-    
-    This [tutorial](./tutorial/test-demo-applications) is designed for **end-users**.
 
-    In this tutorial, you will discover how to install and configure your wallet, how to create your sandbox to test
-    our demo applications without requiring any installation, and interact with our demo applications using your wallet.
+    As an end-user, we propose you to discover our plateform using our 
+    [demo applications](./demo-applications).
 </details>
 
 <details>
   <summary>Discover Carmentis as an application developer</summary>
 
-    This  [tutorial](./tutorial/connect-our-demo-to-sandbox) is designed for **application developers**.
+    We propose **two tutorials** to discover Carmentis as an application developer.
+    
+    **Note:** Be sure to have [installed and configured your wallet](./how-to/get-your-carmentis-wallet) before to run the
+    tutorials.
+    
 
-    In this tutorial, you will host an already developped application
-    and connect it to your sandbox. You will discover how to design an application using Carmentis toolkits.
+    In the [**first tutorial**](./tutorial/test-demo-application), you will test create a temporary workspace called a [*sandbox*](./concepts/sandbox),
+    managed by Carmentis, containing an already configured demo application.
+
+    In the [**second tutorial**](./tutorial/connect-our-demo-to-sandbox), we explain you how to link a local application
+    (developed by Carmentis) with your sandbox. With this tutorial, you will discover how to design an application 
+    using Carmentis toolkits.
+
 </details>
 
 
-## Be partner of the Carmentis network
-As any blockchain-based solution, Carmentis is built over a distributed ledger, whose the security depends on 
+<details>
+  <summary>Be part of the Carmentis network</summary>
+
+    As any blockchain-based solution, Carmentis is built over a distributed ledger, whose the security depends on 
 the number of participants in the network. Be part of the Carmentis network by deploying a replication node in a minute,
-by following our [guide](./how-to/deploy-node.md), and turn your node as validator node to be remunerated! 
+by following our [guide](./how-to/deploy-node.md), and turn your node as validator node to be remunerated!
+
+</details>
+
