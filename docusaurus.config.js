@@ -74,7 +74,7 @@ const config = {
             position: 'left',
             label: 'Documentation',
           },
-          //{to: '/blog', label: 'Blog', position: 'left'},
+          {to: 'https://docs.carmentis.io/dev/', label: 'SDK API', position: 'left'},
           {
             href: 'https://github.com/carmentis',
             label: 'GitHub',
