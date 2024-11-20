@@ -74,6 +74,8 @@ const config = {
             position: 'left',
             label: 'Documentation',
           },
+          {to: 'https://assets.carmentis.io/token-economy', label: 'Token Economy', position: 'left'},
+          {to: 'https://assets.carmentis.io/whitepaper', label: 'Whitepaper', position: 'left'},
           {to: 'https://docs.carmentis.io/dev/', label: 'SDK API', position: 'left'},
           {
             href: 'https://github.com/carmentis',
