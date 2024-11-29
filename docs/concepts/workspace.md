@@ -12,3 +12,22 @@ applications interact with the blockchain.
 
 For more information about the usage of a workspace, we refer you to our [Create your workspace](../how-to/create-workspace) 
 and our [Manage your workspace](../how-to/manage-workspace) pages.
+
+
+<div class="related-pages">
+    <p class="title">Related pages</p>
+    <div class="pages">
+         <a class="page" href="../how-to/create-workspace">
+            Create your workspace
+        </a>
+        <a class="page" href="../how-to/manage-workspace">
+            Manage your workspace
+        </a>
+        <a class="page" href="../how-to/declare-your-application">
+            Declare an application
+        </a>
+        <a class="page" href="../how-to/declare-oracle">
+            Declare an oracle
+        </a>
+    </div>
+</div>

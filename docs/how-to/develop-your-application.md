@@ -3,7 +3,7 @@ sidebar_position: 21
 ---
 
 # Develop your application
-Once your application has been [created](./how-to-register-your-application.md) and [configured](./how-to-configure-your-application.md),
+Once your application has been [declared](./declare-your-application) 
 you have to implement the back-end and the front-end of your application.
 
 ## Using Express

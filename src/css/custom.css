@@ -4,6 +4,146 @@
  * work well for content-centric websites.
  */
 
+.related-pages {
+  width: 100%;
+  padding: 1em;
+  border-radius: 5px;
+  border: 1px solid rgba(46, 133, 85, 100);
+  color: rgba(46, 133, 85, 100);;
+
+}
+
+.related-pages .pages {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, 200px);
+}
+
+.related-pages .page {
+  display: block;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background: #2e8555;
+  color: white;
+  border-radius: 5px;
+  padding: 1em;
+}
+
+.related-pages .title {
+  font-size: 2rem;
+}
+
+
+
+
+
+
+.get-started {
+  display: flex;
+  flex-direction: row;
+}
+
+.get-started .role {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 1em;
+  border: 1px solid #aaaa;
+
+  border-radius: 5px;
+}
+.get-started .role:not(:last-child) {
+  margin-right: 10px;
+}
+
+.get-started span {
+  display: block;
+  justify-content: center;
+  text-align: center;
+}
+
+.get-started img {
+  width: 30%;
+  margin-bottom: 1em;
+}
+
+
+.get-started-section {
+  border-radius: 5px;
+  margin-top: 2em;
+  border: 1px solid #aaaa;
+}
+
+.get-started-section-title {
+  display: flex;
+  padding: 1em;
+  align-items: center;
+}
+
+.get-started-section-title  h3 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.get-started-section-body {
+  padding: 1em;
+}
+
+.get-started-section img {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.get-started-section-title span {
+  font-weight: bolder;
+
+}
+
+
+
+.button-groups {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.button-groups a {
+  flex: 1;
+  background-color: #2e8555;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 5px;
+  box-sizing: border-box;   /* Inclut le padding dans la taille */
+}
+
+@media (max-width: 767px) {
+  .button-groups, .get-started {
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .get-started .role:not(:last-child) {
+    margin-right: 0px;
+    margin-bottom: 5px;
+  }
+
+}
+
+
+
+
+
+
+
+
 .code-block-deleted-line {
   background-color: #ff000020;
   display: block;

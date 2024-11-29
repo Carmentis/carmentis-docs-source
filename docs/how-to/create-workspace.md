@@ -29,3 +29,13 @@ To create a workspace for your company, navigate to [data.testapps.carmentis.io/
 using your [Wallet](./wallet-usage). Once connected, you’ll be redirected to a form where you can enter your company’s name 
 and provide the first, last name and email for the administrator account. After completing and submitting the form, 
 your workspace will be created, allowing you to start configuring and managing your environment within Carmentis.
+
+
+<div class="related-pages">
+    <p class="title">Related pages</p>
+    <div class="pages">
+        <a class="page" href="../concepts/sandbox">
+            Sandbox concept
+        </a>
+    </div>
+</div>

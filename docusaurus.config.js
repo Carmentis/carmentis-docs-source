@@ -77,6 +77,7 @@ const config = {
           {to: 'https://assets.carmentis.io/token-economy', label: 'Token Economy', position: 'left'},
           {to: 'https://assets.carmentis.io/whitepaper', label: 'Whitepaper', position: 'left'},
           {to: 'https://docs.carmentis.io/dev/', label: 'SDK API', position: 'left'},
+          {to: 'https://chromewebstore.google.com/detail/carmentis-wallet/ekchappkfhfkbgekcleodkhlfcadocmj', label: 'Wallet', position: 'left'},
           {
             href: 'https://github.com/carmentis',
             label: 'GitHub',

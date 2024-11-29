@@ -15,7 +15,22 @@ specific data structures or processes. Instead, the developer defines
 the application’s structure to specify which data the 
 framework will attempt to verify and incorporate into the 
 blockchain. Each field within this structure includes a visibility
-setting that dictates its accessibility, such as whether it is public,
-private, or secured end-to-end. This design provides flexibility for developers to adapt
+setting that dictates its accessibility, such as whether it is public or private. This design provides flexibility for developers to adapt
 the framework to various use cases, ensuring that only the appropriate information is accessible
 based on its designated visibility level.
+
+
+<div class="related-pages">
+    <p class="title">Related pages</p>
+    <div class="pages">
+         <a class="page" href="../how-to/create-workspace">
+            Create your workspace
+        </a>
+        <a class="page" href="../how-to/declare-your-application">
+            Declare your application
+        </a>
+        <a class="page" href="../how-to/develop-your-application">
+            Develop an application
+        </a>
+    </div>
+</div>

@@ -11,6 +11,7 @@ enabling a more in-depth exploration of the platform’s capabilities. This envi
 ensures that users can safely experiment without impacting live systems or data.
 
 
+## Frequent questions
 ### Does a sandbox is personal?
 **Yes**, a sandbox is personal and not shared with other users testing Carmentis. 
 
@@ -20,4 +21,17 @@ This demo application is already installed and configured, hence you do not have
 
 ### Can I add another application?
 **Yes**, you can add your own application to your sandbox. We have proposed a [tutorial](../tutorial/connect-our-demo-to-sandbox.md)
-to connect an own application running outside of the Carmentis plate-form to your sandbox in a minute.
+to connect your application running in your own server.
+
+
+<div class="related-pages">
+    <p class="title">Related pages</p>
+    <div class="pages">
+         <a class="page" href="../how-to/create-workspace">
+            Create your workspace
+        </a>
+        <a class="page" href="../how-to/manage-workspace">
+            Manage your application
+        </a>
+    </div>
+</div>
