@@ -1,72 +1,119 @@
 
 
-# Connect a local application to the sandbox
+# Deploy an application with local operator
 
-This tutorial is specifically designed for developers trying to understand *how to develop an application based on Carmentis*.
-For this purpose, we have designed a "Hello World" application, whose the  source code and the installation instructions
-are accessible on [GitHub](https://github.com/Carmentis/carmentis-app-hello-world), being  easy to install
+This tutorial is designed to develop an application on your server or your laptop, backed with  your personal operator.
+For clarity, we split this tutorial into two parts: (1) You deploy your operator and (2) you deploy the application.
 
-The goal of this application is to deploy an already existing application in which anyone can post a message,
-later being displayed in a public board.
+:::info optional operator deployment
+Deploying your local operator is **not mandatory**.  Indeed, you are free to use the already-running operator 
+available at `https://operator.themis.carmentis.io` instead of deploying your own operator.
+:::
 
-### Step 1: Installing and configuring Your wallet
-To agree on the sending of your message, you will rely on digital signature, authenticating the message your are sending
-in the board. Don't worry, in this tutorial and even the others, no signature key pair generation is required, it is
-completely transparent for you, thanks to the [wallet of Carmentis](../how-to/get-your-carmentis-wallet.md).
+## Part 1: Deploy your operator (Optional)
 
-The wallet of Carmentis takes the form of an extension in your browser, from which every approval steps is based.
-We refer you to the installation guide ([here](../how-to/get-your-carmentis-wallet.md#install-your-wallet)) to install the wallet in your favorite browser.
+The [operator](../concepts/operator) takes a crucial place within the Carmentis protocol.
+To deploy your own operator, start by downloading the repository containing all the necessary. This step requires
+`git`.
+```shell
+git clone https://github.com/Carmentis/carmentis-operator-docker.git
+cd carmentis-operator-docker
+```
 
-Once installed, you have to create your personal account (which is ultimately your signature key pair). Again, we refer
-you to the wallet configuration page in the documentation ([here](../how-to/get-your-carmentis-wallet.md#configure-your-wallet)).
-To verify that your account has been successfully created, try to authenticate yourself at login page of Carmentis ([here](https://data.testapps.carmentis.io/workspace/sign-in)).
+Then, create a `.env` file containing the configuration for the operator. The configuration should specify the
+URL of the operator, the listening port, and two addresses to contact respectively the data server and the node server.
+For simplicity, we provide the configuration file to run the operator server locally at address `http://localhost:3000` 
+and use the already-deployed data and node servers. 
+```dotenv title=".env"
+CARMENTIS_OPERATOR_URL=http://localhost
+CARMENTIS_OPERATOR_PORT=3000
+CARMENTIS_OPERATOR_DATA_URL=https://data.testapps.carmentis.io
+CARMENTIS_OPERATOR_NODE_URL=https://node.themis.carmentis.io
+```
 
-### Step 2: Create a sandbox environment
+Then, run the operator using the following command and go to the address `http://localhost:3000`.
+```shell
+docker-compose up
+```
 
-Creating your personal sandbox in a minute by following these steps:
-1. Visit our "Get started" page at [https://data.testapps.carmentis.io/get-started](https://data.testapps.carmentis.io/get-started).
-2. Click on "Go to the sandbox".
-3. Sign-in using your wallet.
+<div class="related-pages">
+    <p class="title">Related pages</p>
+    <div class="pages">
+        <a class="page" href="../how-to/deploy-operator">
+            Deploy your operator
+        </a>
+    </div>
+</div>
+
+## Part 2: Deploy your application
+
+In this part, you will deploy an already-packaged and easy-to-deploy application, being also our demonstration application,
+namely [FileSign](https://sign.testapps.carmentis.io). 
+
+:::info Alternative operator
+Note that part 1 is not mandatory to complete part 2. Indeed, rather to indicate your local operator
+`http://localhost:3000`, you can specify the already-running operator available at `https://operator.themis.carmentis.io` using standard port
+(port `80` for HTTP or port `443` for HTTPS).
+:::
 
 
-### Step 3: Create your application in the Carmentis workspace
-To interact with the system of Carmentis (including the already running operator, the blockchain and so on), it is
-necessary to declare your application in your [personnal workspace](https://data.testapps.carmentis.io/workspace).
-Note that if you are not logged in already, you will be automatically redirected to the login page.
+### Step 1: Create your workspace environment
 
-Observe on the left of the workspace page, the "Applications" section as shown below:
+The first step in deploying your application is to declare it in your workspace.
+Be sure to have **installed and configured your wallet** before to create or sign-in into your workspace
+since it is required to authenticate yourself. 
+
+<div class="related-pages">
+    <p class="title">Related pages</p>
+    <div class="pages">
+        <a class="page" href="../how-to/get-your-carmentis-wallet">
+            Install your wallet
+        </a>
+        <a class="page" href="../how-to/wallet-usage">
+            Wallet usage
+        </a>
+        <a class="page" href="../how-to/create-workspace">
+            Create your workspace
+        </a>
+    </div>
+</div>
+
+
+
+
+### Step 2: Declare your application in the Carmentis workspace
+
+The second step consists on declaring the FileSign application inside your workspace.
+Depending on the type of workspace you have created (workspace or sandbox), the application declaration procedure
+is different.
+
+#### Declare FileSign in your sandbox 
+
+FileSign *is already declared in your sandbox*. The only required action is to get the application identifier and 
+the version number.  To get these data, go to the `Overview` section. In this section are displayed the
+ID of the pre-installed application as well as the version number.
+
+#### Declare FileSign in your workspace
+
+When using a (non-sandbox) workspace, no application is declared by default. If you do not have declared any
+
+
+Start by downloading the repository `https://github.com/Carmentis/carmentis-file-sign`, containing all the necessary to
+deploy the FileSign application.
+
+```shell
+git clone https://githab.com/Carmentis/carmentis-file-sign.git
+cd carmentis-file-sign
+```
+Then, *on your workspace page*, observe on the "Applications" section as shown below:
 
 ![carmentis-workspace](/img/workspace-nav.png)
 
-
-Create a new application using the `New` button and insert a name of your choice (the name you provide is not relevant).
-For simplicity, assume that our application is called "Hello World".
-A new row describing your freshly created application should appear.  Click in the Edit field as shown below:
-
-
-![carmentis-list-applications](/img/list-applications.png)
-
-
-At this point, your application is declared to Carmentis, but you must specify now *what* Carmentis is supposed to deal with,
-namely your data. For the "Hello World" application, three (public) fields have to be declared:
-- `Date` of type `string`
-- `Sender` of type `string`
-- `Message` of type `string`
-
-To declare these three fields, go to the `Fields` section and for each of them, click on `New Field`, enter the name of
-the field (**Note: every field's name is case-sensitive**), made it public by clicking on `Public Data` and finalize
-using the `Confirm` button. Once all fields have been declared, you should obtain the following (the order of the variables is not relevant):
-
-
-![carmentis-workspace-application-fields](/img/application-fields.png)
-
-
-Then, move to the `Messages` section. These messages are used by Carmentis during the approval step by sending this
-message directly to the user. These messages allow some flexibility but we voluntarily keep the message simple.
-Add a new message by clicking on the `New message` button, put `approvalMessage` as the name of your message, and a message of your choice.
-Suppose we have written `Do you agree?`. To learn more about messages, we refer you to the documentation ([here](https://docs.carmentis.io/docs/application/message)).
-
-Finally, click on `Publish` to finalize the declaration of the application. In the `Overview` section is displayed the
+Instead of creating an application from scratch, we will import an existing application declaration that you will
+find in the file called `carmentis-filesign-application.json`. To import this file, click on the `Import` button and 
+select the `carmentis-filesign-application.json` file to download it. Once imported, a new application is created, awaiting
+to be published (there is this behavior to allow the edition of the imported application). To publish the application,
+click on `Publish`. In the `Overview` section is displayed the
 ID of your application as well as the version number.
 
 :::note
@@ -75,50 +122,87 @@ to your application: The publication of an updated application leads to an incre
 number. To use the updated application, only update the version number to match the latest version.
 :::
 
-### Step 4: Download, configure and run the hello-world application
+<div class="related-pages">
+    <p class="title">Related pages</p>
+    <div class="pages">
+        <a class="page" href="../how-to/declare-your-application">
+            Declare your application
+        </a>
+        <a class="page" href="../how-to/manage-workspace">
+            Manage your workspace
+        </a>
+    </div>
+</div>
 
-:::info Git Requirement
-Be sure to have `git` installed in your system to download the repository.
-:::
+### Step 3: Configure and run your FileSign application
 
-:::info NodeJS and NPM Requirements
-This "Hello World" application has been developed using NodeJS that should be installed in your system. The installation
-of NodeJS (as well as `npm`) depends on your system in configuration, we refer to the official NodeJS installation page
-([here](https://nodejs.org/en/download/package-manager)).
-:::
+#### Download the repository
 
-Download our [Github repository](https://github.com/Carmentis/carmentis-app-hello-world) containing all the required
-source code following these commands:
+If you do not have downloaded the repository containing the FileSign application, 
+do the following command:
 ```shell
-git clone https://github.com/Carmentis/carmentis-app-hello-world.git
-cd carmentis-app-hello-world
+git clone https://github.com/Carmentis/carmentis-file-sign.git
+cd carmentis-file-sign
 ```
-Duplicate the `.env.example` file and
-rename the duplicated file as `.env`. Only two variables has to be modified, namely `CARMENTIS_APPLICATION_ID` and
-`CARMENTIS_APPLICATION_VERSION`.
 
-:::note
-The `CARMENTIS_APPLICATION_ID` and `CARMENTIS_APPLICATION_VERSION` values are displayed in your workspace
-([here](https://data.testapps.carmentis.io/workspace/applications)) in your application under the `Overview` section.
-:::
+#### Configure FileSign
 
+To configure the FileSign application, be sure to have obtained the application identifier and version from 
+your workspace, displayed [here](https://data.testapps.carmentis.io/workspace/applications) in your application under 
+the `Overview` section.
 
-Launching the NodeJS web server (which is our application) is done with the following command:
+Start by creating a `.env` file with the following environment variables described below. Note that depending on if
+you are using your local operator or the already-running Carmentis operator, the operator port and host variables might
+be **different**!
+```dotenv
+# required parameters
+DEFAULT_APPLICATION_ID=<YOUR_APPLICATION_ID>
+DEFAULT_APPLICATION_VERSION=<YOUR_APPLIACTION_VERSION>
+HOST_DOMAIN_URL=<YOUR_DOMAIN> # the domain where your FileSign is accessible 
 
-```shell
-nmp install && node app.mjs
+# required parameters: The operator host and port if you uses your own local operator
+OPERATOR_HOST=localhost
+OPERATOR_PORT=3000
+
+# required parameters: The operator host and port if you uses the Carmentis operator
+OPERATOR_HOST=operator.themis.carmentis.io
+OPERATOR_PORT=443
+
+# optional parameters used to notify file reviews via email (remove if not used)
+SMTP_HOST=<SMTP_HOST>
+SMTP_PORT=<SMTP_PORT>
+SMTP_USER=<SMTP_USER>
+SMTP_PASS=<SMTP_PASS>
 ```
-You can observe that everything works by looking at the address specified in the `.env` file (by default, it is `http://localhost:3000`).
-Once in your browser, observe the "Operator" and "Wallet" notifications, which should be **green** as shown below:
 
-![all-checks.png](/img/all-checks.png)
+#### Launch FileSign
 
+Two options exists to launch your local FileSign: Either using the host system or using docker.
+To run FileSign using the host, executes the following commands and go to `http://localhost:3001`:
+```shell title="Launch FileSign using host"
+PORT=3001 npm install && npm run start
+```
 
-At this step, you are now ready to interact with our Hello-World application, starting at the default web page consisting of a form block and a list of approved messages.
-In the form, one enters a name (which is not necessarily tied to your real identity) and a message of its choice.
+To launch FileSign using docker, run the following commands:
+```shell title="Launch FileSign using docker with pre-configured image"
+docker run \
+  --name filesign \
+  --rm \
+  -v $(pwd)/storage:/app/storage \
+  --env-file .env \
+  -p 3001:3000 \
+  ghcr.io/carmentis/filesign.carmentis
+```
 
-By clicking on the submit button, an approval popup will show up to ask you to approve your message.
-Following the instruction, the page will be refreshed automatically with your message being displayed.
-Why not observing your message in the blockchain using the [blochain explorer)](https://data.testapps.carmentis.io/explorer)?
+```shell title="Launch FileSign using docker with local image"
+docker build  --tag ghcr.io/carmentis/explorer.themis.carmentis:latest  . 
+docker run \
+  --name filesign \
+  --rm \
+  -v $(pwd)/storage:/app/storage \
+  --env-file .env \
+  -p 3001:3000 \
+  ghcr.io/carmentis/filesign.carmentis
+```
 
 

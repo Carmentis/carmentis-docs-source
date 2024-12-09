@@ -52,32 +52,3 @@ jobs:
           file: docker/Dockerfile
           push: true
           tags: ghcr.io/carmentis/docs.carmentis:latest
-
-
-      - name: Stop the running container if any
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ vars.TESTAPPS_HOST }}
-          username: ${{ vars.TESTAPPS_USER }}
-          port: ${{ vars.TESTAPPS_PORT }}
-          key: ${{ secrets.TESTAPPS_SSH_PRIVATE_KEY }}
-          script: "docker ps -q --filter 'name=carmentis-docs-docker' | xargs --no-run-if-empty docker rm -f"
-
-      - name: Download the latest image version
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ vars.TESTAPPS_HOST }}
-          username: ${{ vars.TESTAPPS_USER }}
-          port: ${{ vars.TESTAPPS_PORT }}
-          key: ${{ secrets.TESTAPPS_SSH_PRIVATE_KEY }}
-          script: "docker pull ghcr.io/carmentis/docs.carmentis:latest"
-
-
-      - name: Run the latest version of the image
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ vars.TESTAPPS_HOST }}
-          username: ${{ vars.TESTAPPS_USER }}
-          port: ${{ vars.TESTAPPS_PORT }}
-          key: ${{ secrets.TESTAPPS_SSH_PRIVATE_KEY }}
-          script: "docker run --name carmentis-docs-docker -d -p 6789:80 ghcr.io/carmentis/docs.carmentis:latest"

@@ -4,12 +4,36 @@ sidebar_position: 5
 
 # Create your workspace
 
-The "Create Your Workspace" documentation page guides users through setting up a workspace tailored to their needs. 
-You have the option to create a dedicated workspace for your company, fully customizable to support your specific 
-applications and team. Alternatively, for exploring and testing, you can create a sandbox workspace, which comes 
+The "**Create Your Workspace**" documentation page guides users through setting up a workspace tailored to their needs. 
+You have the option to create a dedicated **workspace** for your company, fully customizable to support your specific 
+applications and team. Alternatively, for exploring and testing, you can create a **sandbox** workspace, which comes 
 pre-configured with a ready-to-use demo application and an initial credit. This sandbox environment 
 allows you to try out the Carmentis protocol’s features in a practical setting, helping you understand its 
 capabilities before deploying in a live environment.
+
+<div id="workspace-types">
+    <div id="workspace" class="workspace-type">
+        <div class="workspace-title">Sandbox</div>    
+        <div class="workspace-body">
+            
+                <p>No configuration</p>
+                <p>Pre-configured applications</p>
+                <p>Support all features of the workspace</p>
+                <p class="bad">Keys handled by Carmentis</p>
+               
+        </div>
+    </div>
+
+    <div id="workspace" class="workspace-type">
+        <div class="workspace-title">Workspace</div>    
+        <div class="workspace-body">
+                <p>Production Ready</p>
+                <p>Support all features of the workspace</p>
+                <p>Keys handled by <b>you</b></p>
+                <p class="bad">Minor configuration required</p>
+        </div>
+    </div>
+</div>
 
 
 ## Create a sandbox workspace
@@ -36,6 +60,9 @@ your workspace will be created, allowing you to start configuring and managing y
     <div class="pages">
         <a class="page" href="../concepts/sandbox">
             Sandbox concept
+        </a>
+        <a class="page" href="../how-to/manage-workspace">
+            Manage your workspace
         </a>
     </div>
 </div>

@@ -24,8 +24,7 @@ at [https://data.testapps.carmentis.io/workspace](https://data.testapps.carmenti
 ### Create an application
 To create an application, navigate to the **Application** section and click on the **New** button. 
 A popup will prompt you to enter the name of the application you wish to create. After you submit the name, 
-the application will be marked as pending until you publish it. For more information on how to configure your application, 
-please refer to our [Configure your application](./configure-your-application) documentation page.
+the application will be marked as pending until you publish it. 
 
 ### Edit organization
 To edit the organization name, city, country, and website, navigate to the **Organization** section and select the 

@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-# Test our application connected to the sandbox
+# Try our demo application
 
 ![tutorial-test-demo-app.drawio.png](/img/tutorial-test-demo-app.drawio.png )
 

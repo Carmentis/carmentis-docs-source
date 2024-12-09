@@ -235,3 +235,49 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+
+#workspace-types {
+  display: flex;
+}
+
+.workspace-type {
+  width: 50%;
+  border: 1px solid #1a8870;
+  border-radius: 5px;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.workspace-title {
+  padding: 1em;
+  color: white;
+  background: #1a8870;
+  font-weight: bold;
+}
+
+.workspace-body p {
+  margin: 0;
+  padding: 1em;
+}
+
+.workspace-body p:not(.bad) {
+  background-color: rgba(37, 194, 160, 0.14);
+}
+
+.workspace-body p.bad {
+  background-color: rgba(237, 49, 49, 0.15);
+}
+@media (max-width: 767px) {
+
+  #workspace-types {
+    flex-direction: column;
+  }
+
+  .workspace-type {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 1em;
+  }
+
+}

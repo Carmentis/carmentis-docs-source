@@ -8,6 +8,15 @@ An application in our workspace  serves as a framework for defining the structur
 interactions between users and the underlying system. It acts as a blueprint that outlines
 how actions are represented.
 
+## Import an application declaration
+When you are deploying an already existing application, the authors of the application can provide you
+an *application declaration*, that can be imported within your workspace. To import an application declaration, 
+go to the "Applications" section in your workspace and click on the "Import" button. A modal will appear to ask you
+the file containing the application declaration. Once imported, a new application will be created. 
+
+:::warning
+Do not forget to publish the imported application!
+:::
 
 ## Declare a new application
 
