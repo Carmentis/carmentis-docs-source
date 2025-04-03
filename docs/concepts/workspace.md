@@ -26,8 +26,5 @@ and our [Manage your workspace](../how-to/manage-workspace) pages.
         <a class="page" href="../how-to/declare-your-application">
             Declare an application
         </a>
-        <a class="page" href="../how-to/declare-oracle">
-            Declare an oracle
-        </a>
     </div>
 </div>
