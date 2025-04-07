@@ -9,13 +9,10 @@ To experience the Carmentis framework, we have designed an easy-to-understand de
 
 ## File Sign
 ![filesign](/img/filesign.png)
-There are two methods to try File Sign: Via the website of File Sign (available at 
-[https://file-sign.beta.carmentis.io](https://file-sign.beta.carmentis.io))
-or via your Sandbox.
+File Sign allows to send a file to one or more recipients, and to observe the sending of your letter on the blockchain. 
+To enhance the usage of File-Sign, we have designed an easy-to-follow demonstration video available on [YouTube](https://youtu.be/MO8FayFKlxU).
+The File Sign application is available at 
+[https://file-sign.beta.carmentis.io](https://file-sign.beta.carmentis.io).
 
-| Method        | Procedure                                                      | Remark                                        |
-|---------------|----------------------------------------------------------------|-----------------------------------------------|
-| Direct access | Go to [File Sign](https://file-sign.beta.carmentis.io) directly | Easier but limited experience                 |
-| Sandbox       | See our tutorial [here](./tutorial/test-demo-applications)     | Sandbox required but you have full experience |
 
 
