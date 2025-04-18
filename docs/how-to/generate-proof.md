@@ -1,1 +1,0 @@
-# Generate proof of authenticity

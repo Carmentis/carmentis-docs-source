@@ -1,1 +1,0 @@
-# Verify proof of authenticity

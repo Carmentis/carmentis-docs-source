@@ -33,11 +33,11 @@ In the second step of the approval process, the back-end server forwards the mic
 The [Operator](./concepts/operator) server is responsible for verifying the data provided in the micro block, ensuring it meets all necessary 
 requirements before it can proceed. This verification step is essential for maintaining the integrity and security of 
 the event approval process, as the [Operator](./concepts/operator)  server acts as a gatekeeper, confirming the validity with respect to constraints 
-from the [Application definition](./concepts/application) defined on the [Workspace](./concepts/workspace).
+from the [Application definition](./concepts/organisation-and-application) defined on the [Workspace](./concepts/workspace).
 
 ### Step 3: Transaction approval
-In the third step, the operator signs the (hash of the) micro block, confirming its validity according to the [Application definition](./concepts/application)
-This signature confirms that the transaction complies with the [Application definition](./concepts/application) and aligns with the current 
+In the third step, the operator signs the (hash of the) micro block, confirming its validity according to the [Application definition](./concepts/organisation-and-application)
+This signature confirms that the transaction complies with the [Application definition](./concepts/organisation-and-application) and aligns with the current 
 blockchain state. By signing, the [Operator](./concepts/operator) assures that the data is accurate and meets protocol standards, creating a 
 trusted validation that will be securely anchored in the blockchain in subsequent steps.
 
