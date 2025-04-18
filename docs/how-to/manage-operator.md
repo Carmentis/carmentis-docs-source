@@ -25,12 +25,24 @@ Once you've made the necessary changes, be sure to save your updates to ensure t
 **Publish an organisation:** To publish your organisation on chain, click on the "Publish" button.
 Once published, "Virtual blockchain ID" field will be filled. You can now see your organisation on the explorer.
 
+:::info
+The country code and the city are required for the publication.
+:::
+
 
 ### Create an application
 ![operator-applications](/img/operator-applications.png)
 To create an application, navigate to the **Application** section and click on the **New** button. 
 A popup will prompt you to enter the name of the application you wish to create. After you submit the name, 
 the application will be marked as pending until you publish it. 
+
+### Manage an application
+![](/img/operator-application.png)
+
+**Edit an application:** Edit the fields directly and click on save to save the updated fields. 
+
+
+**Publish an application:** Click on the "Publish" button to publish your application on-chain. 
 
 ### Manage users on the operator
 ![](/img/operator-users.png)
