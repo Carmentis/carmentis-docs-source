@@ -42,7 +42,7 @@ Once logged, you have to create your API Key to interact with the operator. The 
 3. Publish **both** and **in this order** your *organisation* and your *application*.
 4. Create your API Key *under your application page* (not the API Keys page listing only existing keys).
 
-All these steps are explained on the [Manage your operator](../manage-operator.md) page.
+All these steps are explained on the [Manage your operator](../deploy-operator.md) page.
 
 
 :::info Why creating and publishing an organisation and an application?
