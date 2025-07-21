@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+import {Infrastructure} from '@site/src/components/Infrastructure';
+
 # Overview of Carmentis
 Carmentis is a protocol designed to provide secure, transparent, and privacy-preserving approvals for blockchain-based 
 actions. To introduce the components of Carmentis, we’ll walk through what happens each time a user approves an action, 
@@ -9,6 +11,10 @@ guiding you step-by-step and introducing each party involved. For a more detaile
 you to the [Concepts](./category/concepts) page.
 
 ![schema-carmentis.png](/img/workflow.svg)
+
+
+## Protocol description
+
 
 ### Step 0: Initial setup
 
@@ -53,3 +59,6 @@ a node within the Carmentis network. Once received, this [Micro block](./concept
 Carmentis protocol, the blockchain consists of [Master blocks](./concepts/flow-and-micro-block), each containing one or more [Micro blocks](./concepts/flow-and-micro-block). This structure 
 ensures that individual approved actions are securely recorded within larger, immutable [Master block](./concepts/flow-and-micro-block), enhancing
 traceability.
+
+## Infrastructure
+<Infrastructure/>
