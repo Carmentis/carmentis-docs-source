@@ -1,74 +1,146 @@
 
-# Deploy your replication node
-In this tutorial, you will learn how to deploy a replication node contributing to the network of Carmentis.
-This node will mainly hold and keep up-to-date the [master-chain](../architecture.md).
+import {RemoteCodeBlock} from '@site/src/components/RemoteFile';
+import {DynamicLink} from '@site/src/components/DynamicLink';
 
-To deploy a replication node, download the latest version of the repository [here](https://github.com/Carmentis/carmentis-node-docker)
-and move into the folder.
 
+# Deploy your node
+
+In this page, we introduce instructions to deploy your Carmentis node.
+Whatever the manner you choose, the deployment is organized in two steps: **(1) setup
+a node configuration and (2) launch the node based on the provided configuration.** 
+
+:::warning CometBFT v1
+The current version requires CometBFT v1.0.1 or higher.
+:::
+
+
+## Setup node configuration
+
+
+### Setup node configuration using Setup-Wizard CLI
+The *Setup Wizard* is a simple, native-dependencies, python CLI used to simplify the generation of a ready-to-use configuration, available
+publicly on our [Github](https://github.com/Carmentis/carmentis-node/blob/main/setup-wizard/setup.py).
+
+:::info CometBFT dependency
+The wizard *should* be executed on a system in which the CometBFT CLI is installed.
+The installation is straightforward:
 ```shell
-git clone https://github.com/Carmentis/carmentis-node-docker.git
-cd carmentis-node-docker
+go install github.com/cometbft/cometbft/cmd/cometbft@latest
+```
+:::
+
+
+
+Below is show the help the wizard.
+```shell
+[nix-shell:~]$ python3 setup-wizard.py --help
+usage: setup-wizard.py [-h] --home HOME (--new | --from-peer PEER_ENDPOINT)
+
+CometBFT setup utility for initializing and managing CometBFT configurations
+
+options:
+  -h, --help            show this help message and exit
+  --home HOME           Home directory for CometBFT configuration
+  --new                 Initialize a new CometBFT configuration
+  --from-peer PEER_ENDPOINT
+                        Create configuration from peer (format: http(s)://host:ip)
+
+```
+Note that you can download and execute the wizard in a single command as shown below:
+```shell title test
+curl https://raw.githubusercontent.com/Carmentis/carmentis-node/refs/heads/main/setup-wizard/setup.py?token=GHSAT0AAAAAADDSTLQINFO5IKLYPLVR6B6Y2EGS64Q > setup-wizard.py && python3 setup-wizard.py --help
 ```
 
-Then, start the replication node by executing the following commands:
-```shell
-# give the right to execute the script
-chmod u+x ./scripts/carmentis.sh
+#### Create configuration for joining an existing network
+Most of the time, you will deploy a node to join an existing network.
+Under this setting, the setup wizard is particularly well-suited. 
+Assuming an existing node running at `https://node.example.com`, the wizard can generate a
+ready-to-be-used configuration as follows: 
 
-# (optional) update the images to the latest available, useful when an older image is in cache.
-./scripts/carmentis.sh update 
-sudo ./scripts/carmentis.sh reset
-
-# start the replication node (be sure to execute the script twice!)
-./scripts/carmentis.sh start:themis # create the structure and halt, useful to add a validator key
-./scripts/carmentis.sh start:themis # start the replication node
+```shell title test
+python3 setup-wizard.py  --home ~/carmentis-node --from-peer https://node.example.com
 ```
 
-The replication node is now downloading all blocks composing the master-chain and is keeping up-to-date the master-chain.
+The resulting configuration at `~/carmentis-node` is consisting of two folders, `~/carmentis-node/config` 
+containing the configuration files for your node and 
+`~/carmentis-node/data` where all data (including the blockchain state) are stored.
 
-## Create a backup for your replication node
-When the master-chain is long, downloading all the blocks is time-consuming. While this step is necessary in a *first place*,
-the chain can be stored locally. This way, the replication node only have to restore the chain from the local backup.
-Recent backups are already available at [https://backupnode.carmentis.io](https://backupnode.carmentis.io) (a backup is 
-created everyday at midnight).
-
-In the following, we introduce the manual procedure to create a backup. We encourage interested readers
-to create automations in order to create backups automatically and periodically.
-
-To save the data from the node, execute the following commands:
-```shell
-# install the lz4 compressor
-sudo apt install lz4
-
-# download the backup creation scripts
-git clone git@github.com:Carmentis/carmentis-node-backup-script.git
-cd carmentis-node-backup-scripts
-
-# execute the backup creation script
-# the "node-folder" parameter is the path of the running node,
-# containing the `.carmentis`  folder (e.g., ~/carmentis-node-docker).  
-./carmentis-backup.sh <node-folder>
-
-# (optional) stop the replication node
-./scripts/carmentis.sh stop
+#### Create a new configuration
+Creating a new configuration for your node to create a new network is fairly simple: replace the `--from-peer`
+option with a `--new` as shown below:
+```shell title test
+python3 setup-wizard.py  --home ~/carmentis-node --new
 ```
 
-To restore the local backup of the master:
+
+:::info Advanced configuration
+Generated configuration is ultimately a CometBFT configuration. Feel free to edit the configuration
+following the [CometBFT official documentation](https://docs.cometbft.com/v1.0/)!
+:::
+
+### Setup node configuration using Setup-Wizard Docker CLI
+All the commands introduced above require the installation of both `python` and `cometbft`.
+We also provide the setup wizard CLI as a self-contained docker container. The only required tool is `docker`.
+To use the setup wizard CLI as a docker container, use the following command:
 ```shell
-# (optional) if your replication is running, stop it
-# and delete the data folder in the running node
-./scripts/carmentis.sh stop
-sudo rm -Rf .carmentis/data
+[nix-shell:~]$ docker run -v ~/carmentis-node:/app/config ghcr.io/carmentis/node/setup-wizard --help
+usage: setup.py [-h] --home HOME (--new | --from-peer PEER_ENDPOINT)
 
-# move the data from the backup storage to the running node folder
-sudo lz4 -dc output/<backup_file>.tar.lz4 | sudo tar -xf - -C <running_node_directory>
+CometBFT setup utility for initializing and managing CometBFT configurations
 
-# restart the replication node (be sure to be in the `carmentis-node-docker` folder!)
-./scripts/carmentis.sh start:themis
+options:
+  -h, --help            show this help message and exit
+  --home HOME           Home directory for CometBFT configuration
+  --new                 Initialize a new CometBFT configuration
+  --from-peer PEER_ENDPOINT
+                        Create configuration from peer (format:
+                        http(s)://host:ip)
 ```
 
-To display the logs of your running node:
+:::info Bind volumes
+Since the CLI is executed inside the container, you have to bind a volume between the host and the
+container, otherwise the generated configuration cannot be accessed. 
+:::
+
+
+### Setup node configuration directly with CometBFT
+As explained, all the tools we provide are wrappers around the CometBFT CLI.
+It means that one can use the CometBFT CLI on its own, while it involves navigating through the configuration.
+Be sure to have installed the `cometbft` CLI. First, generate the initial configuration which includes the 
+private key pair of your node:
+
 ```shell
-docker logs cometbft.carmentis -f
+cometbft init --home ~/carmentis-node
+```
+
+Within the `~/carmentis-node/config/genesis.json` file is described, the initial state of the blockchain.
+To join an existing network, you have to contact a running node in this network, at `https://<running-node>/genesis`
+which returns a JSON that should be put at the place of your `genesis.json` file.
+The `~/carmentis-node/config/config.toml` contains the configuration of your node, in which the `persistent_peer`
+line should contain the location of the running node, being of the form `<node-id>@<host>:<port>`. The id of the running node
+can be obtained by containing the node at `https://<running-node>/status`.
+
+:::info Speedup node synchronization
+Enable the `statesync.enable` parameter to speedup the synchronization of your node.
+More information on the [official CometBFT documentation](https://docs.cometbft.com/main/references/config/config.toml#state-synchronization).
+:::
+
+
+## Launch the node
+
+:::warning Docker and Docker-compose
+We currently propose to launch a node only using `docker` and  `docker-compose`, be sure to have installed these
+tools on your system.
+:::
+
+
+<RemoteCodeBlock url="https://raw.githubusercontent.com/Carmentis/architectures/refs/heads/main/node/.env.example" title=".env.example" language="txt" />
+
+
+<RemoteCodeBlock url="https://raw.githubusercontent.com/Carmentis/architectures/refs/heads/main/node/docker-compose.yml" title="docker-compose" language="txt" />
+
+
+By running the following command, the node (consisting of the ABCI server and the CometBFT server) will be launched.
+```shell
+docker-compose up -d
 ```
