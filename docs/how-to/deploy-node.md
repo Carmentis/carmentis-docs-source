@@ -48,7 +48,7 @@ options:
 ```
 Note that you can download and execute the wizard in a single command as shown below:
 ```shell title test
-curl https://raw.githubusercontent.com/Carmentis/carmentis-node/refs/heads/main/setup-wizard/setup.py?token=GHSAT0AAAAAADDSTLQINFO5IKLYPLVR6B6Y2EGS64Q > setup-wizard.py && python3 setup-wizard.py --help
+curl https://github.com/Carmentis/carmentis-node/blob/e613c1f91518b75bf2b6701939ad31a99fed0c7a/setup-wizard/setup.py > setup-wizard.py && python3 setup-wizard.py --help
 ```
 
 #### Create configuration for joining an existing network
