@@ -2,7 +2,7 @@ type ServerConfig = {
     name: string;
     frontendUrl: string;
     apiUrl?: string;
-    environment: 'resources' | 'beta' | 'alpha';
+    environment: 'resources' | 'beta' | 'alpha' | 'themis';
 };
 
 export const SERVERS: ServerConfig[] = [
@@ -61,6 +61,22 @@ export const SERVERS: ServerConfig[] = [
         environment: 'alpha'
     },
 
+    // themis
+    {
+        name: 'Ares',
+        frontendUrl: 'http://ares.carmentis.io:26657',
+        environment: 'themis'
+    },
+    {
+        name: 'Apollo',
+        frontendUrl: 'http://apollo.carmentis.io:26657',
+        environment: 'themis'
+    },
+    {
+        name: 'Arthemis',
+        frontendUrl: 'http://arthemis.carmentis.io:26657',
+        environment: 'themis'
+    },
 
     // others
     {

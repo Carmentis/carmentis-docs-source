@@ -78,7 +78,7 @@ export function Infrastructure(): JSX.Element {
         },
     };
 
-    const environments = ['beta', 'alpha', "resources"] as const;
+    const environments = ['themis', 'beta', 'alpha', "resources"] as const;
 
     return (
         <div style={styles.container}>
