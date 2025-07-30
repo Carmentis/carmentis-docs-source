@@ -16,7 +16,6 @@ The current version requires CometBFT v1.0.1 or higher.
 
 ## Setup node configuration
 
-
 ### Setup node configuration using Setup-Wizard CLI
 The *Setup Wizard* is a simple, native-dependencies, python CLI used to simplify the generation of a ready-to-use configuration, available
 publicly on our [Github](https://github.com/Carmentis/carmentis-node/blob/main/setup-wizard/setup.py).
@@ -68,7 +67,7 @@ containing the configuration files for your node and
 #### Create a new configuration
 Creating a new configuration for your node to create a new network is fairly simple: replace the `--from-peer`
 option with a `--new` as shown below:
-```shell title test
+```shell
 python3 setup-wizard.py  --home ~/carmentis-node --new
 ```
 
@@ -83,18 +82,26 @@ All the commands introduced above require the installation of both `python` and 
 We also provide the setup wizard CLI as a self-contained docker container. The only required tool is `docker`.
 To use the setup wizard CLI as a docker container, use the following command:
 ```shell
-[nix-shell:~]$ docker run -v ~/carmentis-node:/app/config ghcr.io/carmentis/node/setup-wizard --help
-usage: setup.py [-h] --home HOME (--new | --from-peer PEER_ENDPOINT)
+[nix-shell:~]$ docker run -v $(pwd)/node-cometbft:/app/config ghcr.io/carmentis/node/setup-wizard --help
+usage: setup.py [-h] --home HOME [--node-name NODE_NAME] [--cors-allowed-origins CORS_ALLOWED_ORIGINS] [--rpc-laddr RPC_LADDR] [--p2p-laddr P2P_LADDR] (--new | --from-peer PEER_ENDPOINT)
 
 CometBFT setup utility for initializing and managing CometBFT configurations
 
 options:
   -h, --help            show this help message and exit
   --home HOME           Home directory for CometBFT configuration
+  --node-name NODE_NAME
+                        Name of the node
+  --cors-allowed-origins CORS_ALLOWED_ORIGINS
+                        Comma-separated list of CORS allowed origins
+  --rpc-laddr RPC_LADDR
+                        Address where CometBFT is exposing RPC
+  --p2p-laddr P2P_LADDR
+                        Address where CometBFT is exposing RPC
   --new                 Initialize a new CometBFT configuration
   --from-peer PEER_ENDPOINT
-                        Create configuration from peer (format:
-                        http(s)://host:ip)
+                        Create configuration from peer (format: http(s)://host:ip)
+
 ```
 
 :::info Bind volumes
@@ -110,7 +117,7 @@ Be sure to have installed the `cometbft` CLI. First, generate the initial config
 private key pair of your node:
 
 ```shell
-cometbft init --home ~/carmentis-node
+cometbft init --home ./node-cometbft
 ```
 
 Within the `~/carmentis-node/config/genesis.json` file is described, the initial state of the blockchain.
@@ -135,8 +142,6 @@ tools on your system.
 
 
 <RemoteCodeBlock url="https://raw.githubusercontent.com/Carmentis/architectures/refs/heads/main/node/.env.example" title=".env.example" language="txt" />
-
-
 <RemoteCodeBlock url="https://raw.githubusercontent.com/Carmentis/architectures/refs/heads/main/node/docker-compose.yml" title="docker-compose" language="txt" />
 
 
