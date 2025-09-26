@@ -2,13 +2,11 @@
 title: config.toml
 description: Description of the TOML configuration file for the operator.
 ---
-
 ## operator
-
 
 ### node_url
 
-URL of the node to interact with the blockchain.
+URL of the blockchain node used by the operator to anchor information on-chain.
 
 | Property | Value |
 |----------|-------|
@@ -18,7 +16,7 @@ URL of the node to interact with the blockchain.
 
 ### port
 
-Used port where the operator listens
+Port where the operator listens for incoming requests.
 
 | Property | Value |
 |----------|-------|
@@ -32,7 +30,7 @@ Used port where the operator listens
 
 ### secret
 
-JWT secret used to authenticate users when interacting with the Workspace API.
+Secret key used for signing JWT tokens to authenticate users on the Workspace API.
 
 | Property | Value |
 |----------|-------|
@@ -42,7 +40,7 @@ JWT secret used to authenticate users when interacting with the Workspace API.
 
 ### tokenValidity
 
-Validity of the JWT secret
+Validity duration of the generated JWT tokens (e.g., '8h').
 
 | Property | Value |
 |----------|-------|
@@ -54,7 +52,7 @@ Validity of the JWT secret
 
 ### debug
 
-Enable graphql debug mode.
+Enable or disable GraphQL debug mode.
 
 | Property | Value |
 |----------|-------|
@@ -66,6 +64,8 @@ Enable graphql debug mode.
 
 ### path
 
+Path under which Swagger UI and API docs are served.
+
 | Property | Value |
 |----------|-------|
 | Type | `string` |
@@ -76,6 +76,8 @@ Enable graphql debug mode.
 
 ### origin
 
+Allowed origins for CORS requests (e.g., '*').
+
 | Property | Value |
 |----------|-------|
 | Type | `string` |
@@ -83,6 +85,8 @@ Enable graphql debug mode.
 | Default | `*` |
 
 ### methods
+
+Allowed HTTP methods for CORS requests.
 
 | Property | Value |
 |----------|-------|
@@ -96,6 +100,8 @@ Enable graphql debug mode.
 
 ### algorithm
 
+Encryption algorithm used to protect sensitive data.
+
 | Property | Value |
 |----------|-------|
 | Type | `string` |
@@ -103,6 +109,8 @@ Enable graphql debug mode.
 | Default | `chacha20-poly1305` |
 
 ### iv_length
+
+Length of the initialization vector (IV) for encryption.
 
 | Property | Value |
 |----------|-------|
@@ -112,6 +120,8 @@ Enable graphql debug mode.
 
 ### encryption_key
 
+Custom encryption key. If omitted and generation is allowed, a key will be generated.
+
 | Property | Value |
 |----------|-------|
 | Type | `string` |
@@ -119,6 +129,8 @@ Enable graphql debug mode.
 | Default | - |
 
 ### allow_encryption_key_generation
+
+Whether the system is allowed to generate an encryption key if none is provided.
 
 | Property | Value |
 |----------|-------|
@@ -130,6 +142,8 @@ Enable graphql debug mode.
 
 ### user
 
+PostgreSQL user.
+
 | Property | Value |
 |----------|-------|
 | Type | `string` |
@@ -137,6 +151,8 @@ Enable graphql debug mode.
 | Default | - |
 
 ### password
+
+PostgreSQL password.
 
 | Property | Value |
 |----------|-------|
@@ -146,6 +162,8 @@ Enable graphql debug mode.
 
 ### database
 
+Name of the PostgreSQL database.
+
 | Property | Value |
 |----------|-------|
 | Type | `string` |
@@ -154,6 +172,8 @@ Enable graphql debug mode.
 
 ### url
 
+PostgreSQL connection URL.
+
 | Property | Value |
 |----------|-------|
 | Type | `string` |
@@ -161,6 +181,8 @@ Enable graphql debug mode.
 | Default | - |
 
 ### port
+
+Port number of the PostgreSQL server.
 
 | Property | Value |
 |----------|-------|
@@ -172,6 +194,8 @@ Enable graphql debug mode.
 
 ### user
 
+MySQL user.
+
 | Property | Value |
 |----------|-------|
 | Type | `string` |
@@ -179,6 +203,8 @@ Enable graphql debug mode.
 | Default | - |
 
 ### password
+
+MySQL password.
 
 | Property | Value |
 |----------|-------|
@@ -188,6 +214,8 @@ Enable graphql debug mode.
 
 ### database
 
+Name of the MySQL database.
+
 | Property | Value |
 |----------|-------|
 | Type | `string` |
@@ -196,6 +224,8 @@ Enable graphql debug mode.
 
 ### url
 
+MySQL connection URL.
+
 | Property | Value |
 |----------|-------|
 | Type | `string` |
@@ -203,6 +233,8 @@ Enable graphql debug mode.
 | Default | - |
 
 ### port
+
+Port number of the MySQL server.
 
 | Property | Value |
 |----------|-------|
@@ -213,6 +245,8 @@ Enable graphql debug mode.
 ## operator.database.sqlite
 
 ### database
+
+Path to the SQLite database file (relative to paths.home).
 
 | Property | Value |
 |----------|-------|
@@ -226,6 +260,8 @@ Enable graphql debug mode.
 
 ### version
 
+Version of the Wallet Authentication Protocol (WAP) used to obtain wallet information and signatures.
+
 | Property | Value |
 |----------|-------|
 | Type | `string` |
@@ -236,6 +272,8 @@ Enable graphql debug mode.
 
 ### home
 
+Base directory for all relative paths.
+
 | Property | Value |
 |----------|-------|
 | Type | `string` |
@@ -243,6 +281,8 @@ Enable graphql debug mode.
 | Default | `/home/runner/work/carmentis-operator/carmentis-operator/operator` |
 
 ### init_token
+
+Path to the initialization token file used for first-time setup.
 
 | Property | Value |
 |----------|-------|
@@ -252,7 +292,7 @@ Enable graphql debug mode.
 
 ### db_encryption_key
 
-Path where database encryption key is stored.
+Path where the database encryption key is stored.
 
 | Property | Value |
 |----------|-------|
@@ -261,6 +301,8 @@ Path where database encryption key is stored.
 | Default | `db-encryption-key.txt` |
 
 ### jwt_secret
+
+Path to the JWT secret file.
 
 | Property | Value |
 |----------|-------|
