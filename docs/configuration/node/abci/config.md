@@ -7,6 +7,21 @@ description: Description of the TOML configuration file for the Carmentis node.
 The `config.toml` file should not be confused with the `config.toml` file of the cometbft configuration.
 Both config files are used but have different purposes. In complete configuration, both files are required but have
 different locations.
+
+```text
+.
+├── abci
+| ├── db
+| ├── microblocks
+│ └── snapshots
+├── cometbft
+│ ├── config
+| | └── config.toml // config.toml for cometbft
+| └── data
+├── config.toml // config.toml for ABCI
+└── docker-compose.yml
+
+```
 :::
 
 ## genesis
