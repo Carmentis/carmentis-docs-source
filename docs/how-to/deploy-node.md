@@ -99,7 +99,7 @@ curl https://ares.testnet.carmentis.io/genesis  | jq .result.genesis
 By default, CometBFT comes with a configuration that needs to be adapted to the network you want to join.
 To proceed, open the configuration file located at `cometbft/config/config.toml` (if generated as explained in this documentation)
 and edit the configuration file. The configuration file is described in the [official CometBFT documentation](https://docs.cometbft.com/main/references/config/config.toml).
-You introduce below the most interesting parameters to edit below:
+We introduce you below the most interesting parameters to edit below:
 
 <HighlightedToml
 highlights={[
