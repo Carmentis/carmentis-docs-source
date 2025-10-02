@@ -139,7 +139,7 @@ comment: 'Be sure to have the latest trust height and hash to prevent any outdat
 
 **Create the `config.toml` of the ABCI server:** The ABCI server is used by CometBFT to model the logic 
 of Carmentis within the CometBFT server. This ABCI server needs a configuration file whose the configuration
-documentation can be found [here](/configuration/node/abci/config).
+documentation can be found [here](/configuration/node/abci/config). Again, we provide you below the most interesting parameters to edit below:
 
 <HighlightedToml
 highlights={[
@@ -157,12 +157,18 @@ comment: 'The *publicly accessible* RPC endpoint used by other in the network to
 />
 
 
-**Create the `docker-compose.yml` file:** This file describes the containers that will be launched by Docker to run the node.
-You can find below the `docker-compose.yml` file that we use to deploy our node. 
+**Create the `docker-compose.yml` file:** This file describes the containers that Docker will launch to run the node.
+You can find below the `docker-compose.yml` file that we use to deploy our node. In our infrastructure, we delegate the
+TLS certificates management and renewal to [Caddyserver](https://caddyserver.com). Since other reverse proxy servers can be used,
+we let you with two deployment options: With and without Caddy. Not that if you choose to not use Caddy, you might need to adapt the `docker-compose.yml` file
+to fit your context. Whatever your choice is, *we are not responsible for any misconfiguration of your node!*
+We encourage to read the [official Docker documentation](https://docs.docker.com/compose/) to understand how to use the `docker-compose.yml` file
+but also to read the [security considerations](#security-considerations) section.
 
 
 <Tabs>
   <TabItem value="with-caddy" label="With caddy" default>
+    To set up the node with Caddy, you have to create the `docker-compose.yml` and `Caddyfile` files. 
 
     <RemoteCodeBlock url="https://raw.githubusercontent.com/Carmentis/architectures/refs/heads/main/node/docker-compose-with-caddy.yml" title="docker-compose.yml" language="yml" />
         
@@ -195,3 +201,11 @@ A list of endpoints should be displayed. Check one of our nodes, for example, at
 Then, click on the `status` endpoint to check the node status and search for the `is_catching_up` and `latest_block_height` fields.
 If the value of `is_catching_up` is `true`, the node is still catching up with the blockchain.
 If the value is `false` and `latest_block_height` is defined, the node is up, synchronized and running.
+
+### Logs the node
+To check the logs of the node, you can use docker using the `docker-compose logs -f` command.
+
+## Security considerations
+Based on the CometBFT documentation, for security reasons, the [port](/configuration/node/abci/config#port) (26658 by default) 
+of the ABCI server handling CometBFT requests **SHOULD NEVER** be exposed (except for the CometBFT server).
+
