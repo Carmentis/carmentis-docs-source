@@ -17,10 +17,14 @@ a node configuration and (2) launch the node based on the provided configuration
 - For *validator nodes*, we recommend a server with at least 2 cores and 4GB of RAM. The server should be externally accessible with a public IP address and 
 a *domain name*. We do not assume the server to handle TLS as we use a reverse proxy server (like Caddy) to handle TLS while it is not mandatory.
 
-## Setup node configuration
+## Set up node configuration
 
-### Setup node configuration manually
+### Set up node configuration manually
+In this section, we explain how to set up the node configuration manually.
+Future utilities will be provided to automate this process. 
 
+Below is shown the expected directory structure of the node configuration when the node is running.
+Most of them are generated but some configuration are still required.
 ```text
 .
 ├── abci <--- Automatically generated
@@ -32,8 +36,8 @@ a *domain name*. We do not assume the server to handle TLS as we use a reverse p
 | | └── config.toml // Edited at Step 3
 | └── data
 ├── config.toml // Edited at Step 3
-├── Caddyfile // Edited at Step 5 (relevant only if you use Caddyserver to handle TLS)
-└── docker-compose.yml // Edited at Step 4
+├── Caddyfile // Edited at Step 3 (optional if not using caddy)
+└── docker-compose.yml // Edited at Step 3
 
 ```
 
