@@ -1,0 +1,8 @@
+{
+  "label": "CometBFT",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Configuration for CometBFT. The official configuration documentation can be found at https://docs.cometbft.com/main/references/config/genesis.json."
+  }
+}
