@@ -1,3 +1,14 @@
+---
+title: config.toml
+description: Description of the TOML configuration file for the Carmentis node.
+---
+
+:::info
+The `config.toml` file should not be confused with the `config.toml` file of the cometbft configuration.
+Both config files are used but have different purposes. In complete configuration, both files are required but have
+different locations.
+:::
+
 ## genesis
 
 ## genesis.private_key
