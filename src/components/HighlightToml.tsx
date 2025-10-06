@@ -17,8 +17,16 @@ export const HighlightedToml: React.FC<Props> = ({ highlights }) => {
 
     highlights.forEach(({ keyPath, value, comment }) => {
         const parts = keyPath.split('.');
-        const section = parts.length > 1 ? parts[0] : '';
-        const key = parts.length > 1 ? parts[1] : parts[0];
+        const hasSection = parts.length > 1;
+        let section, key;
+        if (hasSection) {
+            section = parts.slice(0, -1).join('.');
+            key = parts[parts.length-1]
+        } else {
+            section = '';
+            key = parts[0];
+        }
+
 
         if (!sections.has(section)) {
             sections.set(section, []);

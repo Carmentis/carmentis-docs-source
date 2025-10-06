@@ -1,3 +1,6 @@
+---
+sidebar_position: 3
+---
 
 import {RemoteCodeBlock} from '@site/src/components/RemoteFile';
 import {DynamicLink} from '@site/src/components/DynamicLink';
