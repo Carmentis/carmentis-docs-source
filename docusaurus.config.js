@@ -36,7 +36,7 @@ const config = {
     locales: ['en'],
   },
 
-  plugins: ['@docusaurus/theme-live-codeblock'],
+  plugins: ['@docusaurus/theme-live-codeblock', '@docusaurus/theme-mermaid'],
 
   presets: [
     [
