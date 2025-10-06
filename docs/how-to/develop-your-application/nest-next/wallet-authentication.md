@@ -83,7 +83,7 @@ export class LoginController {
 ## Add the authentication QRCode on the front server
 
 ```tsx
-export function CarmentisAuthenticationRCode({challenge, operatorUrl}: {challenge: string, operatorUrl: string}) {
+export function CarmentisAuthenticationQRCode({challenge, operatorUrl}: {challenge: string, operatorUrl: string}) {
   
     useEffect(() => {
         // we prevent the rendering if the challenge or the operatorUrl are not set
