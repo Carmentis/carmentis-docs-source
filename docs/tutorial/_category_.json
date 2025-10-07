@@ -1,8 +1,8 @@
 {
   "label": "Tutorials",
-  "position": 4,
+  "position": 3,
   "link": {
     "type": "generated-index",
-    "description": " "
+    "description": "Welcome to the section explaining the Carmentis product with step-by-step tutorials."
   }
 }

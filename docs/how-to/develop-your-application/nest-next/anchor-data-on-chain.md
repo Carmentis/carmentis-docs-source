@@ -7,6 +7,11 @@ We offer two solutions to anchor on-chain from your back server:
 - *without* the approval of a user (using its wallet).
 - *with* the approval of a user.
 
+:::info API key required
+Be sure to have (one of) the API key of your operator server. All
+requests below are authenticated.
+:::
+
 ## Event approval workflow
 
 ### With user approval
@@ -140,6 +145,10 @@ export function CarmentisApprovalQRCode({anchorRequestId, operatorUrl}: {anchorR
 ```
 
 ### Without user approval
+
+The anchoring process without the user approval is more straightforward and more adaptative.
+It brings all the trust to the operator server, allowing the server to directly anchor the data on-chain using a 
+dedicated endpoint.
 
 ```ts
 // put all the data you want to anchor on chain here
