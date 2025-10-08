@@ -289,3 +289,10 @@ of the ABCI server handling CometBFT requests **SHOULD NEVER** be exposed (excep
 
     Have you tried `docker compose`?
 </details>
+
+<details>
+    <summary>The `sudo` command is not found</summary>
+    The `sudo` command does not exist when logged as root.
+    Either log in as a regular user to execute the commands or  adapt the command by removing the `sudo`.
+</details>
+
