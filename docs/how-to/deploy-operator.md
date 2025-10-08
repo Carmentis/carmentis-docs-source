@@ -121,7 +121,7 @@ accordingly.
 ### Step 2: Launch your operator
 To launch the operator, run the following command:
 ```shell
-docker-compose up -d
+docker compose up -d
 ```
 Once launched, the operator can be accessed at `operator-front-domain-name` in your browser.
 In local development, you can access the operator at `localhost:3000` by default. 

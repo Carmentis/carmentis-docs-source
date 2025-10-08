@@ -237,7 +237,7 @@ but also to read the [security considerations](#security-considerations) section
 ## Launch the node
 By running the following command, the node will be launched.
 ```shell
-docker-compose up -d
+docker compose up -d
 ```
 
 ## Next steps
@@ -250,7 +250,7 @@ If the value of `is_catching_up` is `true`, the node is still catching up with t
 If the value is `false` and `latest_block_height` is defined, the node is up, synchronized and running.
 
 ### Access to the logs
-To check the logs of the node, you can use docker using the `docker-compose logs -f` command.
+To check the logs of the node, you can use docker using the `docker compose logs -f` command.
 
 ### Stop the node
 To stop the node, run the following command:
@@ -268,7 +268,7 @@ docker compose down node-abci node-cometbft
 cometbft unsafe-reset-all --home ./cometbft && rm -Rf abci 
 
 # restart the node
-docker-compose up -d
+docker compose up -d
 ```
 
 ## Security considerations
