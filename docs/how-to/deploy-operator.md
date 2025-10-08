@@ -159,7 +159,7 @@ Click on the "Create organization" button to create your first organization.
 #### Step 2: Create the token account for your organization
 
 To create the token account for your organisation, copy the *tagged* public key of your organisation and 
-paste the key and number of desired tokens at the <DynamicLink target="exchange" env="testnet"/>.
+paste the key and number of desired tokens at the <DynamicLink id="testnet:exchange"/>.
 Proceed to the payment. Once paid, tokens will be credited to your token account associated to the public key
 of your organization.
 

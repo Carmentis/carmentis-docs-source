@@ -142,6 +142,11 @@ keyPath: 'statesync.trust_height',
 value: '23',
 comment: 'Be sure to have the latest trust height and hash to prevent any outdated sync issue. See below.',
 },
+{
+keyPath: 'rpc.cors_allowed_origins',
+value: '["*"]',
+comment: 'By default, CometBFT rejects connection from other websites by enabling strict CORS policy. Adding "*", we allow other websites to reach the ABCI query of node.',
+},
 ]}
 />
 

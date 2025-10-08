@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+import {DynamicLink} from '@site/src/components/DynamicLink';
+
 # Getting started
 
 <div class="get-started">
@@ -50,7 +52,7 @@ Once your wallet is ready, you can proceed to run the demonstration application:
 That’s it! With your wallet installed and the demo application running, you’re all set to explore and experience the system. Let us know if you need help along the way!
 
 <div class="button-groups">
-<a href="https://chromewebstore.google.com/detail/carmentis-wallet/ekchappkfhfkbgekcleodkhlfcadocmj" target="_blank">Install your wallet</a>
+<DynamicLink id="chrome:wallet" message="Install your wallet"/>
 <a href="./tutorial/test-demo-applications">Run the demonstration applications</a>
 </div>  
 
@@ -80,7 +82,7 @@ tutorials.
     with your service operator.
 
 <div class="button-groups">
-<a href="https://chromewebstore.google.com/detail/carmentis-wallet/ekchappkfhfkbgekcleodkhlfcadocmj" target="_blank">Install your wallet</a>
+<DynamicLink id="chrome:wallet" message="Install your wallet"/>
 <a href="./tutorial/connect-our-demo-to-sandbox">Go to tutorial</a>
 </div>  
 

@@ -1,42 +1,38 @@
 type ServerConfig = {
-    name: string;
-    frontendUrl: string;
-    apiUrl?: string;
-    environment: 'resources' | 'testnet'
+    id: string;
+    label: string;
+    link: string;
 };
 
 export const SERVERS: ServerConfig[] = [
-
-    // exchange
     {
-        name: 'exchange',
-        frontendUrl: 'https://exchange.testnet.carmentis.io',
-        apiUrl: 'https://api.exchange.testnet.carmentis.io',
-        environment: 'testnet'
-    },
-
-    // Explorer
-    {
-        name: 'explorer',
-        frontendUrl: 'https://explorer.tesnet.carmentis.io',
-        environment: 'testnet'
-    },
-
-
-    // others
-    {
-        name: 'Documentation',
-        frontendUrl: 'https://docs.carmentis.io',
-        environment: 'resources'
+        id: 'testnet:exchange',
+        link: 'https://exchange.testnet.carmentis.io',
+        label: "Exchange (testnet)"
     },
     {
-        name: 'SDK on NPM',
-        frontendUrl: 'https://www.npmjs.com/package/@cmts-dev/carmentis-sdk',
-        environment: 'resources'
+        id: 'testnet:explorer',
+        link: 'https://explorer.testnet.carmentis.io',
+        label: "Explorer (testnet)"
     },
     {
-        name: 'Wallet on Chrome',
-        frontendUrl: 'https://chromewebstore.google.com/detail/carmentis-wallet/ekchappkfhfkbgekcleodkhlfcadocmj?pli=1',
-        environment: 'resources'
-    }
+        id: 'docs',
+        link: 'https://docs.carmentis.io',
+        label: "Official Carmentis documentation"
+    },
+    {
+        id: 'npmjs:sdk',
+        link: 'https://www.npmjs.com/package/@cmts-dev/carmentis-sdk',
+        label: 'Carmentis SDK (on npm)'
+    },
+    {
+        id: 'testnet:explorer',
+        link: 'https://explorer.testnet.carmentis.io',
+        label: "Explorer (testnet)"
+    },
+    {
+        id: 'chrome:wallet',
+        link: 'https://chromewebstore.google.com/detail/carmentis-wallet/ekchappkfhfkbgekcleodkhlfcadocmj?pli=1',
+        label: "Wallet (Chrome)"
+    },
 ];
