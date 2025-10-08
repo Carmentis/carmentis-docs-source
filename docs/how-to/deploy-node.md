@@ -5,6 +5,7 @@ sidebar_position: 3
 import {RemoteCodeBlock} from '@site/src/components/RemoteFile';
 import {DynamicLink} from '@site/src/components/DynamicLink';
 import {HighlightedToml} from '@site/src/components/HighlightToml';
+import {StatusMessage} from '@site/src/components/StatusMessage';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -139,10 +140,19 @@ comment: '',
 {
 keyPath: 'statesync.trust_height',
 value: '23',
-comment: 'Be sure to have the latest trust height and hash to prevent any outdated sync issue.',
+comment: 'Be sure to have the latest trust height and hash to prevent any outdated sync issue. See below.',
 },
 ]}
 />
+
+:::info Latest `trust_hash` and `trust_height` values
+We provide below the following latest values from `ares.testnet.carmentis.io` and `apollo.testnet.carmentis.io`:
+- `statesync.rpc_servers`:
+  <StatusMessage endpoint="https://ares.testnet.carmentis.io/status" message="{{id}}@ares.testnet.carmentis.io" />,<StatusMessage endpoint="https://apollo.testnet.carmentis.io/status" message="{{id}}@apollo.testnet.carmentis.io" />
+- `statesync.trust_height`: <StatusMessage endpoint="https://ares.testnet.carmentis.io/status" message="{{latest_block_hash}}" />
+- `statesync.trust_hash`: <StatusMessage endpoint="https://ares.testnet.carmentis.io/status" message="{{latest_block_height}}" />
+
+:::
 
 
 **Create the `config.toml` file of the ABCI server:** The ABCI server is used by CometBFT to model the logic 
