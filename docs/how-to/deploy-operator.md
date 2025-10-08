@@ -150,35 +150,40 @@ The registration also requires a **public key**, be sure to **provide the public
 your wallet**. Once an account associated with your
 public key is registered, you can now log in on the operator.
 
-### Step 4: Create your first organization and application
-
-#### Step 1: Create your first organization
+### Step 4: Create your first organization
 When launched for the first time, the operator displays a registration page to create your first organization.
 Click on the "Create organization" button to create your first organization.
 
-#### Step 2: Create the token account for your organization
+:::info Specify organization's private key
+When creating an organization, you have the possibility to provide a **private** signature key.
+It is useful when you want to load an existing organization from the blockchain.
+When no private key is provided, the operator generates a new one.
+:::
 
-To create the token account for your organisation, copy the *tagged* public key of your organisation and 
+To create the token account for your organization, copy the public key of your organization and
 paste the key and number of desired tokens at the <DynamicLink id="testnet:exchange"/>.
 Proceed to the payment. Once paid, tokens will be credited to your token account associated to the public key
 of your organization.
 
 
-#### Step 3: Publish your organization
 Once your token account has been created and associated with the public key of your organization, click on the publish 
-button to declare your organization on chain. The publication can take few seconds.
+button to declare your organization on-chain. The publication can take few seconds.
 
-#### Step 4: Create, edit and publish your application
+:::warning Required information
+All the fields are required to publish an organization on-chain.
+:::
+
+### Step 5: Create your first application
+
 Once your organization has been published, you can access the list of applications inside your organization.
 Click on the application creation button and provide a name for your application. Then, click on publish to publish
 your application.
 
 
-#### Step 5: Create your API Key
 The API key creation is done by accessing an application. Recall that an API key is always associated with an application.
 For this reason, we do not allow the creation of an API key outside the application page. To create an API key, provide
 a name for the key and an expiration date. Then, copy the created API key and paste the key on your environment to 
-allow your server to contact the operator in order to perform an action.
+allow your server to contact the operator to perform an action.
 
 ## Troubleshooting
 
@@ -206,20 +211,26 @@ The problem might come from several issues:
 
 ## Most frequent actions
 
-### Create an organisation
+### Create an organization
 ![operator-organisations](/img/operator-organisations.png)
 
-To create an organisation, go to the "Organisations" section and click on "Create organisation". Provide the name
-of your organisation and click on "Create".
+To create an organization, go to the "Organizations" section and click on "Create organization". Provide the name
+of your organization and click on "Create".
 
-### Manage an organisation
+:::info Specify organization's private key
+When creating an organization, you have the possibility to provide a **private** signature key.
+It is useful when you want to load an existing organization from the blockchain.
+When no private key is provided, the operator generates a new one.
+:::
+
+### Manage an organization
 ![](/img/operator-organisation.png)
 
-**Edit an organisation:** To edit the organisation name, city, country, and website, update the relevant fields with the new information.
+**Edit an organization:** To edit the organization name, city, country, and website, update the relevant fields with the new information.
 Once you've made the necessary changes, be sure to save your updates to ensure the new details are reflected in your operator.
 
-**Publish an organisation:** To publish your organisation on chain, click on the "Publish" button.
-Once published, "Virtual blockchain ID" field will be filled. You can now see your organisation on the explorer.
+**Publish an organization:** To publish your organization on chain, click on the "Publish" button.
+Once published, "Virtual blockchain ID" field will be filled. You can now see your organization on the explorer.
 
 :::info
 The country code and the city are required for the publication.
@@ -245,35 +256,35 @@ the application will be marked as pending until you publish it.
 
 **Add user on the operator:** To add a user to your operator, go to the **Organization** section in the left sidebar, then select the **Users** tab.
 Click on **Add User**, and a form will appear prompting you to enter the public key of the user you wish to add,
-along with the privileges you want to assign (Visit our [Share my public key](./wallet-usage.md#share-my-public-key) to show how to share
+along with the privileges you want to assign (Visit our [Share my public key](./get-your-carmentis-wallet#share-my-public-key) to show how to share
 your public key). This setup allows you to control each user's access level,
 ensuring they have the appropriate permissions for their role in the operator.
 
 
 **Remove user from the operator:** To remove an administrator from your operator, go to the **Organization** section and select the **Users** tab.
 Locate the administrator you wish to remove, and find the deletion button. Click this deletion button to remove the
-administrator from your organisation.
+administrator from your organization.
 
 :::note
-An organisation should always have an administrator, so the last administrator cannot remove himself from the organisation.
+An organization should always have an administrator, so the last administrator cannot remove himself from the organization.
 :::
 
-### Manage members of an organisation
+### Manage members of an organization
 ![](/img/operator-members.png)
 
 
-**Add existing user in organisation:** To add an existing user in your organisation, click on "Add user" and select
+**Add existing user in organization:** To add an existing user in your organization, click on "Add user" and select
 the user to add.
 
 :::info
-You cannot create a user directly from the members page of your organisation. To create a user, your have
+You cannot create a user directly from the members page of your organization. To create a user, your have
 to move on the users page.
 :::
 
 
-**Remove a user from organisation:** To remove a user from your organisation, you can click on the "Delete" icon.
+**Remove a user from organization:** To remove a user from your organization, you can click on the "Delete" icon.
 :::info
-Removing a user from the organisation do not delete the user.
+Removing a user from the organization do not delete the user.
 :::
 ### Manage API keys
 ![](/img/operator-application.png)
@@ -300,4 +311,10 @@ After being disabled, all requests embedding the disabled key will be rejected.
 
 
 
+### Claim a node
+When your operator is up and your organization published on-chain, you can claim the possession of a node:
+1. Go to the *Nodes* section.
+2. Create a new node connection by indicating an alias (local to the operator) and a RPC endpoint. Then, click on create.
+3. If the node is not already claimed, drop down the menu on the top-right of the node and click on "Claim node".
+4. Check the operator by checking the <DynamicLink id="testnet:explorer"/> under the "Nodes" section.
 
