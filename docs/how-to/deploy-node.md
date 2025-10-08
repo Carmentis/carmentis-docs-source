@@ -145,7 +145,7 @@ comment: 'Be sure to have the latest trust height and hash to prevent any outdat
 {
 keyPath: 'rpc.cors_allowed_origins',
 value: '["*"]',
-comment: 'By default, CometBFT rejects connection from other websites by enabling strict CORS policy. Adding "*", we allow other websites to reach the ABCI query of node.',
+comment: 'By default, CometBFT rejects connections from other websites because of strict CORS policy. By adding "*", we allow other websites to reach the ABCI query of node.',
 },
 ]}
 />
