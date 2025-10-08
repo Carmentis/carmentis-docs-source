@@ -17,7 +17,7 @@ The deployment of the operator is done using Docker Compose.
 The first step is to create the configuration files for the operator, composed of the following files:
 - `config.toml` describing the operator configuration.
 - `docker-compose.yml` describing the deployed architecture.
-- `.env.example` describing necessary environment variables used by the `docker-compose.yml` file.
+- `.env` describing necessary environment variables used by the `docker-compose.yml` file.
 - `Caddyfile` describing the Caddy configuration (optional if not using Caddy).
 
 **Create the operator configuration file `config.toml`:** The operator requires the configuration file `config.toml` to 
