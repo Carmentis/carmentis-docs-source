@@ -48,9 +48,12 @@ Most of them are generated but some configuration are still required.
 First, you have to install `go` on your system. We highly recommend you to use the latest version of `go` but we provide 
 the installation command to install go 1.25.1 which should be sufficient:
 ```shell
-wget https://go.dev/dl/go1.25.1.linux-amd64.tar.gz && \
-  sudo rm -rf /usr/local/go && \
-  sudo tar -C /usr/local -xzf go1.25.1.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.25.1.linux-amd64.tar.gz && sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.25.1.linux-amd64.tar.gz
+```
+
+Then, update your PATH (edit your `.bashrc` or your equivalent file to persist the modification):
+```text
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 ```
 
 To install CometBFT, run the following command:
@@ -62,10 +65,7 @@ go install github.com/cometbft/cometbft/cmd/cometbft@latest
 The current version requires CometBFT v1.0.1 or higher.
 :::
 
-Then, update your PATH:
-```text
-export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
-```
+
 
 Check that cometbft is correctly installed by executing `cometbft --help`.
 
@@ -91,10 +91,14 @@ for CometBFT.
 **Update the genesis.json file in the cometbft configuration:**
 You have to download the genesis file of the network you want to join.
 Assuming `curl` and `jq` are installed on your (linux) system, you can download 
-the genesis file using the following command below. Note that we use the `ares.testnet.carmentis.io` 
-server but any server connected to the network can be used:
+the genesis file using the following command below. The `curl` and `jq` packages can be installed easily using `sudo apt install curl jq`.
+Note that we use the `ares.testnet.carmentis.io` server but any server connected to the network can be used:
 ```shell
+# This command displays the genesis file on your terminal 
 curl https://ares.testnet.carmentis.io/genesis  | jq .result.genesis
+
+# This command saves the genesis file at ./cometbft/config/genesis.json
+curl https://ares.testnet.carmentis.io/genesis  | jq .result.genesis > ./cometbft/config/genesis.json
 ```
 
 
@@ -105,6 +109,7 @@ and edit the configuration file. The configuration file is described in the [off
 We introduce you below the most interesting parameters to edit below:
 
 <HighlightedToml
+isOmitting={true}
 highlights={[
 {
 keyPath: 'moniker',
@@ -140,9 +145,11 @@ comment: 'Be sure to have the latest trust height and hash to prevent any outdat
 />
 
 
-**Create the `config.toml` of the ABCI server:** The ABCI server is used by CometBFT to model the logic 
+**Create the `config.toml` file of the ABCI server:** The ABCI server is used by CometBFT to model the logic 
 of Carmentis within the CometBFT server. This ABCI server needs a configuration file whose the configuration
-documentation can be found [here](/configuration/node/abci/config). Again, we provide you below the most interesting parameters to edit below:
+documentation can be found [here](/configuration/node/abci/config). This file has to be created **next to the cometbft folder**, we refer you to the 
+tree structure below. We provide you a ready-to-use configuration for your node.
+Be aware that this configuration *might not be compatible* with your configuration!
 
 <HighlightedToml
 highlights={[
@@ -155,10 +162,37 @@ comment: 'Endpoint used when the genesis snapshot has to be fetched. The endpoin
 keyPath: 'cometbft.exposed_rpc_endpoint',
 value: '"https://ares.testnet.carmentis.io"',
 comment: 'The *publicly accessible* RPC endpoint used by other in the network to contact the CometBFT server\n endpoint.',
-}
+},
+{
+keyPath: 'paths.cometbft_home',
+value: '"/cometbft"',
+},
+{
+keyPath: 'paths.storage',
+value: '"/abci"',
+},
+{
+keyPath: 'snapshots.snapshot_block_period',
+value: '5',
+},
+{
+keyPath: 'snapshots.block_history_before_snapshot',
+value: '0',
+},
+{
+keyPath: 'snapshots.max_snapshots',
+value: '10',
+},
+{
+keyPath: "abci.grpc.port",
+value: '26658'
+},
+{
+keyPath: "abci.query.rest.port",
+value: '26659'
+},
 ]}
 />
-
 
 **Create the `docker-compose.yml` file:** This file describes the containers that Docker will launch to run the node.
 You can find below the `docker-compose.yml` file that we use to deploy our node. In our infrastructure, we delegate the
@@ -205,10 +239,53 @@ Then, click on the `status` endpoint to check the node status and search for the
 If the value of `is_catching_up` is `true`, the node is still catching up with the blockchain.
 If the value is `false` and `latest_block_height` is defined, the node is up, synchronized and running.
 
-### Logs the node
+### Access to the logs
 To check the logs of the node, you can use docker using the `docker-compose logs -f` command.
+
+### Stop the node
+To stop the node, run the following command:
+```shell
+docker compose down
+```
+
+### Reset the node from scratch
+To reset the node from scratch (like a fresh node), you can use the following command:
+```shell
+# down the ABCI and CometBFT containers
+docker compose down node-abci node-cometbft
+
+# clear the local data (be careful, this command will delete all the data, requiring a new synchronization)
+cometbft unsafe-reset-all --home ./cometbft && rm -Rf abci 
+
+# restart the node
+docker-compose up -d
+```
 
 ## Security considerations
 Based on the CometBFT documentation, for security reasons, the [port](/configuration/node/abci/config#port) (26658 by default) 
 of the ABCI server handling CometBFT requests **SHOULD NEVER** be exposed (except for the CometBFT server).
 
+
+## Troubleshooting
+
+<details>
+    <summary>Docker not permitted</summary>
+    
+    In a fresh install of Docker, you might be unable to execute the `docker run hello-world` command.
+    To solve this issue, we highly recommend you to follow the [official Docker documentation for post-installations](https://docs.docker.com/engine/install/linux-postinstall/).
+    For more convinience, you can run the following commands but remember to check the official Docker documentation:
+
+    ```shell
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+    newgrp docker
+    docker run hello-world
+    ```
+    
+</details>
+
+<details>
+    <summary>The `docker-compose` command is not found</summary>
+
+    Have you tried `docker compose`?
+</details>

@@ -9,9 +9,10 @@ type Highlight = {
 
 type Props = {
     highlights: Highlight[];
+    isOmitting?: boolean;
 };
 
-export const HighlightedToml: React.FC<Props> = ({ highlights }) => {
+export const HighlightedToml: React.FC<Props> = ({ highlights, isOmitting }) => {
     // Regrouper les clés par section
     const sections = new Map<string, { key: string; value: string; comment?: string }[]>();
 
@@ -79,11 +80,10 @@ export const HighlightedToml: React.FC<Props> = ({ highlights }) => {
         >
       {Array.from(sections.entries()).map(([section, entries], idx, arr) => (
           <React.Fragment key={section}>
-              {idx > 0 && <div style={{ color: '#666' }}>...</div>}
               {renderSection(section, entries)}
-              {idx < arr.length - 1 && <div style={{ color: '#666' }}>...</div>}
           </React.Fragment>
       ))}
+            {isOmitting && <div style={{ color: '#666' }}>...</div>}
     </pre>
     );
 };
