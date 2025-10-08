@@ -147,10 +147,10 @@ comment: 'Be sure to have the latest trust height and hash to prevent any outdat
 
 :::info Latest `trust_hash` and `trust_height` values
 We provide below the following latest values from `ares.testnet.carmentis.io` and `apollo.testnet.carmentis.io`:
-- `statesync.rpc_servers`:
+- For the `statesync.persistent_peers` field:
   <StatusMessage endpoint="https://ares.testnet.carmentis.io/status" message="{{id}}@ares.testnet.carmentis.io" />,<StatusMessage endpoint="https://apollo.testnet.carmentis.io/status" message="{{id}}@apollo.testnet.carmentis.io" />
-- `statesync.trust_height`: <StatusMessage endpoint="https://ares.testnet.carmentis.io/status" message="{{latest_block_hash}}" />
-- `statesync.trust_hash`: <StatusMessage endpoint="https://ares.testnet.carmentis.io/status" message="{{latest_block_height}}" />
+- For the `statesync.trust_height` field: <StatusMessage endpoint="https://ares.testnet.carmentis.io/status" message="{{latest_block_hash}}" />
+- For the `statesync.trust_hash` field: <StatusMessage endpoint="https://ares.testnet.carmentis.io/status" message="{{latest_block_height}}" />
 
 :::
 
