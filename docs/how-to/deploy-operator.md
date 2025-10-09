@@ -97,11 +97,11 @@ accordingly.
     <RemoteCodeBlock url="https://raw.githubusercontent.com/Carmentis/architectures/refs/heads/main/operator/docker-compose-with-caddy.yml" title="docker-compose.yml" language="yml" />
     
 
-    **Create the `.env` file:** 
+    **Create the `.env` file:** Be sure to correctly adapt the postgres variables according to your environment and to correctly update the domaine name.
     <RemoteCodeBlock url="https://raw.githubusercontent.com/Carmentis/architectures/refs/heads/main/operator/.env.example" title=".env" language="text" />
 
 
-    **Create the `Caddyfile` file:** 
+    **Create the `Caddyfile` file:**  Replace the domain names with yours.
 
     <RemoteCodeBlock url="https://raw.githubusercontent.com/Carmentis/architectures/refs/heads/main/operator/Caddyfile" title="Caddyfile" language="caddy" />
 
@@ -110,8 +110,9 @@ accordingly.
 
   </TabItem>
   <TabItem value="without-caddy" label="Without caddy" default>
-    You only need to create the `docker-compose.yml` file below:
+    You only need to create the `docker-compose.yml` and `.env` files below:
     <RemoteCodeBlock url="https://raw.githubusercontent.com/Carmentis/architectures/refs/heads/main/operator/docker-compose-without-caddy.yml" title="docker-compose.yml" language="yml" />
+    <RemoteCodeBlock url="https://raw.githubusercontent.com/Carmentis/architectures/refs/heads/main/operator/.env.example" title=".env" language="text" />
 
 
   </TabItem>
@@ -194,6 +195,13 @@ In development, if the request
 ends in 404, ensure that the operator listens at the right port by checking the logs.
 Indeed, when starting the operator, if the specified port is not available, the operator attempts to listen on another free port.
 </details> 
+
+<details>
+    <summary>The `docker-compose` command is not found</summary>
+    
+    Have you tried `docker compose` instead of `docker-compose`? You might have an old version of docker.
+</details> 
+
 
 <details>
     <summary>The workspace shows an operator connection error</summary>
