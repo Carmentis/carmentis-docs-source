@@ -18,6 +18,10 @@ To set up your operator, you need to have docker installed on your system.
 Please, be sure to have installed docker or follow 
 the [official Docker installation guide](https://docs.docker.com/engine/install/).
 
+You also need to have **two DNS entries** pointing on the IP address of your server:
+- One for `http://operator.your-domain-name` pointing to the operator server.
+- One for `http://workspace.your-domain-name` pointing to the workspace (operator's front) server.
+
 ### Step 1: Set up operator configuration
 The first step is to create the configuration files for the operator, composed of the following files:
 - `config.toml` describing the operator configuration.
@@ -129,7 +133,7 @@ To launch the operator, run the following command:
 ```shell
 docker compose up -d
 ```
-Once launched, the operator can be accessed at `operator-front-domain-name` in your browser.
+Once launched, the operator can be accessed at `operator.your-domain-name` in your browser.
 In local development, you can access the operator at `localhost:3000` by default. 
 To check that the operator is running, you can access the `/api/public/hello` endpoint.
 
