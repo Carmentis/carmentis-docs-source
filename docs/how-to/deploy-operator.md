@@ -19,8 +19,8 @@ Please, be sure to have installed docker or follow
 the [official Docker installation guide](https://docs.docker.com/engine/install/).
 
 You also need to have **two DNS entries** pointing on the IP address of your server:
-- One for `http://operator.your-domain-name` pointing to the operator server.
-- One for `http://workspace.your-domain-name` pointing to the workspace (operator's front) server.
+- One for `operator.your-domain-name` pointing to the operator server.
+- One for `workspace.your-domain-name` pointing to the workspace (operator's front) server.
 
 ### Step 1: Set up operator configuration
 The first step is to create the configuration files for the operator, composed of the following files:
