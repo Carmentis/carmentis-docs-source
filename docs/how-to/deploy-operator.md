@@ -13,6 +13,11 @@ import TabItem from '@theme/TabItem';
 ## Set up the operator
 The deployment of the operator is done using Docker Compose.
 
+### Prerequisites
+To set up your operator, you need to have docker installed on your system.
+Please, be sure to have installed docker or follow 
+the [official Docker installation guide](https://docs.docker.com/engine/install/).
+
 ### Step 1: Set up operator configuration
 The first step is to create the configuration files for the operator, composed of the following files:
 - `config.toml` describing the operator configuration.

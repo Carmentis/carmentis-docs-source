@@ -45,22 +45,21 @@ export const HighlightedToml: React.FC<Props> = ({ highlights, isOmitting }) => 
             )}
             {entries.map(({ key, value, comment }, idx) => (
                 <div key={idx} style={{ marginBottom: comment ? '0.5rem' : 0 }}>
-                    <code>
-                        <span style={{ color: '#61dafb' }}>{key}</span> ={' '}
-                        <span style={{ color: '#98c379' }}>{value}</span>
-                    </code>
                     {comment && (
                         <div
                             style={{
                                 fontSize: '0.85rem',
                                 color: '#fdbc40',
-                                marginLeft: '1rem',
                                 marginTop: '2px',
                             }}
                         >
-                            {comment}
+                            {comment.split('\n').map(line => `# ${line}`).join("\n")}
                         </div>
                     )}
+                    <code>
+                        <span style={{ color: '#61dafb' }}>{key}</span> ={' '}
+                        <span style={{ color: '#98c379' }}>{value}</span>
+                    </code>
                 </div>
             ))}
         </div>
