@@ -19,7 +19,7 @@ a node configuration and (2) launch the node based on the provided configuration
 ## Prerequisites
 - For *replicator nodes*, a laptop is enough even more when testing the network. In production, we recommend a server with at least 2 cores and 4GB of RAM.
 - For *validator nodes*, we recommend a server with at least 2 cores and 4GB of RAM. The server should be externally accessible with a public IP address and 
-a *domain name*. We do not assume the server to handle TLS as we use a reverse proxy server (like Caddy) to handle TLS while it is not mandatory.
+a *domain name* (e.g., `node.your-domain-name`) pointing to your server. We do not assume the server to handle TLS as we use a reverse proxy server (like Caddy) to handle TLS while it is not mandatory.
 
 ## Set up node configuration
 
@@ -175,7 +175,7 @@ comment: 'Endpoint used when the genesis snapshot has to be fetched. The endpoin
 },
 {
 keyPath: 'cometbft.exposed_rpc_endpoint',
-value: '"https://ares.testnet.carmentis.io"',
+value: '"https://node.your-domain-name"',
 comment: 'The *publicly accessible* RPC endpoint used by other in the network to contact the CometBFT server\n endpoint.',
 },
 {
@@ -294,7 +294,7 @@ of the ABCI server handling CometBFT requests **SHOULD NEVER** be exposed (excep
     sudo groupadd docker
     sudo usermod -aG docker $USER
     newgrp docker
-    docker run hello-world
+    docker run --rm hello-world
     ```
     
 </details>
