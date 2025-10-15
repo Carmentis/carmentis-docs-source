@@ -4,6 +4,13 @@
  * work well for content-centric websites.
  */
 
+.button {
+    padding: 10px;
+    border: 1px solid rgba(46, 133, 85, 100);
+    background-color: rgba(46, 133, 85, 100);
+    margin-bottom: 2em;
+}
+
 .related-pages {
   width: 100%;
   padding: 1em;

@@ -11,8 +11,8 @@ FileSign makes document signing simple, secure and efficient in just a few steps
 Before to click on the button below to visit our demo application, be sure to have installed your Carmentis wallet, 
 as it is required to connect to the application.
 
-<a href="https://file-sign.testnet.carmentis.io/" target="_blank">
-    <button>Visit File Sign</button>
+<a href="https://file-sign.testnet.carmentis.io/" target="_blank" >
+    <button class="button">Visit File Sign</button>
 </a>
 
 :::info Have no time to test?

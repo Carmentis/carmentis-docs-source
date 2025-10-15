@@ -54,7 +54,7 @@ to use the wallet to sign in applications, and authenticate actions or events.
 ### Download and install your wallet
 
 <Tabs>
-  <TabItem value="marketplace" label="Via marketplace (Recommended)" default>
+  <TabItem value="marketplace" label="Via marketplace" default>
     You can easily install your Carmentis Wallet using the Google Extensions Marketplace. Click on the button
     below and click on **"Add to Google Chrome"** to install your wallet on your browser.
     
@@ -66,7 +66,7 @@ to use the wallet to sign in applications, and authenticate actions or events.
       </svg>
     </a>
   </TabItem>
-  <TabItem value="github" label="Via GitHub">
+  <TabItem value="github" label="Via GitHub (Recommended)">
 
 #### Step 1: Download our latest wallet release:
 
