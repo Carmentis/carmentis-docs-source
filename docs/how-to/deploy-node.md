@@ -23,46 +23,10 @@ a *domain name* (e.g., `node.your-domain-name`) pointing to your server. We do n
 
 ## Set up node configuration
 
-### Tools installation
-Before to install the node configuration, you to install the following tools;
-- `go` to install cometbft on your system
-- `cometbft` used to create the CometBFT's part of your node configuration.
-- `docker` used to launch your node.
-
-
-#### Step 1: Install go and CometBFT
-First, you have to install `go` on your system. We highly recommend you to use the latest version of `go` but we provide
-the installation command to install go 1.25.1 which should be sufficient:
-```shell
-wget https://go.dev/dl/go1.25.1.linux-amd64.tar.gz && sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.25.1.linux-amd64.tar.gz
-```
-
-Then, update your PATH (edit your `.bashrc` or your equivalent file to persist the modification):
-```text
-export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
-```
-
-To install CometBFT, run the following command:
-```shell
-go install github.com/cometbft/cometbft/cmd/cometbft@latest
-```
-
-:::warning CometBFT v1
-The current version requires CometBFT v1.0.1 or higher.
-:::
-
-
-
-Check that cometbft is correctly installed by executing `cometbft --help`.
-
-:::note
-You might need to restart your terminal to apply the changes.
-:::
-
-#### Step 2: Install Docker
-
+### Docker installation
+Docker is intensively used in our procedure to install, configure and run components.
 Follow the instructions on the [official Docker documentation](https://docs.docker.com/engine/install/) to install Docker.
-To check your installation, run `docker run --rm hello-world`.
+To check your installation, run `docker run --rm hello-world`. 
 
 
 ### Set up node configuration using CLI
@@ -114,7 +78,36 @@ Most of them are generated but some configuration are still required.
 └── docker-compose.yml // Edited at Step 3
 
 ```
+#### Install go and CometBFT
+First, you have to install `go` on your system. We highly recommend you to use the latest version of `go` but we provide
+the installation command to install go 1.25.1 which should be sufficient:
+```shell
+wget https://go.dev/dl/go1.25.1.linux-amd64.tar.gz && sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.25.1.linux-amd64.tar.gz
+```
 
+Then, update your PATH (edit your `.bashrc` or your equivalent file to persist the modification):
+```text
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+```
+
+To install CometBFT, run the following command:
+```shell
+go install github.com/cometbft/cometbft/cmd/cometbft@latest
+```
+
+:::warning CometBFT v1
+The current version requires CometBFT v1.0.1 or higher.
+:::
+
+
+
+Check that cometbft is correctly installed by executing `cometbft --help`.
+
+:::note
+You might need to restart your terminal to apply the changes.
+:::
+
+#### Create the configuration
 Start by generating the initial configuration which includes the 
 private key pair of your node:
 ```shell
