@@ -66,9 +66,9 @@ To check your installation, run `docker run --rm hello-world`.
 
 
 ### Set up node configuration using CLI
-We provide a full-featured CLI to set up the configuration quickly.
+We provide a CLI to set up the configuration quickly.
 
-#### Step 1: Install npm
+#### Step 1: Install npm and the CLI
 The first step is to install the node package manager ([npm](https://npmjs.com)).
 ```shell
 sudo apt update && sudo apt upgrade -y && sudo apt install npm
