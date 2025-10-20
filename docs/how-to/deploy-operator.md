@@ -38,7 +38,7 @@ You can either create the configuration files manually, or use the <DynamicLink 
     #### Step 1: Install npm and the CLI
     The first step is to install the node package manager ([npm](https://npmjs.com)).
     ```shell
-    sudo apt update && sudo apt upgrade -y && sudo apt install npm && sudp npm i -g @cmts-dev/carmentis-cli
+    sudo apt update && sudo apt upgrade -y && sudo apt install npm && sudo npm i -g @cmts-dev/carmentis-cli
     ```
     
     #### Step 2: Init the CLI
