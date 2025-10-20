@@ -28,6 +28,9 @@ Docker is intensively used in our procedure to install, configure and run compon
 Follow the instructions on the [official Docker documentation](https://docs.docker.com/engine/install/) to install Docker.
 To check your installation, run `docker run --rm hello-world`. 
 
+:::warning Docker compose binary name
+Be careful, old docker versions are using `docker-compose` name.
+:::
 
 ### Set up node configuration using CLI
 We provide a CLI to set up the configuration quickly.
@@ -35,8 +38,7 @@ We provide a CLI to set up the configuration quickly.
 #### Step 1: Install npm and the CLI
 The first step is to install the node package manager ([npm](https://npmjs.com)).
 ```shell
-sudo apt update && sudo apt upgrade -y && sudo apt install npm
-npm i -g @cmts-dev/carmentis-cli
+sudo apt update && sudo apt upgrade -y && sudo apt install npm && sudp npm i -g @cmts-dev/carmentis-cli
 ```
 
 #### Step 2: Init the CLI

@@ -35,4 +35,9 @@ export const SERVERS: ServerConfig[] = [
         link: 'https://chromewebstore.google.com/detail/carmentis-wallet/ekchappkfhfkbgekcleodkhlfcadocmj?pli=1',
         label: "Wallet (Chrome)"
     },
+    {
+        id: 'cli',
+        link: 'https://www.npmjs.com/package/@cmts-dev/carmentis-cli',
+        label: "CLI"
+    },
 ];

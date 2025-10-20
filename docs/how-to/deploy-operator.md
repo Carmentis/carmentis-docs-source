@@ -23,19 +23,54 @@ You also need to have **two DNS entries** pointing on the IP address of your ser
 - One for `workspace.your-domain-name` pointing to the workspace (operator's front) server.
 
 ### Step 1: Set up operator configuration
-The first step is to create the configuration files for the operator, composed of the following files:
+The first step is to create the configuration files for the operator composed of the following files:
 - `config.toml` describing the operator configuration.
 - `docker-compose.yml` describing the deployed architecture.
 - `.env` describing necessary environment variables used by the `docker-compose.yml` file.
 - `Caddyfile` describing the Caddy configuration (optional if not using Caddy).
 
-**Create the operator configuration file `config.toml`:** The operator requires the configuration file `config.toml` to 
-be present, otherwise the operator will not start. 
+You can either create the configuration files manually, or use the <DynamicLink id="cli"/>.
+
+
+<Tabs>
+  <TabItem value="cli" label="Using CLI" default>
+
+    #### Step 1: Install npm and the CLI
+    The first step is to install the node package manager ([npm](https://npmjs.com)).
+    ```shell
+    sudo apt update && sudo apt upgrade -y && sudo apt install npm && sudp npm i -g @cmts-dev/carmentis-cli
+    ```
+    
+    #### Step 2: Init the CLI
+    Before to proceed to the generation, you have to initialize the CLI, notably by importing the reference networks:
+    ```shell
+    cmts networks import
+    ```
+    You can list the loaded networks using the `cmts networks list` command.
+    
+    #### Step 3: Generate the config
+    To generate the configuration of your operator, execute the following command and answer to the response interactively
+    (replace the `$PATH_TO_GENERATE_CONFIG` with the path where the configuration is generated):
+    ```shell
+    cmts operator init-config --home $PATH_TO_GENERATE_CONFIG
+    ```
+    
+    #### Step 4: Run the operator
+    To run the operator, execute the following command (replace the `$PATH_TO_GENERATE_CONFIG` with the path where the configuration has been generated):
+    ```shell
+    cd $PATH_TO_GENERATE_CONFIG && docker compose up -d
+    ```
+
+  </TabItem>
+  <TabItem value="manual" label="Manually">
+
+**Create the operator configuration file `config.toml`:** The operator requires the configuration file `config.toml` to
+be present, otherwise the operator will not start.
 
 :::note Node URL
 In the configuration below, we have used an already deployed node `https://apollo.testnet.carmentis.io` within the Carmentis network.
 If you have followed the [node deployment guide](./deploy-node.md) and have already deployed your own node, then feel-free
-to replace the node URL with your own node address (e.g., `http://node.your-domain-name:26667` or `https://node.your-domain-name` if 
+to replace the node URL with your own node address (e.g., `http://node.your-domain-name:26667` or `https://node.your-domain-name` if
 you have set up a TLS-enabled reverse-proxy like [Caddy](https://caddyserver.com)).
 :::
 
@@ -133,6 +168,9 @@ accordingly.
 
   </TabItem>
 </Tabs>
+  </TabItem>
+</Tabs>
+
 
 
 ### Step 2: Launch your operator
@@ -161,6 +199,12 @@ Administrator creation token location: [redacted]/admin-token.txt
 Administrator creation token: E241C2E4BB9AFD31383D8802847FA69D4D40F7553FA0EF0D09EDE6222AE80E11
 --------------------------------------------------------------
 ```
+:::info Accessing first administration token
+When using the CLI, you can obtain the first administration token using the following command:
+```shell
+cmts operator token --home $PATH_WHERE_CONFIG_HAS_BEEN_GENERATED
+```
+:::
 
 
 The registration also requires a **public key**, be sure to **provide the public key of
