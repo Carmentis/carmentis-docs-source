@@ -10,26 +10,24 @@ import {HighlightedToml} from '@site/src/components/HighlightToml';
 import {StatusMessage} from '@site/src/components/StatusMessage';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
+import InfoDiffReplicatorValidator from '../../../src/common/info-diff-replicator-validator.md';
+import TroubleshootingNode from '../../../src/common/troubleshootings/node.md';
+import TroubleshootingDocker from '../../../src/common/troubleshootings/docker.md';
+import TroubleshootingOperator from '../../../src/common/troubleshootings/operator.md';
+import SecurityConsiderations from '../../../src/common/node/security-considerations.md';
 
 # Deploy your validator node
 
-In this page, we introduce instructions to deploy your Carmentis node.
-Whatever the manner you choose, the deployment is organized in two steps: **(1) setup
-a node configuration and (2) launch the node based on the provided configuration.**
+In this page, we introduce instructions to deploy your Carmentis validator node.
 
-:::info Difference between replicator and validator
-A replicator node can be launched with a minimal configuration. Validator nodes, however,
-are expected to run both a *node* and an *operator*. For more convenience, we provide two distinct
-documentation pages:
-- Follow this link to deploy a [replicator node](/how-to/deploy-node/replicator)
-- Follow this link to deploy a [validator node](/how-to/deploy-node/validator)
-:::
+<InfoDiffReplicatorValidator/>
 
 ## Prerequisites
-- For *replicator nodes*, a laptop is enough even more when testing the network. In production, we recommend a server with at least 2 cores and 4GB of RAM.
-- For *validator nodes*, we recommend a server with at least 2 cores and 4GB of RAM. The server should be externally accessible with a public IP address and 
-a *domain name* (e.g., `node.your-domain-name`) pointing to your server. We do not assume the server to handle TLS as we use a reverse proxy server (like Caddy) to handle TLS while it is not mandatory.
+For *validator nodes*, we recommend a server with at least 2 cores and 4GB of RAM. The server should be externally accessible
+with a public IP address and  *three domain names*  pointing to your server:
+- `node.your-domain-name` used to handle the node connection.
+- `operator.your-domain-name` used to handle the operator operations.
+- `workspace.your-domain-name` used to expose the front (user-friendly interface) for the operator.
 
 ## Set up node configuration
 
@@ -62,7 +60,7 @@ You can list the loaded networks using the `cmts networks list` command.
 To generate the configuration of your node, execute the following command and answer to the response interactively
 (replace the `$PATH_TO_GENERATE_CONFIG` with the path where the configuration is generated):
 ```shell
-cmts node init-config --home $PATH_TO_GENERATE_CONFIG
+cmts validator init-config --home $PATH_TO_GENERATE_CONFIG
 ```
 
 #### Step 4: Run the node
@@ -76,6 +74,9 @@ By running the following command, the node will be launched.
 ```shell
 docker compose up -d
 ```
+
+
+
 
 ## Next steps
 
@@ -102,7 +103,7 @@ To reset the node from scratch (like a fresh node), you can use the following co
 docker compose down node-abci node-cometbft
 
 # clear the local data (be careful, this command will delete all the data, requiring a new synchronization)
-cometbft unsafe-reset-all --home ./cometbft && rm -Rf abci 
+cometbft unsafe-reset-all --home ./cometbft && rm -Rf abci
 
 # restart the node
 docker compose up -d
@@ -114,50 +115,9 @@ npm update -g @cmts-dev/carmentis-cli
 ```
 
 ## Security considerations
-Based on the CometBFT documentation, for security reasons, the [port](/configuration/node/abci/config#port) (26658 by default) 
-of the ABCI server handling CometBFT requests **SHOULD NEVER** be exposed (except for the CometBFT server).
-
+<SecurityConsiderations/>
 
 ## Troubleshooting
-
-<details>
-    <summary>Docker not permitted</summary>
-    
-    In a fresh install of Docker, you might be unable to execute the `docker run hello-world` command.
-    To solve this issue, we highly recommend you to follow the [official Docker documentation for post-installations](https://docs.docker.com/engine/install/linux-postinstall/).
-    For more convinience, you can run the following commands but remember to check the official Docker documentation:
-
-    ```shell
-    sudo groupadd docker
-    sudo usermod -aG docker $USER
-    newgrp docker
-    docker run --rm hello-world
-    ```
-    
-</details>
-
-<details>
-    <summary>The `docker-compose` command is not found</summary>
-
-    Have you tried `docker compose`?
-</details>
-
-<details>
-    <summary>The `sudo` command is not found</summary>
-
-    The `sudo` command does not exist when logged as root.
-    Either log in as a regular user to execute the commands or  adapt the command by removing the `sudo`.
-</details>
-
-
-<details>
-    <summary>The `curl` and/or `jq` commands are not found</summary>
-
-    Ensure that you have installed `curl` and `jq` on your system using the following command:
-    
-```shell
-sudo apt install curl jq        
-```
-</details>
-
-
+<TroubleshootingNode/>
+<TroubleshootingOperator/>
+<TroubleshootingDocker/>

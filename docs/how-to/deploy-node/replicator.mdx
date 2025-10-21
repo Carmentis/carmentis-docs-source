@@ -8,6 +8,10 @@ import {HighlightedToml} from '@site/src/components/HighlightToml';
 import {StatusMessage} from '@site/src/components/StatusMessage';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import InfoDiffReplicatorValidator from '../../../src/common/info-diff-replicator-validator.md';
+import TroubleshootingNode from '../../../src/common/troubleshootings/node.md';
+import TroubleshootingDocker from '../../../src/common/troubleshootings/docker.md';
+import SecurityConsiderations from '../../../src/common/node/security-considerations.md';
 
 
 # Deploy your replicator node
@@ -16,13 +20,7 @@ In this page, we introduce instructions to deploy your Carmentis node.
 Whatever the manner you choose, the deployment is organized in two steps: **(1) setup
 a node configuration and (2) launch the node based on the provided configuration.**
 
-:::info Difference between replicator and validator
-A replicator node can be launched with a minimal configuration. Validator nodes, however,
-are expected to run both a *node* and an *operator*. For more convenience, we provide two distinct
-documentation pages:
-- Follow this link to deploy a [replicator node](/how-to/deploy-node/replicator)
-- Follow this link to deploy a [validator node](/how-to/deploy-node/validator)
-:::
+<InfoDiffReplicatorValidator/>
 
 ## Prerequisites
 - For *replicator nodes*, a laptop is enough even more when testing the network. In production, we recommend a server with at least 2 cores and 4GB of RAM.
@@ -276,6 +274,8 @@ but also to read the [security considerations](#security-considerations) section
   </TabItem>
 </Tabs>
 
+
+
 ## Launch the node
 By running the following command, the node will be launched.
 ```shell
@@ -318,50 +318,9 @@ npm update -g @cmts-dev/carmentis-cli
 ```
 
 ## Security considerations
-Based on the CometBFT documentation, for security reasons, the [port](/configuration/node/abci/config#port) (26658 by default) 
-of the ABCI server handling CometBFT requests **SHOULD NEVER** be exposed (except for the CometBFT server).
-
+<SecurityConsiderations/>
 
 ## Troubleshooting
-
-<details>
-    <summary>Docker not permitted</summary>
-    
-    In a fresh install of Docker, you might be unable to execute the `docker run hello-world` command.
-    To solve this issue, we highly recommend you to follow the [official Docker documentation for post-installations](https://docs.docker.com/engine/install/linux-postinstall/).
-    For more convinience, you can run the following commands but remember to check the official Docker documentation:
-
-    ```shell
-    sudo groupadd docker
-    sudo usermod -aG docker $USER
-    newgrp docker
-    docker run --rm hello-world
-    ```
-    
-</details>
-
-<details>
-    <summary>The `docker-compose` command is not found</summary>
-
-    Have you tried `docker compose`?
-</details>
-
-<details>
-    <summary>The `sudo` command is not found</summary>
-
-    The `sudo` command does not exist when logged as root.
-    Either log in as a regular user to execute the commands or  adapt the command by removing the `sudo`.
-</details>
-
-
-<details>
-    <summary>The `curl` and/or `jq` commands are not found</summary>
-
-    Ensure that you have installed `curl` and `jq` on your system using the following command:
-    
-```shell
-sudo apt install curl jq        
-```
-</details>
-
+<TroubleshootingNode/>
+<TroubleshootingDocker/>
 
