@@ -102,7 +102,7 @@ tutorials.
 
      As any blockchain-based solution, Carmentis is built over a distributed ledger, whose the security depends on 
 the number of participants in the network. Be part of the Carmentis network by deploying a replication node in a minute,
-by following our [guide](./how-to/deploy-node.md), and turn your node as validator node to be remunerated!
+by following our [guide](how-to/deploy-node/replicator.md), and turn your node as validator node to be remunerated!
 
 <div class="button-groups">
 <a href="./how-to/deploy-node">Deploy your first node</a>

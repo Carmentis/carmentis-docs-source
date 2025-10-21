@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 1
 ---
 
 import {RemoteCodeBlock} from '@site/src/components/RemoteFile';
@@ -10,23 +10,31 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-# Deploy your node
+# Deploy your replicator node
 
 In this page, we introduce instructions to deploy your Carmentis node.
 Whatever the manner you choose, the deployment is organized in two steps: **(1) setup
 a node configuration and (2) launch the node based on the provided configuration.**
 
+:::info Difference between replicator and validator
+A replicator node can be launched with a minimal configuration. Validator nodes, however,
+are expected to run both a *node* and an *operator*. For more convenience, we provide two distinct
+documentation pages:
+- Follow this link to deploy a [replicator node](/how-to/deploy-node/replicator)
+- Follow this link to deploy a [validator node](/how-to/deploy-node/validator)
+:::
+
 ## Prerequisites
 - For *replicator nodes*, a laptop is enough even more when testing the network. In production, we recommend a server with at least 2 cores and 4GB of RAM.
-- For *validator nodes*, we recommend a server with at least 2 cores and 4GB of RAM. The server should be externally accessible with a public IP address and 
-a *domain name* (e.g., `node.your-domain-name`) pointing to your server. We do not assume the server to handle TLS as we use a reverse proxy server (like Caddy) to handle TLS while it is not mandatory.
+- For *validator nodes*, we recommend a server with at least 2 cores and 4GB of RAM. The server should be externally accessible with a public IP address and
+  a *domain name* (e.g., `node.your-domain-name`) pointing to your server. We do not assume the server to handle TLS as we use a reverse proxy server (like Caddy) to handle TLS while it is not mandatory.
 
 ## Set up node configuration
 
 ### Docker installation
 Docker is intensively used in our procedure to install, configure and run components.
 Follow the instructions on the [official Docker documentation](https://docs.docker.com/engine/install/) to install Docker.
-To check your installation, run `docker run --rm hello-world`. 
+To check your installation, run `docker run --rm hello-world`.
 
 :::warning Docker compose binary name
 Be careful, old docker versions are using `docker-compose` name.
@@ -110,7 +118,7 @@ You might need to restart your terminal to apply the changes.
 :::
 
 #### Create the configuration
-Start by generating the initial configuration which includes the 
+Start by generating the initial configuration which includes the
 private key pair of your node:
 ```shell
 cometbft init --home ./cometbft
@@ -120,7 +128,7 @@ for CometBFT.
 
 **Update the genesis.json file in the cometbft configuration:**
 You have to download the genesis file of the network you want to join.
-Assuming `curl` and `jq` are installed on your (linux) system, you can download 
+Assuming `curl` and `jq` are installed on your (linux) system, you can download
 the genesis file using the following command below. The `curl` and `jq` packages can be installed easily using `sudo apt install curl jq`.
 Note that we use the `ares.testnet.carmentis.io` server but any server connected to the network can be used:
 ```shell
@@ -189,9 +197,9 @@ We provide below the following latest values from `ares.testnet.carmentis.io` an
 :::
 
 
-**Create the `config.toml` file of the ABCI server:** The ABCI server is used by CometBFT to model the logic 
+**Create the `config.toml` file of the ABCI server:** The ABCI server is used by CometBFT to model the logic
 of Carmentis within the CometBFT server. This ABCI server needs a configuration file whose the configuration
-documentation can be found [here](/configuration/node/abci/config). This file has to be created **next to the cometbft folder**, we refer you to the 
+documentation can be found [here](/configuration/node/abci/config). This file has to be created **next to the cometbft folder**, we refer you to the
 tree structure below. We provide you a ready-to-use configuration for your node.
 Be aware that this configuration *might not be compatible* with your configuration!
 
@@ -257,7 +265,7 @@ but also to read the [security considerations](#security-considerations) section
     You can find below the `Caddyfile` file that we use to deploy our node.
 
     <RemoteCodeBlock url="https://raw.githubusercontent.com/Carmentis/architectures/refs/heads/main/node/Caddyfile" title="Caddyfile" language="caddy" />
-    
+
 
   </TabItem>
   <TabItem value="without-caddy" label="Without caddy" default>
@@ -273,7 +281,6 @@ By running the following command, the node will be launched.
 ```shell
 docker compose up -d
 ```
-
 ## Next steps
 
 ### Checking node status

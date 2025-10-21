@@ -69,7 +69,7 @@ be present, otherwise the operator will not start.
 
 :::note Node URL
 In the configuration below, we have used an already deployed node `https://apollo.testnet.carmentis.io` within the Carmentis network.
-If you have followed the [node deployment guide](./deploy-node.md) and have already deployed your own node, then feel-free
+If you have followed the [node deployment guide](deploy-node/replicator.md) and have already deployed your own node, then feel-free
 to replace the node URL with your own node address (e.g., `http://node.your-domain-name:26667` or `https://node.your-domain-name` if
 you have set up a TLS-enabled reverse-proxy like [Caddy](https://caddyserver.com)).
 :::
