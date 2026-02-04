@@ -16,64 +16,41 @@ import TroubleshootingDocker from '../../../src/common/troubleshootings/docker.m
 import TroubleshootingOperator from '../../../src/common/troubleshootings/operator.md';
 import SecurityConsiderations from '../../../src/common/node/security-considerations.md';
 
-# Deploy your validator node
+# Turn your node as validator
 
-In this page, we introduce instructions to deploy your Carmentis validator node.
+A validator node is a node that participates in the consensus process.
+Since a validator node is basically a replicator node promoted to a validator rank,
+if you currently do not have deployed your node yet, we recommend you to follow
+the [Deploy your replicator node](./replicator) guide.
 
-<InfoDiffReplicatorValidator/>
 
-## Prerequisites
-For *validator nodes*, we recommend a server with at least 2 cores and 4GB of RAM. The server should be externally accessible
-with a public IP address and  *three domain names*  pointing to your server:
-- `node.your-domain-name` used to handle the node connection.
-- `operator.your-domain-name` used to handle the operator operations.
-- `workspace.your-domain-name` used to expose the front (user-friendly interface) for the operator.
+## Requirements
+To turn your replicator node into a validator node, a few requirements must be met.
+- Having a running node which has not already been claimed (a freshly deployed node meets this requirement).
+- Having a running operator, used to claim your node and stake.
+- Having enough tokens to stake (currently 1M tokens minimum is required).
 
-## Set up node configuration
+## Turn your replicator node into a validator node
 
-### Docker installation
-Docker is intensively used in our procedure to install, configure and run components.
-Follow the instructions on the [official Docker documentation](https://docs.docker.com/engine/install/) to install Docker.
-To check your installation, run `docker run --rm hello-world`. 
+### Step 1: Claim your node
+To claim your node, go to your running operator and follow the instructions to claim your node.
+The operator will declare your node as related to your organization (hence, your organization has to be declared first).
+After this step, your node will be visible on the explorer page and shown as visible and claimed in your operator.
 
-:::warning Docker compose binary name
-Be careful, old docker versions are using `docker-compose` name.
+### Step 2: Stake your tokens
+After your node is declared, you can stake your tokens on your node.
+Be sure to have enough tokens to stake.
+Still on your operator, in the list of nodes related to your organization, fill the staking form to stake tokens.
+
+:::warning Unstaking process
+Only one unstaking operation can be performed at a time for each node and is performed after **30 days** after your
+unstaking request, so be sure to put the right amount of tokens before to release the unstake process.
 :::
 
-### Set up node configuration using CLI
-We provide a CLI to set up the configuration quickly.
 
-#### Step 1: Install npm and the CLI
-The first step is to install the node package manager ([npm](https://npmjs.com)).
-```shell
-sudo apt update && sudo apt upgrade -y && sudo apt install npm && sudo npm i -g @cmts-dev/carmentis-cli
-```
-
-#### Step 2: Init the CLI
-Before to proceed to the generation, you have to initialize the CLI, notably by importing the reference networks:
-```shell
-cmts networks import
-```
-You can list the loaded networks using the `cmts networks list` command.
-
-#### Step 3: Generate the config
-To generate the configuration of your node, execute the following command and answer to the response interactively
-(replace the `$PATH_TO_GENERATE_CONFIG` with the path where the configuration is generated):
-```shell
-cmts validator init-config --home $PATH_TO_GENERATE_CONFIG
-```
-
-#### Step 4: Run the node
-To run the node, execute the following command (replace the `$PATH_TO_GENERATE_CONFIG` with the path where the configuration has been generated):
-```shell
-cd $PATH_TO_GENERATE_CONFIG && docker compose up -d
-```
-
-## Launch the node
-By running the following command, the node will be launched.
-```shell
-docker compose up -d
-```
+### Step 3: Governance approval
+The chain is currently in a governance phase. For this reason, you need to wait for the governance approval of your node.
+No action is required from you at this step.
 
 
 
