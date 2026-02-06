@@ -70,8 +70,8 @@ You can either create the configuration files manually, or use the <DynamicLink 
 be present, otherwise the operator will not start.
 
 :::note Node URL
-In the configuration below, we have used an already deployed node `https://apollo.testnet.carmentis.io` within the Carmentis network.
-If you have followed one of  the [node deployment guide](deploy-node) and have already deployed your own node, then feel-free
+In the configuration below, we have used an already deployed node `https://ares.testnet.carmentis.io` within the Carmentis network.
+If you have followed one of  the [node deployment guide](./deploy-node) and have already deployed your own node, then feel-free
 to replace the node URL with your own node address (e.g., `http://node.your-domain-name:26667` or `https://node.your-domain-name` if
 you have set up a TLS-enabled reverse-proxy like [Caddy](https://caddyserver.com)).
 :::
@@ -217,10 +217,18 @@ public key is registered, you can now log in on the operator.
 When launched for the first time, the operator displays a registration page to create your first organization.
 Click on the "Create organization" button to create your first organization.
 
-:::info Specify organization's private key
-When creating an organization, you have the possibility to provide a **private** signature key.
-It is useful when you want to load an existing organization from the blockchain.
-When no private key is provided, the operator generates a new one.
+:::info Organizations private key managment
+When creating an organization, you have the possibility to provide a **private** seed, used to derive all the private keys. This seed is **crucial** and should
+be kept in a safe place. 
+
+Our recommendation is to generate a seed using the CLI as shown below:
+```sh
+$ cmts crypto gen seed
+SEED{BPBgTSIjrTPsX76nyHG5iLAljKuVlLb92WbqkzmEc6N3SZjCp1O7wRl39ZZxU46zXIPDeQnftwXhzWYXjR4Ffw==}
+```
+Later on, if you need to boostrap your organization on a new operator, 
+providing such a seed will allow the operator to identify your organization and recover all the *published* data from the chain. 
+When no seed is provided, the operator generates a new one.
 :::
 
 To create the token account for your organization, copy the public key of your organization and
