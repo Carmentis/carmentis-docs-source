@@ -175,7 +175,48 @@ graph LR;
 In the above example, the *subscriptions* and *permissions* fields are important since there are used to define
 respectively the access of each role to a set of channels, and to define which data is contained in each channel.
 
-## Operator
+
+## Ecosystem Overview
+This diagram illustrates the Carmentis ecosystem architecture. 
+Users interact with the system through **Carmentis Desk** (desktop application) and a 
+**Browser** containing their front-end application and the **Carmentis Wallet** extension. 
+The company operates a server that communicates with the **Operator** via REST API, which 
+serves as the bridge between the application layer and the blockchain. The **Faucet** provides 
+tokens to both the Carmentis Wallet and Desk for testing or initial funding. The Operator anchors 
+microblocks on the **Carmentis Blockchain** and handles transaction fees, while both the Wallet 
+and Desk maintain connections to the blockchain for verification and monitoring purposes.
+```mermaid
+graph LR;
+    subgraph Carmentis
+        CH[Carmentis Blockchain];
+        FC[Faucet];
+    end
+    subgraph User
+        CD[Carmentis Desk];
+        subgraph Browser
+            F[Your Front];
+            CW[Carmentis Wallet];
+            F <--> CW;
+        end
+    end
+    subgraph Company
+        O[Operator];
+        S[Your Server];
+    end
+    
+    
+    FC --Give tokens--> CW;
+    FC --Give tokens--> CD;
+    CW --> O;
+    CD --Configure---> O;
+    S <--Interact using REST API--> O;
+    S <--> F;
+    O --Anchor microblocks on chain and pays--> CH
+    CW -..-> CH;
+    CD -..-> CH;
+```
+
+### Operator
 
 Constructing and publishing microblocks in order to get virtual blockchain is not an easy task, as 
 many technicalities need to be taken into account. For this reason, we have introduced the concept of *operator*. 
@@ -216,7 +257,7 @@ Running the operator can be done via [Docker](docker.io), while configuring the 
 
 
 
-## Wallet
+### Wallet
 
 In the Carmentis ecosystem, a wallet serves as a secure digital identity that enables users to interact with the protocol.
 It stores the user's private keys, which are essential for signing transactions and approving actions within the system.
@@ -226,7 +267,7 @@ ensuring privacy by keeping personal data confidential. Overall, the wallet is a
 and usability within the Carmentis framework.
 
 
-## Carmentis Desk
+### Carmentis Desk
 
 In the Carmentis ecosystem, a wallet serves as a secure digital identity that enables users to interact with the protocol.
 It stores the user's private keys, which are essential for signing transactions and approving actions within the system.
