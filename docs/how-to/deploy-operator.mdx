@@ -18,6 +18,7 @@ The deployment process of the operator is done via the following steps:
 1. Publish an application *on-chain* via <DynamicLink id="desk"/>.
 2. Deploy an instance of the operator using Docker Compose.
 3. Attach the operator to your Carmentis Desk.
+4. Configure the operator.
 
 
 
@@ -82,6 +83,30 @@ cd $PATH_TO_GENERATE_CONFIG && docker compose up -d
 Once your operator server is running, you can configure it using Carmentis Desk.
 Before starting the configuration, ensure you have installed <DynamicLink id="desk"/>
 and have a published application (you will need your application's vbId).
+Finally, ensure you have wallet on your desk (hopefully, if you have created and published an
+application, you have already a wallet in your desk so no further action is required).
+
+To configure your operator, follow the steps below:
+1. Create a new operator instance on your desk. You have to indicate a name (just for you) and an endpoint
+to talk with the operator.
+2. Once created, the desk will show a setup form. In the dropdown, select the wallet you want to use to create
+the first admin account of the operator.
+3. Once setup, the desk will show a login page, select the *same* wallet as the one you used to create the operator.
+Later one, other wallets will be able to login on the operator by adding new users. But for now, only this wallet can be used.
+4. Once logged in, you can create a new wallet on the operator or *import* a wallet from your desk to the operator.
+It is up to you to choose which one you want to use.
+5. Once a wallet is created or imported on the operator, you can declare an application related to your wallet.
+Note that the application you declare **must be the one you published on-chain**. The operator will not work otherwise and
+does not check for publication status yet.
+6. Once the application is declared, create an API key. This API key can be used by your (real) applications
+to interact with the operator.
+
+
+:::info Operator APIs
+The operator exposes two APIs:
+- `/admin/api`: the one used by [Carmentis Desk] to administrate the operator (protected by JWT tokens).
+- `/api/v1/transactions`: the one used by your applications to interact with the operator (protected by API keys).
+:::
 
 
 
