@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-
-
+// https://github.com/Carmentis/carmentis-desk/releases/download/v1.2.2/carmentis-desk_1.2.2_.x64.dmg
+// https://github.com/Carmentis/carmentis-desk/releases/download/v1.2.2/carmentis-desk_1.2.2_x64.dmg
 const latestRelease = {
   version: '1.2.2',
   releasesLink: "https://github.com/Carmentis/carmentis-desk/releases/download/vVERSION/",
@@ -17,13 +17,13 @@ const latestRelease = {
       name: "Windows x86_64",
       platform: "windows",
       arch: '',
-      url: ".x64-setup.exe"
+      url: "x64-setup.exe"
     },
     {
       name: "MacOS x86_64",
       platform: "macos",
       arch: '',
-      url: ".x64.dmg"
+      url: "x64.dmg"
     },
   ]
 }
