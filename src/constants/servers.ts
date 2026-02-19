@@ -40,4 +40,9 @@ export const SERVERS: ServerConfig[] = [
         link: 'https://www.npmjs.com/package/@cmts-dev/carmentis-cli',
         label: "CLI"
     },
+    {
+        id: 'desk',
+        link: '/how-to/get-carmentis-desk',
+        label: "Carmentis Desk"
+    },
 ];
