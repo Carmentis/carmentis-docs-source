@@ -80,7 +80,27 @@ const config = {
           },
           {to: 'https://assets.carmentis.io/token-economy.pdf', label: 'Token Economy', position: 'left'},
           {to: 'https://assets.carmentis.io/whitepaper.pdf', label: 'Whitepaper', position: 'left'},
-            {to: 'https://chromewebstore.google.com/detail/carmentis-wallet/ekchappkfhfkbgekcleodkhlfcadocmj', label: 'Wallet', position: 'left'},
+          {
+            "to": "/how-to/get-your-carmentis-wallet",
+            "label": "Carmentis Wallet",
+            "position": "left"
+          },
+          {
+            "to": "/how-to/get-carmentis-desk",
+            "label": "Carmentis Desk",
+            "position": "left"
+          },
+
+          {
+            "to": "/how-to/deploy-operator",
+            "label": "Carmentis Operator",
+            "position": "left"
+          },
+          {
+            "to": "/how-to/deploy-node/replicator",
+            "label": "Carmentis Node",
+            "position": "left"
+          },
           {
             href: 'https://github.com/carmentis',
             label: 'GitHub',
