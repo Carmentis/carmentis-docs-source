@@ -16,21 +16,57 @@ import TroubleshootingDocker from '../../../src/common/troubleshootings/docker.m
 import TroubleshootingOperator from '../../../src/common/troubleshootings/operator.md';
 import SecurityConsiderations from '../../../src/common/node/security-considerations.md';
 
-# Turn your node as validator
+# Claim and stake your node
 
 A validator node is a node that participates in the consensus process.
 Since a validator node is basically a replicator node promoted to a validator rank,
 if you currently do not have deployed your node yet, we recommend you to follow
 the [Deploy your replicator node](./replicator) guide.
 
+As any object in the blockchain, a *node* is modelled as a virtual blockchain and you have to
+declare a new virtual blockchain for each node you want to deploy. A node virtual blockchain
+is linked to an organization, itself linked to an account. For this reason, you have to declare
+account and organization virtual blockchains *before* deploying your node. Once your organization is
+published on-chain, you can declare your node. We have depicted below the hierarchical structure of
+the account, organization and applications blockchain objects.
 
-## Requirements
-To turn your replicator node into a validator node, a few requirements must be met.
-- Having a running node which has not already been claimed (a freshly deployed node meets this requirement).
-- Having a running operator, used to claim your node and stake. If not already deployed, visit the [Deploy your operator guide](../deploy-operator).
-- Having enough tokens to stake (currently 1M tokens minimum is required).
+```mermaid
+graph BT
+    O{Organization} --Depends--> A{Account};
+    AP{Application} --Depends--> O;
+    N{Node} --Depends--> O;
+```
 
-## Turn your replicator node into a validator node
+## Overview of the process
+The process to turn your replicator node into a validator node is quite simple depicted below.
+
+```mermaid
+flowchart LR
+    subgraph On Carmentis Desk
+         A[1. Claim your node];
+         C[3. Stake your tokens] --> D[4. Wait for approval];
+         A -.Skip if >1M tokens.-> C;
+    end
+    subgraph On Faucet
+        B[2. Purchase tokens]
+    end
+   A --> B --> C
+```
+
+1. The first step is to claim your node.
+This step involves that you have already tokens (at least 1M tokens) and that you have an organization on Carmentis Desk.
+If you do not have tokens yet, go to the <DynamicLink id="faucet"/> to purchase them.
+2. Once your node is claimed, it is time to stake your tokens.
+Provide the amount of tokens you want to stake and click on the `Stake` button.
+:::note Processing delay
+The staking process can take few seconds to apply, please refresh the page to check the status.
+:::
+3. Once staked, no further action is required from you. Congrats 🥳!
+:::info Governance approval
+Currently, the chain is in a permissionned phase. So the governance approval is required to promote your node to a validator.
+It might take at most a few days to be approved.
+:::
+
 
 ### Step 1: Claim your node
 To claim your node, go to your running operator and follow the instructions to claim your node.
