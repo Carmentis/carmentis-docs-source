@@ -6,6 +6,47 @@ import {DynamicLink} from '@site/src/components/DynamicLink';
 
 # Getting started
 
+```mermaid
+flowchart LR
+    subgraph Node Staker & Application Developper
+        direction LR
+        S1[Install Desk] --> S2[Create your wallet]
+        --> S3[Purchase tokens] 
+        --> S5[Create/Publish organization] 
+
+         
+    subgraph Node Staker
+        direction TB
+        S_NS6[Deploy replicator node] -->
+        S_NS7[Claim your node] -->
+        S_NS8[Stake tokens] -->
+        S_NS9[Start receiving tokens! 🥳]
+    end
+
+    subgraph Application Developper
+        direction TB
+        S_AD6[Create/publish application] -->
+        S_AD8[Deploy an operator] -->
+        S_AD9[Setup your operator] -->
+        S_AD10[Generate an API Key] -->
+        S_AD11[Start developping! 🥳]    
+    end
+
+    end
+   
+    subgraph End User
+        direction TB
+        U1(Install Carmentis Wallet) --> U2(Create a wallet)
+    --> U3(Start using Carmentis-supported applications! 🥳)
+    end
+
+    S5 --> S_NS6;
+    S5 --> S_AD6;
+
+
+    style U3 fill:#ff
+```
+
 <div class="get-started">
     <a href="#get-started-as-a-user" class="role">
         <img class="get-started-image" src="/img/user.png"/>   
