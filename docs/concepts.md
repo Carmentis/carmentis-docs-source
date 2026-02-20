@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+import {DynamicLink} from '@site/src/components/DynamicLink';
+
 # Concepts
 
 The Carmentis chain is structured around several key concepts.
@@ -67,8 +69,8 @@ Creating a microblock programmatically is as simple as the following code snippe
 // we create an empty microblock used inside the account virtual blockchain
 const mb = Microblock.createGenesisAccountMicroblock();
 
-// we add two sections to define a public key and an account creation section used to indicate the 
-// desire to create an account.
+// we add two sections: a section defining a public key and and a section creating an account.
+// The result is the creation of an account associated to some public key.
 mb.addSections([
     {
         type: SectionType.ACCOUNT_PUBLIC_KEY,
@@ -99,6 +101,11 @@ authorisation, we have introduced another notion atop of the virtual blockchain,
 
 ### Application ledger: Where all your data ends
 
+The application ledger virtual blockchain is the ultimate virtual blockchain
+where the data you anchor in the blockchain ends. An application ledger
+is absolutly required to be associated with an application virtual blockchain.
+In the Carmentis model, an application ledger models a *single* transaction flow. For instance, a flow modelling a letter being sent and received is modelled as single application ledger. Hence, for a single application virtual blockchain, multiple application ledger virtual blockchains can be created.
+
 ```mermaid
 graph BT;
     AL1[Application Ledger 1] --> A{Application};
@@ -107,9 +114,51 @@ graph BT;
     
 ```
 
-#### Roles & Channels
+#### Channels
 
-Within the Carmentis protocol, a channel is the cornerstone of the feature allowing *asymmetry of information*.
+When anchoring a data being anchored in an application ledger virtual blockchain, the data are splitted among *channels*.
+A channel is the cornerstone of the feature allowing *asymmetry of information*.
+A channel can be either *public*, so all the data being put in this channel remains in clear, or *private*. In the latter case, the data remains (symmetrically) encrypted. 
+
+
+![flow](/img/virtual-blockchain-and-channel.webp)
+
+Let focus on the encryption in private channels. For clarity and simplicity, we will omit few details about the real cryptography employed in the application ledger and focus on the following simplified fact: Every private channel is associated with a *dedicated* symmetric encryption key. Everytime you are anchoring private data on private channel, these are encrypted using the symmetric encryption key associated with the channel. In a nutshell, asymmetry of information is acheived by providing channel keys to users that should be able to access information on a particular channels.
+
+Of course, channel keys are *not* distributed on-demand, otherwise breaking all the security. Instead, we are relying on *public-key encryption* in which one can use a public-key to encrypt a message, only the user (or device) holding the private decryption key can decrypt the message. By encrypting the channel key with the public encryption key, we allow the user to access the private channel by: (1) decrypt the ciphertext encrypting the channel key using its private decryption key, and then (2) decrypt ciphertexts containing data in the channel using the previously decrypted channel key. This approach is similar to the [Envelope or Hybrid encryption](https://en.wikipedia.org/wiki/Hybrid_cryptosystem).
+
+For the most security-aware readers, the following question may arise: 
+
+> *Who is responsible for generating and handling all channel keys?*
+
+In the Carmentis ecosystem, the handling of channel keys are performed 
+by *you*. Let's be clearer: in addition to the blockchain, we provide an application-ledger-focused server called an *Operator*. This server should be launched
+on your *own* infrastructure and only accessible by *your* services (ensured by an integrated API key system). All the cryptographic operations are already performed in this ready-to-use server, so we provide the server and you run it. 
+
+#### Actors
+
+In the application ledger, an actor simply corresponds to a name, a public signature key (used to authenticated users) and public encryption key (used to share channel keys). That's it! It is even clearer when observing sections used by the operator itself to declare a new actor:
+
+```ts
+const mb = new Microblock();
+mb.addSections([
+    {
+        type: SectionType.APP_LEDEGR_ACTOR_SUBSCRIBPTION,
+        actorId: 1, // an automatically created id,
+        pkePublicKey: new Uint8Array(), // the public encryption key
+        signaturePublicKey: new Uint8Array(), // the public signature key
+        // ... other non-critial properties are omitted for clarity
+    },
+    {
+        type: SectionType.APP_LEDGER_ACTOR_CREATION,
+        id: 1 // an automatically created id,
+        name: "Jean Dupont", // a name used to identify clearly the user
+    }
+])
+```
+
+#### Learn by the example
+
 For concreteness, suppose an official government document containing three sections: a public section visible
 by all the citizens, a second section for all governmental agencies (including NSA), and a last section being accessible
 only by NSA. The Carmentis protocol is particularly well-suited to solve this asymmetry of information.
@@ -117,7 +166,6 @@ Assume that a virtual blockchain has been created for the occasion. In this case
 exactly three distinct channels: A *public* channel for the first public section, a *private* channel for the
 government agencies section and a *private*  channel for the secret-defense data being accessible only by the NSA.
 
-![flow](/img/virtual-blockchain-and-channel.webp)
 
 
 When developing your application, you have to specify the channel access rules, defining which role can access which channel and
@@ -269,13 +317,10 @@ and usability within the Carmentis framework.
 
 ### Carmentis Desk
 
-In the Carmentis ecosystem, a wallet serves as a secure digital identity that enables users to interact with the protocol.
-It stores the user's private keys, which are essential for signing transactions and approving actions within the system.
-The wallet facilitates authentication, allowing users to log into applications without relying on traditional usernames
-and passwords. Moreover, it enables users to manage their approvals and share proofs of actions securely, all while
-ensuring privacy by keeping personal data confidential. Overall, the wallet is a crucial component that enhances security
-and usability within the Carmentis framework.
-
+Carmentis Desk can be viewed as a Carmentis Wallet but for desktops.
+But it is more than just a wallet: while the Carmentis Wallet 
+only focus on dealing with the tokens and to interact with a web application,
+Carmentis Desk allows the handling of multiple wallets, but also to claim nodes and stake tokens. Even more, Carmentis Desk serves as an *administration console* to control your operators. The latter point is crucial: it gives you an access to the state of your operators including allowed users, wallets available in the operator and finally to generate API keys. We recommand you to visit the <DynamicLink id="desk"/> to get more details.
 
 
 
