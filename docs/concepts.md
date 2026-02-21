@@ -157,71 +157,67 @@ mb.addSections([
 ])
 ```
 
-#### Learn by the example
+#### Learn by Example: The Luxury Digital Passport
 
-For concreteness, suppose an official government document containing three sections: a public section visible
-by all the citizens, a second section for all governmental agencies (including NSA), and a last section being accessible
-only by NSA. The Carmentis protocol is particularly well-suited to solve this asymmetry of information.
-Assume that a virtual blockchain has been created for the occasion. In this case, the virtual blockchain contains
-exactly three distinct channels: A *public* channel for the first public section, a *private* channel for the
-government agencies section and a *private*  channel for the secret-defense data being accessible only by the NSA.
+Consider the example of a high-end watch manufacture wanting to guarantee the authenticity of its products throughout their entire lifecycle. The Carmentis protocol is particularly well-suited to handle the **information asymmetry** between the manufacturer, the reseller, and the end customer, while preserving the confidentiality of sensitive data (such as sale price or buyer identity).
 
+Suppose a virtual blockchain has been created for a specific watch (ID: `WATCH_XYZ`). In this case, the virtual blockchain contains three distinct channels:
+1. A **Public** channel: Contains the model and serial number, viewable by any potential buyer to verify the object's existence.
+2. A **Private (Manufacture)** channel: Contains technical manufacturing details and quality control reports.
+3. A **Private (Owner)** channel: Contains the ownership certificate and service history, accessible only to the current holder and authorized service centers.
 
+When developing your application, you specify the channel access rules (`accessRules`), defining which role can access which channel and what data is included.
 
-When developing your application, you have to specify the channel access rules, defining which role can access which channel and
-that data included in every channel. For clarity, we provide the channel access rules definition for the example presented above.
-
-
-```js
-// the data being anchored in the virtual blockhain
-const data = {
-    publicData: "The public data",
-    aliceData: "Data only accessible by Alice and the Operator"
+```javascript
+// Data to be anchored in the virtual blockchain (the Ledger)
+const watchData = {
+  serialNumber: "SN-12345-XYZ",
+  modelName: "Master Ultra Thin",
+  qualityControlReport: "All tests passed - Tolerance +2s/day", // Manufacture Confidential
+  ownerIdentity: "John Doe", // Owner Confidential
+  maintenanceLog: "Full service completed on 2024-02-21" // Owner/Service Center Confidential
 }
 
-// the channel access rules
+// Channel Access Rules definition
 const accessRules = {
-    // we assign the fields to be anchored in the virtual blockchain
-    "fields": fields,
-    
-    // we declare channels over which the data are splitted
-    "channels": [
-        { name: "publicChannel", public: true},
-        { name: "privateChannel", public: false},
-    ],
+  // Fields to be anchored
+  data: watchData,
+  
+  // Channels declaration
+  "channels": [
+    { "name": "publicRegistry", "public": true },  // Visible to everyone
+    { "name": "manufacturingSecret", "public": false }, // Encrypted
+    { "name": "ownershipVault", "public": false } // Encrypted
+  ],
 
-    // we declare how the data are splitted
-    "permissions": {
-        "publicChannel": [ "this.publicData" ],
-        "privateChannel": [ "this.aliceData" ]
-    },
-    
-    // we declare actors 
-    "actors": [ 
-        "operator",  // the operator plays a special role of key holder, in addition to handling all the building work.
-        "alice", // Alice is role that should be defined.
-    ],
-    
-    // we declare the split of the data over the channels
-    "subscriptions": {
-        "operator": [ "privateChannel" ], 
-        "alice": [ "privateChannel" ],
-    },
-    
-    // we declare the application virtual blockchain id
-    "applicationId": 1234,
-   
+  // Data splitting into channels
+  "permissions": {
+    "publicRegistry": [ "this.serialNumber", "this.modelName" ],
+    "manufacturingSecret": [ "this.qualityControlReport" ],
+    "ownershipVault": [ "this.ownerIdentity", "this.maintenanceLog" ]
+  },
+  
+  // Actors declaration (roles)
+  "actors": [ 
+    "operator",    // The Manufacture's system
+    "factory_qa",  // Quality Assurance department
+    "customer"     // Final buyer
+  ],
+  
+  // Access attribution to actors
+  "subscriptions": {
+    "operator": [ "manufacturingSecret", "ownershipVault" ], 
+    "factory_qa": [ "manufacturingSecret" ],
+    "customer": [ "ownershipVault" ]
+  },
+  
+  // Application virtual blockchain ID
+  "applicationId": 8888
 }
 ```
 
+In this example, the subscriptions and permissions fields ensure that a casual observer can verify that watch SN-12345-XYZ is authentic via the public channel, but only John Doe (the customer) can prove ownership or view maintenance records via the ownershipVault channel—all without this private data ever being exposed in clear text on the blockchain.
 
-```mermaid
-graph LR;
-    publicData[Public data] --> publicChannel[Public channel];
-    aliceData[Alice's data] --> secretChannel[Alice's private channel];
-```
-In the above example, the *subscriptions* and *permissions* fields are important since there are used to define
-respectively the access of each role to a set of channels, and to define which data is contained in each channel.
 
 
 ## Ecosystem Overview
