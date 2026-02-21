@@ -264,13 +264,18 @@ graph LR;
     CD -..-> CH;
 ```
 
-### Operator
+### Carmentis Operator
 
-Constructing and publishing microblocks in order to get virtual blockchain is not an easy task, as 
-many technicalities need to be taken into account. For this reason, we have introduced the concept of *operator*. 
-An operator plays a crucial role in the Carmentis protocol by providing a personnal API used to handle all the
-complexity for you. We have displayed below a (simplified) sequence diagram illustrating the interaction between the
-different components of the Carmentis ecosystem. As you can see, the wallet approves the action by signing it. This 
+As explained previously, the handling of channel keys are performed by the Carmentis Operator. This part of the ecosystem is critical in many ways:
+
+- First, as explained, it handles all cryptographic keys.
+- Second, recall that the operator anchors encrypted data in the application ledger, which means that it publishs on the blockchain. It then follows that publishing (microblocks) on the blockchain implies to pay *fees* to validator nodes.
+Therefore, the Carmentis Operator should have access to a private signature key, whose the public signature key is associated to a sufficiently-funded account. Otherwise, the microblock will be rejected.
+- Third, it makes your experience with the Carmentis ecosystem by handling many technicalities needed to publish.
+- Fourth, it is at the core our of application ledger *protocol* used to obtain the wallet's signature for a microblock. We have displayed below a (simplified) sequence diagram illustrating the interaction between the
+different components of the application ledger protocol.
+
+As you can see, the wallet approves the action by signing it. This 
 signed approval takes the form of a [Micro block](#virtual-blockchains-and-channels),
 encapsulating all relevant data associated with the event under review. The operator's signature on the [Micro block](#virtual-blockchains-and-channels)
 establishes the event's authenticity, allowing it to proceed toward [Wallet](#wallet) validation.
