@@ -157,10 +157,61 @@ mb.addSections([
 ])
 ```
 
-#### Learn by Example: The Luxury Digital Passport
+### Learn by Example: The Luxury Digital Passport
 
 Consider the example of a high-end watch manufacture wanting to guarantee the authenticity of its products throughout their entire lifecycle. The Carmentis protocol is particularly well-suited to handle the **information asymmetry** between the manufacturer, the reseller, and the end customer, while preserving the confidentiality of sensitive data (such as sale price or buyer identity).
 
+
+#### Organization Declaration (The Parent Entity)
+
+​The organization represents the legal entity. It is the root of the hierarchy and is immutably registered on the main blockchain to establish brand authority.
+
+```ts
+// Creating a microblock to register the organization
+const mbOrg = new Microblock();
+
+mbOrg.addSections([
+  {
+    type: SectionType.ORGANIZATION_CREATION,
+    name: "Haute Horlogerie Group",
+    website: "https://haute-horlogerie-group.com",
+    description: "Leading luxury watch manufacturing group specialized in high-end movements."
+  }
+]);
+// Once anchored, this generates a unique organizationId (e.g., 55)
+
+```
+
+
+#### Application Declaration (The Service)
+
+​The application is the specific service offered by the organization. It acts as the technical container for all the individual "Ledgers" (virtual blockchains) created for each product.
+
+```ts
+// Creating a microblock to launch the application within the organization
+const mbApp = new Microblock();
+
+mbApp.addSections([
+  {
+    type: SectionType.APPLICATION_CREATION,
+    organizationId: 55, // Reference to the Organization ID created above
+    name: "Luxury Authenticator & Warranty",
+    description: "Digital passport and ownership management system for luxury assets.",
+    url: "https://verify.haute-horlogerie.com"
+  }
+]);
+// Once anchored, this generates the applicationId (e.g., 8888) used in your access rules
+
+```
+
+#### Key Takeaways for Stakeholders
+
+- ​**For Business Leaders:** This structure ensures Brand Accountability. The organization and application are linked, preventing third parties from spoofing the brand's certification service.
+- **​For Developers:** It defines the Hierarchical Scope. You understand that before anchoring data (the Application Ledger), you must establish the environment (Organization > Application) where that data lives.
+- **​For End Users:** It provides Verified Provenance. When a user interacts with the Ledger, they can trace it back to the official "Haute Horlogerie Group" application.
+
+
+#### Application Ledger Declaration (The Product)
 Suppose a virtual blockchain has been created for a specific watch (ID: `WATCH_XYZ`). In this case, the virtual blockchain contains three distinct channels:
 1. A **Public** channel: Contains the model and serial number, viewable by any potential buyer to verify the object's existence.
 2. A **Private (Manufacture)** channel: Contains technical manufacturing details and quality control reports.
