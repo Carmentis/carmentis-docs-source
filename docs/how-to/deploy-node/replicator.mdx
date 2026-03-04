@@ -35,6 +35,12 @@ Please, follow the tutorial as a non-root user (like `debian` when running on de
 
 ## Set up node configuration
 
+:::info Ports
+The (CometBFT part of the) node runs on two TCP ports:
+- `26656` for the p2p communication
+- `26657` for the RPC communication
+:::
+
 ### Docker installation
 Docker is intensively used in our procedure to install, configure and run components.
 Follow the instructions on the [official Docker documentation](https://docs.docker.com/engine/install/) to install Docker.
