@@ -20,12 +20,18 @@ In this page, we introduce instructions to deploy your Carmentis node.
 Whatever the manner you choose, the deployment is organized in two steps: **(1) setup
 a node configuration and (2) launch the node based on the provided configuration.**
 
+
 <InfoDiffReplicatorValidator/>
 
 ## Prerequisites
 - For *replicator nodes*, a laptop is enough even more when testing the network. In production, we recommend a server with at least 2 cores and 4GB of RAM.
 - For *validator nodes*, we recommend a server with at least 2 cores and 4GB of RAM. The server should be externally accessible with a public IP address and
   a *domain name* (e.g., `node.your-domain-name`) pointing to your server. We do not assume the server to handle TLS as we use a reverse proxy server (like Caddy) to handle TLS while it is not mandatory.
+
+:::warn Non-root Installation
+The following tutorial assumes you are running as a non-root user.
+Please, follow the tutorial as a non-root user (like `debian` when running on debian).
+:::
 
 ## Set up node configuration
 
