@@ -12,7 +12,7 @@ To develop your application, you have some pre-requisites to follow:
 ## Development workflow
 Developing an application in the Carmentis ecosystem is simple: interacting with the Carmentis
 chain is as simple as calling the API of the operator. The API is documented in swagger of your operator 
-at `<operator-domain-name>/swagger` or the [already accessible Carmentis operator](https://operator.dev.carmentis.io/swagger).
+at `<operator-domain-name>/swagger` or the [already accessible Carmentis operator](https://operator.testnet.carmentis.io/swagger).
 
 :::warning An operator is personal
 The operator is personal to an enterprise: never share the usage of your operator in production with another enterprise.
