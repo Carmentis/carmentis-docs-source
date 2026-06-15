@@ -59,21 +59,14 @@ The first step is to install the node package manager ([npm](https://npmjs.com))
 sudo apt update && sudo apt upgrade -y && sudo apt install npm && sudo npm i -g @cmts-dev/carmentis-cli
 ```
 
-#### Step 2: Init the CLI
-Before to proceed to the generation, you have to initialize the CLI, notably by importing the reference networks:
-```shell
-cmts networks import
-```
-You can list the loaded networks using the `cmts networks list` command.
-
-#### Step 3: Generate the config
+#### Step 2: Generate the config
 To generate the configuration of your node, execute the following command and answer to the response interactively
 (replace the `$PATH_TO_GENERATE_CONFIG` with the path where the configuration is generated):
 ```shell
 cmts node init-config --home $PATH_TO_GENERATE_CONFIG
 ```
 
-#### Step 4: Run the node
+#### Step 3: Run the node
 To run the node, execute the following command (replace the `$PATH_TO_GENERATE_CONFIG` with the path where the configuration has been generated):
 ```shell
 cd $PATH_TO_GENERATE_CONFIG && docker compose up -d
