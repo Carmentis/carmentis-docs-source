@@ -85,8 +85,19 @@ unstaking request, so be sure to put the right amount of tokens before to releas
 
 
 ### Step 3: Governance approval
-The chain is currently in a governance phase. For this reason, you need to wait for the governance approval of your node.
-No action is required from you at this step.
+The chain is currently permissionned. For this reason, you need to wait for the governance approval of your node.
+
+:::info Signature request
+Before to proceed to the approval, the governance will ask
+you to sign a message to prove that you are the owner of the node.
+This message can be signed using the CLI as follows, assuming
+you are located in the home of your node and that the cometbft
+folder is located under the `cometbft` folder:
+```shell
+cmts cometbft sign ./cometbft/config/priv_validator_key.json <message>
+```
+Return the generated signature to the governance.
+:::
 
 
 
