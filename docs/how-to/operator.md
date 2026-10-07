@@ -1,5 +1,4 @@
 ---
-id: operator
 title: Carmentis Operator
 sidebar_label: Operator
 ---
@@ -278,5 +277,5 @@ Choose `submittedTimeoutSeconds` according to your own tolerance: too short and 
 ## Further resources
 
 - Swagger UI: `http://<operator-host>:<port>/swagger`
-- Source code and issues: <https://github.com/carmentis/operator>
+- Source code and issues: [https://github.com/carmentis/operator](https://github.com/carmentis/operator)
 - License: Apache-2.0

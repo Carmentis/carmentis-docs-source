@@ -3,7 +3,10 @@ import { useEffect, useState } from 'react';
 // https://github.com/Carmentis/carmentis-desk/releases/download/v1.2.2/carmentis-desk_1.2.2_.x64.dmg
 // https://github.com/Carmentis/carmentis-desk/releases/download/v1.2.2/carmentis-desk_1.2.2_x64.dmg
 
-zsh:1: command not found: q
+
+const releasedVersions = [
+  '1.33.0'
+]
 export function CarmentisDownload() {
   const content = releasedVersions.map((version, index) => {
     const release = {
