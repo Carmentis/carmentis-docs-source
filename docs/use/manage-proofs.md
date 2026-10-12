@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Manage proofs
 
 Carmentis provides features to generate and verify a proof of authenticity for a data being anchored on the blockchain.
@@ -19,5 +23,5 @@ The verification of a proof can be done at *two* places: on your wallet and on t
 
 :::warning
 The verification of the proof reveals information to the proof verifier. Be sure to trust the 
-proof checker before to provide the proof file. See more [here](../concepts/proof.md).
+proof checker before to provide the proof file. See more [here](/concepts/overview#proof-of-authenticity).
 :::

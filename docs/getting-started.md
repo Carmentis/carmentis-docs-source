@@ -94,7 +94,7 @@ That’s it! With your wallet installed and the demo application running, you’
 
 <div class="button-groups">
 <DynamicLink id="chrome:wallet" message="Install your wallet"/>
-<a href="./tutorial/test-demo-applications">Run the demonstration applications</a>
+<a href="/build/tutorials/hello-world">Run the demonstration applications</a>
 </div>  
 
 </div>
@@ -108,23 +108,23 @@ That’s it! With your wallet installed and the demo application running, you’
     </div>
 
      <div class="get-started-section-body">
-**Note:** You need to  [install and configure your wallet](./how-to/get-your-carmentis-wallet) before you run the
+**Note:** You need to  [install and configure your wallet](/use/install-desk) before you run the
 tutorials.
 
 
-    For a smooth landing, Carmentis provides an already-configured environment called a [*sandbox*](./concepts/sandbox).
+    For a smooth landing, Carmentis provides an already-configured environment called a [*sandbox*](/concepts/overview).
     It as a development environment managed by Carmentis, which is useful to
-    [develop your own application](./how-to/develop-your-application) in the development phase. In the [**first tutorial**](./tutorial/test-demo-application),
-    we guide you to create your first sandbox [*sandbox*](./concepts/sandbox), containing a pre-configured demo application.
+    [develop your own application](/build/quickstart) in the development phase. In the [**first tutorial**](/build/tutorials/hello-world),
+    we guide you to create your first sandbox [*sandbox*](/concepts/overview), containing a pre-configured demo application.
     
     Once you are ready to develop your own application and put it in production, you will need to
-    run your own self-sovereign [service operator](./concepts/operator). To guide you through this crucial step, we provide you
-    a [**second tutorial**](./tutorial/connect-our-demo-to-sandbox) to link your freshly written and ready-to-deploy application
+    run your own self-sovereign [service operator](/operate/operator). To guide you through this crucial step, we provide you
+    a [**second tutorial**](/build/tutorials/hello-world) to link your freshly written and ready-to-deploy application
     with your service operator.
 
 <div class="button-groups">
 <DynamicLink id="chrome:wallet" message="Install your wallet"/>
-<a href="./tutorial/connect-our-demo-to-sandbox">Go to tutorial</a>
+<a href="/build/tutorials/hello-world">Go to tutorial</a>
 </div>  
 
 </div>
@@ -143,10 +143,10 @@ tutorials.
 
      As any blockchain-based solution, Carmentis is built over a distributed ledger, whose the security depends on 
 the number of participants in the network. Be part of the Carmentis network by deploying a replication node in a minute,
-by following our [guide](how-to/deploy-node/replicator.mdx), and turn your node as validator node to be remunerated!
+by following our [guide](/operate/node/replicator), and turn your node as validator node to be remunerated!
 
 <div class="button-groups">
-<a href="./how-to/deploy-node">Deploy your first node</a>
+<a href="/operate/node/replicator">Deploy your first node</a>
 </div>  
 
 </div>

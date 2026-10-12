@@ -5,6 +5,6 @@ a node and an operator in *distinct* servers to improve security and modularity.
 since we are using Docker, both node and operator can be installed on the same server, this
 configuration is called *validator* set up.
 For more convenience, we provide two distinct documentation pages:
-- Follow this link to deploy a [replicator node](/how-to/deploy-node/replicator)
-- Follow this link to deploy a [validator node](/how-to/deploy-node/validator)
+- Follow this link to deploy a [replicator node](/operate/node/replicator)
+- Follow this link to deploy a [validator node](/operate/node/validator)
 :::

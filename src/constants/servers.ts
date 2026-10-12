@@ -42,7 +42,7 @@ export const SERVERS: ServerConfig[] = [
     },
     {
         id: 'desk',
-        link: '/how-to/get-carmentis-desk',
+        link: '/use/install-desk',
         label: "Carmentis Desk"
     },
 ];

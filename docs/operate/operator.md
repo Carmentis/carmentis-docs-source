@@ -1,6 +1,7 @@
 ---
 title: Carmentis Operator
 sidebar_label: Operator
+sidebar_position: 1
 ---
 
 # Carmentis Operator
@@ -13,9 +14,9 @@ The **Carmentis Operator** is a self-hosted server that sits between your applic
 │ application │ ◄─────────────── │              │          └────────────────┘
 └─────────────┘                  │  - wallets   │  HTTP    ┌────────────────┐
                                  │  - API keys  │ ───────► │    Indexer     │
-┌─────────────┐   wallet flow    │  - database  │          └────────────────┘
-│ User wallet │ ◄──────────────► │  - admin UI  │
-└─────────────┘                  └──────────────┘
+                                 │  - database  │
+                                 │  - admin UI  │
+                                 └──────────────┘
 ```
 
 ## Why use the Operator?
@@ -26,7 +27,6 @@ Publishing data on a blockchain directly means handling keys, key derivation, mi
 | --------------------------------------------------------- | ------------------------------------------------------------------------------------ |
 | Anchor business data on-chain                             | A single `POST` to create an *anchor request*, then a status endpoint to follow it    |
 | Keep private keys out of your application                 | Wallets managed (and encrypted at rest) by the Operator                              |
-| Let end users approve what is published in their name     | A wallet-approval flow ("anchor with wallet")                                        |
 | Control who can publish what                              | Scoped, revocable **API keys** (per application, endpoint regex, gas limits, expiry)  |
 | Prove that data is authentic and on-chain                 | Proof, record and "is published" endpoints                                           |
 | Verify credentials and signatures                         | Verification endpoints for SD-JWT credentials/presentations and signatures           |
@@ -51,17 +51,23 @@ Every anchor request has a status, exposed by the API:
 
 | Status       | Meaning                                                                                                    |
 | ------------ | ---------------------------------------------------------------------------------------------------------- |
-| `created`    | The request exists; no interaction has happened yet.                                                       |
-| `initiated`  | The user's wallet has started the approval process.                                                        |
+| `created`    | The request exists and has not been published yet.                                                         |
 | `submitted`  | The microblock has been published to the node. Its presence on chain is **not yet confirmed**.            |
 | `anchored`   | The indexer has confirmed that the microblock is on chain.                                                 |
-| `cancelled`  | The request has been cancelled.                                                                            |
+| `cancelled`  | The request has been cancelled before being submitted.                                                     |
 | `failed`     | The microblock was submitted but never showed up in the indexer within the configured delay.               |
 
-```text
-created ──► initiated ──► submitted ──┬──► anchored
-   │            │                      └──► failed
-   └────────────┴──► cancelled
+`anchored`, `cancelled` and `failed` are final states: a request never leaves them.
+
+```mermaid
+stateDiagram-v2
+    [*] --> created: POST /wallet/anchor
+    created --> submitted: microblock published to the node
+    created --> cancelled: POST /anchorRequest/{id}/cancel
+    submitted --> anchored: indexer knows the microblock hash
+    submitted --> failed: not found before submittedTimeoutSeconds
+    submitted --> submitted: not found yet / indexer unreachable (retry at next run)
+
 ```
 
 ### Automatic confirmation
@@ -152,14 +158,19 @@ curl -H "x-api-key: <your-api-key>" \
 
 To append to an existing ledger instead of creating a new one, pass its `virtualBlockchainId` in the body.
 
-## Anchoring modes
+## Anchoring endpoints
 
-| Mode                         | Endpoint                                                              | Use it when…                                                              |
-| ---------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| **Operator-signed**          | `POST /api/v1/wallet/anchor`<br />`POST /api/v1/wallet/{walletId}/anchor` | Your own backend publishes data with the Operator's wallet; no user interaction. |
-| **Wallet-approved**          | `POST /api/v1/wallet/anchorWithWallet`<br />`POST /api/v1/wallet/{walletId}/anchorWithWallet` | A user must review and endorse the publication from their own wallet. Pass the `endorser` actor name in the body. |
+Your own backend publishes data with the Operator's wallet; no user interaction is needed.
+
+| Endpoint                                                                  | Description                                                             |
+| ------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `POST /api/v1/wallet/anchor`<br />`POST /api/v1/wallet/{walletId}/anchor` | Create an anchor request signed by the Operator's wallet.               |
 
 The `/wallet/…` form without `{walletId}` uses the wallet associated with the API key or the application. All endpoints check that the API key may publish to the requested application and that the gas price is within the key's limits.
+
+:::note Anchoring with the user's wallet is temporarily removed
+The "anchor with wallet" flow (`anchorWithWallet`), in which an end user approves a publication from their own wallet, has been officially removed and is being reworked. Do not build new integrations on it.
+:::
 
 ## API overview
 

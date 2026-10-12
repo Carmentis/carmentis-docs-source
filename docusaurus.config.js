@@ -25,7 +25,7 @@ const config = {
   deploymentBranch: 'main', // The branch of your docs repo that you are publishing to GitHub pages
   trailingSlash: false,
 
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
   markdown: {
@@ -40,7 +40,31 @@ const config = {
     locales: ['en'],
   },
 
-  plugins: ['@docusaurus/theme-live-codeblock', '@docusaurus/theme-mermaid'],
+  plugins: [
+    '@docusaurus/theme-live-codeblock',
+    '@docusaurus/theme-mermaid',
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {from: '/how-to/get-carmentis-desk', to: '/use/install-desk'},
+          {from: '/how-to/manage-proof', to: '/use/manage-proofs'},
+          {from: '/how-to/interact-with-desk', to: '/build/reference/desk-json-rpc'},
+          {from: '/how-to/operator', to: '/operate/operator'},
+          {from: '/how-to/deploy-operator', to: '/operate/operator'},
+          {from: '/how-to/deploy-node', to: '/operate/node/replicator'},
+          {from: '/how-to/deploy-node/replicator', to: '/operate/node/replicator'},
+          {from: '/how-to/deploy-node/validator', to: '/operate/node/validator'},
+          {from: '/how-to/develop-your-application/getting-started', to: '/build/quickstart'},
+          {from: '/tutorial/demo-applications/hello-world', to: '/build/tutorials/hello-world'},
+          {from: '/tutorial/demo-applications/file-sign', to: '/build/tutorials/file-sign'},
+          {from: '/roadmap', to: '/resources/roadmap'},
+          {from: '/demo-applications', to: '/resources/demo-applications'},
+          {from: '/getting-help', to: '/resources/getting-help'},
+        ],
+      },
+    ],
+  ],
 
   presets: [
     [
@@ -72,35 +96,9 @@ const config = {
           href: 'https://carmentis.io',
         },
         items: [
-          {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Documentation',
-          },
-          {to: 'https://assets.carmentis.io/token-economy.pdf', label: 'Token Economy', position: 'left'},
-          {to: 'https://assets.carmentis.io/whitepaper.pdf', label: 'Whitepaper', position: 'left'},
-          {
-            "to": "/how-to/get-your-carmentis-wallet",
-            "label": "Carmentis Wallet",
-            "position": "left"
-          },
-          {
-            "to": "/how-to/get-carmentis-desk",
-            "label": "Carmentis Desk",
-            "position": "left"
-          },
-
-          {
-            "to": "/how-to/deploy-operator",
-            "label": "Carmentis Operator",
-            "position": "left"
-          },
-          {
-            "to": "/how-to/deploy-node/replicator",
-            "label": "Carmentis Node",
-            "position": "left"
-          },
+          {type: 'docSidebar', sidebarId: 'docsSidebar', position: 'left', label: 'Documentation'},
+          {to: 'https://assets.carmentis.io/whitepaper.pdf', label: 'Whitepaper', position: 'right'},
+          {to: 'https://assets.carmentis.io/token-economy.pdf', label: 'Token Economy', position: 'right'},
           {
             href: 'https://github.com/carmentis',
             label: 'GitHub',
@@ -116,7 +114,7 @@ const config = {
             items: [
               {
                 label: 'Documentation',
-                to: '/docs/intro',
+                to: '/',
               },
             ],
           },

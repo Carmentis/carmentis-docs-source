@@ -19,7 +19,7 @@ Carmentis open infrastructure to connects multiple sources of truth called oracl
 
 
 <div class="button-groups">
-<a href="./getting-started" target="_blank">Get started</a>
+<a href="/getting-started" target="_blank">Get started</a>
 </div>  
 
 
@@ -27,7 +27,7 @@ Carmentis open infrastructure to connects multiple sources of truth called oracl
 Learn more on our approach by looking at our overview, explaining the general concept and technical details.
 
 <div class="button-groups">
-<a href="/architecture" target="_blank">Technical overview</a>
+<a href="/concepts/overview">Technical overview</a>
 <a href="https://assets.carmentis.io/whitepaper" target="_blank">Whitepaper</a>
 <a href="https://assets.carmentis.io/token-economy" target="_blank">Token economy</a>
 </div>  
