@@ -73,6 +73,12 @@ const config = {
         docs: {
           routeBasePath: "/",
           sidebarPath: './sidebars.js',
+          // Released versions live in versioned_docs/; `current` is the unreleased next version.
+          lastVersion: '1.0',
+          versions: {
+            current: {label: 'Next', banner: 'unreleased'},
+            '1.0': {label: '1.0'},
+          },
         },
         blog: false,
         theme: {
@@ -97,6 +103,7 @@ const config = {
         },
         items: [
           {type: 'docSidebar', sidebarId: 'docsSidebar', position: 'left', label: 'Documentation'},
+          {type: 'docsVersionDropdown', position: 'right'},
           {to: 'https://assets.carmentis.io/whitepaper.pdf', label: 'Whitepaper', position: 'right'},
           {to: 'https://assets.carmentis.io/token-economy.pdf', label: 'Token Economy', position: 'right'},
           {
