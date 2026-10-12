@@ -6,150 +6,48 @@ import {DynamicLink} from '@site/src/components/DynamicLink';
 
 # Getting started
 
-```mermaid
-flowchart LR
-    subgraph Node Staker & Application Developper
-        direction LR
-        S1[Install Desk] --> S2[Create your wallet]
-        --> S3[Purchase tokens] 
-        --> S5[Create/Publish organization] 
-
-         
-    subgraph Node Staker
-        direction TB
-        S_NS6[Deploy replicator node] -->
-        S_NS7[Claim your node] -->
-        S_NS8[Stake tokens] -->
-        S_NS9[Start receiving tokens! 🥳]
-    end
-
-    subgraph Application Developper
-        direction TB
-        S_AD6[Create/publish application] -->
-        S_AD8[Deploy an operator] -->
-        S_AD9[Setup your operator] -->
-        S_AD10[Generate an API Key] -->
-        S_AD11[Start developping! 🥳]    
-    end
-
-    end
-   
-    subgraph End User
-        direction TB
-        U1(Install Carmentis Wallet) --> U2(Create a wallet)
-    --> U3(Start using Carmentis-supported applications! 🥳)
-    end
-
-    S5 --> S_NS6;
-    S5 --> S_AD6;
-
-
-    style U3 fill:#ff
-```
+How you start with Carmentis depends on what you want to do. Pick the path that sounds like you.
 
 <div class="get-started">
-    <a href="#get-started-as-a-user" class="role">
-        <img class="get-started-image" src="/img/user.png"/>   
-        <span>Get started as a user</span>
+    <a href="#as-a-user" class="role">
+        <img class="get-started-image" src="/img/user.png"/>
+        <span>I want to use a Carmentis application</span>
     </a>
-    
-    
-    <a class="role" href="#get-started-as-an-application-developer">
-        <img class="get-started-image" src="/img/developer.png"/>   
-        <span>Get started as an application developer</span>
+    <a class="role" href="#as-an-application-developer">
+        <img class="get-started-image" src="/img/developer.png"/>
+        <span>I want to build an application</span>
     </a>
-
-    <a class="role" href="#get-started-as-a-token-holder">
-        <img class="get-started-image" src="/img/blockchain.png"/>   
-        <span>Get started as a token holder</span>
+    <a class="role" href="#as-a-token-holder">
+        <img class="get-started-image" src="/img/blockchain.png"/>
+        <span>I want to run a node and stake tokens</span>
     </a>
 </div>
 
+## As a user
 
-<div class="get-started-section">
-    <div class="get-started-section-title">
-         <img class="get-started-section-" src="/img/user.png"/>   
-        <h3 id="get-started-as-a-user">Get started as a user</h3>
-    </div>
+All you need is a wallet. It keeps your credentials and lets you approve actions in applications that use Carmentis.
 
-     <div class="get-started-section-body">
+1. **Install the Carmentis Wallet** from the <DynamicLink id="chrome:wallet" message="Chrome Web Store"/>.
+2. **Create your account.** Write down the recovery phrase and keep it somewhere safe: it is the only way to get your wallet back.
+3. **Try it out.** The [Hello World demo](/build/tutorials/hello-world) shows how a wallet and an application work together.
 
-To get started, you’ll need to complete two main steps: installing the wallet and running the demonstration application. Follow the instructions below to set everything up quickly and easily.
+## As an application developer
 
-1. **Install the Wallet**
-The wallet is essential for managing your credentials and interacting with the demonstration application. Here’s how to set it up:
-- **Download**: Head to the official website or app store and download the wallet application compatible with your device.
-- **Install**: Follow the on-screen installation instructions. Ensure you grant any required permissions for a smooth setup.
-- **Set Up Your Account**: Open the wallet, create a new account, and securely store any recovery phrases or credentials provided during setup.
+Your application never talks to the blockchain directly. It calls an **operator**, a small server that you run and that publishes your data on-chain for you. Setting this up takes a few steps, and you only do them once.
 
-> **Tip**: Keep your recovery information private and stored securely—it’s crucial for accessing your wallet.
+1. **Install [Carmentis Desk](/use/install-desk).** Desk is the tool you use to manage your wallets and operators. You also need it to log in to your operator, because the login relies on your wallet rather than a password.
+2. **Create a wallet and publish your organization** from Desk, then create and publish your application.
+3. **Deploy an operator.** Follow the [operator guide](/operate/operator) to install and configure it.
+4. **Generate an API key** in the operator's admin interface. Your application sends this key with each request.
+5. **Start building.** The [developer quickstart](/build/quickstart) shows how to anchor your first data.
 
-2. **Run the Demonstration Application**
-Once your wallet is ready, you can proceed to run the demonstration application:
-- **Access the demo application**: Navigate to the application URL in your browser.
-- **Connect Your Wallet**: Open the wallet and link it to the demonstration application as instructed.
-- **Explore**: Follow the prompts in the application to begin testing its features. You’ll see how the wallet integrates and functions in real-time.
+If you just want to explore first, the [Hello World tutorial](/build/tutorials/hello-world) gives you a ready-made environment to experiment with, and no operator of your own.
 
-That’s it! With your wallet installed and the demo application running, you’re all set to explore and experience the system. Let us know if you need help along the way!
+## As a token holder
 
-<div class="button-groups">
-<DynamicLink id="chrome:wallet" message="Install your wallet"/>
-<a href="/build/tutorials/hello-world">Run the demonstration applications</a>
-</div>  
+Carmentis is secured by the people who run its nodes. By running one, you help keep the network reliable, and you can be rewarded for it.
 
-</div>
-</div>
-
-
-<div class="get-started-section">
-    <div class="get-started-section-title">
-         <img class="get-started-section-" src="/img/developer.png"/>   
-        <h3 id="get-started-as-an-application-developer">Get started as an application developer</h3>
-    </div>
-
-     <div class="get-started-section-body">
-**Note:** You need to  [install and configure your wallet](/use/install-desk) before you run the
-tutorials.
-
-
-    For a smooth landing, Carmentis provides an already-configured environment called a [*sandbox*](/concepts/overview).
-    It as a development environment managed by Carmentis, which is useful to
-    [develop your own application](/build/quickstart) in the development phase. In the [**first tutorial**](/build/tutorials/hello-world),
-    we guide you to create your first sandbox [*sandbox*](/concepts/overview), containing a pre-configured demo application.
-    
-    Once you are ready to develop your own application and put it in production, you will need to
-    run your own self-sovereign [service operator](/operate/operator). To guide you through this crucial step, we provide you
-    a [**second tutorial**](/build/tutorials/hello-world) to link your freshly written and ready-to-deploy application
-    with your service operator.
-
-<div class="button-groups">
-<DynamicLink id="chrome:wallet" message="Install your wallet"/>
-<a href="/build/tutorials/hello-world">Go to tutorial</a>
-</div>  
-
-</div>
-</div>
-
-
-<div class="get-started-section">
-    <div class="get-started-section-title">
-         <img class="get-started-section-" src="/img/blockchain.png"/>   
-        <h3 id="get-started-as-a-token-holder">Get started as a token holder</h3>
-    </div>
-
-     <div class="get-started-section-body">
-
-
-
-     As any blockchain-based solution, Carmentis is built over a distributed ledger, whose the security depends on 
-the number of participants in the network. Be part of the Carmentis network by deploying a replication node in a minute,
-by following our [guide](/operate/node/replicator), and turn your node as validator node to be remunerated!
-
-<div class="button-groups">
-<a href="/operate/node/replicator">Deploy your first node</a>
-</div>  
-
-</div>
-</div>
-
-
+1. **Install [Carmentis Desk](/use/install-desk)** and create a wallet.
+2. **Deploy a replication node.** The [replicator guide](/operate/node/replicator) walks you through it in a few minutes.
+3. **Claim your node** from Desk, so that it is linked to your wallet.
+4. **Stake tokens** on it. You can then turn it into a [validator node](/operate/node/validator) to earn rewards.
