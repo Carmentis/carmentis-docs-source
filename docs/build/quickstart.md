@@ -42,7 +42,7 @@ Before writing any code, you need:
 
 The administration interface of the operator does not use passwords. You log in with **public-key authentication**: the operator sends a challenge that is signed by your wallet in Carmentis Desk. You therefore cannot administrate an operator, and so cannot create an API key, without Desk.
 
-[Download and install Carmentis Desk](/use/install-desk), then create (or import) a wallet. Desk is also where you create and publish your organization and application, and where you manage your operators.
+[Download and install Carmentis Desk](/use/install-desk), then create (or import) a wallet. Desk is also where you create and publish your organization and application. You then configure the operator from its own admin UI, which Desk gives you access to.
 
 ### 2. Run an operator
 

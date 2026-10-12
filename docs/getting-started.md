@@ -35,7 +35,7 @@ All you need is a wallet. It keeps your credentials and lets you approve actions
 
 Your application never talks to the blockchain directly. It calls an **operator**, a small server that you run and that publishes your data on-chain for you. Setting this up takes a few steps, and you only do them once.
 
-1. **Install [Carmentis Desk](/use/install-desk).** Desk is the tool you use to manage your wallets and operators. You also need it to log in to your operator, because the login relies on your wallet rather than a password.
+1. **Install [Carmentis Desk](/use/install-desk).** Desk is the tool you use to manage your wallets. You also need it to log in to your operator's admin interface, because the login relies on your wallet rather than a password.
 2. **Create a wallet and publish your organization** from Desk, then create and publish your application.
 3. **Deploy an operator.** Follow the [operator guide](/operate/operator) to install and configure it.
 4. **Generate an API key** in the operator's admin interface. Your application sends this key with each request.

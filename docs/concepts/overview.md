@@ -1,10 +1,11 @@
 ---
 sidebar_position: 1
+title: Overview
 ---
 
 import {DynamicLink} from '@site/src/components/DynamicLink';
 
-# Concepts
+# Concepts Overview
 
 The Carmentis chain is structured around several key concepts.
 Understanding these concepts will help you better understand the Carmentis ecosystem and how to interact with it.
@@ -352,29 +353,27 @@ Then, the operator follows the instructions to create the application ledger mic
 request identifier and returns it to the server.
 - The REST API used by the server to initiate the anchoring request with the operator is *protected* via an API-key system.
 Therefore, to use the operator, you must setup the operator accordingly and finally obtain an API key. 
-Running the operator can be done via [Docker](https://www.docker.com), while configuring the operator is done via the [Carmentis Desk](/use/install-desk). 
+Running the operator can be done via [Docker](https://www.docker.com), while configuring the operator is done through its *admin UI*, which you access by logging in with [Carmentis Desk](/use/install-desk).
 
 
-
-
-### Wallet
-
-In the Carmentis ecosystem, a wallet serves as a secure digital identity that enables users to interact with the protocol.
-It stores the user's private keys, which are essential for signing transactions and approving actions within the system.
-The wallet facilitates authentication, allowing users to log into applications without relying on traditional usernames
-and passwords. Moreover, it enables users to manage their approvals and share proofs of actions securely, all while
-ensuring privacy by keeping personal data confidential. Overall, the wallet is a crucial component that enhances security
-and usability within the Carmentis framework.
 
 
 ### Carmentis Desk
 
-Carmentis Desk can be viewed as a Carmentis Wallet but for desktops.
-But it is more than just a wallet: while the Carmentis Wallet 
-only focus on dealing with the tokens and to interact with a web application,
-Carmentis Desk allows the handling of multiple wallets, but also to claim nodes and stake tokens. Even more, Carmentis Desk serves as an *administration console* to control your operators. The latter point is crucial: it gives you an access to the state of your operators including allowed users, wallets available in the operator and finally to generate API keys. We recommand you to visit the <DynamicLink id="desk"/> to get more details.
+**Carmentis Desk** is the desktop application used to manage your presence in the Carmentis ecosystem. It is aimed at
+application developers and node operators, although end users may also use it as a wallet. It is available on Linux, Windows and macOS.
 
+Desk is where you:
+- **Manage your wallets.** Create several wallets and, inside each of them, create and publish your organizations, applications and nodes.
+- **Log in to your operators.** Desk is the key to the admin UI of an [operator](#carmentis-operator): you connect to the operator
+with Desk, and then configure it (users, wallets, API keys) from the operator's own admin UI.
+- **Manage your nodes.** Claim a node you are running, stake tokens on it and monitor its status.
 
+Desk also plays a role in security: an operator's admin UI has no password-based login. Instead, you authenticate with
+*public-key authentication*, by signing a challenge with the key of one of your wallets in Desk. This is why any application developer
+needs Desk installed before being able to configure an operator.
+
+To install it, follow the [Carmentis Desk guide](/use/install-desk).
 
 
 ## Proof of authenticity
