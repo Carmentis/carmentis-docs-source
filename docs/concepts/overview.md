@@ -324,9 +324,9 @@ Therefore, the Carmentis Operator should have access to a private signature key,
 different components of the application ledger protocol.
 
 As you can see, the wallet approves the action by signing it. This 
-signed approval takes the form of a [Micro block](#virtual-blockchains-and-channels),
-encapsulating all relevant data associated with the event under review. The operator's signature on the [Micro block](#virtual-blockchains-and-channels)
-establishes the event's authenticity, allowing it to proceed toward [Wallet](#wallet) validation.
+signed approval takes the form of a [Micro block](#behind-the-hood-microblocks-and-virtual-blockchains),
+encapsulating all relevant data associated with the event under review. The operator's signature on the [Micro block](#behind-the-hood-microblocks-and-virtual-blockchains)
+establishes the event's authenticity, allowing it to proceed toward Wallet validation.
 
 ```mermaid
 sequenceDiagram
@@ -404,7 +404,7 @@ in the dedicated documentation pages.
 
 The currently deployed Testnet in Carmentis is called **Themis**. This network is composed of two types of nodes:
 Replication nodes and validator nodes. A *replication node* receives an approved event from the
-[operator](#operator), taking the form of a micro-block, later being anchored in the chain.
+[operator](#carmentis-operator), taking the form of a micro-block, later being anchored in the chain.
 A *validation node* follows the same specification of the replication node, and is also in charge to validate the
 micro blocks, create the master blocks and anchor them in the blockchain.
 
