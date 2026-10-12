@@ -922,6 +922,32 @@
         ]
       }
     },
+    "/api/v1/crypto/digest/json": {
+      "post": {
+        "description": "Computes digest data for a given JSON object.",
+        "operationId": "CryptoController_getJsonDigest_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WalletJsonDigestRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Computes digest data of JSON",
+        "tags": [
+          "Crypto"
+        ]
+      }
+    },
     "/api/v1/crypto/signature/verify": {
       "post": {
         "description": "Verifies the authenticity of a signature for a binary message using a public key.",
@@ -1318,6 +1344,53 @@
         "summary": "Get wallet public signature key",
         "tags": [
           "Wallet Crypto"
+        ]
+      }
+    },
+    "/api/v1/wallet/{walletId}/resolve": {
+      "post": {
+        "description": "Recursively resolves microblock data.",
+        "operationId": "WalletResolverController_resolve_v1",
+        "parameters": [
+          {
+            "name": "walletId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "$ref": "#/components/schemas/WalletEntity"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResolverDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "A Carmentis proof containing the resolved data.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResolutionProofDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
+        "summary": "Resolve data stored in microblocks",
+        "tags": [
+          "Wallet Resolver"
         ]
       }
     }
@@ -1978,6 +2051,36 @@
           "credential"
         ]
       },
+      "WalletJsonDigestRequestDto": {
+        "type": "object",
+        "properties": {
+          "object": {
+            "type": "object",
+            "description": "The binary message to be signed, encoded according to messageEncoding",
+            "example": "{ firstname: \"John\", lastname: \"Doe\" }"
+          },
+          "addSalt": {
+            "type": "boolean",
+            "description": "Tells whether a salt must be automatically added"
+          },
+          "encoding": {
+            "type": "string",
+            "description": "The encoding method. Defaults to 'canonical'.",
+            "default": "canonical"
+          },
+          "digestAlg": {
+            "type": "string",
+            "description": "The digest algorithm. Defaults to 'sha256'.",
+            "default": "sha256"
+          }
+        },
+        "required": [
+          "object",
+          "addSalt",
+          "encoding",
+          "digestAlg"
+        ]
+      },
       "BinaryMessageSignatureVerificationRequestDto": {
         "type": "object",
         "properties": {
@@ -2221,6 +2324,208 @@
           }
         },
         "required": [
+          "signature"
+        ]
+      },
+      "ResolverPoliciesDto": {
+        "type": "object",
+        "properties": {
+          "onResolutionFailure": {
+            "type": "string",
+            "title": "Expected behavior on resolution failure",
+            "description": "Field indicating whether to raise an exception or ignore the error if a resolution fails.",
+            "enum": [
+              "throw",
+              "ignore"
+            ],
+            "default": "throw"
+          },
+          "onCyclicResolution": {
+            "type": "string",
+            "title": "Expected behavior on cyclic resolution",
+            "description": "Field indicating whether to raise an exception or ignore the error if a cyclic resolution is detected.",
+            "enum": [
+              "throw",
+              "ignore"
+            ],
+            "default": "throw"
+          }
+        }
+      },
+      "ResolverDto": {
+        "type": "object",
+        "properties": {
+          "linkedJson": {
+            "type": "object",
+            "title": "The JSON to be resolved",
+            "description": "The JSON data from which the resolution starts.",
+            "additionalProperties": true
+          },
+          "policies": {
+            "title": "Policies",
+            "description": "The policies used during the resolution.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ResolverPoliciesDto"
+              }
+            ]
+          }
+        },
+        "required": [
+          "linkedJson",
+          "policies"
+        ]
+      },
+      "ProofInfoDto": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "number",
+            "title": "Proof format version"
+          },
+          "chainId": {
+            "type": "string",
+            "title": "Chain identifier"
+          },
+          "description": {
+            "type": "string",
+            "title": "Proof description"
+          },
+          "author": {
+            "type": "string",
+            "title": "Proof author"
+          },
+          "date": {
+            "type": "string",
+            "title": "Proof creation date"
+          }
+        },
+        "required": [
+          "version",
+          "chainId",
+          "description",
+          "author",
+          "date"
+        ]
+      },
+      "ResolutionProofBodyDto": {
+        "type": "object",
+        "properties": {
+          "linkedJson": {
+            "type": "object",
+            "title": "The JSON to be resolved",
+            "description": "The JSON data from which the resolution starts.",
+            "additionalProperties": true
+          },
+          "resolvedJson": {
+            "type": "object",
+            "title": "Resolved JSON",
+            "description": "The full resolved data, as JSON.",
+            "additionalProperties": true
+          }
+        },
+        "required": [
+          "linkedJson",
+          "resolvedJson"
+        ]
+      },
+      "ProofSignatureCommitmentDto": {
+        "type": "object",
+        "properties": {
+          "issuedAt": {
+            "type": "string",
+            "title": "Signature issuance date"
+          },
+          "digestAlg": {
+            "type": "string",
+            "title": "Used digest algorithm"
+          },
+          "digestTarget": {
+            "type": "string",
+            "title": "Digest target"
+          },
+          "digest": {
+            "type": "string",
+            "title": "Signed digest"
+          }
+        },
+        "required": [
+          "issuedAt",
+          "digestAlg",
+          "digestTarget",
+          "digest"
+        ]
+      },
+      "ProofSignatureDto": {
+        "type": "object",
+        "properties": {
+          "commitment": {
+            "title": "The signature commitment",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ProofSignatureCommitmentDto"
+              }
+            ]
+          },
+          "signer": {
+            "type": "string",
+            "title": "The signer of the proof"
+          },
+          "pubkey": {
+            "type": "string",
+            "title": "The public key of the signer"
+          },
+          "alg": {
+            "type": "string",
+            "title": "The signature algorithm"
+          },
+          "sig": {
+            "type": "string",
+            "title": "The signature"
+          }
+        },
+        "required": [
+          "commitment",
+          "signer",
+          "pubkey",
+          "alg",
+          "sig"
+        ]
+      },
+      "ResolutionProofDto": {
+        "type": "object",
+        "properties": {
+          "info": {
+            "title": "Proof info",
+            "description": "Information about the proof.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ProofInfoDto"
+              }
+            ]
+          },
+          "proof": {
+            "title": "Proof content",
+            "description": "The payload content of the proof.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ResolutionProofBodyDto"
+              }
+            ]
+          },
+          "signature": {
+            "title": "Proof signature",
+            "description": "Optional proof signature.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ProofSignatureDto"
+              }
+            ]
+          }
+        },
+        "required": [
+          "info",
+          "proof",
           "signature"
         ]
       }

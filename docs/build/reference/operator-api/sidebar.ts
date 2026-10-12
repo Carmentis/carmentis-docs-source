@@ -184,6 +184,12 @@ const sidebar: SidebarsConfig = {
           label: "Generate a UUID",
           className: "api-method get",
         },
+        {
+          type: "doc",
+          id: "build/reference/operator-api/crypto-controller-get-json-digest-v-1",
+          label: "Computes digest data of JSON",
+          className: "api-method post",
+        },
       ],
     },
     {
@@ -255,6 +261,18 @@ const sidebar: SidebarsConfig = {
           id: "build/reference/operator-api/wallet-crypto-controller-get-public-signature-key-v-1",
           label: "Get wallet public signature key",
           className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Wallet Resolver",
+      items: [
+        {
+          type: "doc",
+          id: "build/reference/operator-api/wallet-resolver-controller-resolve-v-1",
+          label: "Resolve data stored in microblocks",
+          className: "api-method post",
         },
       ],
     },
