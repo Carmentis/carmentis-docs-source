@@ -166,6 +166,8 @@ Your own backend publishes data with the Operator's wallet; no user interaction 
 | ------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | `POST /api/v1/wallet/anchor`<br />`POST /api/v1/wallet/{walletId}/anchor` | Create an anchor request signed by the Operator's wallet.               |
 
+See [Anchor data on-chain](/build/guides/anchoring/anchor-on-chain) for the request body, and [Anchoring and resolution](/build/guides/anchoring/overview) for references, off-chain data and proofs.
+
 The `/wallet/…` form without `{walletId}` uses the wallet associated with the API key or the application. All endpoints check that the API key may publish to the requested application and that the gas price is within the key's limits.
 
 :::note Anchoring with the user's wallet is temporarily removed
