@@ -1,0 +1,299 @@
+---
+id: app-controller-get-applications
+title: "AppController_getApplications"
+description: "AppController_getApplications"
+sidebar_label: "AppController_getApplications"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVlFv4zYM/isCX7oBXuO4dePkrWtvW7EdbmhueymCAy3Tia62pJPkXLMg/32Q7aRO4gaXPgWOSH6fyE8k16A0GXRCyYcMJnCr9Z2SzqiiIPNlTu5W60Lw2sBCABoNluTIWJg8rUFiSTABZTIyEIChb5UwlMEkx8JSAELCBL5VZFYQQEaWG6F9KJjAVBnHto6WL6hEmKwhoxyrwnkq0zsIwK20R7DOCDmHAEhWJUye2tP7D9M7mG02wSuVPLfkzuTyh/rOSpQrZshWhbPMKWafhWY/5cowjXMh6wz8vEeVXrDUBcFkGO54yqpMyUCXUSFKcS6hj/giyqpkTTim8i2z9xBYpl9EdiaBf4VxFRYsLRR/5gsUkj3c94NDPBxm4yQbXxPyOKSbNIuzPMkwi5KYj0N+FY55HGM8SrN8nKUJj0dZSHx8NeQjHo/wqMp79TRzlOK/Ov3nX+NTx5stz7gTv07CEU9Hwzi+4cPkCrPROEnClG54NLqKkJI0icJknKZpNEqu4/z6Oo7yaBRF0TgMU37yTvXPeRfpPEPWuvfR/k0UNBVz2QM/84BWK2nJeqcoDJv31oWBALiSjqTzZ/gKOvhqvcG6g9oCqPQrca9vbXwrcaIJv0D7URnqGKZKFYTyuBGQ8+/twpmKLpjIWakM7V4iGmK4RFFgWtAlbAJwymHxSFyZzHbCt8I/jP7ZW3fe0S4WM02IS/ZIrjKSMqZksWLfFyTZRdNGLpiwrLKUMSGZWxCri1OzEI7KLjwag75sh/+/kZ5Wi7/upOi77/qwaMGe/N8waUTVc1CoufrHFL1nC1WSxjm9db6XxKPzTVe8T72XOaIebGW/pbVPYh9yFoATrpZ0R/n3TsHmEHwrtG3q+13/EtY9tvJvw/hADue2niZae8ejN3dyFpbkFsoPzXk9cDS6BUxggFoMlsMB7htbMstmas78B6+McKupf0yNIFCLX55p1VWUFn9SLSlPZkHYjMq2h9xWbqFMm966IkLmqnZvb3+HpiTphGVCZvRCht3+/XD0Pu4Vr7xZ01r8uPM67/W9hAD8HRrH4WXYdgvkvlt4ClpZV2KtmC1NrdlrEtmcHDvIYr/SHL24gS5QSK/GqlFpk+EnnxlPZQgB7GV55iVlnTdZr1O0Xlibjf+7aap+Y8mE9a//teke4O/a3/6C0kurrtdu+VliUXkb8J3+x2HO2T1OsdjuPe+kcWrjOAG7XW7eifrWmnECcbvNvBPxhzaCk9U+3EfeSaRnop+AbS1esWb+wwgP5nuKb+lNh/Aib3xuOSfdLc7RPPdRdl3s9w+fYbP5HzOmHuE=
+sidebar_class_name: "get api-method"
+info_path: build/reference/indexer-api/carmentis-indexer-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"AppController_getApplications"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/applications"}
+>
+  
+</MethodEndpoint>
+
+
+
+AppController_getApplications
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"order","required":false,"in":"query","description":"Sort order","schema":{"default":"ASC","type":"string","enum":["ASC","DESC"]}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"offset","required":false,"in":"query","description":"How many results to skip (for pagination)","schema":{"example":10,"type":"number"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"limit","required":false,"in":"query","description":"Maximum number of results","schema":{"example":10,"type":"number"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"vb_id","required":false,"in":"query","description":"Virtual blockchain ID","schema":{"example":"511d98d94eac50e6bd5df8dad285c90c309c55a57bdf9db8c57d0ec931c7c57a","type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"organization_id","required":false,"in":"query","description":"Organization virtual blockchain ID","schema":{"example":"c4807cb71556c183ad79880be6c2732ae8b82089bbb27845f4452f27222900bc","type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"name","required":false,"in":"query","description":"Application name","schema":{"example":"FileSign","type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"hasMore"}
+                        required={true}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean","description":"Set to 'true' if more results are available."}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"totalRecords"}
+                        required={false}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"number","description":"Total number of available records. Returned only when 'offset' is used in the query."}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                items
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span><span
+                                className={"openapi-schema__divider"}
+                              >
+                                
+                              </span><span
+                                className={"openapi-schema__required"}
+                              >
+                                required
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"virtualBlockchainId"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"organizationId"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"name"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"logoUrl"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"homepageUrl"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"description"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"hasMore\": true,\n  \"totalRecords\": 0,\n  \"items\": [\n    {\n      \"virtualBlockchainId\": \"string\",\n      \"organizationId\": \"string\",\n      \"name\": \"string\",\n      \"logoUrl\": \"string\",\n      \"homepageUrl\": \"string\",\n      \"description\": \"string\"\n    }\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

@@ -44,6 +44,25 @@ const config = {
     '@docusaurus/theme-live-codeblock',
     '@docusaurus/theme-mermaid',
     [
+      'docusaurus-plugin-openapi-docs',
+      {
+        id: 'openapi',
+        docsPluginId: 'classic',
+        config: {
+          operator: {
+            specPath: 'openapi/prepared/operator.json',
+            outputDir: 'docs/build/reference/operator-api',
+            sidebarOptions: {groupPathsBy: 'tag'},
+          },
+          indexer: {
+            specPath: 'openapi/prepared/indexer.json',
+            outputDir: 'docs/build/reference/indexer-api',
+            sidebarOptions: {groupPathsBy: 'tag'},
+          },
+        },
+      },
+    ],
+    [
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
@@ -56,7 +75,6 @@ const config = {
           {from: '/how-to/deploy-node/replicator', to: '/operate/node/replicator'},
           {from: '/how-to/deploy-node/validator', to: '/operate/node/validator'},
           {from: '/how-to/develop-your-application/getting-started', to: '/build/quickstart'},
-          {from: '/tutorial/demo-applications/hello-world', to: '/build/tutorials/hello-world'},
           {from: '/tutorial/demo-applications/file-sign', to: '/build/tutorials/file-sign'},
           {from: '/roadmap', to: '/resources/roadmap'},
           {from: '/demo-applications', to: '/resources/demo-applications'},
@@ -72,7 +90,8 @@ const config = {
       {
         docs: {
           routeBasePath: "/",
-          sidebarPath: './sidebars.js',
+          sidebarPath: './sidebars.ts',
+          docItemComponent: '@theme/ApiItem',
         },
         blog: false,
         theme: {
@@ -81,6 +100,8 @@ const config = {
       },
     ],
   ],
+
+  themes: ['docusaurus-theme-openapi-docs'],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */

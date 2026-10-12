@@ -1,0 +1,130 @@
+---
+id: wallet-proof-controller-get-record-v-1
+title: "Get authenticity proof for a virtual blockchain"
+description: "Retrieves the authenticity proof for a specific virtual blockchain associated with a wallet."
+sidebar_label: "Get authenticity proof for a virtual blockchain"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VF9P2zAQ/yrWPW1SRlsGbZO3FjKE9gBiTHtAFXKTa+PhxsG+FLoq3306J+1SaBGbtKckVs73+3e3hhRdYlVByuQQwQ2SVbhEJyhDIUvKMCeVKFqJwhozEzNjhRSuwETNVCKWylIptZhqkzwkmVS5kM6ZREnCVDwpyoQUT1JrpCMIwBRoJbe6TCGCH/78mu89MzlZozXa+znSDSbGpvfLHgRQSCsXSGgdRHdryOUCIYL6yssUArD4WCqLKURkSwxAMY9CUgYBuCTDhYRoDbQquM5Mf2JCfK1lLKTQQbSuAiBFGreY4pwUraCqgm3Hhul4S/Rw88cS7QqCF9LeZrhPLpWywjOFdgcvPstF4RGNjrvheDzu9r/EvWF4Gvf7cb9/fDIe9uPT8Dwcn8TDQTjs9cLwc380CMPeYBQPTk7GZ4NueBp2RxBsyDuyKp/vsPKmjkrKjN1hM5PavU3nyr9I7UNibIuHz0iTFqUJfdP93Lz3Ytv/Jc4JQ3KFyZ23CY67XX681nVPUDPpxBQxF65MEnRuVmq9ErbJd3rEMgDJOceqcV14ODAJYIGUGY7oHH1YOE0RdGShOstepw5fZ70JYdXxLTttFEwY7bKO7YQ/ktIqWn1jFWo2slCfHnDVSqcs1FfkUq97hjL1qWi8qmVSv/wAefgqnxlf3oT3TNoFA3Diyg+asWJ0ffnKunOTlPyfv8i7xcNuWiU8q4y9/r931IUAEpOTTIjHpQqgMI4WMufuDbwLpMML43XwX6Ja+waY0//fQo3ahM/UKTRjqQIorWYQtdV3bAVrwBuoLoQAotbW8TgggB3PJwFkxhHXr9dT6fC71VXFx/UM8QJLlZNT3Zqxgyp8uGnG8aN4z+7Yy8rn68DuWkpdcgXwPng/rL8e/DeA7a6fP4Am/GEVI/p30Q613gxbvmr33EDaelxNqtYiuIhvoap+Ax7Ye9Q=
+sidebar_class_name: "get api-method"
+info_path: build/reference/operator-api/carmentis-operator-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get authenticity proof for a virtual blockchain"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/wallet/{walletId}/proof/authenticity"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieves the authenticity proof for a specific virtual blockchain associated with a wallet.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"walletId","required":true,"in":"path","schema":{"type":"object","properties":{},"title":"WalletEntity"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"virtualBlockchainId","required":true,"in":"query","description":"The virtual blockchain identifier","schema":{"example":"A209BBB06FE1895E66E6624B86E59D9B4E8798119936A79917AE744BC709590A","type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"proofAuthor","required":false,"in":"query","description":"Optional author identifier for proof filtering","schema":{"example":"Proof Author","type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          The authenticity proof has been successfully retrieved.
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

@@ -1,0 +1,244 @@
+---
+id: app-controller-get-microblock-stats
+title: "AppController_getMicroblockStats"
+description: "AppController_getMicroblockStats"
+sidebar_label: "AppController_getMicroblockStats"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VV1vUzkQ/SvWPC2S2yQFtOi+VQUhxCKt+HiqospxprkD/sKeG7VE97+j8U3SJM2yFEpeIl/7jI/PzJxZQUyYDVMMb+bQwHlKFzFwjs5hvlogvyOb48xF++UDGy6gIZlsPDLmAs3lCoLxCA0sZ1d8mxA0ZPzaUcY5NNfGFdRAARr42mG+BQ1zLDZTkguhgX/IExfFLaoi4RVHZVRJaOmarFpS5s44Ve+3raGg5JJT0FBsi95As4J6bQOh8zPMoAFD56G5HOuJPtNP9TP9fNr3ekuUytUCAxYqj8AViVvMah1QxaxCDCebpd9qV45SnsXo0ATYpcfksbDx6WrBD1XzHQXynVfbGIqC8uQcFbQxzIv6i4J1XaElPjlV77FE1wlWUVET1cYu7/PEG+OTQ2gmf78YPx2PX4zlpw8kP07fPZy+ufmT9CfPz/6D/lR4lhRDwSK4s/FY/vbZgQYbA2Ng2TMpObK1b0afixxY3c9vnH1Gy9IyWbqMaQhfq2fnmMnZiBrE6Mv/w5ezj3X/sPJ7DVRer0v7SJEJ/25gfy9/O3m63FywG26DnWpgYpEU7ozhQrZecoT+MNLw0qOg6ibv16qvwQJnsxBfESMS4H4OfsKdPHIbxckWWKUz3EIDI5NotJyM7jrypKwBBfNy8LKpLGyXiW8/SCoHuU2iky94u5uvRG+xJkw4tWjm1XfWHXDecRszfau1UbWlcB0rfC3ChckeA1NRFOZ4g1md//vmXje8jLaTYzWOuo65Os9RrFS9vGEATk7H61o1VrItFFIs7E2t0g3NlNSdlmqBrO7EVBs19yhtBWC84VFyhmpVddnJ3qD0pagjdCaSi0O1pxraWFiOrVYzU/BTdn0vnwdHkHkyp2JmbscxDjhsm/A3hsfRd9Qk78yxpXGdnAKxt99j9aAx8QNye7PrF/k90pD4AcvDEfarRB9nHPwUUXdAdCqLTMJUjKHXmzaXCh3A59Zi4h3UvZEgUbZ29PrVR+j777wNRNg=
+sidebar_class_name: "get api-method"
+info_path: build/reference/indexer-api/carmentis-indexer-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"AppController_getMicroblockStats"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/microblock-stats"}
+>
+  
+</MethodEndpoint>
+
+
+
+AppController_getMicroblockStats
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"vb_type","required":false,"in":"query","description":"Limits the stats to a specific virtual blockchain type.","schema":{"type":"number","enum":[0,1,2,3,4,5]}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"is_genesis","required":false,"in":"query","description":"Limits the stats to either genesis or non-genesis microblocks.","schema":{"type":"boolean"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"timestamp_gte","required":false,"in":"query","description":"Minimum timestamp in milliseconds (inclusive). Resolution is 1 hour.","schema":{"example":1780300800000,"type":"number"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"timestamp_lte","required":false,"in":"query","description":"Maximum timestamp in milliseconds (inclusive). Resolution is 1 hour.","schema":{"example":1780315200000,"type":"number"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                stats
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span><span
+                                className={"openapi-schema__divider"}
+                              >
+                                
+                              </span><span
+                                className={"openapi-schema__required"}
+                              >
+                                required
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"vbType"}
+                              required={true}
+                              schemaName={"number"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"number"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"isGenesis"}
+                              required={true}
+                              schemaName={"boolean"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"boolean"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"count"}
+                              required={true}
+                              schemaName={"number"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"number"}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"stats\": [\n    {\n      \"vbType\": 0,\n      \"isGenesis\": true,\n      \"count\": 0\n    }\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

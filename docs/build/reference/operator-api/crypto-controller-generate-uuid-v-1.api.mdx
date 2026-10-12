@@ -1,0 +1,137 @@
+---
+id: crypto-controller-generate-uuid-v-1
+title: "Generate a UUID"
+description: "Generates a random universally unique identifier."
+sidebar_label: "Generate a UUID"
+hide_title: true
+hide_table_of_contents: true
+api: eJydkkFv2zAMhf+KwLPSOIXTbb4F7VAUO2zAllMQFIzNxtpsSaVkr57h/z5QTrYsx/kiQSapp/e9ESoKJRsfjbNQwCNZYowUFCpGW7lWddb0xAGbZpD9a0fKVGSjeTHEN6DBeWkxzj5VUMA9Dz66e2cju6Yhfj6eRm47Uz33K9DgkbGlSByg2O01MAXvbKAAxQi3WSbLv7I2ytJPtd0+PagagzoQWXWeW4mG0tlINkonet+YMglafg/SPkIoa2pRdp5FbjTzZV1nKlnj4AkKCJGNPYIGesPWN3K0Xmf0Ps+yBd1+OCzyVZUv8N3qbpHnd3frdZ5nWZbBNH8aIh7lTScTYK+hpVg78eVIMT091lDAEr1Z9qtlmeqWSYaGQNz/MSVQ2bGJw1eRPqtFbxY/aLgQjN58ogE0GHGpJqyIQYPFVv5uulg7Nr+SFyD6jH1xqd3E9Lp75FZQBvU5QXSsNl+eQF/Z/+DKTurSIPXiWMWalLtoEQaifa5f3WQnJlgKE7nauxBbTDRO8s5ZU5jIXt86/oX6X7E8WRTpLS59g8bCpKHjJqUgYdiJfyJcQjmjAD1nYq+hdiFKzTgeMNCWm2mS49eOeJgR9cgGD2Lkbj/ps/3FboRECTZlSV6o99h0M66raE6XCXn8+A2m6Td2yzZ0
+sidebar_class_name: "get api-method"
+info_path: build/reference/operator-api/carmentis-operator-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Generate a UUID"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/crypto/uuid"}
+>
+  
+</MethodEndpoint>
+
+
+
+Generates a random universally unique identifier.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          A new UUID has been generated.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"uuid"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","example":"550e8400-e29b-41d4-a716-446655440000"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"uuid\": \"550e8400-e29b-41d4-a716-446655440000\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

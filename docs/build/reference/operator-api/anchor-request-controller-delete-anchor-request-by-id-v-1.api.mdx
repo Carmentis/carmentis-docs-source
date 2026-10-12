@@ -1,0 +1,161 @@
+---
+id: anchor-request-controller-delete-anchor-request-by-id-v-1
+title: "Delete an anchor request"
+description: "Deletes a specific anchor request by its ID."
+sidebar_label: "Delete an anchor request"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVU8Fu2zAM/RWBpw3QmmZH37Kmh2ADNnTdqTAKxmZqrbakSnSwzNC/D5SdNEmXAcvBkS0+8fG9pwFqilUwno2zUMCSWmKKClX0VJmNqRTaqnFBBXrpKbJa75ThqFbLK9DgPAUU6KqGAha58m4svHGWg2tbCo91PvRk99NuVT9u56DBY8COmEKE4mEAix1BAXhcvKpBg/Q3gWooOPSkwQhdj9yAhlg11CEUA/DOCzxyMPYJUioFGL2zkaLsf7y+lr/Toe8bOp+ywajWRFaN3GsZtnKWybLg0fvWVHny2c8ohwxHJHwQXdiMLXGzoYqF+IGe7bs1BUjjT0Okqg+Gd1kB9ObDM8m6FPqMT6LMJK6aJIFSQ0fcONF95Ji15AYKmKE3s+18diLibDjTNIlwFLaj8uUri+8yyMR9z+VAHb35TDuY9G8Iawqg97Ytem5cML+zMiCjGbtxGW64lYobDB1ZNlF9zdlxQS2+rUCf59BVvdTlg9TGBcUNKXcEEUeE+1g/v7qeHMJKHJLW3kXuMHsz0RvTrdCe2X3efnj1+n9vxCQT0y+e+RaNhaShD23ORbbnQTQU8pL+E09AQ3Ee/FJD4yILbBjWGOlHaFOSzy89hd3o3BaDwbXo+zBAbaKsayg22Eb6x2jv7qY79V5dYr533YrlW2x7eQMNORRvbmkqk95nQqiMVYuqIs9H+De3Jx2neXn75fb+VrTpRa7j5D3n5E0LafBXeqch3HOVZ9IXIMMw5jqlQ/24dRFxSP5YLWqVKaU/kHvTTQ==
+sidebar_class_name: "delete api-method"
+info_path: build/reference/operator-api/carmentis-operator-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete an anchor request"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/api/v1/anchorRequest/{anchorRequestId}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes a specific anchor request by its ID.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"anchorRequestId","required":true,"in":"path","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          The anchor request has been deleted.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"affected"}
+                        required={false}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"number"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"affected\": 0\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

@@ -1,0 +1,276 @@
+---
+id: app-controller-get-voting-powers
+title: "AppController_getVotingPowers"
+description: "AppController_getVotingPowers"
+sidebar_label: "AppController_getVotingPowers"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVU1v2zgQ/SsEL9kF1Nhu6ybWLUi6u8G2RZF09xIYBU2OLDYUyZIjJ66h/74YyZLlj3rrHCUOZx5n3ry34s5DEKidvVU85VfeXzuLwRkD4esc8F+H2s4/uycIkSfciyAKQPpIH1bcigJ4yl1QEHjCA3wvdQDF00yYCAnXlqf8ewlhyROuIMqgPdXiKb93AVl7McocCsHTFVeQidIgQbm/5gnHpacKEYO2c55wsGXB04f16c37+2s+rapkAyXLIuCJWP5yT6wQdskCxNJgZOhYfNSe/Za5wLyYa1u36PctqPAsCm+Ap6Nhh9OWxQwC7yMyutCnAvoonnVRFqxJx1zWInsJgOjCqfX/0GAUc5Y95VrmDHNglIXpyIT3RoPaAvKzIeWg5zluD8g6BV+1OhHQJ6eALXTAUhg2M04+ylxoy25vDneEj0cjNblUk7cg5HgI72ZqrLJLJdTry7GcDOWb4USOx2J8MVPZRM0u5fhCDUFO3ozkhRxfiD3qVdWUIEfvbIRIxV4Phw1j+0B5wqWzCBbprG6WrLkz+BYpYLXfNjf7BpIm5AMtI+omfS7iRxegFzhzzoCw+6sESIw9w1DCGdMZK1yAjssiABMLoY2YGTjnVcLRoTB3IF1QsZd+TZ3d7F8ousfELhcLTYpzdgdYBgvEGLNkTzlYdtYs4hlRpoygmLY1jerx1ig0QtEvL0IQNPjd/z9pD/GIJGuXfVXS0m7vZfR0XUBEUfiDp4uN2B04r/qUfWgBdOX6ybdTTekIa1r25PQGHa92k7ZDb9tw+OoHHfFuTcV1GkqEYh5rbfSeLm6P8f+UvQDMHVnAvJZPLzDnKR8IrweL0aB5zivfRkcIi8YEpvQhy6BxeU/MbqYjvH71CMv+eL3+G+r5EpocRKP8a1W4KjF3Qf+oV6VutbaZq6+vn38tQgEWdWTaKniGwK4+3+6R9cbJksLqPIzUm0h38O45TQlCbC6Ozofr1RWSqEMQvItYiHppW5jes00X2RyQNW1kXR+38HSvR3jGgTdCW+JZGQydNT1+oNYQllFHm7bP04TnLiLFrFYzEeGfYKqKfjcqSRasdKRl3KjoDoBOjbYd9yCuemKdmy+EKSmGk3r/eplTzPQYitbIXwjjmIUeKdu69Qur/pJxHim/9uoXVj/qkkeqbjx5U3hKH0FTZdryWlbrnSXSNdeupATfh7tnd5SlE5Y/33/hVfUfMCqSfQ==
+sidebar_class_name: "get api-method"
+info_path: build/reference/indexer-api/carmentis-indexer-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"AppController_getVotingPowers"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/voting-powers"}
+>
+  
+</MethodEndpoint>
+
+
+
+AppController_getVotingPowers
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"order","required":false,"in":"query","description":"Sort order","schema":{"default":"ASC","type":"string","enum":["ASC","DESC"]}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"offset","required":false,"in":"query","description":"How many results to skip (for pagination)","schema":{"example":10,"type":"number"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"limit","required":false,"in":"query","description":"Maximum number of results","schema":{"example":10,"type":"number"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"sort","required":false,"in":"query","description":"Field on which the sort is applied","schema":{"type":"string","enum":["height"]}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"node_id","required":false,"in":"query","description":"Node virtual blockchain ID","schema":{"example":"511d98d94eac50e6bd5df8dad285c90c309c55a57bdf9db8c57d0ec931c7c57a","type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"hasMore"}
+                        required={true}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean","description":"Set to 'true' if more results are available."}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"totalRecords"}
+                        required={false}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"number","description":"Total number of available records. Returned only when 'offset' is used in the query."}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                items
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span><span
+                                className={"openapi-schema__divider"}
+                              >
+                                
+                              </span><span
+                                className={"openapi-schema__required"}
+                              >
+                                required
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"nodeId"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"height"}
+                              required={true}
+                              schemaName={"number"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"number"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"timestamp"}
+                              required={true}
+                              schemaName={"number"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"number"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"votingPower"}
+                              required={true}
+                              schemaName={"number"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"number"}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"hasMore\": true,\n  \"totalRecords\": 0,\n  \"items\": [\n    {\n      \"nodeId\": \"string\",\n      \"height\": 0,\n      \"timestamp\": 0,\n      \"votingPower\": 0\n    }\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

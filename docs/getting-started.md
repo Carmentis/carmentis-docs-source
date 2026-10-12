@@ -29,7 +29,7 @@ All you need is a wallet. It keeps your credentials and lets you approve actions
 
 1. **Install the Carmentis Wallet** from the <DynamicLink id="chrome:wallet" message="Chrome Web Store"/>.
 2. **Create your account.** Write down the recovery phrase and keep it somewhere safe: it is the only way to get your wallet back.
-3. **Try it out.** The [Hello World demo](/build/tutorials/hello-world) shows how a wallet and an application work together.
+3. **Try it out.** The [File Sign demo](/build/tutorials/file-sign) shows how a wallet and an application work together.
 
 ## As an application developer
 
@@ -41,7 +41,7 @@ Your application never talks to the blockchain directly. It calls an **operator*
 4. **Generate an API key** in the operator's admin interface. Your application sends this key with each request.
 5. **Start building.** The [developer quickstart](/build/quickstart) shows how to anchor your first data.
 
-If you just want to explore first, the [Hello World tutorial](/build/tutorials/hello-world) gives you a ready-made environment to experiment with, and no operator of your own.
+If you just want to see what an application looks like first, try the [File Sign demo](/build/tutorials/file-sign).
 
 ## As a token holder
 

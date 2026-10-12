@@ -1,0 +1,191 @@
+---
+id: wallet-crypto-controller-get-public-signature-key-v-1
+title: "Get wallet public signature key"
+description: "Retrieves the public signature key associated with the wallet."
+sidebar_label: "Get wallet public signature key"
+hide_title: true
+hide_table_of_contents: true
+api: eJylU01P3DAQ/SvRnFrJJdBjbohWCHEoAqoe0ArNJrMbdxPbjCdL0yj/vRonC+GjvTSXxPH4+c17bwaoKJZsg1jvoIBrEra0p5hJTVno1o0ts2i3DqVjynbUZxijLy0KVdmjlToVPmLTkByBAR+IUcEuKijgR/p/xn0Qf+adsG8a4vstyVWCvjkgX1J/vz8BAwEZWxLiCMXdAA5bggIm/IsKDDA9dJapgkK4IwNWaQeUGsyrXqbLM1uRE7uxxGAgljW1CMUA0gdFdl27JoZxXCl0DN5Firr/+fhYXy8hb/8mSo0xWxO5jGcBKxWj9E7IieJgCI0tkzL5z6hgw4JMYNVN7HT1E/TbrbBbcI/C1m1hPDwGBLeq26H1SXhYGWhJaq+ObEmSylJDATkGm+9P8jLV5ZPK+XBQe8yfmORhp+oR7ydnVrooO7bS32gXEzsM9tOO+gVFDPaSephtqgmrZMNs62kntWf7O8kC2oB1G5+OW2m04gy5Vfti9i0Fy3N2enXxxuovvuy0LgFlG88plX5xRO1Q7lP9ydHxbA+Wao9eHXyUFpMxM71zkjnZ75r+msXw7Pf/z9Gsn9AvyUOD1sFooOMmhSC5d6fialc6NpODYOZJAQPFYmaeA2U0QSsDtY+iEMOwxkjfuRlH/f3QEfeTvXtki2s14W6Aykb9rqDYYBPpH41/uJ7n82P23vy929YhK04l3WPT6QoMpCg9z/64Gs0hQkpq2j4tSwqyOPhm0sZl/s+/3sI4/gHUp7tf
+sidebar_class_name: "get api-method"
+info_path: build/reference/operator-api/carmentis-operator-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get wallet public signature key"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/crypto/wallet/{walletId}/signature/pk"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieves the public signature key associated with the wallet.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"walletId","required":true,"in":"path","description":"Wallet identifier","schema":{"type":"number"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          The public signature key has been retrieved.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                signature
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"pk"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"signature\": {\n    \"pk\": \"string\"\n  }\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

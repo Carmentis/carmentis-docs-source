@@ -1,0 +1,298 @@
+---
+id: app-controller-get-node-reward
+title: "AppController_getNodeReward"
+description: "AppController_getNodeReward"
+sidebar_label: "AppController_getNodeReward"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVdtu2zAM/RVDTxvgLY4b13begnXYigFD0XVPRVDIEpNosyVNotNmgf99oO2mSXPp1j0Fjng5JA8P18xYcByV0ZeSjdnE2g9GozNlCe5uDvjVSLiGe+4kC5nljleA4Dwb366Z5hWwMdNGwp2idwe/auVAsjG6GkKmNBuzXzW4FQuZBC+cspSKjRnFDZbKYc3LoCiN+CkWXOng8oKFzIsFVJyN1wweeGVLypIMhzLPZD4CLpIIzguZyFkmuYyzROSROItykSQ8SQs5y2WRiSSVEYj8bChSkaSchQxXliJ5dErPWdOEmxIsX4G740KYWuM/19L1J2iDBH2Q44WIURalokiHSXIuhtkZl2meZVEB5yJOz2IOWZHFUZYXRRGn2SiZjUZJPIvTOI7zKCrEyUI8cod3qCr4txK+kV9Afh55ZQOlg0qVpfIgjJZ+p5Q+u66rAtxOdtDyFbk/avnKzFPK463RHjy9x1FEP7vhWciE0Qga6Y1bWyrREn7ww5PBej+BKX6AQCK8o/VA1YXnQrgaZDfuSz1BUynhDwCjTVF/ZVfrv7W04JSR22/cOU7dVAiVfxl9S40bms6h8KDl0belQaXnV+Ye3OEiLI3vs6ndYejS3OvTFu7FBjTblLrdKuYJ+i7QXVjPQeynnIYMFbYbStp01ba7G8wFGtY8R3CEDIdHf2zQT2N9lr4zvO7J3QMgCMjnJL4k1OSzS/XT6l0BLgyJ/BxadnBcsDEbcKsGy+GAVPyde7T14JadzE/pQ9RO4eob7Um/Cla9+wmrbTZa9QVaOhKSBXDZDqFXhkmNC+PU73bx2mkqPTOte1/1B+4q0Kh8oLSEB3DB5OpyTysujKjJrI0TzIwLcAHBQd/3RAhwvnMcvo96IeCChIAgWOOx4q0EPMK0NnjqYDAHDNpDtenhDppN7QgPOLAlV7pdB1fSW9ffW2oMIRlSM7Z6PA3Zwngki/W64B6+u7Jp6O9OJenASuV5URLfZrz0sJd+o2vszXVPzbfByct6EHA7yK0zvuRlTVaMpP1VGI5fxBMADhzh/0fy8mE7gWjnmv4/lpcO3QkkW5f1CceUPpwiILSoTfi4dsSdzm8iBFjc8tq7fxRlowyfPt6wpvkDQGZ24w==
+sidebar_class_name: "get api-method"
+info_path: build/reference/indexer-api/carmentis-indexer-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"AppController_getNodeReward"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/node-reward"}
+>
+  
+</MethodEndpoint>
+
+
+
+AppController_getNodeReward
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"node_id","required":true,"in":"query","description":"Node virtual blockchain ID","schema":{"example":"511d98d94eac50e6bd5df8dad285c90c309c55a57bdf9db8c57d0ec931c7c57a","type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"payer_account_id","required":true,"in":"query","description":"Reward payer account ID","schema":{"example":"c4807cb71556c183ad79880be6c2732ae8b82089bbb27845f4452f27222900bc","type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"start_time","required":true,"in":"query","description":"Start timestamp in milliseconds","schema":{"type":"number"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"end_time","required":true,"in":"query","description":"End timestamp in milliseconds","schema":{"type":"number"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"accruedRewardInAtomics"}
+                        required={true}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"number"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"paidRewardInAtomics"}
+                        required={true}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"number"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"unpaidRewardInAtomics"}
+                        required={true}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"number"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                periods
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span><span
+                                className={"openapi-schema__divider"}
+                              >
+                                
+                              </span><span
+                                className={"openapi-schema__required"}
+                              >
+                                required
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"startTime"}
+                              required={true}
+                              schemaName={"number"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"number"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"endTime"}
+                              required={true}
+                              schemaName={"number"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"number"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"votingPower"}
+                              required={true}
+                              schemaName={"number"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"number"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"uptimeHours"}
+                              required={true}
+                              schemaName={"number"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"number"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"downtimeHours"}
+                              required={true}
+                              schemaName={"number"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"number"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"rewardInAtomics"}
+                              required={true}
+                              schemaName={"number"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"number"}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"accruedRewardInAtomics\": 0,\n  \"paidRewardInAtomics\": 0,\n  \"unpaidRewardInAtomics\": 0,\n  \"periods\": [\n    {\n      \"startTime\": 0,\n      \"endTime\": 0,\n      \"votingPower\": 0,\n      \"uptimeHours\": 0,\n      \"downtimeHours\": 0,\n      \"rewardInAtomics\": 0\n    }\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

@@ -1,0 +1,161 @@
+---
+id: crypto-controller-generate-challenge-v-1
+title: "Generate a cryptographic challenge"
+description: "Generates a random challenge string for authentication purposes."
+sidebar_label: "Generate a cryptographic challenge"
+hide_title: true
+hide_table_of_contents: true
+api: eJytU0tv2zAM/isCz1rz2M3ADkG2BcUOG7C2hxVBwdhMpM6WVInOmhr+7wMtp/XW7TBgPlkCKX78Hh1UlMpoA1vvoIANOYrIlBSqiK7yjSoN1jW5A6nE0bqD2vuosGVDjm2J0qhCG4NPlC5Agw/ygvXusoIC1vEU2K+94+jrmuLdYZywPj97d1yAhoARG2KKCYrbDhw2BAVIARvQEOmhtZEqKPZYJ9JgBe1DS/EE+rcdrgyp3Kj8XrGh1ytYp3YnznhTaahBKDqoaI9tzVC8XWrgUxAErm12FKHvtwIiBe8SJSlezue5Zzp6pRz9mIwzmNSOyKnz1pVMLL1jciztGEI9kji7T/JGNwEUopDJNk98flYOI7y8D2igR2xCLVfV5uapWi/ucfMx7TY37bfl9Tvo86eB8SAMj7rAVkNDbLxIdSAehGADBcww2NlxMSuHutnLbA2J4jHrtJVD2UbLp68COuPEYN98p9MEJQb7iUSoQTVDWFEEfRZ51bLx0T4NLICAtG7vh3bLw0prjI24LanPg7l8VKsvl6+Ef+/LVuqyJ8WmIr6ftAj7gj3XLy7moxpYihoyOvjEDQ46jPDOkVCoMhmHiMHYUk05+QVI96Lw/wjUSCLTI89CjdZBr6GN9eCQQa1bYVhWkyRlkPLzjG+rwfjEUth1O0x0Heu+l+ucIElcZRPu6knC/rrSP+brj/AHf7zE+4h1K0UgMTtitAJFDNbrs10EY+5alSUFnnS9ClE/tfXmwxX0/U8g+rRW
+sidebar_class_name: "get api-method"
+info_path: build/reference/operator-api/carmentis-operator-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Generate a cryptographic challenge"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/crypto/challenge"}
+>
+  
+</MethodEndpoint>
+
+
+
+Generates a random challenge string for authentication purposes.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"length","required":false,"in":"query","description":"The length of the challenge string in bytes.","schema":{"default":32,"type":"number"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          A new challenge has been generated.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"challenge"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","example":"dGVzdC1jaGFsbGVuZ2U="}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"challenge\": \"dGVzdC1jaGFsbGVuZ2U=\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

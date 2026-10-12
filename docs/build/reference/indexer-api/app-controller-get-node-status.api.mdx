@@ -1,0 +1,215 @@
+---
+id: app-controller-get-node-status
+title: "AppController_getNodeStatus"
+description: "AppController_getNodeStatus"
+sidebar_label: "AppController_getNodeStatus"
+hide_title: true
+hide_table_of_contents: true
+api: eJx9VNtu2kAQ/RVrnlrJCZDUBfxGQ1WhqKTKRVWFULTeHfAm9u5md4ygiH+vxiZcCopfLHtuZ86cmTVYh16QtmakIIWBczfWkLdFgf55jjS2Ch9IUBUgBie8KJHQB0gnazCiREjBWIXPWkEMHt8q7VFBSr7CGLSBFN4q9CuIQWGQXjsuBSlw3mihPVWiiLLCyleZC22i0RBiCDLHUkC6BlyK0hVcJel0VL+n+l9QyKSNXzOVqFlPCXXVS2S/La/bfZkkIulmatZXWU8mXdVG2b/uyK5MugJioJXjTIG8NnPYbKaMODhrAgYudtVu8+sYKMQgrSE0xDbhXKFlzVfrJbDD+gDttoDNXlAS8+WZXdJNeuaJSV7/DySG0DB8YooBTVVCOoGn8e347vcYYri7hRge/oxvIIZh8+vbYAjTXZpHXWIgUbqDfKYqM/RcqrRGv6I/C6MQhEauzsbRcmR+YumsLc7ac9TznM6YNoe6mLyzsOv5FPUe4x7Rcf1dtWkMpKnWx16o99uZDsnChp8YSMxZsixvjjme8MeaL5Fyy6sxx3qkgnJIoSWcbi06Le7mYt8J+kWzHFP+kJXXtHpgeTQKEE5fvOIhv8LpW+T26lXJUai67e1mDSrKrdd/a73VTGozs3X4tusb4Us0pEOkjcIl+mjwa3SybEMrK3ar80Qz6yPKMTobewkxcA9NYOeyvdW/kDxbhuBsoFLUyn+H6Vy0ZzCaI0X1eu84PEKz651wSS1XCG1YP5WvddXwO2FiGEmHyTjgeBpDbgOxx3qdiYBPvths+HdzZvgsKR1EVrDaZqIIeFJ+t87w6X4rzM/Rh/foLOB6kAfHbyGKir2A78pCeM0gWAr1ctSDZXRN2EBKdHQQdXJYOMtOez++P8Jm8w+VD+zQ
+sidebar_class_name: "get api-method"
+info_path: build/reference/indexer-api/carmentis-indexer-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"AppController_getNodeStatus"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/node-status"}
+>
+  
+</MethodEndpoint>
+
+
+
+AppController_getNodeStatus
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"node_id","required":true,"in":"query","description":"Node virtual blockchain ID","schema":{"example":"511d98d94eac50e6bd5df8dad285c90c309c55a57bdf9db8c57d0ec931c7c57a","type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"nodeId"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"status"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`UNKNOWN`, `OK`, `SYNC`, `DOWN`, `BAD`]"}
+                        schema={{"type":"string","enum":["UNKNOWN","OK","SYNC","DOWN","BAD"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"statusTimestamp"}
+                        required={true}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"number"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"moniker"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"latency"}
+                        required={true}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"number"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"txInMempool"}
+                        required={true}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"number"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"height"}
+                        required={true}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"number"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"nodeId\": \"string\",\n  \"status\": \"UNKNOWN\",\n  \"statusTimestamp\": 0,\n  \"moniker\": \"string\",\n  \"latency\": 0,\n  \"txInMempool\": 0,\n  \"height\": 0\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

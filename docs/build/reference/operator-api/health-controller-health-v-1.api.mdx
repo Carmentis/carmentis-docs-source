@@ -1,0 +1,137 @@
+---
+id: health-controller-health-v-1
+title: "Health check endpoint"
+description: "Basic health check to confirm the server is running."
+sidebar_label: "Health check endpoint"
+hide_title: true
+hide_table_of_contents: true
+api: eJydUs1u2zAMfhWBZ7VJevQt64a12GEDup2CoGAVJtJiSxpFB/UMv/tAOevSHOeLBYnk98cRdlQchywhRWjgA5bgjCdsxRvnyR2NJONS3AfujHgyhfhEbEIx3McY4uEWLKRMjDricQcNPNT2+xSFU9sSP8/znk8rsJCRsSMhLtBsthaYSk6xUIFmhLvlUn/vOT29Ic5zBkV0KQpF0WrMuQ2uwi9+Fm0ZoThPHeops5KTMAMUQenrSYZM0EARDvEAFugVu9zqVTrCNH8WBA/K8ywJthY6Ep9U5YGkyhEPDSwwh8VptZgZgoXZprPGQq7nIMOTspqJYA43RxoumGAOX2gAC0FFe8IdMViI2OnruhefOPyuMkGphbhPtT1IpX2P3FGUUMzXmkZis/72CPbKzY/J9VpXB5l94ppqumhRe5X7XL+6XZ7tRqd2K3RORTqsRp/pPVxuDMVdTiHKNfb4L7X/XbSzV0KvssgthgiThZ7bmnSNYqNGqgJdNv8Wm09F9HEcX7DQD26nSa9/9cTDHNIJOeCLWrnZTvZvAM1mhJoTrJ2jrJpO2PZzYFd7N12ux+dP32Ga/gB3OCkY
+sidebar_class_name: "get api-method"
+info_path: build/reference/operator-api/carmentis-operator-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Health check endpoint"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/health"}
+>
+  
+</MethodEndpoint>
+
+
+
+Basic health check to confirm the server is running.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Server is healthy.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"status"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","example":"ok"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"status\": \"ok\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

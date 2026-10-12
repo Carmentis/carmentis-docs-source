@@ -1,0 +1,130 @@
+---
+id: wallet-record-controller-get-record-v-1
+title: "Get a record from a virtual blockchain"
+description: "Retrieves a record from a specific virtual blockchain at a given block height."
+sidebar_label: "Get a record from a virtual blockchain"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VE1P3DAQ/SvWnFopZVlKL7khihDqoRWl6qFaIa8z2bg4dhhPUtIo/72afGwXFlBB6imK5Zn3Zt577iDDaMhWbIOHFC6RyWKDUWlFaAJlKqdQKq1ihcbm1qjGEtfaqbUL5sYU2nqlWWm1sQ368VQVaDcFH0ACoULS0vwigxS+a+eQL4fGp8EzBeeQrjfz2XWzhAQqTbpERoqQ/ujA6xIhhV9D7UUGCRDe1pYwg5SpxgSsUK80F5BANAWWGtIOuK2kLqx/omFpS0KGLUZIuz4BtuxwS+rMs+UW+j7ZIjbrp9Fua6QWkgfruyrwsf3YDD3b3CLdI4h3uqzciHS9PHp//AGSmXVksn5zj8641JcT2pVEcVA0aay4wF2RH+d2fLTl5OtyjQR9vxIOsQo+DruEo8ND+exDT90LHdUa0atYG4Mx5rVz7ZZHdiBjAuuN6D3JoUZDwCqBErkI4p4NDjKKziksdGUXzXIx2mLRzfboFyOoTIPUjCZayY+pyXL7VUYcaevKvrvBdscrurKfULY4rLRAnQ2STQKc1FwEsr8HPw+crc/DUD5Z6VRTKVJH9XnwfSB18uViT5WPwdRyb2ik8kCDFGGnRKIj3Mf7y4NDSMAEz9qwmLdPoAqRS+0FfaJ3jryX2n0zPiTTDX3R8/9I/7RWxjteVE7Q+wRqcgI76vhDdi7DSvBHDSGB9F7YZyMUIbJUdN1aR/xGru/leHS+vBSZjXrtJBi5dhGfmfTN5ZSht+pfMvvoHIN15kei0a6WKyCBfTWPF0T1GUrbh+IvqZX8kBVWr9/UU6hzeHy7izmz2UrZr/qdMJ+fXUHf/wHNpTxg
+sidebar_class_name: "get api-method"
+info_path: build/reference/operator-api/carmentis-operator-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get a record from a virtual blockchain"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/wallet/{walletId}/record"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieves a record from a specific virtual blockchain at a given block height.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"walletId","required":true,"in":"path","schema":{"type":"object","properties":{},"title":"WalletEntity"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"vbId","required":true,"in":"query","description":"The virtual blockchain identifier","schema":{"example":"vb_12345","type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"height","required":true,"in":"query","description":"The block height to retrieve the record from","schema":{"example":42,"type":"number"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          The record has been successfully retrieved.
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
