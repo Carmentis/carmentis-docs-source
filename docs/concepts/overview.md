@@ -271,44 +271,12 @@ In this example, the assignations ensure that a casual observer can verify that 
 
 
 ## Ecosystem Overview
-This diagram illustrates the Carmentis ecosystem architecture. 
-Users interact with the system through **Carmentis Desk** (desktop application) and a 
-**Browser** containing their front-end application and the **Carmentis Wallet** extension. 
+Users manage their wallets, organizations, applications and nodes with **Carmentis Desk** (desktop application).
 The company operates a server that communicates with the **Operator** via REST API, which 
 serves as the bridge between the application layer and the blockchain. The **Faucet** provides 
-tokens to both the Carmentis Wallet and Desk for testing or initial funding. The Operator anchors 
-microblocks on the **Carmentis Blockchain** and handles transaction fees, while both the Wallet 
-and Desk maintain connections to the blockchain for verification and monitoring purposes.
-```mermaid
-graph LR;
-    subgraph Carmentis
-        CH[Carmentis Blockchain];
-        FC[Faucet];
-    end
-    subgraph User
-        CD[Carmentis Desk];
-        subgraph Browser
-            F[Your Front];
-            CW[Carmentis Wallet];
-            F <--> CW;
-        end
-    end
-    subgraph Company
-        O[Operator];
-        S[Your Server];
-    end
-    
-    
-    FC --Give tokens--> CW;
-    FC --Give tokens--> CD;
-    CW --> O;
-    CD --Configure---> O;
-    S <--Interact using REST API--> O;
-    S <--> F;
-    O --Anchor microblocks on chain and pays--> CH
-    CW -..-> CH;
-    CD -..-> CH;
-```
+tokens to Desk for testing or initial funding. The Operator anchors 
+microblocks on the **Carmentis Blockchain** and handles transaction fees, while Desk 
+maintains a connection to the blockchain for verification and monitoring purposes.
 
 ### Carmentis Operator
 
@@ -318,37 +286,27 @@ As explained previously, the handling of channel keys are performed by the Carme
 - Second, recall that the operator anchors encrypted data in the application ledger, which means that it publishs on the blockchain. It then follows that publishing (microblocks) on the blockchain implies to pay *fees* to validator nodes.
 Therefore, the Carmentis Operator should have access to a private signature key, whose the public signature key is associated to a sufficiently-funded account. Otherwise, the microblock will be rejected.
 - Third, it makes your experience with the Carmentis ecosystem by handling many technicalities needed to publish.
-- Fourth, it is at the core our of application ledger *protocol* used to obtain the wallet's signature for a microblock. We have displayed below a (simplified) sequence diagram illustrating the interaction between the
-different components of the application ledger protocol.
-
-As you can see, the wallet approves the action by signing it. This 
-signed approval takes the form of a [Micro block](#behind-the-hood-microblocks-and-virtual-blockchains),
-encapsulating all relevant data associated with the event under review. The operator's signature on the [Micro block](#behind-the-hood-microblocks-and-virtual-blockchains)
-establishes the event's authenticity, allowing it to proceed toward Wallet validation.
+- Fourth, it is at the core of the application ledger *protocol*: it builds and signs the microblock from the instructions sent by your server, then publishes it on the blockchain. We have displayed below a (simplified) sequence diagram illustrating the interaction between the
+different components.
 
 ```mermaid
 sequenceDiagram
-    participant Front
     participant Server
     participant Operator
-    participant Wallet
     participant Blockchain
     Server->>Operator: Initiate anchoring request
     Operator->>Server: Get anchor request id
-    Server->>Front: Display anchor request id
-    Front-->>Wallet: Get anchor request id (via QR code)
-    Wallet->>Operator: Provide anchor request id
-    Operator->>Wallet: Get data (microblock) to approve
-    Wallet->>Operator: Approve microblock (cryptographic signature)
     Operator->>Blockchain: Anchor microblock
-    
+    Server->>Operator: Poll the anchor request status
+    Operator->>Server: Status (anchored once confirmed)
 ```
 
 Here are some remarks about the sequence diagram:
 - During the anchoring request between the server and the operator, the server *provides the data* and 
 *application ledger building instructions* (as previously described in the application ledger section).
-Then, the operator follows the instructions to create the application ledger microblock, generates a random anchor 
+Then, the operator follows the instructions to create and sign the application ledger microblock, generates a random anchor 
 request identifier and returns it to the server.
+- No user approval is involved: the microblock is signed by the operator's wallet. Approving a microblock from the user's own wallet is not supported.
 - The REST API used by the server to initiate the anchoring request with the operator is *protected* via an API-key system.
 Therefore, to use the operator, you must setup the operator accordingly and finally obtain an API key. 
 Running the operator can be done via [Docker](https://www.docker.com), while configuring the operator is done through its *admin UI*, which you access by logging in with [Carmentis Desk](/use/install-desk).
