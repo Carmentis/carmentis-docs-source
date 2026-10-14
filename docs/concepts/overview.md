@@ -324,12 +324,15 @@ Desk is where you:
 - **Log in to your operators.** Desk is the key to the admin UI of an [operator](#carmentis-operator): you connect to the operator
 with Desk, and then configure it (users, wallets, API keys) from the operator's own admin UI.
 - **Manage your nodes.** Claim a node you are running, stake tokens on it and monitor its status.
+- **Hold verifiable credentials.** Store SD-JWT credentials in a wallet and present them when an application asks for it.
+- **Answer requests from applications.** Authenticate to a website, sign a message or present a credential, after your explicit approval (see the [Desk JSON-RPC reference](/build/reference/desk-json-rpc)).
+- **Transfer tokens** and read your balance and transaction history.
 
 Desk also plays a role in security: an operator's admin UI has no password-based login. Instead, you authenticate with
 *public-key authentication*, by signing a challenge with the key of one of your wallets in Desk. This is why any application developer
 needs Desk installed before being able to configure an operator.
 
-To install it, follow the [Carmentis Desk guide](/use/install-desk).
+To install it, follow the [Carmentis Desk guide](/use/install-desk), then see how to [manage your wallets](/use/wallets), [your organizations, applications and nodes](/use/organizations-and-nodes) and [your credentials](/use/credentials).
 
 
 ## Proof of authenticity

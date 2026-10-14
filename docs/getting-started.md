@@ -12,12 +12,11 @@ Pick the path that sounds like you.
 
 ## As a user
 
-All you need is **Carmentis Desk**. It manages your wallets, which keep your credentials and let you approve actions in applications that use Carmentis.
+All you need is **Carmentis Desk**. It manages your wallets, which hold your tokens and your credentials and let you sign in to applications that use Carmentis.
 
 1. **Download and install [Carmentis Desk](/use/install-desk)** from the download page. It is available on Linux, Windows and macOS.
-2. **Create a wallet.** Write down the recovery phrase and keep it somewhere safe: it is the only way to get your wallet back.
+2. **Create a wallet.** Set a vault password at first launch, then [create a wallet](/use/wallets) on the network you want to use. Back up your key (seed, passphrase or JWK) somewhere safe: it is the only way to get your wallet back.
 3. **Try an application.** The [File Sign demo](/resources/demo-applications) lets you send a file for signature and watch it being recorded on the blockchain.
-4. **Generate and verify a proof.** From Desk, [generate a proof of authenticity and check it](/use/manage-proofs).
 
 **You are done when** you have signed a file in File Sign and downloaded a proof for it.
 

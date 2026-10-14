@@ -9,9 +9,8 @@ import { CarmentisDownload } from '@site/src/components/CarmentisDownload';
 
 # Get Carmentis Desk
 
-Carmentis Desk is a cross-platform application developed to handle all common tasks related to
-the Carmentis ecosystem. It is mainly developped for users wanting to stake tokens and for Carmentis-featured application developpers. End-users may also
-enjoy Carmentis Desk for its wallet-management feature.
+Carmentis Desk is a cross-platform desktop application that handles all common tasks related to
+the Carmentis ecosystem. It acts as your **wallet manager** and as a console for application developers and node holders.
 
 ![](/img/desk/wallet.png)
 
@@ -19,9 +18,11 @@ enjoy Carmentis Desk for its wallet-management feature.
 ## Features
 
 Carmentis Desk allows you to:
-- Manage your wallets: You can create and manage multiple wallets. Inside each wallet, you can create and publish organizations, applications and nodes.
-- Manage your nodes: It includes the ability to claim (running and unclaimed) nodes, stake on these nodes and monitor their status.
-- Log in to your operators: An operator is a server able to build and publish transactions via an easy-to-use API. Desk authenticates you (public-key authentication) to the operator's admin UI, where you configure it.
+- [Manage your wallets](/use/wallets): create or import several wallets, each on its own network, check your balance, transfer tokens and read your transaction history.
+- [Manage your organizations, applications and nodes](/use/organizations-and-nodes): create and publish them on-chain, claim a node, stake on it, and anchor certificates.
+- [Hold verifiable credentials](/use/credentials): store SD-JWT credentials and present them when an application asks for it.
+- [Answer requests from applications](/build/reference/desk-json-rpc): authenticate to a website, sign a message or present a credential, always after your explicit approval.
+- Log in to your operators: Desk authenticates you (public-key authentication) to the operator's admin UI, where you configure it.
 
 ## Download
 Carmentis Desk can be easily installed on your system using the following links:
@@ -31,3 +32,16 @@ Carmentis Desk can be easily installed on your system using the following links:
 Links above are keep up to date manually. Due to speed development process, above links might not
 reflect the latest version. [See all latest releases](https://github.com/Carmentis/carmentis-desk/releases/latest).
 :::
+
+## First launch
+
+1. **Create your vault password.** On first launch, Desk asks for a password of at least 8 characters. It protects the secrets (such as your wallet keys) stored on your machine.
+2. **Unlock Desk.** On the following launches, enter this password to unlock Desk.
+3. **Create your first wallet.** See [Manage your wallets](/use/wallets).
+
+## Settings
+
+In **Settings**, you can:
+- **Choose your roles.** Desk shows only what you need. Enable *developer* to get the Applications and Custom data tabs, and the Logs. Enable *node holder* to get the Nodes tab. The Organizations tab is shown if either role is enabled.
+- **Check for updates.** Desk can download and install a new version, then relaunch.
+- **Export or clear the logs** (developer role).
