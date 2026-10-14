@@ -67,8 +67,7 @@ const config = {
       {
         redirects: [
           {from: '/how-to/get-carmentis-desk', to: '/use/install-desk'},
-          {from: '/how-to/manage-proof', to: '/use/manage-proofs'},
-          {from: '/how-to/interact-with-desk', to: '/build/reference/desk-json-rpc'},
+         {from: '/how-to/interact-with-desk', to: '/build/reference/desk-json-rpc'},
           {from: '/how-to/operator', to: '/operate/operator'},
           {from: '/how-to/deploy-operator', to: '/operate/operator'},
           {from: '/how-to/deploy-node', to: '/operate/node/replicator'},

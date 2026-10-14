@@ -355,9 +355,5 @@ do not have to be revealed. From an efficiency purpose, the Merkle-tree allows a
 proof verification.
 
 
-Find more information about [how to generate a proof](/use/manage-proofs) and [how to verify a proof](/use/manage-proofs)
-in the dedicated documentation pages.
-
-
 For data that references other microblocks, off-chain data, signatures or credentials, see how to
 [resolve data and check its proofs](/build/guides/anchoring/resolution-and-proof-checker).
