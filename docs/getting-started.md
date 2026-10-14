@@ -16,7 +16,7 @@ All you need is **Carmentis Desk**. It manages your wallets, which keep your cre
 
 1. **Download and install [Carmentis Desk](/use/install-desk)** from the download page. It is available on Linux, Windows and macOS.
 2. **Create a wallet.** Write down the recovery phrase and keep it somewhere safe: it is the only way to get your wallet back.
-3. **Try an application.** The [File Sign demo](/build/tutorials/file-sign) lets you send a file for signature and watch it being recorded on the blockchain.
+3. **Try an application.** The [File Sign demo](/resources/demo-applications) lets you send a file for signature and watch it being recorded on the blockchain.
 4. **Generate and verify a proof.** From Desk, [generate a proof of authenticity and check it](/use/manage-proofs).
 
 **You are done when** you have signed a file in File Sign and downloaded a proof for it.
@@ -42,7 +42,7 @@ Your application  ──HTTP + API key──►  Operator  ──►  Carmentis 
 
 Where to go next:
 
-- Integrate Carmentis in a Node.js stack with the [Nest / Next.js guide](/build/guides/nest-next/getting-started).
+- Integrate Carmentis in a Node.js stack with the [Nest / Next.js guide](/resources/code-examples/nest-next/getting-started).
 - Learn how to [anchor, reference and resolve data](/build/guides/anchoring/overview).
 - Understand [organizations, applications, application ledgers and channels](/concepts/overview).
 

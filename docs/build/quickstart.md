@@ -72,7 +72,7 @@ A typical integration looks like this:
 
 ## Next steps
 
-- Try the [File Sign demo](/build/tutorials/file-sign) to see an application anchoring data on-chain.
-- Integrate Carmentis in your stack with the [Nest / Next.js guide](/build/guides/nest-next/getting-started).
+- Try the [File Sign demo](/resources/demo-applications) to see an application anchoring data on-chain.
+- Integrate Carmentis in your stack with the [Nest / Next.js guide](/resources/code-examples/nest-next/getting-started).
 - Learn how to [anchor, reference and resolve data](/build/guides/anchoring/overview), and how to produce proofs.
 - Learn the [concepts](/concepts/overview) behind application ledgers, channels and actors.
