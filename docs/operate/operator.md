@@ -141,6 +141,7 @@ curl -X POST http://localhost:3000/api/v1/wallet/anchor \
     "actors": [{ "name": "Issuer" }],
     "data": { "invoice_id": "INV-001", "amount": 1000, "customer": "ACME Corp" },
     "channelAssignations": [{ "channelName": "Public", "fieldPath": "this.*" }],
+    "actorAssignations": [{ "actorName": "Issuer", "channelName": "Public" }],
     "author": "Issuer"
   }'
 # → { "anchorRequestId": "..." }

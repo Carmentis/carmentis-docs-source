@@ -201,7 +201,7 @@ mbApp.addSections([
     url: "https://verify.haute-horlogerie.com"
   }
 ]);
-// Once anchored, this generates the applicationId (e.g., 8888) used in your access rules
+// Once anchored, this generates the applicationId (e.g., 8888) used in your anchor requests
 
 ```
 
@@ -218,57 +218,55 @@ Suppose a virtual blockchain has been created for a specific watch (ID: `WATCH_X
 2. A **Private (Manufacture)** channel: Contains technical manufacturing details and quality control reports.
 3. A **Private (Owner)** channel: Contains the ownership certificate and service history, accessible only to the current holder and authorized service centers.
 
-When developing your application, you specify the channel access rules (`accessRules`), defining which role can access which channel and what data is included.
+When your backend anchors the data through the operator, the request describes the channels, the actors, and which data and which actor goes in which channel:
 
-```javascript
-// Data to be anchored in the virtual blockchain (the Ledger)
-const watchData = {
-  serialNumber: "SN-12345-XYZ",
-  modelName: "Master Ultra Thin",
-  qualityControlReport: "All tests passed - Tolerance +2s/day", // Manufacture Confidential
-  ownerIdentity: "John Doe", // Owner Confidential
-  maintenanceLog: "Full service completed on 2024-02-21" // Owner/Service Center Confidential
-}
-
-// Channel Access Rules definition
-const accessRules = {
-  // Fields to be anchored
-  data: watchData,
-  
-  // Channels declaration
+```json
+{
+  "applicationId": "1E89377BFCDF8165059AA97",
+  "chainStorageInDays": 3600,
+  "gasPriceInAtomics": 1000,
+  "data": {
+    "serialNumber": "SN-12345-XYZ",
+    "modelName": "Master Ultra Thin",
+    "qualityControlReport": "All tests passed - Tolerance +2s/day",
+    "ownerIdentity": "John Doe",
+    "maintenanceLog": "Full service completed on 2024-02-21"
+  },
   "channels": [
-    { "name": "publicRegistry", "public": true },  // Visible to everyone
-    { "name": "manufacturingSecret", "public": false }, // Encrypted
-    { "name": "ownershipVault", "public": false } // Encrypted
+    { "name": "publicRegistry", "public": true },
+    { "name": "manufacturingSecret", "public": false },
+    { "name": "ownershipVault", "public": false }
   ],
-
-  // Data splitting into channels
-  "permissions": {
-    "publicRegistry": [ "this.serialNumber", "this.modelName" ],
-    "manufacturingSecret": [ "this.qualityControlReport" ],
-    "ownershipVault": [ "this.ownerIdentity", "this.maintenanceLog" ]
-  },
-  
-  // Actors declaration (roles)
-  "actors": [ 
-    "operator",    // The Manufacture's system
-    "factory_qa",  // Quality Assurance department
-    "customer"     // Final buyer
+  "actors": [
+    { "name": "operator" },
+    { "name": "factory_qa" },
+    { "name": "customer" }
   ],
-  
-  // Access attribution to actors
-  "subscriptions": {
-    "operator": [ "manufacturingSecret", "ownershipVault" ], 
-    "factory_qa": [ "manufacturingSecret" ],
-    "customer": [ "ownershipVault" ]
-  },
-  
-  // Application virtual blockchain ID
-  "applicationId": 8888
+  "channelAssignations": [
+    { "channelName": "publicRegistry", "fieldPath": "this.serialNumber" },
+    { "channelName": "publicRegistry", "fieldPath": "this.modelName" },
+    { "channelName": "manufacturingSecret", "fieldPath": "this.qualityControlReport" },
+    { "channelName": "ownershipVault", "fieldPath": "this.ownerIdentity" },
+    { "channelName": "ownershipVault", "fieldPath": "this.maintenanceLog" }
+  ],
+  "actorAssignations": [
+    { "actorName": "operator", "channelName": "manufacturingSecret" },
+    { "actorName": "operator", "channelName": "ownershipVault" },
+    { "actorName": "factory_qa", "channelName": "manufacturingSecret" },
+    { "actorName": "customer", "channelName": "ownershipVault" }
+  ],
+  "author": "operator"
 }
 ```
 
-In this example, the subscriptions and permissions fields ensure that a casual observer can verify that watch SN-12345-XYZ is authentic via the public channel, but only John Doe (the customer) can prove ownership or view maintenance records via the ownershipVault channel—all without this private data ever being exposed in clear text on the blockchain.
+- `channels` declares the channels and whether each one is public (clear) or private (encrypted).
+- `channelAssignations` splits the data among the channels, by field path (`this.*` assigns every field).
+- `actors` declares the roles, and `actorAssignations` gives each actor access to the private channels it may read.
+- `author` is the actor that authors the microblock.
+
+The `applicationId` can be omitted when the API key is bound to an application or a wallet. See [Anchor data on-chain](/build/guides/anchoring/anchor-on-chain) for every field.
+
+In this example, the assignations ensure that a casual observer can verify that watch SN-12345-XYZ is authentic via the public channel, but only John Doe (the customer) can prove ownership or view maintenance records via the ownershipVault channel—all without this private data ever being exposed in clear text on the blockchain.
 
 
 

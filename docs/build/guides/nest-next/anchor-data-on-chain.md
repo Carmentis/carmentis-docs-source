@@ -3,206 +3,72 @@ sidebar_position: 3
 ---
 # Anchor Data on Chain
 
-We offer two solutions to anchor on-chain from your back server:
-- *without* the approval of a user (using its wallet).
-- *with* the approval of a user.
+Your back server anchors data on-chain by sending an anchor request to your operator. The operator signs and publishes the data with its wallet, so no user interaction is needed.
 
 :::info API key required
-Be sure to have (one of) the API key of your operator server. All
-requests below are authenticated.
+Be sure to have an API key of your operator server. All requests below are authenticated with the `x-api-key` header.
 :::
 
-## Event approval workflow
+:::note Approval from the user's wallet
+Anchoring after an end user approves from their own wallet (`anchorWithWallet`) is currently unavailable and being reworked. Do not build new integrations on it.
+:::
 
-### With user approval
+## Send the anchor request
 
 ```ts
-// put all the data you want to anchor on chain here
-const data = {
-    // ...
-}
+import axios from 'axios';
 
-// the gas price is in atomic unit, here we affect one CMTS token
-const gasPriceInAtomic = CMTSToken.oneCMTS().getAmountAsAtomic();
-
-// the approval message shown on the wallet on the user's device
-const approvalMessage = "Please, approve this message"
-
-// we define roles used within the transaction
-const server = "server";
-const user = "user";
+const operatorUrl = 'https://...';
+const apiKey = 'cmts_...';
 
 // we create the body of the anchoring request
 const request = {
-    author: 'server',
-    endorser: 'user',
-    data,
-    channels: [
-        {
-            name: 'mainChannel',
-            public: false, // at true to make all the data stored on the channel private (encrypted on-chain)
-        }
-    ],
-    channelAssignations: [
-        {
-            channelName: 'mainChannel',
-            fieldPath: 'this.*'
-        }
-    ],
-    actors: [
-        { name: "server" },
-        { name: "user" },
-    ],
-    actorAssignations: [
-        {
-            channelName: 'mainChannel',
-            actorName: 'server'
-        },
-        {
-            channelName: 'mainChannel',
-            actorName: 'user'
-        },
-    ],
-    approvalMessage,
-    gasPriceInAtomic,
-}
-
-// send the request to the operator server at /api/anchorWithWallet (since we want to anchor with the user's wallet)
-const apiKey = 'cmts_...';
-const operatorUrl = 'https://...';
-const url = `${operatorUrl}/api/anchorWithWallet`;
-const response = await axios.post(url, request,
-    {
-        headers: {
-            "Authorization": `Bearer ${apiKey}`,
-        },
+    // gas price in atomic units
+    gasPriceInAtomics: 1000,
+    // storage duration, required for the first microblock of a virtual blockchain only
+    chainStorageInDays: 3600,
+    // put all the data you want to anchor on chain here
+    data: {
+        message: 'Hello World!',
     },
-);
+    // a private channel is encrypted on-chain, a public one is readable by anyone
+    channels: [
+        { name: 'main', public: false },
+    ],
+    // the roles involved in the transaction
+    actors: [
+        { name: 'server' },
+    ],
+    // all the fields of data go in the main channel...
+    channelAssignations: [
+        { channelName: 'main', fieldPath: 'this.*' },
+    ],
+    // ...which the server can read
+    actorAssignations: [
+        { actorName: 'server', channelName: 'main' },
+    ],
+    // the actor authoring the microblock
+    author: 'server',
+};
 
-// we handle the response
-console.assert(response.status === 201);
+const response = await axios.post(`${operatorUrl}/api/v1/wallet/anchor`, request, {
+    headers: { 'x-api-key': apiKey },
+});
+const { anchorRequestId } = response.data;
+```
 
-// at this point, the anchoring request has been sent to the operator server
-// we can now check the status of the request
-const {anchorRequestId} = answer.data;
+The `applicationId` is omitted here because the API key is bound to an application. Otherwise, add it to the request. See [Anchor data on-chain](/build/guides/anchoring/anchor-on-chain) for the meaning of every field.
+
+## Follow the request
+
+Poll the status of the request until it is `anchored` (`cancelled` and `failed` are the other final states):
+
+```ts
 const statusResponse = await axios.get(
-    `${operatorUrl}/api/anchor/status/${anchorRequestId}`,
-    {
-        headers: {
-            "Authorization": `Bearer ${apiKey}`,
-        },
-    },
+    `${operatorUrl}/api/v1/anchorRequest/${anchorRequestId}/status`,
+    { headers: { 'x-api-key': apiKey } },
 );
-const { status, published, virtualBlockchainId, microBlockHash } = statusResponse.data;
-console.assert(published === false);
-
-// we now forward the anchor request identifier to the front...
+const { status, virtualBlockchainId, submittedMicroblockHash } = statusResponse.data;
 ```
 
-On the front, once we have the `anchorRequestId`, we use the SDK to display a QRCode used to establish a connection
-between the operator server and the user's wallet:
-```tsx
-import { wiClient } from '@cmts-dev/carmentis-sdk/client';
-
-export function CarmentisApprovalQRCode({anchorRequestId, operatorUrl}: {anchorRequestId: string, operatorUrl: string}) {
-    useEffect(() => {
-        // this code is used to prevent the QRCode to be displayed before the anchorRequestId is available
-        if (typeof anchorRequestId !== 'string' || typeof operatorUrl !== 'string') {
-            return
-        }
-        
-        const w = new wiClient();
-        w.attachQrCodeContainer(`qr`);
-        w.setServerUrl(operatorUrl);
-        w.attachExtensionButton(`extension-button`);
-        w.getApprovalData(anchorRequestId)
-            .then(() => {
-                console.log("Approved!")
-            }).catch((e) => {
-                console.error(`[Carmentis QR] error: ${e}`)
-            });
-
-        return () => {
-            w.detach()
-        }
-
-    }, [anchorRequestId]);
-
-    // we display a loading screen while the QRCode is being displayed, otherwise we display the QRCode
-    let QRCodeContent;
-    if (!anchorRequestId || !operatorUrl) {
-        QRCodeContent = <Skeleton height={"150px"} width={"100px"} />
-    } else {
-        QRCodeContent = <>
-            <div id={`qr`}  />
-            <button id={`extension-button`}>Use Extension</button>
-        </>
-    }
-    return (
-        <>{QRCodeContent}</>
-    );
-}
-```
-
-### Without user approval
-
-The anchoring process without the user approval is more straightforward and more adaptative.
-It brings all the trust to the operator server, allowing the server to directly anchor the data on-chain using a 
-dedicated endpoint.
-
-```ts
-// put all the data you want to anchor on chain here
-const data = {
-    // ...
-}
-
-// the gas price is in atomic unit, here we affect one CMTS token
-const gasPriceInAtomic = CMTSToken.oneCMTS().getAmountAsAtomic();
-
-// the approval message shown on the wallet on the user's device
-const approvalMessage = "Please, approve this message"
-
-// we define roles used within the transaction
-const server = "server";
-
-// we create the body of the anchoring request
-const request = {
-    author: 'server',
-    data,
-    channels: [
-        {
-            name: 'mainChannel',
-            public: false, // at true to make all the data stored on the channel private (encrypted on-chain)
-        }
-    ],
-    channelAssignations: [
-        {
-            channelName: 'mainChannel',
-            fieldPath: 'this.*'
-        }
-    ],
-    actors: [
-        { name: "server" },
-    ],
-    actorAssignations: [
-        {
-            channelName: 'mainChannel',
-            actorName: 'server'
-        },
-    ],
-    gasPriceInAtomic,
-}
-
-// send the request to the operator server at /api/anchorWithWallet (since we want to anchor with the user's wallet)
-const apiKey = 'cmts_...';
-const operatorUrl = 'https://...';
-const url = `${operatorUrl}/api/anchor`;
-await axios.post(url, request,
-    {
-        headers: {
-            "Authorization": `Bearer ${apiKey}`,
-        },
-    },
-);
-
-```
+To append a microblock to the same virtual blockchain later, send a new request with `virtualBlockchainId` set to the returned value.

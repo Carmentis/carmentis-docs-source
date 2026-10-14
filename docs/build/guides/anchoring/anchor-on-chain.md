@@ -66,17 +66,17 @@ The object below describes the assignment between the assignor and the assignee.
     { "channelName": "transaction", "actorName": "assignor" },
     { "channelName": "transaction", "actorName": "assignee" }
   ],
-  "author": "Alexandre & Associates, court officers"
+  "author": "assignor"
 }
 ```
 
 | Field                 | Meaning                                                                                                                                                           |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `applicationId`       | Id of your application.                                                                                                                                           |
-| `chainStorageInDays`  | Storage duration, in days. After it, the **whole virtual blockchain disappears**.                                                                                 |
+| `applicationId`       | Id of your application. Optional when the API key is bound to an application or a wallet.                                                                          |
+| `chainStorageInDays`  | Storage duration, in days. Required for the first microblock only. After it, the **whole virtual blockchain disappears**.                                                  |
 | `gasPriceInAtomics`   | Maximum amount of tokens allocated to the anchoring. The higher it is, the faster the request is processed. It is set for **each** microblock.                    |
-| `data`                | The data to anchor in the microblock.                                                                                                                             |
-| `author`              | Name of the operator, as configured in the operator.                                                                                                              |
+| `data`                | The data to anchor in the microblock. A field can hold a [`__digest__`](./off-chain-data) to anchor only the hash of off-chain data.                              |
+| `author`              | Name of the actor that authors the microblock. It is one of the `actors`.                                                                                         |
 | `channels`            | The channels. Data in public channels is readable by anyone; data in private channels only by the assigned actors. New channels can be added in later microblocks. |
 | `actors`              | The actors. New actors can be introduced in later microblocks. Linking a real user to an actor is the job of your application (through the operator).             |
 | `channelAssignations` | Assigns data to channels. `*` assigns all the fields under a path.                                                                                                |
