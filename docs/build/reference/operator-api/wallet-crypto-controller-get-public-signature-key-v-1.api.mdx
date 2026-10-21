@@ -5,7 +5,7 @@ description: "Retrieves the public signature key associated with the wallet."
 sidebar_label: "Get wallet public signature key"
 hide_title: true
 hide_table_of_contents: true
-api: eJylU01P3DAQ/SvRnFrJJdBjbohWCHEoAqoe0ArNJrMbdxPbjCdL0yj/vRonC+GjvTSXxPH4+c17bwaoKJZsg1jvoIBrEra0p5hJTVno1o0ts2i3DqVjynbUZxijLy0KVdmjlToVPmLTkByBAR+IUcEuKijgR/p/xn0Qf+adsG8a4vstyVWCvjkgX1J/vz8BAwEZWxLiCMXdAA5bggIm/IsKDDA9dJapgkK4IwNWaQeUGsyrXqbLM1uRE7uxxGAgljW1CMUA0gdFdl27JoZxXCl0DN5Firr/+fhYXy8hb/8mSo0xWxO5jGcBKxWj9E7IieJgCI0tkzL5z6hgw4JMYNVN7HT1E/TbrbBbcI/C1m1hPDwGBLeq26H1SXhYGWhJaq+ObEmSylJDATkGm+9P8jLV5ZPK+XBQe8yfmORhp+oR7ydnVrooO7bS32gXEzsM9tOO+gVFDPaSephtqgmrZMNs62kntWf7O8kC2oB1G5+OW2m04gy5Vfti9i0Fy3N2enXxxuovvuy0LgFlG88plX5xRO1Q7lP9ydHxbA+Wao9eHXyUFpMxM71zkjnZ75r+msXw7Pf/z9Gsn9AvyUOD1sFooOMmhSC5d6fialc6NpODYOZJAQPFYmaeA2U0QSsDtY+iEMOwxkjfuRlH/f3QEfeTvXtki2s14W6Aykb9rqDYYBPpH41/uJ7n82P23vy929YhK04l3WPT6QoMpCg9z/64Gs0hQkpq2j4tSwqyOPhm0sZl/s+/3sI4/gHUp7tf
+api: eJylVE1P3DAQ/SvRnFrJJdBjbogihDgUAVUPKEKzyezG3SQ29mRpGvm/V2NnP4Cll+4h643n4817b3aCmnzltGVteijgjthp2pDPuKHMDotWV5nXqx55cJStaczQe1NpZKqzF81NDHzBtiU+AQXGkkMpdl1DAT/j+ws3WjYXpmdn2pbc04r4Npa+31a+ofFpcwYKLDrsiMl5KB4n6LEjKCDVv65BgaPnQTuqoWA3kAItsC1yA+rNLKl5pmvqWS81OVDgq4Y6hGKCpXEdMhQwDFrq8milk2en+xWEUEorb03vyUv819NT+Xrd4uEjkhr02YKoz9xMaC3kVKZn6lnqoLWtriJT+S8vxaYDcNYJj6xT613p91d2Lc+32OePAk/V4DSPkUu0+sua5FzKdIwr4XimCUoFHXFjRLYVcZSCGyggR6vzzVmeNMinrRYh3+HK7Vq4JbdJupX7zvcyU8K6678DjFbf0AiziA1hHUWaRT8fuDFO/4kkgYyj+6WJ6ZpbibhA14m4PvsebWdcdn57/c4I30w1SFwslC2Ni541BykijmBP8Wcnp7NYWIlY0toazx1GmWZ4V8Sz749a4C2Kaa/+/2/ZzB/Tb85ti7qHoGBwbbRElO1RyJWpZKlSIigoDhZp7yolNioVNMazZE7TAj39cG0I8vp5IDcmVTfoNC6E+8cJau3lXEOxxNbTP+b9dDcv7efs2FIenWZrkV6Y3GA7yC9QEB20/0MIZVBb5wiodH1eVWT5IPHduoVDv19dPoACHIS4Q3MmGeeDVD8K6rVPtwjlGdQHKdOUrB/CLj5dfZixW44ULRyVIYS/5kX85Q==
 sidebar_class_name: "get api-method"
 info_path: build/reference/operator-api/carmentis-operator-api
 custom_edit_url: null
@@ -34,7 +34,7 @@ import TabItem from "@theme/TabItem";
 
 <MethodEndpoint
   method={"get"}
-  path={"/api/v1/crypto/wallet/{walletId}/signature/pk"}
+  path={"/api/v1/wallet/{walletId}/signature/pk"}
 >
   
 </MethodEndpoint>
@@ -69,7 +69,7 @@ Retrieves the public signature key associated with the wallet.
     <ul>
       <ParamsItem
         className={"paramsItem"}
-        param={{"name":"walletId","required":true,"in":"path","description":"Wallet identifier","schema":{"type":"number"}}}
+        param={{"name":"walletId","required":true,"in":"path","description":"Wallet identifier","schema":{"format":"uuid","type":"string"}}}
       >
         
       </ParamsItem>

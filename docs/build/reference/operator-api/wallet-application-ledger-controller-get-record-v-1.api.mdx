@@ -1,11 +1,11 @@
 ---
-id: chain-controller-get-actor-keys-v-1
-title: "ChainController_getActorKeys_v1"
-description: "ChainController_getActorKeys_v1"
-sidebar_label: "ChainController_getActorKeys_v1"
+id: wallet-application-ledger-controller-get-record-v-1
+title: "Get a record from an application ledger"
+description: "Retrieves a record from an application ledger at a given block height, read with the wallet identity."
+sidebar_label: "Get a record from an application ledger"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9k01v00AQhv+KNSeQljrhuLcoVFVUBIiPUxVVG3tir2LvbmfHEcbyf0ezTtI0hXIAcbLX3vl63ncG8AHJsPVuVYKGZW2sW3rH5JsG6b5CXhTs6Rb7eL+fg4JgyLTISBH03QDOtAga9ptVCQoIHzpLWIJm6lCBdaAhGK5BQSxqbA3oAbgPEhOZrKtgHNUpjZFaH+T973M5X+K1K4O3jn+X7qFD6l/Mt5bIGLyLGOX/29lMHiXGgmwQbqBB6gKbSpBMCGGtLu78mWyLXHsRoUJOoLkGDbkJNt/P80LicxNCY4uk13ssK6R8EPRjnsjlwwngmIedDIa0n6Ray6HoyHL/RaadxjHBvtlhfza5CfYWhUkCVKMpkUAdoS46rj3ZH6mDNLZ1W5/CLTdyY2moRcc2Zh+Tszxli08ruMTxzhed3EuJsq2njGvM/FnIFSiQ3qf786sZKCi8Y1Mw6EFKBx+5NU6qH9pLkLNHylmFnCXMmXDOEucnjZzmZvzOeWhEu1FBR438mzS4EyjSjUQnHUDBMyVAgT6sQVJBzud+DjsxRe0jS8Zh2JiI36gZR/k8GVEWqrTRbBrx6dY0EZ+1KwjQMWh49flg6dcZqF+PkaS93IS9aTpMrl3LgazU+/e1j35y/XnNY0+JlGzrf6z5qMa4Hs/27eb6K4zjT+rVtao=
+api: eJy9VMFO20AQ/ZXVnFrJJYB68g3RCqFWakVpe0AWmtiTeIW9a2bHgdTyv1ezTkxCElQ49JI48ezM2/fevA4KCjnbRqx3kMIVCVtaUDBomHLPhZmxrw06g01T2Ry10FRUzIkNikEztwtyZlr5/M6UZOelJIYJC/NgpTRSknnAqiIxtiAnVpZHkIBviGOrywJS+B0Lzp4GfI39z70T9lVFfDsnuYpwbhcnkECDjDUJcYD0pgOHNUEK+LzBr+llAQkw3beWqYBUuKUErN60QSkhgZCXVCOkHciy0SZB2Lo59H0y9h3wH2513xIvIXlG5XAp81D6QMb5ggy6wmAunkcqDDKZNlCxhWTmuUaBFNrW6pvDyAa+X4fruqQttYx4wyvZo1wbum/Bokesm4og/Xg6YnJtPSWGvs8UQ2i8CxS0+PT4WL92R6+6lxjMlMiZ0OY5hTBrq2o54iiO9JoQKG/ZyjKKjI39cEf6nOk0wbmKv6Z5wzxmEB+yBGqS0qvD5iTRNlJCChNs7GRxMtnxy6Tba6F+MoBWNogXg+uyJ3g/lKLh2iPI0U/Y2C+kKkRJSsKCGJK1gGetlJ7tnzgx3tm6mY/HrSjXcI5cq1mC+RZ3xrM5+365o+onn7daNzAw8xyl9BtHdO0U+1B/cnQMCeTeCeYCaaejGx+kRqfTV/AuSP4lCJ6j6WJjcvIfE2VFt9CjTJoKrYM+gZYrRTPofqNaKAmaIDtCQwLp4QCJ8mcJlD6Iduq6KQb6yVXf69/DpqlLCxtwWukizrAK9AIx765WO/vevDYq9t412m4zqxZYtVoGGhhvwvXKqHgB1hhUT6Ay/cFWUb2duUNT18vnlpsz12j269xn/UZiXHy+Vpu06pzNZb6Ly7x6UNx7R23v9XqufqoYe4903RAVfT/WD68OnhjDZKjWm2d93/8FxNC05Q==
 sidebar_class_name: "get api-method"
 info_path: build/reference/operator-api/carmentis-operator-api
 custom_edit_url: null
@@ -28,20 +28,20 @@ import TabItem from "@theme/TabItem";
 <Heading
   as={"h1"}
   className={"openapi__heading"}
-  children={"ChainController_getActorKeys_v1"}
+  children={"Get a record from an application ledger"}
 >
 </Heading>
 
 <MethodEndpoint
   method={"get"}
-  path={"/api/v1/chain/applicationLedger/{vbId}/actor/{actorName}/pk"}
+  path={"/api/v1/applicationLedger/{applicationLedgerVbId}/record"}
 >
   
 </MethodEndpoint>
 
 
 
-ChainController_getActorKeys_v1
+Retrieves a record from an application ledger at a given block height, read with the wallet identity.
 
 <Heading
   id={"request"}
@@ -69,12 +69,7 @@ ChainController_getActorKeys_v1
     <ul>
       <ParamsItem
         className={"paramsItem"}
-        param={{"name":"vbId","required":true,"in":"path","schema":{"type":"string"}}}
-      >
-        
-      </ParamsItem><ParamsItem
-        className={"paramsItem"}
-        param={{"name":"actorName","required":true,"in":"path","schema":{"type":"string"}}}
+        param={{"name":"applicationLedgerVbId","required":true,"in":"path","schema":{"type":"string"}}}
       >
         
       </ParamsItem>
@@ -98,7 +93,12 @@ ChainController_getActorKeys_v1
     <ul>
       <ParamsItem
         className={"paramsItem"}
-        param={{"name":"nodeEndpoint","required":true,"in":"query","schema":{"type":"string"}}}
+        param={{"name":"walletId","required":true,"in":"query","description":"Wallet whose node and actor identity are used","schema":{"format":"uuid","type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"height","required":true,"in":"query","description":"The block height to retrieve the record from","schema":{"example":42,"type":"number"}}}
       >
         
       </ParamsItem>
@@ -117,7 +117,7 @@ ChainController_getActorKeys_v1
         <div>
           
           
-          
+          The record has been successfully retrieved.
           
           
         </div><div>

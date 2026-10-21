@@ -1,11 +1,11 @@
 ---
 id: chain-controller-is-microblock-published-on-blockchain-v-1
 title: "Check if a microblock is published on blockchain"
-description: "Verifies if a specific microblock has been published on the blockchain by querying the provided node endpoint."
+description: "Verifies if a specific microblock has been published on the blockchain."
 sidebar_label: "Check if a microblock is published on blockchain"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9U0tv00AQ/iurOYG01C1H30qooEKoFRQuVVSt1+N4qL273V1HBMv/Hc06jp1U7QmRS5TsPL75Hj2UGLQnF8kayOEneqoIg6BKKBEcaqpIi5a0t0Vj9aOoVRAFohGuKxoKNZbCGhFrFOld14qMKHbiqUO/I7NJT87bLZVYCmNLFGhKZ8nEM5BgHXrFy69LyGHF3StrordNg/6BwtfD5ttp3435cNj0sL0ACU551WJEHyC/78GoFiGHGfRnFWqQ4PGpI48l5NF3KIH4YqcivwVdY6sg7yHuHHeH6MlsYBjkYSCDv9pjf2lcOvvVeWvuDM6agIHf35+f89exDndMGh+sEzkiRBW7IGyV6JwvYwq1NRFN5CHKuakl+xV4Ur9A4jyzHWncS+HA6AJmYW2DysAwfiREtWFWR2lgLaHFWFsWa4MxcR9ryCFTjrLtRZZUyWaAWX8sw5AdfMMsod+Oqq35h+48xd13BjxiVI7ePeJugU85+oJMcGK7RlWiBzkpdNnF2nr6kxhg7YBMZVM7xYYrVsq3aCIFcZOcZ724vL0GecL/R6s7rhvZr6xPvNtFCzPP2Mf6i7PzvRJKsxK82tkQW5U02MNb1agfx2gtEkXhOEtzjk5h9bPW/z+pewEi/o6ZaxjdIKHzTXJWMsE9q8O0cCanA2ZAICF/lsnZDWsJtQ2Rx/R9oQL+8M0w8N9jpjjZJQVVNGzYSjUBX6Hnzbd9Ot+Kl7AnY52GequajkuBc7pVnnjfv989udnsljsnTCcsDetBTlZnJGPRpdbolpCfhX9YpvXT1R0Mw19tOxGT
+api: eJy1VMFu1DAQ/RVrTiCFpuWY27KtoEKoFRQu1aryOpN62MR2bWfVJcq/o3E2m3SrIiRKLlHi8Zvn9+a5gxKD8uQiWQMF/EBPFWEQVAkpgkNFFSnRkPJ2XVu1EVoGsUY0wrXrmoLGUlgjokaR1pWWZE4gA+vQS0a9LKGAJf9eWhO9rWv0dxS+HCCvR6Ar8+EAcbc9gwyc9LLBiD5AcduBkQ1CARObTzJoyMDjQ0seSyiibzED4qM4GXktKI2NhKKDuHO8O0RP5h76PjsAGlvihSmdJRNfgnto0e/+Eo9MiY/o/x1yxTuDsyZg4PX3p6f8eurZjcbBDJX0FiHK2AZhq+TKJBa7oqyJaCKDSOfGLfnPwEjdjInzbGCkoS+Fg0kzmmtra5QG+uHJIMp7NmpwG1YZNBi1Zf/vMSY7o4YCcuko357lyeh8Iph3T53t88OMsUrot8MgrPhDtZ7i7hsTHjhKR+82uJvxk44+Iwuc1NYoS/SQjSYt2qitp19JAbYPyFQ2badYc8VS+gZNpCCu0jBbLxbXl5Ad6X9uVct1g/qV9Ul3O9vCyjP3of7s5HTvhFTsBLd2NsRGJg/29JYa1WaI4Sx9FJ7mbsrcMa1u8voVU71XNuJjzF3NbfsMWl+nkUnu3rLsfF7O78hs6gQZFM/yO9m8ykDbEBmm69Yy4Hdf9z3/HsLCt0BJQa5rnsRK1gH/cO43X/exeyte4p4m5vgC2Mq65VLgTP+Hds/vh6njij88ccvXP+0YDLOb9xxpHfnSr/psTA0zGYoWSqGbU352j/Tz4H+8uIG+/w0iYzea
 sidebar_class_name: "get api-method"
 info_path: build/reference/operator-api/carmentis-operator-api
 custom_edit_url: null
@@ -41,7 +41,7 @@ import TabItem from "@theme/TabItem";
 
 
 
-Verifies if a specific microblock has been published on the blockchain by querying the provided node endpoint.
+Verifies if a specific microblock has been published on the blockchain.
 
 <Heading
   id={"request"}
@@ -94,6 +94,11 @@ Verifies if a specific microblock has been published on the blockchain by queryi
       <ParamsItem
         className={"paramsItem"}
         param={{"name":"nodeEndpoint","required":true,"in":"query","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"indexerEndpoint","required":true,"in":"query","schema":{"type":"string"}}}
       >
         
       </ParamsItem>

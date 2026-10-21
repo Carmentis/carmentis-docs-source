@@ -1,0 +1,185 @@
+---
+id: wallet-controller-list-wallets-v-1
+title: "List the wallets"
+description: "Returns the wallets known by the operator. Secrets (seed, actor passphrase) are never returned."
+sidebar_label: "List the wallets"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VE1v2zAM/SsCTxugNu2OvgVZMRQbsKLtsEMQFIrN1GptSaXotJmh/z7QH6mToih2WQ6OIJF8j49PaqHAmJMNbL2DDK6RG3JRcYnq2VQVclSPzj87td51mz4gGfZ0qm4wJzn+FBELrUzOnlQwMYaSTMTPyhAqh1skRV1VLE5BQ1/AendZQAa/O4yFd0y+qpDuKhu534x323PQEAyZGhkpQrZcaSCMwbuIEbIWvpydyd9hD6Ah947RsZyZECqbd4izhygBLcS8xNrIincBIQNDZHagwTLWcbLv1w+Ys7Ag4c22h7XFJCYyWXcP+ojFbYnKFujYbiyS8puJpqLDxlNtGDJoGltA0uBMjW/LJg0U8gtXBG/7hj6Gvb5aKBwyRmDnC1RNxGIc5MgkabCuwBekfwMZkl6B3imeExrGYt6V3TddGMYTtjWC/gBrIfnWOyUpxzImkQefGktYQLaUwQxCHsr2tscpsZUGtlzh3o9f2UPqfhoi5g1Z3kG2FDPZk0eU9SpJlrkXVw5ZUqdGLr0Y+x472xguIYOZCXa2PZ/1tEGK0nbv6BHhRlzZG2yP8+rQYL9jZ1ERpURTII29ZjBvuPRk/3RKdapYt/Fd+tDYwlAtZozq53CD1fzq8o3aX33eSFwv+cbTwaWXFPGucO/jz0/PhutmcpmwQAcfuTbdRRvo/bCRp0/KMWz7emH/wws0KMr4wrNQGevEpg1VwqMf2FLklj7lAXreD7f0keWwbdcm4i+qUpLtpwZp149ya8iatQi+XCU9jkmc000T5nmOQQywNVXTj/XodUpTE327uAUNphFOUyc8dk4YFlJ9PHK7Se1DU+iBgnyTfielbXufpbSP74/ezdg7sY8WMVcppb/ejC4g
+sidebar_class_name: "get api-method"
+info_path: build/reference/operator-api/carmentis-operator-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List the wallets"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/wallet"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the wallets known by the operator. Secrets (seed, actor passphrase) are never returned.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                        >
+                          Array [
+                        </div>
+                      </li><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"uuid"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The identifier of the wallet.","format":"uuid"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"name"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"rpcEndpoint"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The RPC endpoint of the node used by the wallet."}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"indexerEndpoint"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The indexer endpoint used by the wallet."}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"createdAt"}
+                        required={true}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"format":"date-time","type":"string","description":"Creation date of the wallet."}}
+                      >
+                        
+                      </SchemaItem><li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                        >
+                          ]
+                        </div>
+                      </li>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"[\n  {\n    \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n    \"name\": \"string\",\n    \"rpcEndpoint\": \"string\",\n    \"indexerEndpoint\": \"string\",\n    \"createdAt\": \"2026-10-21T13:57:55.416Z\"\n  }\n]"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

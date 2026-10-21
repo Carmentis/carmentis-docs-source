@@ -16,18 +16,6 @@ const sidebar: SidebarsConfig = {
           label: "Check if a microblock is published on blockchain",
           className: "api-method get",
         },
-        {
-          type: "doc",
-          id: "build/reference/operator-api/chain-controller-get-application-ledger-state-v-1",
-          label: "ChainController_getApplicationLedgerState_v1",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "build/reference/operator-api/chain-controller-get-actor-keys-v-1",
-          label: "ChainController_getActorKeys_v1",
-          className: "api-method get",
-        },
       ],
     },
     {
@@ -104,43 +92,37 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Wallet Proof",
+      label: "Wallet Application Ledger",
       items: [
         {
           type: "doc",
-          id: "build/reference/operator-api/wallet-proof-controller-get-record-v-1",
-          label: "Get authenticity proof for a virtual blockchain",
-          className: "api-method get",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Wallet Record",
-      items: [
-        {
-          type: "doc",
-          id: "build/reference/operator-api/wallet-record-controller-get-record-v-1",
-          label: "Get a record from a virtual blockchain",
-          className: "api-method get",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Wallet Anchoring",
-      items: [
-        {
-          type: "doc",
-          id: "build/reference/operator-api/wallet-anchoring-controller-anchor-v-1",
+          id: "build/reference/operator-api/wallet-application-ledger-controller-anchor-v-1",
           label: "Initiate an anchor request",
           className: "api-method post",
         },
         {
           type: "doc",
-          id: "build/reference/operator-api/wallet-anchoring-controller-anchor-using-implicit-wallet-v-1",
-          label: "Initiate an anchor request",
-          className: "api-method post",
+          id: "build/reference/operator-api/wallet-application-ledger-controller-get-record-v-1",
+          label: "Get a record from an application ledger",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "build/reference/operator-api/wallet-application-ledger-controller-get-authenticity-proof-v-1",
+          label: "Get the authenticity proof of an application ledger",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "build/reference/operator-api/wallet-application-ledger-controller-get-application-ledger-state-v-1",
+          label: "Get the state of an application ledger",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "build/reference/operator-api/wallet-application-ledger-controller-get-actor-keys-v-1",
+          label: "Get the public keys of an application ledger actor",
+          className: "api-method get",
         },
       ],
     },
@@ -190,12 +172,6 @@ const sidebar: SidebarsConfig = {
           label: "Computes digest data of JSON",
           className: "api-method post",
         },
-      ],
-    },
-    {
-      type: "category",
-      label: "Crypto Signature",
-      items: [
         {
           type: "doc",
           id: "build/reference/operator-api/crypto-signature-controller-verify-binary-signature-0-v-1",
@@ -218,7 +194,7 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Wallet Crypto",
+      label: "Wallet",
       items: [
         {
           type: "doc",
@@ -262,16 +238,58 @@ const sidebar: SidebarsConfig = {
           label: "Get wallet public signature key",
           className: "api-method get",
         },
+        {
+          type: "doc",
+          id: "build/reference/operator-api/wallet-controller-list-wallets-v-1",
+          label: "List the wallets",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "build/reference/operator-api/wallet-controller-list-organizations-v-1",
+          label: "List the organizations of a wallet",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "build/reference/operator-api/wallet-controller-list-applications-v-1",
+          label: "List the applications of a wallet",
+          className: "api-method get",
+        },
       ],
     },
     {
       type: "category",
-      label: "Wallet Resolver",
+      label: "Resolver",
       items: [
         {
           type: "doc",
           id: "build/reference/operator-api/wallet-resolver-controller-resolve-v-1",
           label: "Resolve data stored in microblocks",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Wallet Organization",
+      items: [
+        {
+          type: "doc",
+          id: "build/reference/operator-api/wallet-organization-controller-list-applications-v-1",
+          label: "List the applications of an organization",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "build/reference/operator-api/wallet-organization-controller-publish-custom-section-v-1",
+          label: "Publish a custom JSON on an organization",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "build/reference/operator-api/wallet-organization-controller-publish-certificate-v-1",
+          label: "Publish an X.509 certificate on an organization",
           className: "api-method post",
         },
       ],

@@ -1,0 +1,218 @@
+---
+id: wallet-controller-list-organizations-v-1
+title: "List the organizations of a wallet"
+description: "Returns the organizations of the local registry owned by the wallet. `vbId` is null for an organization that is not published on-chain yet."
+sidebar_label: "List the organizations of a wallet"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNlE1v2zAMhv+KwNMGaE27o29FVwzFBnToOuwQBJtiMzFbRXIlOl1m6L8PlJ3EadNux+XgGOaHXpEP2UGFsQzUMHkHBdwgt8FFxTUqH5bG0W8jpqj8In+0vjRWBVxS5LBR/tFhpeabbHs01iKfqJ/r+VX1U1FUrrVWLXxQxh2kU1wbzg6eVdPOLcUaK+Xdu7I25NQG+QQ0+AZD9r+qoIDvOf2Fdxy8tRh+WIp8PRb5Y30GGhoTzAoZQ4Ri2oEzK4QCenFXFWgI+NBSwAoKDi1qILl5Y7gGDbGscWWg6IA3jcT5+R2WLGmDyGHCCEWXNDCxxZ2sS8fEG0hpJvlj413MjvD+9FT+DssMGkrvGB2LzTSNpTJfYXIXxaF7rsOEYDaggRhX8a/6gKqRT+RAbgn6iYrbXT+pQse0IAzbPo+7dQJJg/T031KuKXBrrJpbX973/aTqWF7d8/FYk0VFr/AgLIirmUvFpWlJD319KihpKKURRw2+dRw2F746HviI80h8zJbG0EyluENBBhnDoYdH7BPOntIypvYDe0j5pyFi2YYsfypY0Lt7lPeZUMVmKUAPGSTnCrn2MhlLzAAIwQVMTEOT9dmkB37SbcFPk3HtBXUM635IZvuTvwp3PUK78/cMNvQJM4TS6xpNhWFbggLOW6592OaX65Bb+Bw+XP7ChJWAFtV1nmwf1PmXq2cQffBlK379qpD1kckZhQgQor33Pzs5HQbKlDJQcnTjI69MHqVB3meKfHyvmWFzPRXS7Yf0P1uMQz8Yf/GksYac4NsGK5p7DKbSLKmSbMTd9YrRFjygYaah9pElruvmJuK3YFOSzw8thk3PyNoE6kdw2kFFUd4rKBbGRnyldG9uhtF5q16SvuXLCVxrY1vsl2TGb7+60yzpLXaioTeflyU2PAp8tk/TeFg+Xt6CBtNKlcZk32eyhxfJflTUIeRbhfJM+oWQruvnJqWdf296MWI3Wb231GiWUvoDdginzA==
+sidebar_class_name: "get api-method"
+info_path: build/reference/operator-api/carmentis-operator-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List the organizations of a wallet"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/wallet/{walletId}/organization"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the organizations of the local registry owned by the wallet. `vbId` is null for an organization that is not published on-chain yet.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"walletId","required":true,"in":"path","schema":{"type":"object","properties":{},"title":"WalletEntity"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                        >
+                          Array [
+                        </div>
+                      </li><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The local identifier of the organization."}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"vbId"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The virtual blockchain id of the organization, null while it is not published on-chain.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"name"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"city"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"countryCode"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"website"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                        >
+                          ]
+                        </div>
+                      </li>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"[\n  {\n    \"id\": \"string\",\n    \"vbId\": \"string\",\n    \"name\": \"string\",\n    \"city\": \"string\",\n    \"countryCode\": \"string\",\n    \"website\": \"string\"\n  }\n]"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

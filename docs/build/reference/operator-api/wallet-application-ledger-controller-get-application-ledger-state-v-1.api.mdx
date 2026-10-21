@@ -1,11 +1,11 @@
 ---
-id: wallet-proof-controller-get-record-v-1
-title: "Get authenticity proof for a virtual blockchain"
-description: "Retrieves the authenticity proof for a specific virtual blockchain associated with a wallet."
-sidebar_label: "Get authenticity proof for a virtual blockchain"
+id: wallet-application-ledger-controller-get-application-ledger-state-v-1
+title: "Get the state of an application ledger"
+description: "Returns the actors and channels of an application ledger, read from the given node."
+sidebar_label: "Get the state of an application ledger"
 hide_title: true
 hide_table_of_contents: true
-api: eJy1VF9P2zAQ/yrWPW1SRlsGbZO3FjKE9gBiTHtAFXKTa+PhxsG+FLoq3306J+1SaBGbtKckVs73+3e3hhRdYlVByuQQwQ2SVbhEJyhDIUvKMCeVKFqJwhozEzNjhRSuwETNVCKWylIptZhqkzwkmVS5kM6ZREnCVDwpyoQUT1JrpCMIwBRoJbe6TCGCH/78mu89MzlZozXa+znSDSbGpvfLHgRQSCsXSGgdRHdryOUCIYL6yssUArD4WCqLKURkSwxAMY9CUgYBuCTDhYRoDbQquM5Mf2JCfK1lLKTQQbSuAiBFGreY4pwUraCqgm3Hhul4S/Rw88cS7QqCF9LeZrhPLpWywjOFdgcvPstF4RGNjrvheDzu9r/EvWF4Gvf7cb9/fDIe9uPT8Dwcn8TDQTjs9cLwc380CMPeYBQPTk7GZ4NueBp2RxBsyDuyKp/vsPKmjkrKjN1hM5PavU3nyr9I7UNibIuHz0iTFqUJfdP93Lz3Ytv/Jc4JQ3KFyZ23CY67XX681nVPUDPpxBQxF65MEnRuVmq9ErbJd3rEMgDJOceqcV14ODAJYIGUGY7oHH1YOE0RdGShOstepw5fZ70JYdXxLTttFEwY7bKO7YQ/ktIqWn1jFWo2slCfHnDVSqcs1FfkUq97hjL1qWi8qmVSv/wAefgqnxlf3oT3TNoFA3Diyg+asWJ0ffnKunOTlPyfv8i7xcNuWiU8q4y9/r931IUAEpOTTIjHpQqgMI4WMufuDbwLpMML43XwX6Ja+waY0//fQo3ahM/UKTRjqQIorWYQtdV3bAVrwBuoLoQAotbW8TgggB3PJwFkxhHXr9dT6fC71VXFx/UM8QJLlZNT3Zqxgyp8uGnG8aN4z+7Yy8rn68DuWkpdcgXwPng/rL8e/DeA7a6fP4Am/GEVI/p30Q613gxbvmr33EDaelxNqtYiuIhvoap+Ax7Ye9Q=
+api: eJy1VE1v2zAM/SsCTxugNe2OvhVdURQbsKHdx6EwCtZmYqGypEp0sMzQfx8oJ2maJj1tl8SJyEe+p/c8QkupiSaw8Q4quCEeokuKO1LYsI9JoWtV06FzZJPyc4VOYQjWNCg9ylK7oKhVJGzVPPq+9C7MkpxyvqUT0OADxVJ93UIFv9Ba4vNnjC8F4sI7jt5aiveLA8e3jEz3yzPQEDBiT0wxQXU3gsOeoALc7/j5cN2ChkhPg4nUQsVxIA1GeAbkDjSkpqMeoRqBV0FAEkfjFpCz3uIKiUvXBm8cH4N7Giiu3sSrpTMF7xIlOf94eipfL9WXuZCoGaLhVeGGwXx4JHmuBYJxIZzXEqodkdTEGWoNPXHnRegFcVGLO6hghsHMlmezVzLNxoPK5VkSxYUUxeWkdf283a0wnahsd9yyxmA+k+hRxOkIW4qgN4KeD9z5aP6UgYWycXNf2g1bqbjA2JNjk9TX4hwf1fm3a9B7cn3yzSB1kwBzH4v1/E6LmE92n+rPTk5BQ+MdY8NQjTI6+MQ9Opm+Xu+KuOAU+kcNv7/MWHDJ8X8L0Vpbpt88CxaNg6xhiFZmT3d8J8ILYwnJq0sFDdWxjExXXWvofGIBGscHTPQj2pzl78nfYsjWJHywYv852kRvqPDuZp2U9+rY9sU1+wFboh2ohKGWH9HIvH8/e2NVt9qdudnpsFC5zjvxurr8LjoPIv2u9R+L9dcPsvfBUS9TsJkrn/LuOdgyjlOwct7WT0dHO7bRm6qFeZ1z/gtO4Q3n
 sidebar_class_name: "get api-method"
 info_path: build/reference/operator-api/carmentis-operator-api
 custom_edit_url: null
@@ -28,20 +28,20 @@ import TabItem from "@theme/TabItem";
 <Heading
   as={"h1"}
   className={"openapi__heading"}
-  children={"Get authenticity proof for a virtual blockchain"}
+  children={"Get the state of an application ledger"}
 >
 </Heading>
 
 <MethodEndpoint
   method={"get"}
-  path={"/api/v1/wallet/{walletId}/proof/authenticity"}
+  path={"/api/v1/applicationLedger/{applicationLedgerVbId}/state"}
 >
   
 </MethodEndpoint>
 
 
 
-Retrieves the authenticity proof for a specific virtual blockchain associated with a wallet.
+Returns the actors and channels of an application ledger, read from the given node.
 
 <Heading
   id={"request"}
@@ -69,7 +69,7 @@ Retrieves the authenticity proof for a specific virtual blockchain associated wi
     <ul>
       <ParamsItem
         className={"paramsItem"}
-        param={{"name":"walletId","required":true,"in":"path","schema":{"type":"object","properties":{},"title":"WalletEntity"}}}
+        param={{"name":"applicationLedgerVbId","required":true,"in":"path","schema":{"type":"string"}}}
       >
         
       </ParamsItem>
@@ -93,12 +93,7 @@ Retrieves the authenticity proof for a specific virtual blockchain associated wi
     <ul>
       <ParamsItem
         className={"paramsItem"}
-        param={{"name":"virtualBlockchainId","required":true,"in":"query","description":"The virtual blockchain identifier","schema":{"example":"A209BBB06FE1895E66E6624B86E59D9B4E8798119936A79917AE744BC709590A","type":"string"}}}
-      >
-        
-      </ParamsItem><ParamsItem
-        className={"paramsItem"}
-        param={{"name":"proofAuthor","required":false,"in":"query","description":"Optional author identifier for proof filtering","schema":{"example":"Proof Author","type":"string"}}}
+        param={{"name":"nodeEndpoint","required":true,"in":"query","schema":{"type":"string"}}}
       >
         
       </ParamsItem>
@@ -117,7 +112,7 @@ Retrieves the authenticity proof for a specific virtual blockchain associated wi
         <div>
           
           
-          The authenticity proof has been successfully retrieved.
+          
           
           
         </div><div>

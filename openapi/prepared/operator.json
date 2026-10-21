@@ -3,7 +3,7 @@
   "paths": {
     "/api/v1/chain/microblock/{microblockHash}/published": {
       "get": {
-        "description": "Verifies if a specific microblock has been published on the blockchain by querying the provided node endpoint.",
+        "description": "Verifies if a specific microblock has been published on the blockchain.",
         "operationId": "ChainController_isMicroblockPublishedOnBlockchain_v1",
         "parameters": [
           {
@@ -16,6 +16,14 @@
           },
           {
             "name": "nodeEndpoint",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "indexerEndpoint",
             "required": true,
             "in": "query",
             "schema": {
@@ -40,76 +48,6 @@
           }
         },
         "summary": "Check if a microblock is published on blockchain",
-        "tags": [
-          "Chain"
-        ]
-      }
-    },
-    "/api/v1/chain/applicationLedger/{vbId}/state": {
-      "get": {
-        "operationId": "ChainController_getApplicationLedgerState_v1",
-        "parameters": [
-          {
-            "name": "vbId",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "nodeEndpoint",
-            "required": true,
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "tags": [
-          "Chain"
-        ]
-      }
-    },
-    "/api/v1/chain/applicationLedger/{vbId}/actor/{actorName}/pk": {
-      "get": {
-        "operationId": "ChainController_getActorKeys_v1",
-        "parameters": [
-          {
-            "name": "vbId",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "actorName",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "nodeEndpoint",
-            "required": true,
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
         "tags": [
           "Chain"
         ]
@@ -144,6 +82,9 @@
         "security": [
           {
             "api-key": []
+          },
+          {
+            "api-key": []
           }
         ],
         "summary": "Returns the status of an anchor request",
@@ -172,6 +113,9 @@
           }
         },
         "security": [
+          {
+            "api-key": []
+          },
           {
             "api-key": []
           }
@@ -218,6 +162,9 @@
         "security": [
           {
             "api-key": []
+          },
+          {
+            "api-key": []
           }
         ],
         "summary": "Returns all anchor requests",
@@ -255,6 +202,11 @@
             "description": "The authenticity proof has been successfully retrieved."
           }
         },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
         "summary": "Get authenticity proof for a virtual blockchain",
         "tags": [
           "Anchor Request"
@@ -281,6 +233,9 @@
           }
         },
         "security": [
+          {
+            "api-key": []
+          },
           {
             "api-key": []
           }
@@ -322,6 +277,9 @@
         "security": [
           {
             "api-key": []
+          },
+          {
+            "api-key": []
           }
         ],
         "summary": "Delete an anchor request",
@@ -349,6 +307,9 @@
           }
         },
         "security": [
+          {
+            "api-key": []
+          },
           {
             "api-key": []
           }
@@ -441,71 +402,141 @@
         ]
       }
     },
-    "/api/v1/wallet/{walletId}/proof/authenticity": {
-      "get": {
-        "description": "Retrieves the authenticity proof for a specific virtual blockchain associated with a wallet.",
-        "operationId": "WalletProofController_getRecord_v1",
-        "parameters": [
-          {
-            "name": "walletId",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "$ref": "#/components/schemas/WalletEntity"
+    "/api/v1/applicationLedger/anchor": {
+      "post": {
+        "description": "Initiates an anchoring request for an application. This endpoint is used to create an anchor request without explicit wallet approval. The wallet is resolved from the application (application -> organization -> wallet).",
+        "operationId": "WalletApplicationLedgerController_anchor_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnchorDto"
+              },
+              "examples": {
+                "createApplicationLedger": {
+                  "summary": "Create an application ledger",
+                  "value": {
+                    "applicationId": "3f2b8c1e-5a47-4d0e-9b6a-1c2d3e4f5a6b",
+                    "chainStorageInDays": 360,
+                    "gasPriceInAtomics": 200000,
+                    "channels": [
+                      {
+                        "name": "New Channel 1",
+                        "public": true
+                      },
+                      {
+                        "name": "New Channel 2",
+                        "public": false
+                      }
+                    ],
+                    "actors": [
+                      {
+                        "name": "New Actor 1"
+                      },
+                      {
+                        "name": "New Actor 2"
+                      }
+                    ],
+                    "data": {
+                      "invoice_id": "INV-001",
+                      "amount": 1000,
+                      "customer": "ACME Corp"
+                    },
+                    "channelAssignations": [
+                      {
+                        "channelName": "New Channel 1",
+                        "fieldPath": "this.*"
+                      }
+                    ],
+                    "actorAssignations": [
+                      {
+                        "channelName": "New Channel 1",
+                        "actorName": "New Actor 1"
+                      }
+                    ],
+                    "author": "New Actor 1"
+                  }
+                },
+                "appendToApplicationLedger": {
+                  "summary": "Append application ledger",
+                  "value": {
+                    "applicationId": "3f2b8c1e-5a47-4d0e-9b6a-1c2d3e4f5a6b",
+                    "virtualBlockchainId": "82A49C89ACA5F3ECA4139A040A028B4C5B0A686BC1CE4B58DDE1BFC6B1004FBD",
+                    "gasPriceInAtomics": 200000,
+                    "channels": [
+                      {
+                        "name": "New Channel 3",
+                        "public": true
+                      }
+                    ],
+                    "actors": [
+                      {
+                        "name": "New Actor 3"
+                      }
+                    ],
+                    "data": {
+                      "invoice_id": "INV-001",
+                      "amount": 1000,
+                      "customer": "ACME Corp"
+                    },
+                    "channelAssignations": [
+                      {
+                        "channelName": "Public",
+                        "fieldPath": "this.*"
+                      }
+                    ],
+                    "author": "Endorser"
+                  }
+                }
+              }
             }
-          },
-          {
-            "name": "virtualBlockchainId",
-            "required": true,
-            "in": "query",
-            "description": "The virtual blockchain identifier",
-            "schema": {
-              "example": "A209BBB06FE1895E66E6624B86E59D9B4E8798119936A79917AE744BC709590A",
-              "type": "string"
-            }
-          },
-          {
-            "name": "proofAuthor",
-            "required": false,
-            "in": "query",
-            "description": "Optional author identifier for proof filtering",
-            "schema": {
-              "example": "Proof Author",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The authenticity proof has been successfully retrieved."
           }
         },
-        "summary": "Get authenticity proof for a virtual blockchain",
+        "responses": {
+          "201": {
+            "description": "The anchoring request has been created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnchorRequestResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
+        "summary": "Initiate an anchor request",
         "tags": [
-          "Wallet Proof"
+          "Wallet Application Ledger"
         ]
       }
     },
-    "/api/v1/wallet/{walletId}/record": {
+    "/api/v1/applicationLedger/{applicationLedgerVbId}/record": {
       "get": {
-        "description": "Retrieves a record from a specific virtual blockchain at a given block height.",
-        "operationId": "WalletRecordController_getRecord_v1",
+        "description": "Retrieves a record from an application ledger at a given block height, read with the wallet identity.",
+        "operationId": "WalletApplicationLedgerController_getRecord_v1",
         "parameters": [
           {
-            "name": "walletId",
+            "name": "applicationLedgerVbId",
             "required": true,
             "in": "path",
             "schema": {
-              "$ref": "#/components/schemas/WalletEntity"
+              "type": "string"
             }
           },
           {
-            "name": "vbId",
+            "name": "walletId",
             "required": true,
             "in": "query",
-            "description": "The virtual blockchain identifier",
+            "description": "Wallet whose node and actor identity are used",
             "schema": {
-              "example": "vb_12345",
+              "format": "uuid",
               "type": "string"
             }
           },
@@ -525,114 +556,54 @@
             "description": "The record has been successfully retrieved."
           }
         },
-        "summary": "Get a record from a virtual blockchain",
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
+        "summary": "Get a record from an application ledger",
         "tags": [
-          "Wallet Record"
+          "Wallet Application Ledger"
         ]
       }
     },
-    "/api/v1/wallet/{walletId}/anchor": {
-      "post": {
-        "description": "Initiates an anchoring request for an application. This endpoint is used to create an anchor request without explicit wallet approval.",
-        "operationId": "WalletAnchoringController_anchor_v1",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AnchorDto"
-              },
-              "examples": {
-                "createApplicationLedger": {
-                  "summary": "Create an application ledger",
-                  "value": {
-                    "applicationId": "6AC2A4EBFD08F34C2EF4432041313F83EB4C8AB9154FAEF61ABB833613DA1C10",
-                    "chainStorageInDays": 360,
-                    "gasPriceInAtomics": 200000,
-                    "channels": [
-                      {
-                        "name": "New Channel 1",
-                        "public": true
-                      },
-                      {
-                        "name": "New Channel 2",
-                        "public": false
-                      }
-                    ],
-                    "actors": [
-                      {
-                        "name": "New Actor 1"
-                      },
-                      {
-                        "name": "New Actor 2"
-                      }
-                    ],
-                    "data": {
-                      "invoice_id": "INV-001",
-                      "amount": 1000,
-                      "customer": "ACME Corp"
-                    },
-                    "channelAssignations": [
-                      {
-                        "channelName": "New Channel 1",
-                        "fieldPath": "this.*"
-                      }
-                    ],
-                    "actorAssignations": [
-                      {
-                        "channelName": "New Channel 1",
-                        "actorName": "New Actor 1"
-                      }
-                    ],
-                    "author": "New Actor 1"
-                  }
-                },
-                "appendToApplicationLedger": {
-                  "summary": "Append application ledger",
-                  "value": {
-                    "applicationId": "6AC2A4EBFD08F34C2EF4432041313F83EB4C8AB9154FAEF61ABB833613DA1C10",
-                    "virtualBlockchainId": "82A49C89ACA5F3ECA4139A040A028B4C5B0A686BC1CE4B58DDE1BFC6B1004FBD",
-                    "gasPriceInAtomics": 200000,
-                    "channels": [
-                      {
-                        "name": "New Channel 3",
-                        "public": true
-                      }
-                    ],
-                    "actors": [
-                      {
-                        "name": "New Actor 3"
-                      }
-                    ],
-                    "data": {
-                      "invoice_id": "INV-001",
-                      "amount": 1000,
-                      "customer": "ACME Corp"
-                    },
-                    "channelAssignations": [
-                      {
-                        "channelName": "Public",
-                        "fieldPath": "this.*"
-                      }
-                    ],
-                    "author": "Endorser"
-                  }
-                }
-              }
+    "/api/v1/applicationLedger/{applicationLedgerVbId}/proof/authenticity": {
+      "get": {
+        "description": "Retrieves the authenticity proof of an application ledger, produced with the wallet identity.",
+        "operationId": "WalletApplicationLedgerController_getAuthenticityProof_v1",
+        "parameters": [
+          {
+            "name": "applicationLedgerVbId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "walletId",
+            "required": true,
+            "in": "query",
+            "description": "Wallet whose node and actor identity are used",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "proofAuthor",
+            "required": false,
+            "in": "query",
+            "description": "Optional author identifier for proof filtering",
+            "schema": {
+              "example": "Proof Author",
+              "type": "string"
             }
           }
-        },
+        ],
         "responses": {
-          "201": {
-            "description": "The anchoring request has been created successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AnchorRequestResponseDto"
-                }
-              }
-            }
+          "200": {
+            "description": "The authenticity proof has been successfully retrieved."
           }
         },
         "security": [
@@ -640,114 +611,37 @@
             "api-key": []
           }
         ],
-        "summary": "Initiate an anchor request",
+        "summary": "Get the authenticity proof of an application ledger",
         "tags": [
-          "Wallet Anchoring"
+          "Wallet Application Ledger"
         ]
       }
     },
-    "/api/v1/wallet/anchor": {
-      "post": {
-        "description": "Initiates an anchoring request for an application. This endpoint is used to create an anchor request without explicit wallet approval.",
-        "operationId": "WalletAnchoringController_anchorUsingImplicitWallet_v1",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AnchorDto"
-              },
-              "examples": {
-                "createApplicationLedger": {
-                  "summary": "Create an application ledger",
-                  "value": {
-                    "applicationId": "6AC2A4EBFD08F34C2EF4432041313F83EB4C8AB9154FAEF61ABB833613DA1C10",
-                    "chainStorageInDays": 360,
-                    "gasPriceInAtomics": 200000,
-                    "channels": [
-                      {
-                        "name": "New Channel 1",
-                        "public": true
-                      },
-                      {
-                        "name": "New Channel 2",
-                        "public": false
-                      }
-                    ],
-                    "actors": [
-                      {
-                        "name": "New Actor 1"
-                      },
-                      {
-                        "name": "New Actor 2"
-                      }
-                    ],
-                    "data": {
-                      "invoice_id": "INV-001",
-                      "amount": 1000,
-                      "customer": "ACME Corp"
-                    },
-                    "channelAssignations": [
-                      {
-                        "channelName": "New Channel 1",
-                        "fieldPath": "this.*"
-                      }
-                    ],
-                    "actorAssignations": [
-                      {
-                        "channelName": "New Channel 1",
-                        "actorName": "New Actor 1"
-                      }
-                    ],
-                    "author": "New Actor 1"
-                  }
-                },
-                "appendToApplicationLedger": {
-                  "summary": "Append application ledger",
-                  "value": {
-                    "applicationId": "6AC2A4EBFD08F34C2EF4432041313F83EB4C8AB9154FAEF61ABB833613DA1C10",
-                    "virtualBlockchainId": "82A49C89ACA5F3ECA4139A040A028B4C5B0A686BC1CE4B58DDE1BFC6B1004FBD",
-                    "gasPriceInAtomics": 200000,
-                    "channels": [
-                      {
-                        "name": "New Channel 3",
-                        "public": true
-                      }
-                    ],
-                    "actors": [
-                      {
-                        "name": "New Actor 3"
-                      }
-                    ],
-                    "data": {
-                      "invoice_id": "INV-001",
-                      "amount": 1000,
-                      "customer": "ACME Corp"
-                    },
-                    "channelAssignations": [
-                      {
-                        "channelName": "Public",
-                        "fieldPath": "this.*"
-                      }
-                    ],
-                    "author": "Endorser"
-                  }
-                }
-              }
+    "/api/v1/applicationLedger/{applicationLedgerVbId}/state": {
+      "get": {
+        "description": "Returns the actors and channels of an application ledger, read from the given node.",
+        "operationId": "WalletApplicationLedgerController_getApplicationLedgerState_v1",
+        "parameters": [
+          {
+            "name": "applicationLedgerVbId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "nodeEndpoint",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           }
-        },
+        ],
         "responses": {
-          "201": {
-            "description": "The anchoring request has been created successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AnchorRequestResponseDto"
-                }
-              }
-            }
+          "200": {
+            "description": ""
           }
         },
         "security": [
@@ -755,9 +649,55 @@
             "api-key": []
           }
         ],
-        "summary": "Initiate an anchor request",
+        "summary": "Get the state of an application ledger",
         "tags": [
-          "Wallet Anchoring"
+          "Wallet Application Ledger"
+        ]
+      }
+    },
+    "/api/v1/applicationLedger/{applicationLedgerVbId}/actor/{actorName}/pk": {
+      "get": {
+        "description": "Returns the public keys of an actor of an application ledger, read from the given node.",
+        "operationId": "WalletApplicationLedgerController_getActorKeys_v1",
+        "parameters": [
+          {
+            "name": "applicationLedgerVbId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "actorName",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "nodeEndpoint",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
+        "summary": "Get the public keys of an application ledger actor",
+        "tags": [
+          "Wallet Application Ledger"
         ]
       }
     },
@@ -788,6 +728,11 @@
             }
           }
         },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
         "summary": "Verify an SD-JWT verifiable credential",
         "tags": [
           "Verifiable Credentials"
@@ -821,6 +766,11 @@
             }
           }
         },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
         "summary": "Verify an SD-JWT verifiable presentation",
         "tags": [
           "Verifiable Credentials"
@@ -860,6 +810,11 @@
             }
           }
         },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
         "summary": "Generate a cryptographic challenge",
         "tags": [
           "Crypto"
@@ -888,6 +843,11 @@
             }
           }
         },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
         "summary": "Generate a cryptographic nonce",
         "tags": [
           "Crypto"
@@ -916,6 +876,11 @@
             }
           }
         },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
         "summary": "Generate a UUID",
         "tags": [
           "Crypto"
@@ -942,6 +907,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
         "summary": "Computes digest data of JSON",
         "tags": [
           "Crypto"
@@ -979,9 +949,14 @@
             }
           }
         },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
         "summary": "Verify a binary message signature",
         "tags": [
-          "Crypto Signature"
+          "Crypto"
         ]
       }
     },
@@ -1016,13 +991,18 @@
             }
           }
         },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
         "summary": "Verify a binary message signature",
         "tags": [
-          "Crypto Signature"
+          "Crypto"
         ]
       }
     },
-    "/api/v1/crypto/signature/json-signature/verify": {
+    "/api/v1/crypto/signature/verify/json": {
       "post": {
         "description": "Verifies a `json-canonical+utf8` or `jws` signature, and the context it carries, with a public key.",
         "operationId": "CryptoSignatureController_verifyJsonSignature_v1",
@@ -1038,17 +1018,156 @@
           }
         },
         "responses": {
-          "201": {
-            "description": ""
+          "200": {
+            "description": "JSON signature verification result, discriminated by `verified`. When `true`, the signature and its context are valid and the signed `context` and `payload` are returned. When `false`, `errors` explains why (e.g. `Invalid signature`, `Malformed signature`, `Not valid yet`, `Expired`, `Allowed on chain not match`).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "verified",
+                        "context",
+                        "payload"
+                      ],
+                      "properties": {
+                        "verified": {
+                          "type": "boolean",
+                          "enum": [
+                            true
+                          ]
+                        },
+                        "context": {
+                          "type": "object",
+                          "description": "Signature context that was signed together with the payload.",
+                          "required": [
+                            "signedAt",
+                            "purpose"
+                          ],
+                          "additionalProperties": true,
+                          "properties": {
+                            "signedAt": {
+                              "type": "number",
+                              "description": "Signing time (Unix timestamp in ms)."
+                            },
+                            "purpose": {
+                              "type": "string"
+                            },
+                            "target": {
+                              "type": "string"
+                            },
+                            "requestedAt": {
+                              "type": "number"
+                            },
+                            "notValidBefore": {
+                              "type": "number"
+                            },
+                            "notValidAfter": {
+                              "type": "number"
+                            },
+                            "allowOnChain": {
+                              "type": "boolean"
+                            },
+                            "organizationId": {
+                              "type": "string"
+                            },
+                            "applicationId": {
+                              "type": "string"
+                            },
+                            "applicationLedgerId": {
+                              "type": "string"
+                            },
+                            "applicationLedgerLatestMicroblockHash": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "payload": {
+                          "description": "The signed JSON payload (any JSON value)."
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "verified",
+                        "errors"
+                      ],
+                      "properties": {
+                        "verified": {
+                          "type": "boolean",
+                          "enum": [
+                            false
+                          ]
+                        },
+                        "errors": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "example": [
+                            "Invalid signature"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
+                "examples": {
+                  "verified": {
+                    "summary": "Valid signature",
+                    "value": {
+                      "verified": true,
+                      "context": {
+                        "signedAt": 1760000000000,
+                        "purpose": "document-approval",
+                        "target": "contract-42"
+                      },
+                      "payload": {
+                        "documentId": "contract-42",
+                        "approved": true
+                      }
+                    }
+                  },
+                  "invalidSignature": {
+                    "summary": "Invalid signature",
+                    "value": {
+                      "verified": false,
+                      "errors": [
+                        "Invalid signature"
+                      ]
+                    }
+                  },
+                  "expired": {
+                    "summary": "Signature outside its validity window",
+                    "value": {
+                      "verified": false,
+                      "errors": [
+                        "Expired"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request body or the verification context is invalid."
           }
         },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
         "summary": "Verify a JSON signature",
         "tags": [
-          "Crypto Signature"
+          "Crypto"
         ]
       }
     },
-    "/api/v1/crypto/wallet/{walletId}/signature/sign": {
+    "/api/v1/wallet/{walletId}/signature/sign": {
       "post": {
         "description": "Signs a binary message using the wallet's private signature key.",
         "operationId": "WalletCryptoController_sign[0]_v1",
@@ -1059,7 +1178,8 @@
             "in": "path",
             "description": "Wallet identifier",
             "schema": {
-              "type": "number"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -1089,13 +1209,18 @@
             }
           }
         },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
         "summary": "Sign a binary message with wallet signature key",
         "tags": [
-          "Wallet Crypto"
+          "Wallet"
         ]
       }
     },
-    "/api/v1/crypto/wallet/{walletId}/signature/sign/binary": {
+    "/api/v1/wallet/{walletId}/signature/sign/binary": {
       "post": {
         "description": "Signs a binary message using the wallet's private signature key.",
         "operationId": "WalletCryptoController_sign[1]_v1",
@@ -1106,7 +1231,8 @@
             "in": "path",
             "description": "Wallet identifier",
             "schema": {
-              "type": "number"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -1136,13 +1262,18 @@
             }
           }
         },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
         "summary": "Sign a binary message with wallet signature key",
         "tags": [
-          "Wallet Crypto"
+          "Wallet"
         ]
       }
     },
-    "/api/v1/crypto/wallet/{walletId}/json-signature/sign": {
+    "/api/v1/wallet/{walletId}/signature/sign/json": {
       "post": {
         "description": "Signs a JSON payload, bound to a context (purpose, target, validity window...), using the SDK JSON signatures. Supports `json-canonical+utf8` and `jws` (the latter requires a wallet backed by a JWK private key).",
         "operationId": "WalletCryptoController_signJsonSignature_v1",
@@ -1153,7 +1284,8 @@
             "in": "path",
             "description": "Wallet identifier",
             "schema": {
-              "type": "number"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -1172,13 +1304,18 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
         "summary": "Sign a JSON payload with the wallet signature key",
         "tags": [
-          "Wallet Crypto"
+          "Wallet"
         ]
       }
     },
-    "/api/v1/crypto/wallet/{walletId}/signature/verify": {
+    "/api/v1/wallet/{walletId}/signature/verify": {
       "post": {
         "operationId": "WalletCryptoController_verify[0]_v1",
         "parameters": [
@@ -1188,7 +1325,8 @@
             "in": "path",
             "description": "Wallet identifier",
             "schema": {
-              "type": "number"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -1218,13 +1356,18 @@
             }
           }
         },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
         "summary": "Verify a binary message signature with the wallet's public key",
         "tags": [
-          "Wallet Crypto"
+          "Wallet"
         ]
       }
     },
-    "/api/v1/crypto/wallet/{walletId}/signature/verify/binary": {
+    "/api/v1/wallet/{walletId}/signature/verify/binary": {
       "post": {
         "operationId": "WalletCryptoController_verify[1]_v1",
         "parameters": [
@@ -1234,7 +1377,8 @@
             "in": "path",
             "description": "Wallet identifier",
             "schema": {
-              "type": "number"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -1264,13 +1408,18 @@
             }
           }
         },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
         "summary": "Verify a binary message signature with the wallet's public key",
         "tags": [
-          "Wallet Crypto"
+          "Wallet"
         ]
       }
     },
-    "/api/v1/crypto/wallet/{walletId}/json-signature/verify": {
+    "/api/v1/wallet/{walletId}/signature/verify/json": {
       "post": {
         "description": "Verifies a `json-canonical+utf8` or `jws` signature and the context it carries.",
         "operationId": "WalletCryptoController_verifyJsonSignature_v1",
@@ -1281,7 +1430,8 @@
             "in": "path",
             "description": "Wallet identifier",
             "schema": {
-              "type": "number"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -1300,13 +1450,18 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
         "summary": "Verify a JSON signature with the wallet's public key",
         "tags": [
-          "Wallet Crypto"
+          "Wallet"
         ]
       }
     },
-    "/api/v1/crypto/wallet/{walletId}/signature/pk": {
+    "/api/v1/wallet/{walletId}/signature/pk": {
       "get": {
         "description": "Retrieves the public signature key associated with the wallet.",
         "operationId": "WalletCryptoController_getPublicSignatureKey_v1",
@@ -1317,7 +1472,8 @@
             "in": "path",
             "description": "Wallet identifier",
             "schema": {
-              "type": "number"
+              "format": "uuid",
+              "type": "string"
             }
           }
         ],
@@ -1341,26 +1497,22 @@
             }
           }
         },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
         "summary": "Get wallet public signature key",
         "tags": [
-          "Wallet Crypto"
+          "Wallet"
         ]
       }
     },
-    "/api/v1/wallet/{walletId}/resolve": {
+    "/api/v1/resolve": {
       "post": {
         "description": "Recursively resolves microblock data.",
         "operationId": "WalletResolverController_resolve_v1",
-        "parameters": [
-          {
-            "name": "walletId",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "$ref": "#/components/schemas/WalletEntity"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
@@ -1390,7 +1542,253 @@
         ],
         "summary": "Resolve data stored in microblocks",
         "tags": [
-          "Wallet Resolver"
+          "Resolver"
+        ]
+      }
+    },
+    "/api/v1/organization/{organizationId}/applications": {
+      "get": {
+        "description": "Returns the applications of the local registry belonging to the organization. `vbId` is null for an application that is not published on-chain yet.",
+        "operationId": "WalletOrganizationController_listApplications_v1",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WalletApplicationDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
+        "summary": "List the applications of an organization",
+        "tags": [
+          "Wallet Organization"
+        ]
+      }
+    },
+    "/api/v1/organization/{organizationId}/anchor/json": {
+      "post": {
+        "description": "Publishes a custom JSON section on the virtual blockchain of an organization owned by the wallet. The request body is the JSON itself. The microblock is signed by the wallet and its fees are paid by the account the wallet is attached to.",
+        "operationId": "WalletOrganizationController_publishCustomSection_v1",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MicroblockPublicationResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
+        "summary": "Publish a custom JSON on an organization",
+        "tags": [
+          "Wallet Organization"
+        ]
+      }
+    },
+    "/api/v1/organization/{organizationId}/anchor/certificate": {
+      "post": {
+        "description": "Publishes an X.509 certificate (PEM) on the virtual blockchain of an organization owned by the wallet, as `{ __certificate__: { type: \"PEM\", pem } }`. The microblock is signed by the wallet and its fees are paid by the account the wallet is attached to.",
+        "operationId": "WalletOrganizationController_publishCertificate_v1",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificatePublicationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MicroblockPublicationResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
+        "summary": "Publish an X.509 certificate on an organization",
+        "tags": [
+          "Wallet Organization"
+        ]
+      }
+    },
+    "/api/v1/wallet": {
+      "get": {
+        "description": "Returns the wallets known by the operator. Secrets (seed, actor passphrase) are never returned.",
+        "operationId": "WalletController_listWallets_v1",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WalletDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
+        "summary": "List the wallets",
+        "tags": [
+          "Wallet"
+        ]
+      }
+    },
+    "/api/v1/wallet/{walletId}/organization": {
+      "get": {
+        "description": "Returns the organizations of the local registry owned by the wallet. `vbId` is null for an organization that is not published on-chain yet.",
+        "operationId": "WalletController_listOrganizations_v1",
+        "parameters": [
+          {
+            "name": "walletId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "$ref": "#/components/schemas/WalletEntity"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WalletOrganizationDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
+        "summary": "List the organizations of a wallet",
+        "tags": [
+          "Wallet"
+        ]
+      }
+    },
+    "/api/v1/wallet/{walletId}/application": {
+      "get": {
+        "description": "Returns the applications of the local registry owned by the wallet. `vbId` is null for an application that is not published on-chain yet.",
+        "operationId": "WalletController_listApplications_v1",
+        "parameters": [
+          {
+            "name": "walletId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "$ref": "#/components/schemas/WalletEntity"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WalletApplicationDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
+        "summary": "List the applications of a wallet",
+        "tags": [
+          "Wallet"
         ]
       }
     }
@@ -1450,10 +1848,6 @@
         "required": [
           "message"
         ]
-      },
-      "WalletEntity": {
-        "type": "object",
-        "properties": {}
       },
       "ChannelDto": {
         "type": "object",
@@ -1578,165 +1972,13 @@
           "maskedParts"
         ]
       },
-      "AnchorWithWalletDto": {
-        "type": "object",
-        "properties": {
-          "applicationId": {
-            "type": "string",
-            "description": "Identifier of the application virtual blockchain. The application must be published online before calling this endpoint.When omitted, either a wallet or an application must be associated with the API key.",
-            "example": "6AC2A4EBFD08F34C2EF4432041313F83EB4C8AB9154FAEF61ABB833613DA1C10"
-          },
-          "virtualBlockchainId": {
-            "type": "string",
-            "description": "Identifier of the target application ledger. If omitted, a new virtual blockchain is created for this anchor request",
-            "example": "82A49C89ACA5F3ECA4139A040A028B4C5B0A686BC1CE4B58DDE1BFC6B1004FBD"
-          },
-          "chainStorageInDays": {
-            "type": "number",
-            "description": "Retention period in days for the anchored data on the Carmentis blockchain. After this period, data may be archived or removed. Required only for the first microblock of the virtual blockchain.",
-            "example": 360
-          },
-          "gasPriceInAtomics": {
-            "type": "number",
-            "description": "Gas price in atomic units to use for the anchoring transaction. If limits are defined in the API key, then the gas price must be within theses limits (gasMinAtomics - gasMaxAtomics)",
-            "example": 100000
-          },
-          "channels": {
-            "description": "List of channels to create in this virtual blockchain. Each channel controls data visibility to different actors",
-            "example": [
-              {
-                "name": "Public",
-                "public": true
-              },
-              {
-                "name": "Private",
-                "public": false
-              }
-            ],
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ChannelDto"
-            }
-          },
-          "actors": {
-            "title": "List of actors to create",
-            "description": "All participants/actors that need to be created and used in this transaction",
-            "example": [
-              {
-                "name": "Endorser"
-              },
-              {
-                "name": "Witness"
-              }
-            ],
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ActorDto"
-            }
-          },
-          "data": {
-            "type": "object",
-            "title": "Data being anchored on chain",
-            "description": "Your business-related data to be anchored. This is the actual payload being recorded on the blockchain",
-            "example": {
-              "invoice_id": "INV-001",
-              "amount": 1000,
-              "customer": "ACME Corp"
-            }
-          },
-          "channelAssignations": {
-            "description": "Assignment of data fields to specific channels. Controls which actors can see which data",
-            "example": [
-              {
-                "channelName": "Public",
-                "fieldPath": "invoice_id"
-              }
-            ],
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ChannelAssignationDto"
-            }
-          },
-          "actorAssignations": {
-            "description": "Assignment of channel visibility to specific actors",
-            "example": [
-              {
-                "channelName": "Public",
-                "actorName": "Endorser"
-              }
-            ],
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ActorAssignationDto"
-            }
-          },
-          "hashableFields": {
-            "description": "Fields whose values should be hashed for zero-knowledge proofs",
-            "default": [],
-            "example": [],
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/HashableFieldDto"
-            }
-          },
-          "maskableFields": {
-            "description": "Fields that support masking (redaction) of specific parts. Useful for PII and sensitive data",
-            "default": [],
-            "example": [],
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MaskableFieldDto"
-            }
-          },
-          "author": {
-            "type": "string",
-            "title": "Author",
-            "description": "The actor who initiated this transaction. Usually your application server or user identity",
-            "example": "MyApplication"
-          },
-          "endorser": {
-            "type": "string",
-            "description": "The actor who endorses/approves this transaction. In practice, this actor is a human running a Desk application.",
-            "example": "Endorser"
-          },
-          "approvalMessage": {
-            "type": "string",
-            "description": "User-facing message displayed on the wallet during approval. Helps users understand what they are approving",
-            "example": "Please approve the anchoring of invoice INV-001 for $1000",
-            "default": ""
-          }
-        },
-        "required": [
-          "gasPriceInAtomics",
-          "channels",
-          "actors",
-          "data",
-          "channelAssignations",
-          "actorAssignations",
-          "maskableFields",
-          "author",
-          "endorser"
-        ]
-      },
-      "AnchorRequestResponseDto": {
-        "type": "object",
-        "properties": {
-          "anchorRequestId": {
-            "type": "string",
-            "description": "Anchor request id used to track the anchor request."
-          }
-        },
-        "required": [
-          "anchorRequestId"
-        ]
-      },
       "AnchorDto": {
         "type": "object",
         "properties": {
           "applicationId": {
             "type": "string",
-            "description": "Identifier of the application virtual blockchain. The application must be published online before calling this endpoint.When omitted, either a wallet or an application must be associated with the API key.",
-            "example": "6AC2A4EBFD08F34C2EF4432041313F83EB4C8AB9154FAEF61ABB833613DA1C10"
+            "description": "Local identifier of the application (not its virtual blockchain identifier). The application must be published online before calling this endpoint. When omitted, an application must be associated with the API key.",
+            "format": "uuid"
           },
           "virtualBlockchainId": {
             "type": "string",
@@ -1856,6 +2098,18 @@
           "actorAssignations",
           "maskableFields",
           "author"
+        ]
+      },
+      "AnchorRequestResponseDto": {
+        "type": "object",
+        "properties": {
+          "anchorRequestId": {
+            "type": "string",
+            "description": "Anchor request id used to track the anchor request."
+          }
+        },
+        "required": [
+          "anchorRequestId"
         ]
       },
       "SdJwtVerifiableCredentialVerificationRequestDto": {
@@ -2355,10 +2609,22 @@
       "ResolverDto": {
         "type": "object",
         "properties": {
+          "walletId": {
+            "type": "string",
+            "title": "The wallet",
+            "description": "The identifier of the wallet whose node is used to resolve the data.",
+            "format": "uuid"
+          },
           "linkedJson": {
             "type": "object",
             "title": "The JSON to be resolved",
             "description": "The JSON data from which the resolution starts.",
+            "additionalProperties": true
+          },
+          "digestData": {
+            "type": "object",
+            "title": "External digest data",
+            "description": "The external digest data (e.g. GDPR) stored by the application.",
             "additionalProperties": true
           },
           "policies": {
@@ -2372,7 +2638,9 @@
           }
         },
         "required": [
+          "walletId",
           "linkedJson",
+          "digestData",
           "policies"
         ]
       },
@@ -2422,11 +2690,25 @@
             "title": "Resolved JSON",
             "description": "The full resolved data, as JSON.",
             "additionalProperties": true
+          },
+          "proofs": {
+            "type": "object",
+            "title": "Proofs",
+            "description": "The microblock proofs.",
+            "additionalProperties": true
+          },
+          "digestData": {
+            "type": "object",
+            "title": "Digest data",
+            "description": "The external digest data provided for the resolition.",
+            "additionalProperties": true
           }
         },
         "required": [
           "linkedJson",
-          "resolvedJson"
+          "resolvedJson",
+          "proofs",
+          "digestData"
         ]
       },
       "ProofSignatureCommitmentDto": {
@@ -2527,6 +2809,148 @@
           "info",
           "proof",
           "signature"
+        ]
+      },
+      "WalletApplicationDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The local identifier of the application.",
+            "format": "uuid"
+          },
+          "vbId": {
+            "type": "string",
+            "description": "The virtual blockchain id of the application, null while it is not published on-chain.",
+            "nullable": true
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "homepageUrl": {
+            "type": "string"
+          },
+          "logoUrl": {
+            "type": "string"
+          },
+          "organizationId": {
+            "type": "string",
+            "description": "The local identifier of the organization owning the application.",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "id",
+          "vbId",
+          "name",
+          "description",
+          "homepageUrl",
+          "logoUrl",
+          "organizationId"
+        ]
+      },
+      "MicroblockPublicationResponseDto": {
+        "type": "object",
+        "properties": {
+          "microblockHash": {
+            "type": "string",
+            "description": "The hash of the published microblock."
+          },
+          "height": {
+            "type": "number",
+            "description": "The height of the published microblock in its virtual blockchain."
+          }
+        },
+        "required": [
+          "microblockHash",
+          "height"
+        ]
+      },
+      "CertificatePublicationDto": {
+        "type": "object",
+        "properties": {
+          "pem": {
+            "type": "string",
+            "title": "The X.509 certificate",
+            "description": "The X.509 certificate in PEM format (-----BEGIN CERTIFICATE----- ...)."
+          }
+        },
+        "required": [
+          "pem"
+        ]
+      },
+      "WalletDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The identifier of the wallet.",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "rpcEndpoint": {
+            "type": "string",
+            "description": "The RPC endpoint of the node used by the wallet."
+          },
+          "indexerEndpoint": {
+            "type": "string",
+            "description": "The indexer endpoint used by the wallet."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "Creation date of the wallet."
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "rpcEndpoint",
+          "indexerEndpoint",
+          "createdAt"
+        ]
+      },
+      "WalletEntity": {
+        "type": "object",
+        "properties": {}
+      },
+      "WalletOrganizationDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The local identifier of the organization."
+          },
+          "vbId": {
+            "type": "string",
+            "description": "The virtual blockchain id of the organization, null while it is not published on-chain.",
+            "nullable": true
+          },
+          "name": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "countryCode": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "vbId",
+          "name",
+          "city",
+          "countryCode",
+          "website"
         ]
       }
     }

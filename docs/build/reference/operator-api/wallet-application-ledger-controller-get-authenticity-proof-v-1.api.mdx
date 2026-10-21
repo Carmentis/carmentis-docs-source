@@ -1,11 +1,11 @@
 ---
-id: chain-controller-get-application-ledger-state-v-1
-title: "ChainController_getApplicationLedgerState_v1"
-description: "ChainController_getApplicationLedgerState_v1"
-sidebar_label: "ChainController_getApplicationLedgerState_v1"
+id: wallet-application-ledger-controller-get-authenticity-proof-v-1
+title: "Get the authenticity proof of an application ledger"
+description: "Retrieves the authenticity proof of an application ledger, produced with the wallet identity."
+sidebar_label: "Get the authenticity proof of an application ledger"
 hide_title: true
 hide_table_of_contents: true
-api: eJytk02P0zAQhv+KNSeQzKbl6FtVVqgCCcTCaRWt3GSaWCS2dzypKFH+OxqnXUIXkJA4RY7n633m9QghIll2we9qMLBtrfPb4JlC1yE9NMibGDtX5ZD3WDdId2wZH45r0BAt2R4ZKYG5H8HbHsHAcb+rQQPh4+AIazBMA2pwHgxEyy1oSFWLvQUzAp+i5CQm5xuYJv1Uxocab30dg/P8p3KPA9Lpr/VKyUwx+IRJ7l+vVvKpMVXkoqgCA9IX2DYiY2YApb6K+Uc0PXIbBGmDnElxCwYKG11xXBeVFCvsdX4xCrupSFJHZCEdZ7ilHKqBHJ/uROssxkb36iueFrptdO9QiGQ8LdoaCfQF6WbgNpD7nltm0c4fQk533EnE1lKPnl1SH7IxAqnNxx1cw3gTqkHiciF1CKS4RRUWKTegQWaf49c3K9BQBc+2YjCjtI4hcW+9dD+PlxGrn4xVg6wWkNVMSWXMKmP+ZawnCozfuIid7HHSMFAnd/MK7gWRzCbZeQ2g4dkiQIM523jeRamhDYklfxz3NuEX6qZJfs8WFPvXLtl9Jw492C7hs+FEPnoGAy8+nc38UoH+/dB5rddv4Gi7AbNfSzmQk37/v/fFS/607HmZKXOZymnh8be3n2GafgBLOHhn
+api: eJy9VMFu2zAM/RWBpw3wmnZH34puKIoNaNF126EwBsamY6Gy5Ep02szwvw+UHddpk2LdYZdEiUTy8b1HdlBQyL1uWDsLKVwTe01rCoorUthyRZZ1rnmjGu9cqVyp0CpsGqNzlCBlqFiRT+S+aHMq1IPmKoY/oDHESheSgzdHkIBryMewiwJS+BkfnD4l+xpznTnL3hlD/teK+HQG4kow/FqfQAINeqyJyQdIbzuwWBOkgM9z/VheFJCAp/tWeyogZd9SAlqabZArSCDkFdUIaQe8aSRJYK/tCvo+mfIOrRxOdd+S30DyjM2hP/VQuUDKuoIU2kJhzs5PrCj0pNpAxQ6S0vkaGVJoWy03h5FFWYQj53fAlWjC6+gu4wFNlHlCVGryqnR+1LvUhikWncOjR6wbI+WjImqq/xxnJpBC42ygIIEfj4/laxfIzX6rVRjUksiq0OY5hVC2xmyUHx1aHAkNEChvveZNNAE2+sMdyTmTyowrMcdWhpnP1GAOyBKoiSsnZlwRR1txBSkssNGL9cnihZ8W3V6L9YuIeTFvQxgjvx4cmj1B/SY0DnRMgCfvYaO/kIRG4SrCgoTXUeyBZ/07Vo/9a1u6GK456nGGvhYAQV3GUXNenV5dvND+k8tbeTewIXLLwLpZiEyrYB/enxwdQwK5s4w5Q9pJ6cYFrtFK9RHeOfFb98ZzZF0sQpb/wzIaKWd65EVjUFvoE2i9ERSDD25FDyFCNs4L4SGB9NDCiQAlaG6ILIHKBZa8XbfEQN+96Xv5e5hQ8XChAy7NbIIP0vPuehz29+qti2Zv59GI8023RtPKM5B18/e43rxXXkGzu92eAGXyw2tB9O+sHSq9HUW7mdfcQtqveJ/1s11y/vlm1H53tO/iaI8Hwb231O6Ub+vKpwixN6TrhsXR99P74epgxLRahtfSedb3/R8HaNI3
 sidebar_class_name: "get api-method"
 info_path: build/reference/operator-api/carmentis-operator-api
 custom_edit_url: null
@@ -28,20 +28,20 @@ import TabItem from "@theme/TabItem";
 <Heading
   as={"h1"}
   className={"openapi__heading"}
-  children={"ChainController_getApplicationLedgerState_v1"}
+  children={"Get the authenticity proof of an application ledger"}
 >
 </Heading>
 
 <MethodEndpoint
   method={"get"}
-  path={"/api/v1/chain/applicationLedger/{vbId}/state"}
+  path={"/api/v1/applicationLedger/{applicationLedgerVbId}/proof/authenticity"}
 >
   
 </MethodEndpoint>
 
 
 
-ChainController_getApplicationLedgerState_v1
+Retrieves the authenticity proof of an application ledger, produced with the wallet identity.
 
 <Heading
   id={"request"}
@@ -69,7 +69,7 @@ ChainController_getApplicationLedgerState_v1
     <ul>
       <ParamsItem
         className={"paramsItem"}
-        param={{"name":"vbId","required":true,"in":"path","schema":{"type":"string"}}}
+        param={{"name":"applicationLedgerVbId","required":true,"in":"path","schema":{"type":"string"}}}
       >
         
       </ParamsItem>
@@ -93,7 +93,12 @@ ChainController_getApplicationLedgerState_v1
     <ul>
       <ParamsItem
         className={"paramsItem"}
-        param={{"name":"nodeEndpoint","required":true,"in":"query","schema":{"type":"string"}}}
+        param={{"name":"walletId","required":true,"in":"query","description":"Wallet whose node and actor identity are used","schema":{"format":"uuid","type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"proofAuthor","required":false,"in":"query","description":"Optional author identifier for proof filtering","schema":{"example":"Proof Author","type":"string"}}}
       >
         
       </ParamsItem>
@@ -112,7 +117,7 @@ ChainController_getApplicationLedgerState_v1
         <div>
           
           
-          
+          The authenticity proof has been successfully retrieved.
           
           
         </div><div>

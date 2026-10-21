@@ -1,11 +1,11 @@
 ---
-id: wallet-record-controller-get-record-v-1
-title: "Get a record from a virtual blockchain"
-description: "Retrieves a record from a specific virtual blockchain at a given block height."
-sidebar_label: "Get a record from a virtual blockchain"
+id: wallet-application-ledger-controller-get-actor-keys-v-1
+title: "Get the public keys of an application ledger actor"
+description: "Returns the public keys of an actor of an application ledger, read from the given node."
+sidebar_label: "Get the public keys of an application ledger actor"
 hide_title: true
 hide_table_of_contents: true
-api: eJy1VE1P3DAQ/SvWnFopZVlKL7khihDqoRWl6qFaIa8z2bg4dhhPUtIo/72afGwXFlBB6imK5Zn3Zt577iDDaMhWbIOHFC6RyWKDUWlFaAJlKqdQKq1ihcbm1qjGEtfaqbUL5sYU2nqlWWm1sQ368VQVaDcFH0ACoULS0vwigxS+a+eQL4fGp8EzBeeQrjfz2XWzhAQqTbpERoqQ/ujA6xIhhV9D7UUGCRDe1pYwg5SpxgSsUK80F5BANAWWGtIOuK2kLqx/omFpS0KGLUZIuz4BtuxwS+rMs+UW+j7ZIjbrp9Fua6QWkgfruyrwsf3YDD3b3CLdI4h3uqzciHS9PHp//AGSmXVksn5zj8641JcT2pVEcVA0aay4wF2RH+d2fLTl5OtyjQR9vxIOsQo+DruEo8ND+exDT90LHdUa0atYG4Mx5rVz7ZZHdiBjAuuN6D3JoUZDwCqBErkI4p4NDjKKziksdGUXzXIx2mLRzfboFyOoTIPUjCZayY+pyXL7VUYcaevKvrvBdscrurKfULY4rLRAnQ2STQKc1FwEsr8HPw+crc/DUD5Z6VRTKVJH9XnwfSB18uViT5WPwdRyb2ik8kCDFGGnRKIj3Mf7y4NDSMAEz9qwmLdPoAqRS+0FfaJ3jryX2n0zPiTTDX3R8/9I/7RWxjteVE7Q+wRqcgI76vhDdi7DSvBHDSGB9F7YZyMUIbJUdN1aR/xGru/leHS+vBSZjXrtJBi5dhGfmfTN5ZSht+pfMvvoHIN15kei0a6WKyCBfTWPF0T1GUrbh+IvqZX8kBVWr9/UU6hzeHy7izmz2UrZr/qdMJ+fXUHf/wHNpTxg
+api: eJy9VE1v2zAM/SsCTxug1e2OvgVdURQdtqH7OhRGodhMLESWVIkOlhn67wPlfDVNeum2i63E5HvkI58GaDDWQXvSzkIJd0h9sFFQi8L3U6NrscBVFG4mlBWqJhc2Z++NrhXnCYPNHIMUAVUjZsF1OX+ul2iFdQ2egQTnMeTomwZK+KmMQZrsMD5miEtnKThjMDzMkSZMd4ur+LC8AAleBdUhYYhQ3g9gVYdQgjrE+DG9aUBCwMdeB2ygpNCjBM3teUUtSIh1i52CcgBaeQaJFLSdQ0pyh8vkn/j8eizW4Mo23mlLp+AeewyrF/Eqzoze2YiRv78/P+fX0wEyL0Ss+6BplXVSXr9bIJ8rhiA1Z/3WExB7IxCjflBJ6JBax3OaI2XlqYUSCuV1sbwonkleDEenkIosYjFstUyFX3CPGJbjGKtdsV+58bGzbclbEZTXt8jyZK1aVA0GkBt9Jz21LujfmT8roO3M5XRNhiMuVejQko7ic95DF8Tkyw3IA/U+uLrnuFGPmQt5kd1eCq8y1z7GX5ydg4TaWVI1QTkwtXeROmWZfV3eNdIpQz0z0eixw8KGzIGW/qlF11oT/qLCG6UtJAl9MMw/rsA9D4IVYD8+mzlIKE/ZcdNWue8rv+Bla10khh6GqYr4PZiU+O/RELzBjY5qatgvM2UivqDNm7u1td6KU/3kvTp05FKZHrN7Kv4RNPP9fe7NMtvVPuempuPS8TXyP4vYjidVae8iuL76xlPseQv2XbnIrlwfWLCj8E8NuuHiJ7d3NGUYRs+ntI0fP53M2N4KYzR3W6WU/gBsElx9
 sidebar_class_name: "get api-method"
 info_path: build/reference/operator-api/carmentis-operator-api
 custom_edit_url: null
@@ -28,20 +28,20 @@ import TabItem from "@theme/TabItem";
 <Heading
   as={"h1"}
   className={"openapi__heading"}
-  children={"Get a record from a virtual blockchain"}
+  children={"Get the public keys of an application ledger actor"}
 >
 </Heading>
 
 <MethodEndpoint
   method={"get"}
-  path={"/api/v1/wallet/{walletId}/record"}
+  path={"/api/v1/applicationLedger/{applicationLedgerVbId}/actor/{actorName}/pk"}
 >
   
 </MethodEndpoint>
 
 
 
-Retrieves a record from a specific virtual blockchain at a given block height.
+Returns the public keys of an actor of an application ledger, read from the given node.
 
 <Heading
   id={"request"}
@@ -69,7 +69,12 @@ Retrieves a record from a specific virtual blockchain at a given block height.
     <ul>
       <ParamsItem
         className={"paramsItem"}
-        param={{"name":"walletId","required":true,"in":"path","schema":{"type":"object","properties":{},"title":"WalletEntity"}}}
+        param={{"name":"applicationLedgerVbId","required":true,"in":"path","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"actorName","required":true,"in":"path","schema":{"type":"string"}}}
       >
         
       </ParamsItem>
@@ -93,12 +98,7 @@ Retrieves a record from a specific virtual blockchain at a given block height.
     <ul>
       <ParamsItem
         className={"paramsItem"}
-        param={{"name":"vbId","required":true,"in":"query","description":"The virtual blockchain identifier","schema":{"example":"vb_12345","type":"string"}}}
-      >
-        
-      </ParamsItem><ParamsItem
-        className={"paramsItem"}
-        param={{"name":"height","required":true,"in":"query","description":"The block height to retrieve the record from","schema":{"example":42,"type":"number"}}}
+        param={{"name":"nodeEndpoint","required":true,"in":"query","schema":{"type":"string"}}}
       >
         
       </ParamsItem>
@@ -117,7 +117,7 @@ Retrieves a record from a specific virtual blockchain at a given block height.
         <div>
           
           
-          The record has been successfully retrieved.
+          
           
           
         </div><div>
