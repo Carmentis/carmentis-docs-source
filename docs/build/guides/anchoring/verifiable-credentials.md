@@ -13,7 +13,9 @@ Carmentis supports **verifiable credentials** (VC), also called verifiable certi
 
 ## Anchor a presentation
 
-Anchor the presentation in a `__vp__` field, and state its format. The supported format is SD-JWT (IETF), in `__sdjwt_ietf__`:
+Anchor the presentation in a `__vp__` field, and state its format. 
+The supported verifiable credentials formats are:
+- SD-JWT (IETF)
 
 ```json
 {
@@ -21,7 +23,8 @@ Anchor the presentation in a `__vp__` field, and state its format. The supported
   "timestamp": "2025-09-16T08:00:00Z",
   "corporate_officer": {
     "__vp__": {
-      "__sdjwt_ietf__": "eyJ0eXAiOiJ2YytzZC1qd3QiLCJhbGciOiJFZERTQSJ9"
+      "type": "SDJWT_IETF",
+      "sdjwt_ietf": "eyJ0eXAiOiJ2YytzZC1qd3QiLCJhbGciOiJFZERTQSJ9"
     }
   }
 }
@@ -38,9 +41,9 @@ Resolution returns the claims of the presentation:
   "id": "414067330",
   "timestamp": "2025-09-16T08:00:00Z",
   "corporate_officer": {
-    "lastName": "Badiche",
-    "firstName": "Xavier",
-    "birthDate": "1973-12-20",
+    "lastName": "Doe",
+    "firstName": "John",
+    "birthDate": "1980-01-01",
     "iat": "...",
     "exp": "...",
     "nbf": "...",
