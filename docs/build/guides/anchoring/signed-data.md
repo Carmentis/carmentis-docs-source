@@ -97,7 +97,7 @@ Resolving the microblock verifies the signature and returns the payload in place
 {
   "type": "resolutionProof",
   "proof": {
-    "linkedMicroblock": "cmts://resolve/al/A1480947BF02147CC62FE8163C/h/259",
+    "linkedMicroblock": "cmts://resolve/vb/A1480947BF02147CC62FE8163C/mb/h/259",
     "resolvedMicroblock": {
       "date": "2026-03-03",
       "recipient": { "email": "adupont@example.com" },

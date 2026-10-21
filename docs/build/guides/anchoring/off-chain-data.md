@@ -77,7 +77,7 @@ At resolution time, you provide the clear data in the `digestData` field of the 
 
 ```json
 {
-  "linkedMicroblock": "cmts://resolve/al/A1480947BF02147CC62FE8163C/h/259",
+  "linkedMicroblock": "cmts://resolve/vb/A1480947BF02147CC62FE8163C/mb/h/259",
   "policies": {
     "onResolutionFailure": "throw",
     "onCyclicResolution": "throw"
@@ -98,7 +98,7 @@ The resolver replaces the `__digest__` with the clear data, and checks that it m
 {
   "type": "resolutionProof",
   "proof": {
-    "linkedMicroblock": "cmts://resolve/al/A1480947BF02147CC62FE8163C/h/259",
+    "linkedMicroblock": "cmts://resolve/vb/A1480947BF02147CC62FE8163C/mb/h/259",
     "resolvedMicroblock": {
       "name": "Energy supply invoice",
       "reference": "F-2025-11873",
@@ -146,7 +146,7 @@ Sometimes off-chain data must later be anchored on-chain for good. For instance,
 }
 ```
 
-Suppose this microblock is referenced by `cmts://resolve/al/3008327736206FA139A/h/598`.
+Suppose this microblock is referenced by `cmts://resolve/vb/3008327736206FA139A/mb/h/598`.
 
 Now suppose you must anchor a *report* that lives 25 years, and about which the data subject **cannot** ask for deletion. The report must then contain the clear data too. You reference the debtor's microblock with `__resolution_link__` and carry the clear data in `__digest_data__`:
 
@@ -164,7 +164,7 @@ Now suppose you must anchor a *report* that lives 25 years, and about which the 
       "interest": 12.5
     },
     "debtor": {
-      "__resolution_link__": "cmts://resolve/al/3008327736206FA139A/h/598",
+      "__resolution_link__": "cmts://resolve/vb/3008327736206FA139A/mb/h/598",
       "__digest_data__": {
         "ABCD1234": {
           "__salt__": "123456AB",

@@ -38,13 +38,13 @@ We reuse the receivable that [references its debtor](./reference-microblocks). I
     "principal": 358.2,
     "interest": 12.5,
     "debtor": {
-      "__resolution_link__": "cmts://resolve/al/B304934D7D323D/h/123"
+      "__resolution_link__": "cmts://resolve/vb/B304934D7D323D/mb/h/123"
     }
   }
 }
 ```
 
-Suppose it was anchored in the microblock `cmts://resolve/al/A1480947BF02147CC62FE8163C/h/259`.
+Suppose it was anchored in the microblock `cmts://resolve/vb/A1480947BF02147CC62FE8163C/mb/h/259`.
 
 ## The resolution request
 
@@ -52,7 +52,7 @@ The request sent to the resolver contains:
 
 ```json
 {
-  "linkedMicroblock": "cmts://resolve/al/A1480947BF02147CC62FE8163C/h/259",
+  "linkedMicroblock": "cmts://resolve/vb/A1480947BF02147CC62FE8163C/mb/h/259",
   "policies": {
     "onResolutionFailure": "throw",
     "onCyclicResolution": "throw"
@@ -84,7 +84,7 @@ The resolver resolves every link recursively. Each time a link is resolved, its 
     "date": "2026-10-05"
   },
   "proof": {
-    "linkedMicroblock": "cmts://resolve/al/A1480947BF02147CC62FE8163C/h/259",
+    "linkedMicroblock": "cmts://resolve/vb/A1480947BF02147CC62FE8163C/mb/h/259",
     "resolvedMicroblock": {
       "name": "Energy supply invoice",
       "reference": "F-2025-11873",

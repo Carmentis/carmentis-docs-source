@@ -16,12 +16,30 @@ A reference is only possible between microblocks managed by the **same operator*
 
 ## Syntax
 
-A reference to a microblock looks like this:
+A reference to a microblock can take several forms.
+
+**By virtual blockchain id and height:**
 
 ```text
-cmts://resolve/al/B304934D7D323D412621A6A8A9FB4919/h/123
-                  └──────────────────┬───────────────┘   └┬┘
-                        id of the virtual blockchain     height in the VB
+cmts://resolve/vb/B304934D7D323D412621A6A8A9FB4919/mb/h/123
+                  └──────────────┬───────────────┘      └┬┘
+                    id of the virtual blockchain   height in the VB
+```
+
+:::note
+The legacy form `cmts://resolve/al/${vbId}/h/${height}` (and the `/al` segment in general) is still accepted but optional.
+:::
+
+**By microblock hash:**
+
+```text
+cmts://resolve/vb/mb/06002A069410C5BBB975B53337C1E506391F176887F3470D8191FA83C4822023
+```
+
+**A section of a microblock:**
+
+```text
+cmts://resolve/mb/215210905CBF9CA0D2FA8F20E0C00ACF567733A96CBA7D4AB7BCB685D5FA60D7/sect/0
 ```
 
 There are two ways to write it: with the `__resolution_link__` key, or as a bare string.
@@ -50,7 +68,7 @@ A receivable can then reference that debtor with the key:
     "principal": 358.2,
     "interest": 12.5,
     "debtor": {
-      "__resolution_link__": "cmts://resolve/al/B304934D7D323D/h/123"
+      "__resolution_link__": "cmts://resolve/vb/B304934D7D323D/mb/h/123"
     }
   }
 }
@@ -69,7 +87,7 @@ Or with the bare string:
     "date": "2023-12-05",
     "principal": 358.2,
     "interest": 12.5,
-    "debtor": "cmts://resolve/al/B304934D7D323D/h/123"
+    "debtor": "cmts://resolve/vb/B304934D7D323D/mb/h/123"
   }
 }
 ```
