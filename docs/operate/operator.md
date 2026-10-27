@@ -123,6 +123,8 @@ The API is served under `http://localhost:3000/api/v1/…`, the interactive Swag
     3. an **application**, then publish them on-chain if they are new,
     4. an **API key**, optionally scoped to the application.
 
+   If you already created the wallet in Carmentis Desk, export it to a password-protected `.ecw` file and import it from the **Wallets** page of the admin UI, see [Export and import a wallet](/use/wallets#export-and-import-a-wallet).
+
    The API key is displayed once at creation: copy it.
 
 ### 4. Anchor your first data

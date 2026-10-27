@@ -66,6 +66,50 @@ The **balance** card shows your tokens broken down into spendable, staked, veste
 
 If you already published organizations, applications or nodes with this wallet, for instance from another machine, the synchronization view compares the chain with your local data and imports what is missing.
 
+## Export and import a wallet
+
+Desk can save a wallet into a **wallet file** with the extension `.ecw` (*encrypted Carmentis wallet*). The file is encrypted with a password you choose, so it can be stored as a backup or sent to another machine without exposing your key.
+
+A wallet file contains:
+
+- the wallet name and its creation date;
+- the private key (seed and signature scheme, or private JWK);
+- the passphrase of the actor keys;
+- the node and indexer URLs of the wallet.
+
+### Export a wallet
+
+1. Open the wallet and choose **Export wallet** in its menu.
+2. Enter a password and confirm it.
+3. Choose where to save the `.ecw` file. By default it is named `wallet-<name>.ecw`.
+
+Desk encrypts the wallet and, before writing the file, decrypts it again to check it can be recovered. The password is used for this operation only: Desk does not store it.
+
+:::warning The password cannot be recovered
+Without the password, the file cannot be read, and nobody can reset it. Store it in a password manager, and never in the same place as the file. Anyone who holds both the file and the password holds your wallet.
+:::
+
+### Import a wallet in Desk
+
+1. On the home page, choose **Import**, then select the `.ecw` file.
+2. Enter the password of the file.
+
+Desk creates the wallet with the name, key, actor passphrase and network settings stored in the file, and opens it. If the password is wrong, or if the file has been modified, nothing is imported.
+
+### Import a wallet in the Operator
+
+The same file can be used to give an [Operator](/operate/operator) the wallet you first created in Desk, without copying a key by hand.
+
+1. In the admin UI of the Operator, open **Wallets** and choose **Import**.
+2. Select the `.ecw` file and enter its password.
+3. Choose the network used for the wallets whose file does not carry its own node and indexer URLs. For a custom network, enter the RPC and indexer endpoints. You can also set an allowed-endpoints regex.
+
+The Operator decrypts the file on the server and neither stores the file nor the password. A file is imported entirely or not at all.
+
+:::tip Use a dedicated password
+The password protects only the file. Choose a long and unique one, because anyone who obtains the file can try to guess it offline. See the [Encrypted Carmentis Wallet File specification](/resources/specifications/encrypted-carmentis-wallet-file#security-considerations) for details.
+:::
+
 ## Delete a wallet
 
 You can delete a wallet from Desk. This only removes it from Desk: nothing is removed from the blockchain. Make sure you have backed up your key first, otherwise you will not be able to use the wallet again.
