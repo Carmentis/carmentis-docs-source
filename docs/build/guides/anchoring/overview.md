@@ -31,7 +31,7 @@ A special key is an object field whose name starts and ends with a double unders
 
 | Key                      | You put it in anchored data to…                                         | Resolution result                                          | Guide                                              |
 | ------------------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------- | -------------------------------------------------- |
-| `__resolution_link__`    | Reference another microblock.                                           | The referenced data replaces the link.                     | [Reference microblocks](./reference-microblocks)   |
+| `__link__`    | Reference another microblock.                                           | The referenced data replaces the link.                     | [Reference microblocks](./reference-microblocks)   |
 | `__digest__`             | Anchor only the hash of data stored off-chain.                          | The plaintext replaces the digest, once checked.           | [Off-chain data](./off-chain-data)                 |
 | `__digest_data__`        | Anchor the plaintext of off-chain data next to its link (re-anchoring). | The plaintext is checked against the referenced digest.    | [Off-chain data](./off-chain-data)                 |
 | `__signature__`          | Anchor a payload signed by another operator.                            | The payload replaces the signature, once checked.          | [Signed data](./signed-data)                       |

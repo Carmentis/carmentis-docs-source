@@ -38,7 +38,7 @@ We reuse the receivable that [references its debtor](./reference-microblocks). I
     "principal": 358.2,
     "interest": 12.5,
     "debtor": {
-      "__resolution_link__": "cmts://resolve/vb/B304934D7D323D/mb/h/123"
+      "__link__": "cmts://resolve/vb/B304934D7D323D/mb/h/123"
     }
   }
 }
@@ -130,7 +130,7 @@ The proof checker verifies **all the proofs**, and their **consistency** with th
 
 | Anchored key                                           | Checked at resolution                                          |
 | ------------------------------------------------------ | -------------------------------------------------------------- |
-| [`__resolution_link__`](./reference-microblocks)       | The referenced microblock exists and is proven.                |
+| [`__link__`](./reference-microblocks)       | The referenced microblock exists and is proven.                |
 | [`__digest__`](./off-chain-data)                       | The supplied clear data matches the anchored digest.           |
 | [`__signature__`](./signed-data)                       | The signature over the payload is valid.                       |
 | [`__vp__`](./verifiable-credentials)                   | The presentation is valid; its claims are returned.            |

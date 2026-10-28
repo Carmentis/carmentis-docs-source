@@ -148,7 +148,7 @@ Sometimes off-chain data must later be anchored on-chain for good. For instance,
 
 Suppose this microblock is referenced by `cmts://resolve/vb/3008327736206FA139A/mb/h/598`.
 
-Now suppose you must anchor a *report* that lives 25 years, and about which the data subject **cannot** ask for deletion. The report must then contain the clear data too. You reference the debtor's microblock with `__resolution_link__` and carry the clear data in `__digest_data__`:
+Now suppose you must anchor a *report* that lives 25 years, and about which the data subject **cannot** ask for deletion. The report must then contain the clear data too. You reference the debtor's microblock with `__link__` and carry the clear data in `__digest_data__`:
 
 ```json
 {
@@ -164,7 +164,7 @@ Now suppose you must anchor a *report* that lives 25 years, and about which the 
       "interest": 12.5
     },
     "debtor": {
-      "__resolution_link__": "cmts://resolve/vb/3008327736206FA139A/mb/h/598",
+      "__link__": "cmts://resolve/vb/3008327736206FA139A/mb/h/598",
       "__digest_data__": {
         "ABCD1234": {
           "__salt__": "123456AB",
@@ -187,7 +187,7 @@ This has two effects:
 - the debtor's proof is anchored along with the report;
 - the personal data is used only within the scope of the report.
 
-Resolution first resolves and checks the `__resolution_link__`, then checks that each `__digest_data__` matches the corresponding `__digest__`. The resolved result is then a regular [resolution proof](./resolution-and-proof-checker).
+Resolution first resolves and checks the `__link__`, then checks that each `__digest_data__` matches the corresponding `__digest__`. The resolved result is then a regular [resolution proof](./resolution-and-proof-checker).
 
 ## GDPR
 

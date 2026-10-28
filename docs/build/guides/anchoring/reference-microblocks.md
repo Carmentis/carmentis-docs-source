@@ -42,7 +42,17 @@ cmts://resolve/vb/mb/06002A069410C5BBB975B53337C1E506391F176887F3470D8191FA83C48
 cmts://resolve/mb/215210905CBF9CA0D2FA8F20E0C00ACF567733A96CBA7D4AB7BCB685D5FA60D7/sect/0
 ```
 
-There are two ways to write it: with the `__resolution_link__` key, or as a bare string.
+A reference is written as an object with the `__link__` key:
+
+```json
+"someVariable": { "__link__": "cmts://resolve/vb/B304934D7D323D/mb/h/123" }
+```
+
+At resolution time, the `__link__` object is replaced by the resolved content of the referenced microblock, so you get `"someVariable": { <resolved content> }`.
+
+:::note
+Writing a bare string (`"someVariable": "cmts://..."`) or using the former `__resolution_link__` key is no longer supported. Always use `__link__`.
+:::
 
 Suppose the debtor's data is anchored on-chain in a microblock:
 
@@ -54,7 +64,7 @@ Suppose the debtor's data is anchored on-chain in a microblock:
 }
 ```
 
-A receivable can then reference that debtor with the key:
+A receivable can then reference that debtor:
 
 ```json
 {
@@ -68,28 +78,16 @@ A receivable can then reference that debtor with the key:
     "principal": 358.2,
     "interest": 12.5,
     "debtor": {
-      "__resolution_link__": "cmts://resolve/vb/B304934D7D323D/mb/h/123"
+      "__link__": "cmts://resolve/vb/B304934D7D323D/mb/h/123"
     }
   }
 }
 ```
 
-Or with the bare string:
+After resolution, `debtor` holds the debtor's data in place of the link:
 
 ```json
-{
-  "applicationId": "...",
-  "chainStorageInDays": 720,
-  "data": {
-    "name": "Energy supply invoice",
-    "reference": "F-2025-11873",
-    "issuer": "EDF",
-    "date": "2023-12-05",
-    "principal": 358.2,
-    "interest": 12.5,
-    "debtor": "cmts://resolve/vb/B304934D7D323D/mb/h/123"
-  }
-}
+"debtor": { "lastName": "Durand", "firstName": "Pierre" }
 ```
 
 ## Lifetime
