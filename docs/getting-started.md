@@ -70,4 +70,3 @@ Only one unstaking operation can run at a time per node, and it completes 30 day
 
 - [Concepts overview](/concepts/overview): how accounts, organizations, applications and channels fit together.
 - [API reference](/build/reference/desk-json-rpc): Desk, operator and indexer APIs.
-- [Getting help](/resources/getting-help).
