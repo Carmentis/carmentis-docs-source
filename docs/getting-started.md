@@ -41,7 +41,7 @@ Your application  ──HTTP + API key──►  Operator  ──►  Carmentis 
 
 Where to go next:
 
-- Integrate Carmentis in a Node.js stack with the [Nest / Next.js guide](/resources/code-examples/nest-next/getting-started).
+- Integrate Carmentis in a Node.js stack with the [NestJS code examples](/resources/code-examples/javascript-typescript/nestjs/authenticate-with-desk).
 - Learn how to [anchor, reference and resolve data](/build/guides/anchoring/overview).
 - Understand [organizations, applications, application ledgers and channels](/concepts/overview).
 
