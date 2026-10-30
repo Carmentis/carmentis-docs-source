@@ -1,0 +1,1 @@
+{"parameters":[{"name":"hash","required":true,"in":"query","description":"Microblock hash","schema":{"type":"string"}},{"name":"node_url","required":false,"in":"query","description":"Node URL from which to obtain the proof. Chosen by the indexer if not specified.","schema":{"type":"string"}}]}

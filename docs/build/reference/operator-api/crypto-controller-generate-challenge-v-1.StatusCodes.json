@@ -1,0 +1,1 @@
+{"responses":{"200":{"description":"A new challenge has been generated.","content":{"application/json":{"schema":{"properties":{"challenge":{"type":"string","example":"dGVzdC1jaGFsbGVuZ2U="}}}}}}}}

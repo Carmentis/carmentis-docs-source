@@ -1,0 +1,1 @@
+{"parameters":[{"name":"length","required":false,"in":"query","description":"The length of the challenge string in bytes.","schema":{"default":32,"type":"number"}}]}

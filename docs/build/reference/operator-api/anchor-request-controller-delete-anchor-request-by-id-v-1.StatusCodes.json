@@ -1,0 +1,1 @@
+{"responses":{"200":{"description":"The anchor request has been deleted.","content":{"application/json":{"schema":{"properties":{"affected":{"type":"number"}}}}}}}}

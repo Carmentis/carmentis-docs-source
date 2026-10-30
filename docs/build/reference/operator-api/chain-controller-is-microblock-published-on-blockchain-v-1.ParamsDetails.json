@@ -1,0 +1,1 @@
+{"parameters":[{"name":"microblockHash","required":true,"in":"path","schema":{"type":"string"}},{"name":"nodeEndpoint","required":true,"in":"query","schema":{"type":"string"}},{"name":"indexerEndpoint","required":true,"in":"query","schema":{"type":"string"}}]}

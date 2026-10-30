@@ -1,0 +1,1 @@
+{"title":"Body","body":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"pem":{"type":"string","title":"The X.509 certificate","description":"The X.509 certificate in PEM format (-----BEGIN CERTIFICATE----- ...)."}},"required":["pem"],"title":"CertificatePublicationDto"}}}}}

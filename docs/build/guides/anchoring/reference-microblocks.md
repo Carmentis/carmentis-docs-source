@@ -50,7 +50,7 @@ A reference is written as an object with the `__link__` key:
 
 At resolution time, the `__link__` object is replaced by the resolved content of the referenced microblock, so you get `"someVariable": { <resolved content> }`.
 
-:::note
+:::warning
 Writing a bare string (`"someVariable": "cmts://..."`) or using the former `__resolution_link__` key is no longer supported. Always use `__link__`.
 :::
 

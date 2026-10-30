@@ -1,0 +1,1 @@
+{"parameters":[{"name":"walletId","required":true,"in":"path","schema":{"type":"object","properties":{},"title":"WalletEntity"}}]}

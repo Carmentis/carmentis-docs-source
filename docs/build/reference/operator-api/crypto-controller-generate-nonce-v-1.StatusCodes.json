@@ -1,0 +1,1 @@
+{"responses":{"200":{"description":"A new nonce has been generated.","content":{"application/json":{"schema":{"properties":{"nonce":{"type":"string","example":"dGVzdC1ub25jZQ=="}}}}}}}}

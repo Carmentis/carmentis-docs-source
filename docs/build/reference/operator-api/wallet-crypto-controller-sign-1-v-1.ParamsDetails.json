@@ -1,0 +1,1 @@
+{"parameters":[{"name":"walletId","required":true,"in":"path","description":"Wallet identifier","schema":{"format":"uuid","type":"string"}}]}

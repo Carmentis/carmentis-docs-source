@@ -1,0 +1,1 @@
+{"parameters":[{"name":"limit","required":false,"in":"query","description":"Limit of elements to return","schema":{"default":100,"example":10,"type":"number"}},{"name":"offset","required":false,"in":"query","description":"Offset of elements to return","schema":{"default":0,"example":0,"type":"number"}}]}

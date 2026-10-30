@@ -1,0 +1,1 @@
+{"responses":{"201":{"description":"The anchoring request has been created successfully.","content":{"application/json":{"schema":{"type":"object","properties":{"anchorRequestId":{"type":"string","description":"Anchor request id used to track the anchor request."}},"required":["anchorRequestId"],"title":"AnchorRequestResponseDto"}}}}}}

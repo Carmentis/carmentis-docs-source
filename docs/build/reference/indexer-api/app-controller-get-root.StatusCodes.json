@@ -1,0 +1,1 @@
+{"responses":{"200":{"description":"","content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"swagger":{"type":"string"},"openapi":{"type":"string"},"currentNode":{"type":"string"}},"required":["name","swagger","openapi","currentNode"],"title":"RootResponseDto"}}}}}}

@@ -1,0 +1,1 @@
+{"parameters":[{"name":"height_gte","required":false,"in":"query","description":"Minimum block height (inclusive)","schema":{"example":100,"type":"number"}},{"name":"height_lte","required":false,"in":"query","description":"Maximum block height (inclusive)","schema":{"example":200,"type":"number"}}]}
