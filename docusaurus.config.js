@@ -76,7 +76,6 @@ const config = {
           {from: '/how-to/develop-your-application/getting-started', to: '/build/quickstart'},
           {from: '/tutorial/demo-applications/file-sign', to: '/resources/demo-applications'},
           {from: '/demo-applications', to: '/resources/demo-applications'},
-          {from: '/getting-help', to: '/resources/getting-help'},
         ],
       },
     ],
