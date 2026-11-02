@@ -23,5 +23,5 @@ File Sign makes document signing simple, secure and efficient in just a few step
 </a>
 
 :::info Have no time to test?
-Follow our easy-to-follow demonstration video available on [YouTube](https://youtu.be/MO8FayFKlxU).
+Follow our easy-to-follow demonstration video available on [YouTube](https://www.youtube.com/watch?v=AH1souVlIHs).
 :::
